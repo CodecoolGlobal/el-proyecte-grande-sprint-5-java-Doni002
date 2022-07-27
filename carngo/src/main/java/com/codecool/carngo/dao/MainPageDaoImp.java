@@ -19,7 +19,47 @@ public class MainPageDaoImp implements MainPageDao{
     }
 
     @Override
+    public FeedbackModel getFeedback(int id) {
+        for(FeedbackModel model : feedbackDatabase){
+            if(model.getId() == id){
+                return model;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void addFeedback(FeedbackModel model) {
+        feedbackDatabase.add(model);
+    }
+
+    @Override
     public List<FeedbackModel> getAllFeedbacks() {
         return feedbackDatabase;
+    }
+
+    @Override
+    public void updateFeedback(int id, String message, Double rating) {
+        for(FeedbackModel model : feedbackDatabase){
+            if(model.getId() == id){
+                model.setRating(rating);
+                model.setMessage(message);
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void deleteFeedback(int id) {
+        FeedbackModel deletedModel = null;
+        for(FeedbackModel model : feedbackDatabase){
+            if(model.getId() == id){
+                deletedModel = model;
+                break;
+            }
+        }
+        if(deletedModel != null){
+            feedbackDatabase.remove(deletedModel);
+        }
     }
 }

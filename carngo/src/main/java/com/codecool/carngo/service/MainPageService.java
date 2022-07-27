@@ -17,8 +17,22 @@ public class MainPageService {
     public MainPageService(MainPageDao mainPageDao) {
         this.mainPageDao = mainPageDao;
     }
+    public FeedbackModel getFeedback(int id){
+        return this.mainPageDao.getFeedback(id);
+    }
+    public void addFeedback(FeedbackModel model){
+        this.mainPageDao.addFeedback(model);
+    }
 
     public List<FeedbackModel> getAllFeedbacks(){
         return mainPageDao.getAllFeedbacks();
+    }
+
+    public void updateFeedback(int id, String message, double rating){
+        mainPageDao.updateFeedback(id, message, rating);
+    }
+
+    public void deleteFeedback(int id){
+        mainPageDao.deleteFeedback(id);
     }
 }

@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping("/")
 @Controller
@@ -28,9 +28,35 @@ public class MainPageController {
         return "index";
     }
 
-    @PostMapping
+    @GetMapping(value="/feedbacks")
     public ResponseEntity<List<FeedbackModel>> getAllFeedbacks(){
-        return new ResponseEntity<>(mainPageService.getAllFeedbacks(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(mainPageService.getAllFeedbacks(), HttpStatus.OK);
+    }
+    @GetMapping(value="feedbacks/{id}")
+    public ResponseEntity<FeedbackModel> getFeedback(@PathVariable("id") int id){
+        return new ResponseEntity<>(mainPageService.getFeedback(id), HttpStatus.OK);
+    }
+
+    @PostMapping(value="/feedbacks")
+    public ResponseEntity<Object> addFeedback(@RequestBody Map<String, String> body){
+        String author = body.get("author");
+        String message = body.get("message");
+        double rating = Double.parseDouble(body.get("rating"));
+        mainPageService.addFeedback(new FeedbackModel(author,message,rating, LocalDate.now()));
+        return new ResponseEntity<>("Feedback is added successfully", HttpStatus.OK);
+    }
+    @PutMapping(value = "/feedbacks/{id}")
+    public ResponseEntity<Object> updateFeedback(@PathVariable("id") int id, @RequestBody() Map<String, String> body){
+        String message = body.get("message");
+        double rating = Double.parseDouble(body.get("rating"));
+        mainPageService.updateFeedback(id, message, rating);
+        return new ResponseEntity<>("Feedback is updated successfully", HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/feedbacks/{id}")
+    public ResponseEntity<Object> deleteFeedback(@PathVariable("id") int id){
+        mainPageService.deleteFeedback(id);
+        return new ResponseEntity<>("Feedback is deleted successfully", HttpStatus.OK);
     }
 
 }
