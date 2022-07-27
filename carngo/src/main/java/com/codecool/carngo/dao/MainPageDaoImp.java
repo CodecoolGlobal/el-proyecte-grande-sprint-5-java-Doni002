@@ -15,17 +15,11 @@ public class MainPageDaoImp implements MainPageDao{
     public MainPageDaoImp() {
         feedbackDatabase = new ArrayList<>();
         feedbackDatabase.add(new FeedbackModel("en","jo az auto", 4.9, LocalDate.now()));
-
     }
 
     @Override
     public FeedbackModel getFeedback(int id) {
-        for(FeedbackModel model : feedbackDatabase){
-            if(model.getId() == id){
-                return model;
-            }
-        }
-        return null;
+        return feedbackDatabase.stream().filter(f->f.getId()==id).findFirst().get();
     }
 
     @Override
@@ -40,26 +34,14 @@ public class MainPageDaoImp implements MainPageDao{
 
     @Override
     public void updateFeedback(int id, String message, Double rating) {
-        for(FeedbackModel model : feedbackDatabase){
-            if(model.getId() == id){
-                model.setRating(rating);
-                model.setMessage(message);
-                break;
-            }
-        }
+        feedbackDatabase.stream().filter(f->f.getId()==id).forEach(f->{
+            f.setMessage(message);
+            f.setRating(rating);
+        });
     }
 
     @Override
     public void deleteFeedback(int id) {
-        FeedbackModel deletedModel = null;
-        for(FeedbackModel model : feedbackDatabase){
-            if(model.getId() == id){
-                deletedModel = model;
-                break;
-            }
-        }
-        if(deletedModel != null){
-            feedbackDatabase.remove(deletedModel);
-        }
+        feedbackDatabase.removeIf(f->f.getId()==id);
     }
 }
