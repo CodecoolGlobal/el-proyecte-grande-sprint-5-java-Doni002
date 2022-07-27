@@ -2,10 +2,9 @@ package com.codecool.carngo.dao;
 
 import com.codecool.carngo.model.ProfileModel;
 
-
-import java.util.Set;
+import java.util.List;
 
 public interface ProfileDao {
-    Set<ProfileModel> getAllProfiles();
+    List<ProfileModel> getAllProfiles();
     ProfileModel getProfileById(int id);
 }

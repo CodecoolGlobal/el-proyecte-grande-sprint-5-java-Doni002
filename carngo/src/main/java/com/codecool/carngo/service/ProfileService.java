@@ -6,7 +6,7 @@ import com.codecool.carngo.model.ProfileModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.List;
 
 @Service
 public class ProfileService {
@@ -16,7 +16,7 @@ public class ProfileService {
     public ProfileService(ProfileDaoImp profileDaoImp) {
         this.profileDao = profileDaoImp;
     }
-    public Set<ProfileModel> getAllProfiles() {
+    public List<ProfileModel> getAllProfiles() {
         return profileDao.getAllProfiles();
     }
     public ProfileModel getProfileById(int id) {
