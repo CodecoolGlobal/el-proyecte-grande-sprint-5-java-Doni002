@@ -32,13 +32,17 @@ public class MainPageController {
     public ResponseEntity<List<FeedbackModel>> getAllFeedbacks(){
         return new ResponseEntity<>(mainPageService.getAllFeedbacks(), HttpStatus.OK);
     }
+    @GetMapping(value="feedbacks/{id}")
+    public ResponseEntity<FeedbackModel> getFeedback(@PathVariable("id") int id){
+        return new ResponseEntity<>(mainPageService.getFeedback(id), HttpStatus.OK);
+    }
 
     @PostMapping(value="/feedbacks")
     public ResponseEntity<Object> addFeedback(@RequestBody Map<String, String> body){
         String author = body.get("author");
         String message = body.get("message");
         double rating = Double.parseDouble(body.get("rating"));
-        mainPageService.addFeedback(new FeedbackModel(1,author,message,rating, LocalDate.now()));
+        mainPageService.addFeedback(new FeedbackModel(author,message,rating, LocalDate.now()));
         return new ResponseEntity<>("Feedback is added successfully", HttpStatus.OK);
     }
     @PutMapping(value = "/feedbacks/{id}")

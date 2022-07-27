@@ -14,8 +14,18 @@ public class MainPageDaoImp implements MainPageDao{
 
     public MainPageDaoImp() {
         feedbackDatabase = new ArrayList<>();
-        feedbackDatabase.add(new FeedbackModel(0,"en","jo az auto", 4.9, LocalDate.now()));
+        feedbackDatabase.add(new FeedbackModel("en","jo az auto", 4.9, LocalDate.now()));
 
+    }
+
+    @Override
+    public FeedbackModel getFeedback(int id) {
+        for(FeedbackModel model : feedbackDatabase){
+            if(model.getId() == id){
+                return model;
+            }
+        }
+        return null;
     }
 
     @Override

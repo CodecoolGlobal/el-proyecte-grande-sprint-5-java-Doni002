@@ -10,8 +10,8 @@ public class FeedbackModel {
     private double rating;
     private final LocalDate localDate;
 
-    public FeedbackModel(int id, String author, String message, double rating, LocalDate localDate){
-        this.id = id;
+    public FeedbackModel(String author, String message, double rating, LocalDate localDate){
+        this.id = NEXT_ID++;
         this.author = author;
         this.message = message;
         this.rating = rating;
