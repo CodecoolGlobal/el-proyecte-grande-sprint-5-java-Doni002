@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+
+</head>
+<body>
+<div>
+<table>
+    <tr th:each="profile: ${profiles}">
+        <td th:text="${profile.id}" />
+        <td th:text="${profile.name}" />
+        <td th:text="${profile.email}" />
+        <td th:text="${profile.password}" />
+    </tr>
+</table>
+</div>
+
+</body>
+</html>
