@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
+
 const Home = () => {
     return (
         <div>
-            <a href={"/vehicles"}><button>Test</button></a>
+            <Link to="/vehicles"> <button>Test</button> </Link>
         </div>
     );
 };
