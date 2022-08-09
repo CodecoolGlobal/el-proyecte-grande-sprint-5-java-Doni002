@@ -1,0 +1,9 @@
+.statistics-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.statistics-item {
+    padding: 20px;
+    margin: 10px;
+}
