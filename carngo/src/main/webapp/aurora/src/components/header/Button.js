@@ -1,7 +1,7 @@
-const Button = () => {
+const Button = (props) => {
     return (
         <>
-            <button className="button">See catalogue</button>
+            <button className="glow-on-hover">{props.text}</button>
         </>
     );
 };

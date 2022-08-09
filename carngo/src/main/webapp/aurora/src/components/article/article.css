@@ -35,9 +35,12 @@ img{
 
   #articleText{
       font-size: 2em;
+      padding: 2rem;
+      text-align: justify;
   }
 
 
   #articleTitle{
       font-size: 3em;
+      text-transform: uppercase;
   }

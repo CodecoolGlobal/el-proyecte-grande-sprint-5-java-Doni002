@@ -1,7 +1,7 @@
 import './Header.css';
 import Button from "./Button";
 
-const Content = () => {
+const Content = (props) => {
     return (
         <>
             <div className='content'>
@@ -21,7 +21,7 @@ const Content = () => {
                                 lineHeight: '2rem'
                             }}>We are a company that's make high-quality car sharing service with
                                 extraordinary vehicles with an emphasis on performance.</p>
-                            <Button />
+                            <Button className="glow-on-hover" text="See catalogue"/>
                         </div>
                     </div>
                 </div>
