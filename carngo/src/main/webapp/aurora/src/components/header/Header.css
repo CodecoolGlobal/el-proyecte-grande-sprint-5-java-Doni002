@@ -50,24 +50,6 @@
     text-shadow: black;
 }
 
-ul{
-    padding:0;
-    font-family:'Rubik', sans serif;
-    font-size:1rem;
-    text-transform:uppercase;
-}
-
-li{
-    display:inline-block;
-}
-
-a{
-    display:block;
-    padding:10px;
-    color:#fff;
-    text-decoration:none;
-}
-
 * {
     box-sizing: border-box;
     padding: 0;
@@ -76,6 +58,11 @@ a{
 
 nav {
     padding: 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    width: auto;
 }
 
 .menu {
@@ -89,4 +76,39 @@ nav {
 .item:not(.button) a:hover,
 .item a:hover::after {
     color: orange;
+}
+
+ul{
+    padding:1rem;
+    font-family:'Rubik', sans serif;
+    font-size:1rem;
+    text-transform:uppercase;
+}
+
+li{
+    display:inline-block;
+    padding: 1.25rem;
+}
+
+li {
+    background:
+            linear-gradient(to right, rgba(255, 158, 2, 1), rgba(179, 3, 3, 1)),
+            linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 158, 2, 1), rgba(255, 255, 255, 1));
+    background-size: 100% 0.1em, 0 0.1em;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+}
+
+li:hover,
+li:focus {
+    background-size: 0 0.1em, 100% 0.1em;
+}
+
+a{
+    display:block;
+    padding:10px;
+    color:#fff;
+    text-decoration:none;
+    font-size: 2rem;
 }
