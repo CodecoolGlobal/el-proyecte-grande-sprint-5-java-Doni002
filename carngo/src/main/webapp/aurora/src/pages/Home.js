@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Article from '../components/article/Article';
+import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
                 link = "/vehicles"
                 pictureSide = "left"
                 />
+                <Footer />
         </>
     );
 };
