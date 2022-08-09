@@ -9,10 +9,12 @@ const Content = () => {
                     <div className="wrapper">
                         <div className="img-txt">
                             <h2 style={{
-                                letterSpacing: '10px',
+                                letterSpacing: '5px',
                                 fontSize: '2rem',
                                 textAlign: 'center'
-                            }}>The world of <strong>Aurora</strong> is now</h2>
+                            }}>The world of <strong style={{
+                                color: "red"
+                            }}>Aurora</strong> is now</h2>
                             <p style={{
                                 fontSize: '1.5rem',
                                 wordSpacing: '5px',
