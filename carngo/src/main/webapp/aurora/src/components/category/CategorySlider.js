@@ -7,9 +7,18 @@ import "swiper/css/free-mode";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CategoryCard from './CategoryCard';
 
-import imgCity from "../img/City.jpg";
 import imgAudiBack from "../img/Audi Back.jpg";
 import imgAudiFront from "../img/Audi Front.jpg";
+import imgAudiRs from "../img/Audi-RS.jpg";
+import imgMattDuncan from "../img/matt-duncan.jpg";
+import imgMostafaTarek from "../img/mostafa-tarek.jpg";
+import imgTravisEssinger from "../img/travis-essinger.jpg";
+import svgElectric from "../svg/battery-charging.svg";
+import svgStars from "../svg/stars.svg";
+import svgTruck from "../svg/truck.svg";
+import svgSnow from "../svg/snow2.svg";
+import svgCar from "../svg/car-front.svg";
+import svgBeast from "../svg/speedometer.svg";
 
 const CategorySlider = () => {
     return (
@@ -44,22 +53,40 @@ const CategorySlider = () => {
                 }}
             >
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgCity} message="City" messageImgSrc="ahhaha" />
+                    <CategoryCard imgSrc={imgAudiRs} message="Electric" messageImgSrc={svgElectric} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgAudiBack} message="Audiback" messageImgSrc="ahhaha" />
+                    <CategoryCard imgSrc={imgAudiBack} message="Deluxe" messageImgSrc={svgStars} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgAudiFront} message="Audifront" messageImgSrc="ahhaha" />
+                    <CategoryCard imgSrc={imgAudiFront} message="Release the Beast" messageImgSrc={svgBeast}  />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgCity} message="City" messageImgSrc="ahhaha" />
+                    <CategoryCard imgSrc={imgMattDuncan} message="Feel the road" messageImgSrc={svgCar} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgAudiBack} message="Audiback" messageImgSrc="ahhaha" />
+                    <CategoryCard imgSrc={imgMostafaTarek} message="Transport" messageImgSrc={svgTruck} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgAudiFront} message="Audifront" messageImgSrc="ahhaha" />
+                    <CategoryCard imgSrc={imgTravisEssinger} message="Extreme" messageImgSrc={svgSnow} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <CategoryCard imgSrc={imgAudiRs} message="Electric" messageImgSrc={svgElectric} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <CategoryCard imgSrc={imgAudiBack} message="Deluxe" messageImgSrc={svgStars} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <CategoryCard imgSrc={imgAudiFront} message="Release the Beast" messageImgSrc={svgBeast} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <CategoryCard imgSrc={imgMattDuncan} message="Feel the road" messageImgSrc={svgCar} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <CategoryCard imgSrc={imgMostafaTarek} message="Transport" messageImgSrc={svgTruck} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <CategoryCard imgSrc={imgTravisEssinger} message="Extreme" messageImgSrc={svgSnow} />
                 </SwiperSlide>
             </Swiper>
 

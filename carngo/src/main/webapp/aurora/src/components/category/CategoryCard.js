@@ -12,9 +12,13 @@ function CategoryCard(props) {
             <div className="overflow-hidden rounded p-0 bg-light">
                 <Card.Img variant="top" src={imgSrc} height="300vw"/>
             </div>
-            <Card.Body className="text-center">
-                <Card.Title className="display-6">{messageImgSrc}</Card.Title>
-                <Card.Title>{message}</Card.Title>
+            <Card.Body className="display-flex">
+                <div>
+                    <img alt="image" src={messageImgSrc}/>
+                </div>
+                <div>
+                    <Card.Title>{message}</Card.Title>
+                </div>
             </Card.Body>
         </Card>
     );
