@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from "swiper";
 import 'swiper/css';
 import "swiper/css/free-mode";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import CategoryCard from './CategoryCard';
 
 import imgAudiBack from "../img/Audi Back.jpg";
