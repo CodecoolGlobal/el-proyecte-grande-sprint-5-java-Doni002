@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Article from '../components/article/Article';
+import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import MapGuy from '../components/img/Guywithamap.jpg'
 import Business from '../components/img/business.jpg'
@@ -9,7 +10,7 @@ import CategorySlider from "../components/category/CategorySlider";
 
 const Home = () => {
     return (
-        <>
+        <>          
           <Header />
             <Article
               text = "There are more than 1 million hosts worldwide to get your car from, and
@@ -42,6 +43,7 @@ more. This is the right place to get the business done with our help."
               pictureSide = "left"
               />
             <CategorySlider/>
+            <Footer />
         </>
     );
 };
