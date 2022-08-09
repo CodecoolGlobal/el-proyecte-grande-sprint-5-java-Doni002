@@ -10,8 +10,8 @@ import imgAudiBack from "../img/Audi Back.jpg";
 import imgAudiFront from "../img/Audi Front.jpg";
 import imgAudiRs from "../img/Audi-RS.jpg";
 import imgMattDuncan from "../img/matt-duncan.jpg";
-import imgMostafaTarek from "../img/mostafa-tarek.jpg";
-import imgTravisEssinger from "../img/travis-essinger.jpg";
+import imgTransport from "../img/mostafa-tarek.jpg";
+import imgExtreme from "../img/travis-essinger.jpg";
 import svgElectric from "../svg/battery-charging.svg";
 import svgStars from "../svg/stars.svg";
 import svgTruck from "../svg/truck.svg";
@@ -21,8 +21,8 @@ import svgBeast from "../svg/speedometer.svg";
 
 const CategorySlider = () => {
     return (
-        <div className="container py-4 px-4 justify-content-center">
-            <h1>Categories</h1>
+        <div className="categorySliderContainer">
+            <h1 className="categorySliderTitle">Categories</h1>
             <Swiper
                 freeMode={true}
                 grabCursor={true}
@@ -33,20 +33,24 @@ const CategorySlider = () => {
                         slidesPerView:1,
                         spaceBetween: 10,
                     },
-                    768: {
+                    783: {
                         slidesPerView:2,
                         spaceBetween: 15,
                     },
-                    993: {
+                    1083: {
                         slidesPerView:3,
+                        spaceBetween: 15,
+                    },
+                    1380: {
+                        slidesPerView: 4,
                         spaceBetween: 20,
                     },
-                    1200: {
-                        slidesPerView: 4,
-                        spaceBetween: 30,
-                    },
-                    1378: {
+                    1698: {
                         slidesPerView: 5,
+                        spaceBetween: 20,
+                    },
+                    1970: {
+                        slidesPerView: 6,
                         spaceBetween: 30,
                     }
                 }}
@@ -64,10 +68,10 @@ const CategorySlider = () => {
                     <CategoryCard imgSrc={imgMattDuncan} message="Feel the road" messageImgSrc={svgCar} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgMostafaTarek} message="Transport" messageImgSrc={svgTruck} />
+                    <CategoryCard imgSrc={imgTransport} message="Transport" messageImgSrc={svgTruck} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgTravisEssinger} message="Extreme" messageImgSrc={svgSnow} />
+                    <CategoryCard imgSrc={imgExtreme} message="Extreme" messageImgSrc={svgSnow} />
                 </SwiperSlide>
                 <SwiperSlide>
                     <CategoryCard imgSrc={imgAudiRs} message="Electric" messageImgSrc={svgElectric} />
@@ -82,10 +86,10 @@ const CategorySlider = () => {
                     <CategoryCard imgSrc={imgMattDuncan} message="Feel the road" messageImgSrc={svgCar} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgMostafaTarek} message="Transport" messageImgSrc={svgTruck} />
+                    <CategoryCard imgSrc={imgTransport} message="Transport" messageImgSrc={svgTruck} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgTravisEssinger} message="Extreme" messageImgSrc={svgSnow} />
+                    <CategoryCard imgSrc={imgExtreme} message="Extreme" messageImgSrc={svgSnow} />
                 </SwiperSlide>
             </Swiper>
 

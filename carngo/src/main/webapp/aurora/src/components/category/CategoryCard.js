@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import './CategoryCard.css';
 
 function CategoryCard(props) {
     const message = props.message;
@@ -7,16 +8,16 @@ function CategoryCard(props) {
     const messageImgSrc = props.messageImgSrc;
 
     return (
-        <Card className="p-0 overflow-hidden h-100 shadow">
-            <div className="overflow-hidden rounded p-0 bg-light">
-                <Card.Img variant="top" src={imgSrc} height="300vw"/>
+        <Card>
+            <div>
+                <Card.Img className="categoryCardImg" src={imgSrc}/>
             </div>
-            <Card.Body className="display-flex">
+            <Card.Body className="categoryCardFooterContainer">
                 <div>
-                    <img alt="image" src={messageImgSrc}/>
+                    <img className="categoryCardSvg" alt="svg" src={messageImgSrc}/>
                 </div>
-                <div>
-                    <Card.Title>{message}</Card.Title>
+                <div className="categoryCardMessageContainer">
+                    {message}
                 </div>
             </Card.Body>
         </Card>
