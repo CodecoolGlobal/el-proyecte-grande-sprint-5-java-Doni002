@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Article from '../components/article/Article';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
@@ -19,7 +18,7 @@ the moment to get unforgettable memories with your treasure-worthy
 friends or family with your dream car, with the help of Aurora."
               title = "Rent your first car and start your journey now"
               imageSource = {MapGuy}
-              buttonText = "click me"
+              buttonText = "Get started"
               link = "/vehicles"
               pictureSide = "left"
               />
@@ -30,7 +29,7 @@ get e x clusive rewards with percentage-based passive income. Don't wait no
 more. This is the right place to get the business done with our help."
               title = "Become a host"
               imageSource = {Business}
-              buttonText = "click me"
+              buttonText = "Get started"
               link = "/vehicles"
               pictureSide = "right"
               />
@@ -38,7 +37,7 @@ more. This is the right place to get the business done with our help."
               text = "At Article, we’re all about great style. Think sleek modular sofas, anything-but-basic beds, smart sideboards, and more — all designed with premium quality and comfort in mind. It’s contemporary furniture meets unparalleled value. Nice, right?"
               title = "hello im title"
               imageSource = {Money}
-              buttonText = "click me"
+              buttonText = "Get started"
               link = "/vehicles"
               pictureSide = "left"
               />
