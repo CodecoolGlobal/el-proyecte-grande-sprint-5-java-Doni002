@@ -67,6 +67,8 @@ input[type=text] {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    font-family:'Rubik', sans serif;
+    text-transform: uppercase;
 }
 
 .footerLink{
@@ -89,7 +91,7 @@ input[type=text] {
 
 #footerAurora{
     font-size: 5em;
-    font-family: serif;
+    font-family:'Rubik', sans serif;
 }
 
 #icon{

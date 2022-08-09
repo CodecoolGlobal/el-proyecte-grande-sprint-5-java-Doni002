@@ -2,6 +2,8 @@
     text-align: center;
     margin-bottom: 50px;
     margin-top: 60px;
+    font-family:'Rubik', sans serif;
+    text-transform: uppercase;
 }
 .categoryCardImg{
     min-width: 300px;
