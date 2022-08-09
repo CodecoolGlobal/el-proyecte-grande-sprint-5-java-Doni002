@@ -13,7 +13,7 @@ function CategoryCard(props) {
                 <Card.Img className="categoryCardImg" src={imgSrc}/>
             </div>
             <Card.Body className="categoryCardFooterContainer">
-                <div>
+                <div className="categoryCardSvgContainer">
                     <img className="categoryCardSvg" alt="svg" src={messageImgSrc}/>
                 </div>
                 <div className="categoryCardMessageContainer">

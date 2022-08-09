@@ -26,6 +26,7 @@ const CategorySlider = () => {
             <Swiper
                 freeMode={true}
                 grabCursor={true}
+                loop={true}
                 modules={[FreeMode]}
                 className="categorySwiper"
                 breakpoints={{
@@ -63,24 +64,6 @@ const CategorySlider = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <CategoryCard imgSrc={imgAudiFront} message="Release the Beast" messageImgSrc={svgBeast}  />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgMattDuncan} message="Feel the road" messageImgSrc={svgCar} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgTransport} message="Transport" messageImgSrc={svgTruck} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgExtreme} message="Extreme" messageImgSrc={svgSnow} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgAudiRs} message="Electric" messageImgSrc={svgElectric} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgAudiBack} message="Deluxe" messageImgSrc={svgStars} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgAudiFront} message="Release the Beast" messageImgSrc={svgBeast} />
                 </SwiperSlide>
                 <SwiperSlide>
                     <CategoryCard imgSrc={imgMattDuncan} message="Feel the road" messageImgSrc={svgCar} />
