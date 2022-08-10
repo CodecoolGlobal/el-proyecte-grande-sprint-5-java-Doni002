@@ -11,8 +11,8 @@ const Suggestion = (props) => {
                 2: "Risk-Free-Rental"
             },
             subParagraph: {
-                3: "Car registration is also simple and free. All you need is basic information about your car and some well-done photos.",
-                4: "There's no charge to sign up or share your car. All you have to do is keep it ready for rental, respond quickly to applicants, and let it make you money"
+                1: "Car registration is also simple and free. All you need is basic information about your car and some well-done photos.",
+                2: "There's no charge to sign up or share your car. All you have to do is keep it ready for rental, respond quickly to applicants, and let it make you money"
             }
         }, {
             mainHeading: "Why should you rent a car?",
