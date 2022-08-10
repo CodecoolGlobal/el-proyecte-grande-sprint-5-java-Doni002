@@ -1,0 +1,14 @@
+.statistics-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.statistics-item {
+    padding: 40px;
+    margin: 10px;
+}
+.progressbar-text {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 180px;
+}
