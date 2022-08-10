@@ -35,7 +35,7 @@ const ToggleArticle = () => {
                 <span className="taText">
                 You can decide the location of the car pickup at the time of booking.
                     The Rental Agreement and the takeover report are also created online.
-                    All you have to do is review the car to see if it meets your needs and start renting through the platform.
+                    All you have to do is review the car to see if it meets your needs and start renting through the platform.<br/><br/>
                 </span>
                 5) Returning the car<br/><br/>
                 <span className="taText">
@@ -102,7 +102,7 @@ const ToggleArticle = () => {
             <div className="tacontentContainer">                    
                 <div class="switch-field">
                     <input type="radio" id="radio-one" name="switch-one" value="guest" onClick={setContent} className={switchButton === 'guest' ? "active" : ""} checked/>
-                    <label for="radio-one">As a guest</label>
+                    <label for="radio-one">As a Guest</label>
                     <input type="radio" id="radio-two" name="switch-one" value="host" onClick={setContent} className={switchButton === 'host' ? "active" : ""} />
                     <label for="radio-two">As a Host</label>
                 </div>
