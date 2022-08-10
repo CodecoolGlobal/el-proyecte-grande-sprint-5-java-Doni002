@@ -1,0 +1,42 @@
+.categorySliderTitle{
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 60px;
+    font-family:'Rubik', sans serif;
+    text-transform: uppercase;
+}
+.categoryCardImg{
+    min-width: 300px;
+    min-height: 300px;
+    border-radius: 15px;
+}
+
+.categoryCardSvg{
+    width: 35px;
+    height: 35px;
+}
+
+.categoryCardFooterContainer{
+    justify-content: left;
+    display : flex;
+}
+
+.categoryCardMessageContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+.categorySliderContainer{
+    margin: 60px;
+}
+
+.categoryCardSvgContainer{
+    margin: 10px;
+}
+
+@media screen and (max-width: 400px) {
+    div.categorySliderContainer {
+        display: none;
+    }
+}
