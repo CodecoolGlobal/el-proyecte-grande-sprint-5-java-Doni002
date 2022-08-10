@@ -5,7 +5,7 @@
 
 footer{
     height: 15%;
-    width: 99vw;
+    width: 100vw;
     background-color: black;
     margin: 0;
 }
@@ -108,7 +108,7 @@ input[type=text] {
     flex-wrap: nowrap;
 }
 
-@media screen and (max-width: 915px) {
+@media screen and (max-width: 1020px) {
     .footerImage{
         display: none;
     }
