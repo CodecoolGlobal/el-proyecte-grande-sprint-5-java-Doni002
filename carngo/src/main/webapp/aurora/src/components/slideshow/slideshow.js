@@ -12,7 +12,6 @@ const Slideshow = () => {
 
     const elements = [
         {
-
             heading: "You are in the right place if ...",
             paragraph: "looking for a luxury car for a special event (dating, bachelorette party, filming, photography)",
             imageSource: Bentley
