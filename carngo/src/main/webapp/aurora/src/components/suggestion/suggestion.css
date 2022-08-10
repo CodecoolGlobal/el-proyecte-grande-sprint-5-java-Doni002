@@ -1,0 +1,28 @@
+#suggestionArticleContainer {
+    display: flex;
+}
+
+#renterMainTextContainer {
+    text-align: left;
+}
+
+#hostMainTextContainer {
+    text-align: right;
+}
+
+#hostMainTextContainer,
+#renterMainTextContainer {
+    padding: 2rem;
+    text-transform: uppercase;
+    font-family:'Rubik', sans serif;
+    line-height: 200%;
+}
+
+.articleTitle {
+    padding: 2rem;
+}
+
+#hostSubTextContainer,
+#renterSubTextContainer {
+    background-color: gray;
+}
