@@ -45,8 +45,8 @@ const Suggestion = (props) => {
                         {elements[0].subText.map(item => {
                             return (
                                 <div>
-                                    <div>{item.head}</div>
-                                    <div>{item.paragraph}</div>
+                                    <h3 id="renterSubHeading">{item.head}</h3>
+                                    <p id="renterSubParagraph">{item.paragraph}</p>
                                 </div>
                             );
                         })}
@@ -62,8 +62,8 @@ const Suggestion = (props) => {
                         {elements[1].subText.map(item => {
                             return (
                                 <div>
-                                    <div>{item.head}</div>
-                                    <div>{item.paragraph}</div>
+                                    <h3 id="hostSubHeading">{item.head}</h3>
+                                    <p id="hostSubParagraph">{item.paragraph}</p>
                                 </div>
                             );
                         })}

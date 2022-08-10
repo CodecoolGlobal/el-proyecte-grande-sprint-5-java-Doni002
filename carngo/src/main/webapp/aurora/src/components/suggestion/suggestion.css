@@ -18,11 +18,23 @@
     line-height: 200%;
 }
 
-.articleTitle {
-    padding: 2rem;
+.articleTitle,
+.articleText,
+#hostSubHeading,
+#hostSubParagraph,
+#renterSubHeading,
+#renterSubParagraph {
+    padding: 1.5rem;
+    text-align: justify;
 }
 
 #hostSubTextContainer,
 #renterSubTextContainer {
-    background-color: gray;
+    background-color: rgb(220,220,220);
+}
+
+@media screen and (max-width: 500px) {
+    #suggestionArticleContainer {
+        flex-direction: column;
+    }
 }
