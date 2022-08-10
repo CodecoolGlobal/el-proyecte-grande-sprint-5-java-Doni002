@@ -27,4 +27,11 @@
     padding: 0.5rem;
     font-size: 1.25rem;
     width: 30%;
+    line-height: 200%;
+}
+
+@media screen and (max-width: 600px) {
+    .text-box p {
+        font-size: 1rem;
+    }
 }

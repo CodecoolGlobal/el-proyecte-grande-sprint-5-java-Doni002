@@ -85,6 +85,7 @@
 
 .taText{
 	font-size: 1em;
+	line-height: 200%;
 }
 
 @media screen and (max-width: 650px) {
