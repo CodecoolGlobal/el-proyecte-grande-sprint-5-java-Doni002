@@ -11,7 +11,6 @@
 	height: 1px;
 	width: 1px;
 	border: 0;
-	overflow: hidden;
 }
 
 .switch-field label {
@@ -29,10 +28,11 @@
 
 .switch-field label:hover {
 	cursor: pointer;
+	border: 5em rgb(105,105,105);
 }
 
 .active + label{
-	background-color: #a5dc86;
+	background-color: orange;
 	box-shadow: none;
 }
 
@@ -60,23 +60,46 @@
 
 }
 
+.taImageContainer {
+	display: flex;
+	justify-content: center;
+}
+
 .taPicture{
     border-radius: 20px;
-    width: 100%;
+    width: 75%;
 }
 
 .taTitle{
-    font-size: 5em;
+    font-size: 3em;
     margin-bottom: 5%;
     margin-top: 5%;
 }
 
 .taArticle{
     max-width: 50%;
-    font-size: 1.9em;
+    font-size: 1em;
+	font-family: 'Rubik', sans-serif;
+	padding: 2.5rem;
 }
 
 .taText{
-    font-size: 0.8em;
+	font-size: 1em;
+}
+
+@media screen and (max-width: 650px) {
+	.taImageContainer > img {
+		display: none;
+	}
+
+	.taTextContainer {
+		display: flex;
+		align-content: center;
+		justify-content: center;
+	}
+
+	.taArticle {
+		padding: 0;
+	}
 }
 
