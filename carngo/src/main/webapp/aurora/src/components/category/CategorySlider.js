@@ -1,9 +1,8 @@
 import React from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode } from "swiper";
+import { EffectCoverflow, Mousewheel} from "swiper";
 import 'swiper/css';
-import "swiper/css/free-mode";
 import CategoryCard from './CategoryCard';
 
 import imgAudiBack from "../img/Audi Back.jpg";
@@ -24,10 +23,19 @@ const CategorySlider = () => {
         <div className="categorySliderContainer">
             <h1 className="categorySliderTitle">Categories</h1>
             <Swiper
-                freeMode={true}
+                effect={"coverflow"}
+                speed={800}
+                mousewheel={true}
+                coverflowEffect={{
+                    rotate: 35,
+                    stretch: 0,
+                    depth: 70,
+                    modifier: 1,
+                    slideShadows: false,
+                }}
                 grabCursor={true}
                 loop={true}
-                modules={[FreeMode]}
+                modules={[EffectCoverflow, Mousewheel]}
                 className="categorySwiper"
                 breakpoints={{
                     0: {
@@ -56,6 +64,7 @@ const CategorySlider = () => {
                     }
                 }}
             >
+
                 <SwiperSlide>
                     <CategoryCard imgSrc={imgAudiRs} message="Electric" messageImgSrc={svgElectric} />
                 </SwiperSlide>
