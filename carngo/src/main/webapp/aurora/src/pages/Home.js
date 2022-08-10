@@ -3,11 +3,12 @@ import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import MapGuy from '../components/img/Guywithamap.jpg'
 import Business from '../components/img/business.jpg'
-
 import CategorySlider from "../components/category/CategorySlider";
 import ToggleArticle from '../components/toggleArticle/ToggleArticle';
 import ProgressBarContainer from "../components/statistics/ProgressBarContainer";
 import Slideshow from "../components/slideshow/slideshow";
+import Suggestion from "../components/suggestion/Suggestion";
+import "../components/suggestion/suggestion.css"
 
 const Home = () => {
     return (
@@ -38,6 +39,10 @@ more. This is the right place to get the business done with our help."
               />
             <ToggleArticle />
             <Slideshow />
+            <article id="suggestionArticleContainer">
+                <Suggestion value="host"/>
+                <Suggestion value="renter"/>
+            </article>
             <CategorySlider/>
             <Footer />
         </>
