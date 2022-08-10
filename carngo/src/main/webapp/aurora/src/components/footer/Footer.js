@@ -15,7 +15,7 @@ const Footer = () => {
                     <input type="text" className='footerInput' placeholder='Email'></input>
                     <FontAwesomeIcon icon={faPaperPlane} id="sendIcon" />
                 </div>
-                <img className="footerImage" src={footerPicture}></img>
+                <img alt="Black beast" className="footerImage" src={footerPicture}></img>
             </div>
             <div className="footerTextContainer">
                 <h1 className="footerText" id="footerAurora">Aurora</h1>

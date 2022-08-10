@@ -8,7 +8,7 @@ function CategoryCard(props) {
     const messageImgSrc = props.messageImgSrc;
 
     return (
-        <Card>
+        <Card className="category-glow-on-hover">
             <div>
                 <Card.Img className="categoryCardImg" src={imgSrc}/>
             </div>
