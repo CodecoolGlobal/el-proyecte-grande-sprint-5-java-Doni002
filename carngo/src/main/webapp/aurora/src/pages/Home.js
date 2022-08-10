@@ -7,7 +7,7 @@ import Business from '../components/img/business.jpg'
 import CategorySlider from "../components/category/CategorySlider";
 import ToggleArticle from '../components/toggleArticle/ToggleArticle';
 import ProgressBarContainer from "../components/statistics/ProgressBarContainer";
-import ProgressBar from "../components/statistics/ProgressBar";
+import Slideshow from "../components/slideshow/slideshow";
 
 const Home = () => {
     return (
@@ -37,6 +37,7 @@ more. This is the right place to get the business done with our help."
               pictureSide = "right"
               />
             <ToggleArticle />
+            <Slideshow />
             <CategorySlider/>
             <Footer />
         </>
