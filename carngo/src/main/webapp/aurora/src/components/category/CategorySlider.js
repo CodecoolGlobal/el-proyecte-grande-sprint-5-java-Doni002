@@ -42,23 +42,23 @@ const CategorySlider = () => {
                         slidesPerView:1,
                         spaceBetween: 10,
                     },
-                    460: {
+                    630: {
                         slidesPerView:2,
                         spaceBetween: 15,
                     },
-                    780: {
+                    880: {
                         slidesPerView:3,
                         spaceBetween: 15,
                     },
-                    990: {
+                    1150: {
                         slidesPerView: 4,
                         spaceBetween: 20,
                     },
-                    1400: {
+                    1450: {
                         slidesPerView: 5,
                         spaceBetween: 20,
                     },
-                    1700: {
+                    1730: {
                         slidesPerView: 6,
                         spaceBetween: 30,
                     }
