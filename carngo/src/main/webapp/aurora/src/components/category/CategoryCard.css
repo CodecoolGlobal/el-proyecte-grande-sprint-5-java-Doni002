@@ -39,11 +39,11 @@
     border-radius: 15px;
 }
 
-.glow-on-hover {
+.category-glow-on-hover {
     margin: 10px;
-    width: 278px;
+    width: 270px;
     height: 335px;
-    border: 4px black solid;
+    border: none;
     outline: none;
     color: #000;
     background: #fff;
@@ -53,9 +53,9 @@
     border-radius: 15px;
 }
 
-.glow-on-hover:before {
+.category-glow-on-hover:before {
     content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background: linear-gradient(45deg, #E5E4E2, #D3D3D3, #C0C0C0, #B2BEB5, #A9A9A9, #808080, #848884, #708090, #71797E);
     position: absolute;
     top: -2px;
     left:-2px;
@@ -70,19 +70,19 @@
     border-radius: 15px;
 }
 
-.glow-on-hover:active {
+.category-glow-on-hover:active {
     color: #fff
 }
 
-.glow-on-hover:active:after {
+.category-glow-on-hover:active:after {
     background: transparent;
 }
 
-.glow-on-hover:hover:before {
+.category-glow-on-hover:hover:before {
     opacity: 1;
 }
 
-.glow-on-hover:after {
+.category-glow-on-hover:after {
     z-index: -1;
     content: '';
     position: absolute;
