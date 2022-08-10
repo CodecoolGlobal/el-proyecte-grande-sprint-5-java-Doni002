@@ -34,3 +34,9 @@
 .categoryCardSvgContainer{
     margin: 10px;
 }
+
+@media screen and (max-width: 400px) {
+    div.categorySliderContainer {
+        display: none;
+    }
+}

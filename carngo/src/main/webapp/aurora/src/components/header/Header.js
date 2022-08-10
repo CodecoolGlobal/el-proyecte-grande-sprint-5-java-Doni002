@@ -29,7 +29,7 @@ const Header = () => {
 
     return (
         <>
-            <Parallax className='image' bgImage={images[index]} strength={300}>
+            <Parallax className='image fadeIn' bgImage={images[index]} strength={850}>
                 <Navbar />
                 <Content />
             </Parallax>
