@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    max-width: 30vw;
+    max-width: 45vw;
 }
 
 img{
@@ -34,13 +34,23 @@ img{
 
 
   #articleText{
-      font-size: 2em;
+      font-size: 1em;
       padding: 2rem;
       text-align: justify;
   }
 
 
   #articleTitle{
-      font-size: 3em;
+      font-size: 1.5em;
       text-transform: uppercase;
   }
+
+@media screen and (max-width: 650px) {
+    #articleContainer > img {
+        display: none;
+    }
+
+    #textContainer {
+        max-width: 80vw;
+    }
+}
