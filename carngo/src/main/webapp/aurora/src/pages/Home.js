@@ -6,11 +6,14 @@ import Business from '../components/img/business.jpg'
 
 import CategorySlider from "../components/category/CategorySlider";
 import ToggleArticle from '../components/toggleArticle/ToggleArticle';
+import ProgressBarContainer from "../components/statistics/ProgressBarContainer";
+import ProgressBar from "../components/statistics/ProgressBar";
 
 const Home = () => {
     return (
-        <>          
+        <>
           <Header />
+            <ProgressBarContainer />
             <Article
               text = "There are more than 1 million hosts worldwide to get your car from, and
 waiting for your reply to start your journey. The choice is yours to seize
