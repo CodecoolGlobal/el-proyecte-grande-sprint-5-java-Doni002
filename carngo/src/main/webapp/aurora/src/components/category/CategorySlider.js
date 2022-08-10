@@ -5,12 +5,12 @@ import { EffectCoverflow, Mousewheel} from "swiper";
 import 'swiper/css';
 import CategoryCard from './CategoryCard';
 
-import imgAudiBack from "../img/Audi Back.jpg";
-import imgAudiFront from "../img/Audi Front.jpg";
-import imgAudiRs from "../img/Audi-RS.jpg";
-import imgMattDuncan from "../img/matt-duncan.jpg";
-import imgTransport from "../img/mostafa-tarek.jpg";
-import imgExtreme from "../img/travis-essinger.jpg";
+import imgMustang from "../img/mustangSquare.jpg"
+import imgBeast from "../img/beastSquare.jpg";
+import imgAudiWater from "../img/audiwaterSquare.jpg"
+import imgAudiRs from "../img/Audi-RSSquare.jpg";
+import imgTransport from "../img/mostafa-tarekSquare.jpg";
+import imgExtreme from "../img/travis-essingerSquare.jpg";
 import svgElectric from "../svg/battery-charging.svg";
 import svgStars from "../svg/stars.svg";
 import svgTruck from "../svg/truck.svg";
@@ -27,9 +27,9 @@ const CategorySlider = () => {
                 speed={800}
                 mousewheel={true}
                 coverflowEffect={{
-                    rotate: 35,
+                    rotate: 30,
                     stretch: 0,
-                    depth: 70,
+                    depth: 60,
                     modifier: 1,
                     slideShadows: false,
                 }}
@@ -42,23 +42,23 @@ const CategorySlider = () => {
                         slidesPerView:1,
                         spaceBetween: 10,
                     },
-                    783: {
+                    460: {
                         slidesPerView:2,
                         spaceBetween: 15,
                     },
-                    1083: {
+                    780: {
                         slidesPerView:3,
                         spaceBetween: 15,
                     },
-                    1380: {
+                    990: {
                         slidesPerView: 4,
                         spaceBetween: 20,
                     },
-                    1698: {
+                    1400: {
                         slidesPerView: 5,
                         spaceBetween: 20,
                     },
-                    1970: {
+                    1700: {
                         slidesPerView: 6,
                         spaceBetween: 30,
                     }
@@ -69,13 +69,13 @@ const CategorySlider = () => {
                     <CategoryCard imgSrc={imgAudiRs} message="Electric" messageImgSrc={svgElectric} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgAudiBack} message="Deluxe" messageImgSrc={svgStars} />
+                    <CategoryCard imgSrc={imgAudiWater} message="Deluxe" messageImgSrc={svgStars} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgAudiFront} message="Release the Beast" messageImgSrc={svgBeast}  />
+                    <CategoryCard imgSrc={imgBeast} message="Release the Beast" messageImgSrc={svgBeast}  />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CategoryCard imgSrc={imgMattDuncan} message="Feel the road" messageImgSrc={svgCar} />
+                    <CategoryCard imgSrc={imgMustang} message="Feel the road" messageImgSrc={svgCar} />
                 </SwiperSlide>
                 <SwiperSlide>
                     <CategoryCard imgSrc={imgTransport} message="Transport" messageImgSrc={svgTruck} />
