@@ -23,22 +23,22 @@ function ProgressBarContainer(props) {
     return (
         <section className={"statistics-container"}>
                 <ProgressBar
-                count={customerCount}
+                value={customerCount}
                 color={customerColor}
                 type = {customerText}
                 />
                 <ProgressBar
-                count={vehicleCount}
+                value={vehicleCount}
                 color={vehicleColor}
                 type = {vehicleText}
                 />
                 <ProgressBar
-                count={countryCount}
+                value={countryCount}
                 color={countryColor}
                 type = {countryText}
                 />
                 <ProgressBar
-                count={journeyCount}
+                value={journeyCount}
                 color={journeyColor}
                 type = {journeyText}
                 />

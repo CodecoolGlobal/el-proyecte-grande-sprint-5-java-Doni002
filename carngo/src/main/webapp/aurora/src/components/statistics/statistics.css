@@ -4,6 +4,10 @@
     justify-content: space-between;
 }
 .statistics-item {
-    padding: 20px;
+    padding: 40px;
     margin: 10px;
+}
+.progressbar-text {
+    text-align: center;
+    font-size: 30px;
 }
