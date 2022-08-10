@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 7.5rem;
 }
 .statistics-item {
     padding: 40px;
@@ -9,6 +10,13 @@
 }
 .progressbar-text {
     text-align: center;
-    font-size: 36px;
+    font-size: 1.25rem;
     margin-top: 180px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .statistics-container {
+        display: none
+    }
 }
