@@ -3,7 +3,8 @@ import DisplayMap from "../components/mapComponent/DisplayMap";
 import Navbar from "../components/header/Navbar";
 import {Parallax} from "react-parallax";
 import CountryRoad from "../components/img/countryroad.jpg"
-import ToggleArticle from "../components/toggleArticle/ToggleArticle";
+import CategorySlider from "../components/category/CategorySlider";
+import Footer from "../components/footer/Footer";
 
 const Vehicles = () => {
     return (
@@ -12,7 +13,8 @@ const Vehicles = () => {
                 <Navbar />
                 <DisplayMap />
             </Parallax>
-            <ToggleArticle />
+            <CategorySlider />
+            <Footer />
         </>
     );
 };
