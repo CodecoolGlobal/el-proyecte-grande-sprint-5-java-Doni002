@@ -1,8 +1,11 @@
+import React from 'react';
+import DisplayMap from "../components/mapComponent/DisplayMap";
+
 const Vehicles = () => {
     return (
-        <div>
-            <p>We are in Vehicles</p>
-        </div>
+        <>
+            <DisplayMap />
+        </>
     );
 };
 
