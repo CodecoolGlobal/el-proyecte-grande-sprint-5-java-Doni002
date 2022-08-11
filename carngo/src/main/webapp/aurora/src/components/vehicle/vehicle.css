@@ -1,0 +1,12 @@
+
+.vTextContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.vImage {
+    max-width: 30vw;
+    border-radius: 20px;
+}

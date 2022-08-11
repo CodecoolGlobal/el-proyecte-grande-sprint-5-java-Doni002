@@ -1,7 +1,10 @@
-import React from 'react';
+import "../toggleArticle/toggleArticle.css";
+import "./vehicle.css";
+import AudiRS from "../img/Audi-RS.jpg";
 
 
 const Vehicle = (props) => {
+    const image = AudiRS;
     const vehicle = {
         id: "001",
         description:"Great car in a great condition.",
@@ -16,23 +19,29 @@ const Vehicle = (props) => {
         pricePerDay:"120",
         numOfReservations:"31",
         userId:"0012",
-        image: "../img/Audi-RS.jpg"
+        image: "/img/Audi-RS.jpg"
     }
     return (
         <>
-            <div>{vehicle.image}</div>
-            <div>{vehicle.description}</div>
-            <div>{vehicle.carType}</div>
-            <div>{vehicle.color}</div>
-            <div>{vehicle.brandId}</div>
-            <div>{vehicle.model}</div>
-            <div>{vehicle.fuel}</div>
-            <div>{vehicle.vintage}</div>
-            <div>{vehicle.numOfSeats}</div>
-            <div>{vehicle.trunkCapacity}</div>
-            <div>{vehicle.pricePerDay}</div>
-            <div>{vehicle.numOfReservations}</div>
-            <div>{vehicle.userId}</div>
+            <div className="taArticle">
+            <div className="taImageContainer">
+                <img className="vImage" src={image} alt={""}></img>
+            </div>
+                <div className="vTextContainer">
+                    <div >Description: {vehicle.description}</div>
+                    <div>Car type:  {vehicle.carType}</div>
+                    <div>Color: {vehicle.color}</div>
+                    <div> Brand: {vehicle.brandId}</div>
+                    <div>Model: {vehicle.model}</div>
+                    <div>Fuel: {vehicle.fuel}</div>
+                    <div>Vintage: {vehicle.vintage}</div>
+                    <div>Number of seats: {vehicle.numOfSeats}</div>
+                    <div>Trunk capacity: {vehicle.trunkCapacity}</div>
+                    <div>Price per day: {vehicle.pricePerDay}</div>
+                    <div>Number of reservations: {vehicle.numOfReservations}</div>
+                    <div>Host: {vehicle.userId}</div>
+                </div>
+            </div>
         </>
     );
 };
