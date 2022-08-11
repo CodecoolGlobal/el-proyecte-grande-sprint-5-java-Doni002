@@ -90,7 +90,7 @@ const DisplayMap = () => {
                         checked={showLayer2}
                         onChange={(event) => setShowLayer2(event.target.checked)}
                     />{" "}
-                    Budapest - Fist District
+                    Budapest - First District
                 </div>
                 <hr />
                 <div>
