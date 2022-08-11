@@ -1,7 +1,10 @@
+
+import CarSlider from "../components/car/CarSlider";
+
 const Vehicles = () => {
     return (
         <div>
-            <p>We are in Vehicles</p>
+            <CarSlider/>
         </div>
     );
 };
