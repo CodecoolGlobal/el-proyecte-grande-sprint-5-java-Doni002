@@ -1,15 +1,10 @@
 .ol-map {
-    min-width: 600px;
-    min-height: 500px;
+    min-width: 300px;
+    min-height: 200px;
     margin: 50px;
-    height: 500px;
-    width: 95%;
+    height: 400px;
+    width: 50%;
 }
-
-/*.mapContainer {*/
-/*    display: flex;*/
-/*    align-items: flex-end;*/
-/*}*/
 
 .ol-control {
     position: absolute;
@@ -18,7 +13,26 @@
     padding: 2px;
 }
 
+.ol-viewport {
+    border: 5px solid white;
+}
+
 .ol-full-screen {
     top: .5em;
     right: .5em;
+}
+
+.mapContainer {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.checkBoxContainer {
+    color: #fff;
+    padding: 2rem;
+    line-height: 2rem;
+    backdrop-filter: blur(0.5em);
+    margin: 1rem;
 }

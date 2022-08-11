@@ -75,30 +75,32 @@ const DisplayMap = () => {
                     <FullScreenControl />
                 </Controls>
             </Map>
-            <div>
-                <input
-                    type="checkbox"
-                    checked={showLayer1}
-                    onChange={(event) => setShowLayer1(event.target.checked)}
-                />{" "}
-                Budapest - Third District
-            </div>
-            <div>
-                <input
-                    type="checkbox"
-                    checked={showLayer2}
-                    onChange={(event) => setShowLayer2(event.target.checked)}
-                />{" "}
-                Budapest - Fist District
-            </div>
-            <hr />
-            <div>
-                <input
-                    type="checkbox"
-                    checked={showMarker}
-                    onChange={(event) => setShowMarker(event.target.checked)}
-                />{" "}
-                Show markers
+            <div className="checkBoxContainer">
+                <div>
+                    <input
+                        type="checkbox"
+                        checked={showLayer1}
+                        onChange={(event) => setShowLayer1(event.target.checked)}
+                    />{" "}
+                    Budapest - Third District
+                </div>
+                <div>
+                    <input
+                        type="checkbox"
+                        checked={showLayer2}
+                        onChange={(event) => setShowLayer2(event.target.checked)}
+                    />{" "}
+                    Budapest - Fist District
+                </div>
+                <hr />
+                <div>
+                    <input
+                        type="checkbox"
+                        checked={showMarker}
+                        onChange={(event) => setShowMarker(event.target.checked)}
+                    />{" "}
+                    Show markers
+                </div>
             </div>
         </div>
     );
