@@ -4,7 +4,6 @@ import Navbar from "../components/header/Navbar";
 import {Parallax} from "react-parallax";
 import CountryRoad from "../components/img/countryroad.jpg"
 import CarSlider from "../components/car/CarSlider";
-import CategorySlider from "../components/category/CategorySlider";
 import Footer from "../components/footer/Footer";
 
 const Vehicles = () => {
@@ -15,7 +14,6 @@ const Vehicles = () => {
                 <DisplayMap/>
             </Parallax>
             <CarSlider/>
-            <CategorySlider />
             <Footer />
         </>
     );
