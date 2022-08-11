@@ -1,7 +1,7 @@
 import './Header.css';
 import Button from "./Button";
 
-const Content = (props) => {
+const Content = () => {
     return (
         <>
             <div className='content'>
@@ -10,13 +10,13 @@ const Content = (props) => {
                         <div className="img-txt">
                             <h2 style={{
                                 letterSpacing: '5px',
-                                fontSize: '2rem',
+                                fontSize: '1.25rem',
                                 textAlign: 'center'
                             }}>The world of <strong style={{
                                 color: "red"
                             }}>Aurora</strong> is now</h2>
                             <p style={{
-                                fontSize: '1.5rem',
+                                fontSize: '1rem',
                                 wordSpacing: '5px',
                                 lineHeight: '2rem'
                             }}>We are a company that's make high-quality car sharing service with
