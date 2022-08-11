@@ -24,7 +24,7 @@ const SignUpWindow = () => {
             return(
                 <form className='loginForm'>
                     <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
-                    <h1 className='loginWelcomeText'>Welcome back!</h1>
+                    <h1 className='loginWelcomeText'>Welcome Back!</h1>
                     <input className='loginUsername' placeholder='Username'></input>
                     <input className='loginPassword' placeholder='Password'></input>
                     <div className='rememberContainer'>
@@ -37,7 +37,9 @@ const SignUpWindow = () => {
         }
         else if(switchButton === "register"){
             return(
-                <p style={{color:"white"}}>coming soon</p>
+                <div className="comingSoonContainer">
+                    <p className='comingSoonParagraph'>Coming soon</p>
+                </div>
             )
         }
     }
