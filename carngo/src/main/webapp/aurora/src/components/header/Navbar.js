@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
 import { useState, useEffect } from "react";
+import SignUpWindow from "../signUp/SignUpWindow";
 
 import './Header.css';
 
@@ -16,7 +17,14 @@ const Navbar = () => {
     
 
     const addRoute = () => {
-        return (loggedIn ?  "/profile" : "/sign-up");
+        return (loggedIn ?  "/profile" : "#");
+    }
+
+    const renderSignUpModal = () => {
+        if(!loggedIn){
+            document.querySelector('.modalContainer').style.display = "unset"
+            document.querySelector('body').style.overflow = "hidden"  
+        }
     }
 
     return (
@@ -27,9 +35,10 @@ const Navbar = () => {
                     <li className="item"><Link to="/shareyourcar"> <strong>Share your car</strong> </Link></li>
                     <li className="item"><Link to="/vehicles"> Vehicles </Link></li>
                     <li className="item"><Link to="/contact"> Contact us </Link></li>
-                    <li className="item"><Link to={addRoute()}> Profile </Link></li>
+                    <li onClick={renderSignUpModal} className="item"><Link to={addRoute()}> Profile </Link></li>
                 </ul>
             </nav>
+            <SignUpWindow />
         </>
 
     );
