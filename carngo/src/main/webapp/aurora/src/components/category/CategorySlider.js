@@ -5,6 +5,7 @@ import { EffectCoverflow, Mousewheel} from "swiper";
 import 'swiper/css';
 import CategoryCard from './CategoryCard';
 
+import imgOldTimer from "../img/oldtimerSquare.jpg";
 import imgMustang from "../img/mustangSquare.jpg"
 import imgBeast from "../img/beastSquare.jpg";
 import imgAudiWater from "../img/audiwaterSquare.jpg"
@@ -17,8 +18,47 @@ import svgTruck from "../svg/truck.svg";
 import svgSnow from "../svg/snow2.svg";
 import svgCar from "../svg/car-front.svg";
 import svgBeast from "../svg/speedometer.svg";
+import svgCarFront from "../svg/car-front-fill.svg"
 
 const CategorySlider = () => {
+    const elements = [
+        {
+            imgSrc: imgOldTimer,
+            message: "Old timer",
+            svgSrc: svgCarFront,
+        },
+        {
+            imgSrc: imgExtreme,
+            message: "Extreme",
+            svgSrc: svgSnow,
+        },
+        {
+            imgSrc: imgMustang,
+            message: "Feel the road",
+            svgSrc: svgCar,
+        },
+        {
+            imgSrc: imgBeast,
+            message: "Release the beast",
+            svgSrc: svgBeast,
+        },
+        {
+            imgSrc: imgAudiWater,
+            message: "Deluxe",
+            svgSrc: svgStars,
+        },
+        {
+            imgSrc: imgAudiRs,
+            message: "Electric",
+            svgSrc: svgElectric,
+        },
+        {
+            imgSrc: imgTransport,
+            message: "Transport",
+            svgSrc: svgTruck,
+        },
+    ]
+
     return (
         <div className="categorySliderContainer">
             <h1 className="categorySliderTitle">Categories</h1>
@@ -64,29 +104,16 @@ const CategorySlider = () => {
                     }
                 }}
             >
-
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgAudiRs} message="Electric" messageImgSrc={svgElectric} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgAudiWater} message="Deluxe" messageImgSrc={svgStars} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgBeast} message="Release the Beast" messageImgSrc={svgBeast}  />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgMustang} message="Feel the road" messageImgSrc={svgCar} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgTransport} message="Transport" messageImgSrc={svgTruck} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryCard imgSrc={imgExtreme} message="Extreme" messageImgSrc={svgSnow} />
-                </SwiperSlide>
+                {elements.map(item=>{
+                    return(
+                        <SwiperSlide>
+                            <CategoryCard imgSrc={item.imgSrc} message={item.message} messageImgSrc={item.svgSrc} />
+                        </SwiperSlide>
+                    )
+                })}
             </Swiper>
-
         </div>
     );
-};
+}
 
 export default CategorySlider;
