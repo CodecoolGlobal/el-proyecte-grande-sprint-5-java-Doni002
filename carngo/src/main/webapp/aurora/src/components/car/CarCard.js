@@ -10,15 +10,17 @@ function CarCard(props) {
 
 
     return (
-        <Card className="category-glow-on-hover">
+        <Card className="car-glow-on-hover">
             <div>
-                <Card.Img className="categoryCardImg" src={imgSrc}/>
+                <Card.Img className="carCardImg" src={imgSrc}/>
             </div>
-            <Card.Body className="categoryCardFooterContainer">
-                <h1>{name}</h1>
-                <div className="categoryCardMessageContainer">
-                    {rate}
-                    {price}
+            <Card.Body className="carCardFooterContainer">
+                <h3 style={{gridArea:"header"}}>{name}</h3>
+                <div className="carCardRatingContainer">
+                    Rating: {rate}/5
+                </div>
+                <div className="carCardPriceContainer">
+                    Price: {price}$ / day
                 </div>
             </Card.Body>
         </Card>
