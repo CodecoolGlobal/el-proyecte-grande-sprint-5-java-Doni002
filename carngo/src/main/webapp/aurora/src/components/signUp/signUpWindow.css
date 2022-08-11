@@ -1,5 +1,5 @@
 .modalContainer{
-    display: row;
+    display: none;
     flex-direction: column;
     position: absolute;
     width: 40vw;
@@ -12,6 +12,7 @@
     left: 0;
     background-color: rgba(0, 0, 0, .8);
 	border-radius: 10px;
+	z-index: 1;
 }
 
 .signUpSwitchContainer label {
@@ -68,11 +69,11 @@
 
 .loginForm{
 	display: flex;
+	position: relative;
 	height: 80%;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	position: relative;
 }
 
 .loginButton{
@@ -112,10 +113,11 @@
 
 .modalCloseButton{
 	position: absolute;
-	right: 0;
 	top: 0;
+	right: 0;
 	cursor: pointer;
 }
+
 
 @media screen and (max-width: 665px) {
 	.loginWelcomeText,

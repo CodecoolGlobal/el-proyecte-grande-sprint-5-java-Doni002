@@ -14,11 +14,16 @@ const SignUpWindow = () => {
         renderContent()
     }
 
+    const closeModal = () => {
+        document.querySelector('.modalContainer').style.display = "none"
+        document.querySelector('body').style.overflow = "visible"
+    }
+
     const renderContent = () => {
         if(switchButton === "login"){
             return(
                 <form className='loginForm'>
-                    <Link to="/"><FontAwesomeIcon icon={faClose} id="icon" className='modalCloseButton' /> </Link>
+                    <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
                     <h1 className='loginWelcomeText'>Welcome back!</h1>
                     <input className='loginUsername' placeholder='Username'></input>
                     <input className='loginPassword' placeholder='Password'></input>
