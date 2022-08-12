@@ -23,7 +23,8 @@ const Navbar = () => {
     const renderSignUpModal = () => {
         if(!loggedIn){
             document.querySelector('.modalContainer').style.display = "unset"
-            document.querySelector('body').style.overflow = "hidden"  
+            document.querySelector('body').style.overflow = "hidden"
+            document.querySelector('.blurBackground').style.display = "unset"
         }
     }
 
@@ -38,6 +39,7 @@ const Navbar = () => {
                     <li onClick={renderSignUpModal} className="item"><Link to={addRoute()}> Profile </Link></li>
                 </ul>
             </nav>
+            <div className="blurBackground"></div>
             <SignUpWindow />
         </>
 

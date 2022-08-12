@@ -1,12 +1,16 @@
 import './signUpWindow.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 
 const SignUpWindow = () => {
 
     const [switchButton, setSwitchButton] = useState("login");
+
+    useEffect(() => {
+        document.querySelector('.blurBackground').addEventListener("click", closeModal)
+    }, [])
+    
 
     const setContent = (e) => {
         const target = e.target.value
@@ -17,7 +21,10 @@ const SignUpWindow = () => {
     const closeModal = () => {
         document.querySelector('.modalContainer').style.display = "none"
         document.querySelector('body').style.overflow = "visible"
+        document.querySelector('.blurBackground').style.display = "none"
     }
+
+
 
     const renderContent = () => {
         if(switchButton === "login"){
