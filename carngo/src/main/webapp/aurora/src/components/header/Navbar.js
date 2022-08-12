@@ -36,7 +36,7 @@ const Navbar = () => {
                     <li className="item"><Link to="/shareyourcar"> <strong>Share your car</strong> </Link></li>
                     <li className="item"><Link to="/vehicles"> Vehicles </Link></li>
                     <li className="item"><Link to="/contact"> Contact us </Link></li>
-                    <li onClick={renderSignUpModal} className="item"><Link to={addRoute()}> Profile </Link></li>
+                    <li onClick={renderSignUpModal} className="item"><Link to={addRoute()}>{loggedIn ? 'Profile' : 'Sign Up' }  </Link></li>
                 </ul>
             </nav>
             <div className="blurBackground"></div>
