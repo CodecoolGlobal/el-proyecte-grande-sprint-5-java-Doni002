@@ -25,8 +25,8 @@ const SignUpWindow = () => {
                 <form className='loginForm'>
                     <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
                     <h1 className='loginWelcomeText'>Welcome Back!</h1>
-                    <input className='loginUsername' placeholder='Username'></input>
-                    <input className='loginPassword' placeholder='Password'></input>
+                    <input type={"text"} className='loginUsername' placeholder='Username'></input>
+                    <input type={"password"} className='loginPassword' placeholder='Password'></input>
                     <div className='rememberContainer'>
                         <input id="rememberCheckbox" type='checkbox'></input>
                         <label id="checkboxLabel" for="rememberCheckbox">Remember me</label>
@@ -37,9 +37,15 @@ const SignUpWindow = () => {
         }
         else if(switchButton === "register"){
             return(
-                <div className="comingSoonContainer">
-                    <p className='comingSoonParagraph'>Coming soon</p>
-                </div>
+                <form className="registerForm">
+                    <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
+                    <h1 className='registerText'>Sign Up!</h1>
+                    <input type={"text"} className='registerUsername' placeholder='Username'></input>
+                    <input type={"email"} className='registerEmail' placeholder='Email'></input>
+                    <input type={"password"} className='registerPassword' placeholder='Password'></input>
+                    <input type={"password"} className='registerPasswordValidation' placeholder='Confirm Password'></input>
+                    <button className='registerButton'>Register</button>
+                </form>
             )
         }
     }
