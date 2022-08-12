@@ -1,12 +1,25 @@
-
-.vTextContainer {
+.vArticle {
     display: flex;
     flex-direction: row;
+    max-width: 60%;
+    font-size: 1em;
+    font-family: 'Rubik', sans-serif;
+    padding: 2.5rem;
+}
+.vTextContainer {
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
+    padding-left: 2.6rem;
 }
 
 .vImage {
     max-width: 30vw;
     border-radius: 20px;
+}
+.features {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
