@@ -1,7 +1,8 @@
 import "../toggleArticle/toggleArticle.css";
-import "./vehicle.css";
+import "./vehicleDetail.css";
 import AudiRS from "../img/Audi-RS.jpg";
 import {useParams} from "react-router-dom";
+import VehicleSlider from "./VehicleSlider";
 
 const VehicleDetail = () => {
     const id = useParams();
@@ -26,6 +27,7 @@ const VehicleDetail = () => {
     }
     return (
         <>
+            <VehicleSlider />
             <div className="vArticle">
             <div className="taImageContainer">
                 <img className="vImage" src={image} alt={""}></img>

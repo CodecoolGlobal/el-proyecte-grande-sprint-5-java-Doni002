@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Mousewheel} from "swiper";
-import 'swiper/css';
-import ImageCard from './ImageCard';
+import { useState } from 'react'
+import './vehicleDetail.css';
+import { Navigation, Thumbs } from 'swiper'
 
 import imgOldTimer from "../img/oldtimerSquare.jpg";
 import imgMustang from "../img/mustangSquare.jpg"
@@ -10,107 +10,77 @@ import imgAudiWater from "../img/audiwaterSquare.jpg"
 import imgAudiRs from "../img/Audi-RSSquare.jpg";
 import imgTransport from "../img/mostafa-tarekSquare.jpg";
 import imgExtreme from "../img/travis-essingerSquare.jpg";
-import svgElectric from "../svg/battery-charging.svg";
-import svgStars from "../svg/stars.svg";
-import svgTruck from "../svg/truck.svg";
-import svgSnow from "../svg/snow2.svg";
-import svgCar from "../svg/car-front.svg";
-import svgBeast from "../svg/speedometer.svg";
-import svgCarFront from "../svg/car-front-fill.svg"
+
 
 const VehicleSlider = () => {
-    const elements = [
+    const [activeThumb, setActiveThumb] = useState();
+    const images = [
         {
             imgSrc: imgOldTimer,
-            message: "Old timer",
-            svgSrc: svgCarFront,
         },
         {
             imgSrc: imgExtreme,
-            message: "Extreme",
-            svgSrc: svgSnow,
         },
         {
             imgSrc: imgMustang,
-            message: "Feel the road",
-            svgSrc: svgCar,
         },
         {
             imgSrc: imgBeast,
-            message: "Release the beast",
-            svgSrc: svgBeast,
         },
         {
             imgSrc: imgAudiWater,
-            message: "Deluxe",
-            svgSrc: svgStars,
         },
         {
             imgSrc: imgAudiRs,
-            message: "Electric",
-            svgSrc: svgElectric,
         },
         {
             imgSrc: imgTransport,
-            message: "Transport",
-            svgSrc: svgTruck,
         },
     ]
 
-    return (
-        <div className="categorySliderContainer">
-            <h1 className="categorySliderTitle">Categories</h1>
-            <Swiper
-                effect={"coverflow"}
-                speed={800}
-                mousewheel={true}
-                coverflowEffect={{
-                    rotate: 30,
-                    stretch: 0,
-                    depth: 60,
-                    modifier: 1,
-                    slideShadows: false,
-                }}
-                grabCursor={true}
-                loop={true}
-                modules={[EffectCoverflow, Mousewheel]}
-                className="categorySwiper"
-                breakpoints={{
-                    0: {
-                        slidesPerView:1,
-                        spaceBetween: 10,
-                    },
-                    630: {
-                        slidesPerView:2,
-                        spaceBetween: 15,
-                    },
-                    880: {
-                        slidesPerView:3,
-                        spaceBetween: 15,
-                    },
-                    1150: {
-                        slidesPerView: 4,
-                        spaceBetween: 20,
-                    },
-                    1450: {
-                        slidesPerView: 5,
-                        spaceBetween: 20,
-                    },
-                    1730: {
-                        slidesPerView: 6,
-                        spaceBetween: 30,
-                    }
-                }}
-            >
-                {elements.map(item=>{
-                    return(
-                        <SwiperSlide>
-                            <ImageCard imgSrc={item.imgSrc} message={item.message} messageImgSrc={item.svgSrc} />
-                        </SwiperSlide>
-                    )
-                })}
-            </Swiper>
-        </div>
+    return (<>
+            <div className={"swiperContainer"}>
+        <Swiper
+            loop={true}
+            spaceBetween={10}
+            navigation={true}
+            modules={[Navigation, Thumbs]}
+            grabCursor={true}
+            thumbs={{ swiper: activeThumb }}
+            className={"product-images-slider"}
+        >
+            {
+                images.map((item, index) => (
+                    <SwiperSlide key={index} >
+                        <img src={item.imgSrc} alt="" />
+                    </SwiperSlide>
+                ))
+            }
+        </Swiper>
+        <Swiper
+
+                    loop={true}
+                    spaceBetween={10}
+                    slidesPerView={4}
+                    modules={[Navigation, Thumbs]}
+                    className={"product-images-slider-thumbs"}
+                    watchSlidesProgress
+                    watchSlidesVisibility
+                    onSwiper={setActiveThumb}
+
+                >
+            {
+                images.map((item, index) => (
+                    <SwiperSlide key={index}>
+                        <div className="product-images-slider-thumbs-wrapper">
+                            <img src={item.imgSrc} alt="" />
+                        </div>
+                    </SwiperSlide>
+                ))
+            }
+        </Swiper>
+            </div>
+        </>
     );
 }
 
