@@ -12,34 +12,13 @@ import imgTransport from "../img/mostafa-tarekSquare.jpg";
 import imgExtreme from "../img/travis-essingerSquare.jpg";
 
 
-const VehicleSlider = () => {
+const VehicleSlider = (props) => {
+    const images = props.images;
     const [activeThumb, setActiveThumb] = useState();
-    const images = [
-        {
-            imgSrc: imgOldTimer,
-        },
-        {
-            imgSrc: imgExtreme,
-        },
-        {
-            imgSrc: imgMustang,
-        },
-        {
-            imgSrc: imgBeast,
-        },
-        {
-            imgSrc: imgAudiWater,
-        },
-        {
-            imgSrc: imgAudiRs,
-        },
-        {
-            imgSrc: imgTransport,
-        },
-    ]
 
     return (<>
-            <div className={"swiperContainer"}>
+            <div className={"swiper-container"}>
+
         <Swiper
             loop={true}
             spaceBetween={10}
@@ -51,23 +30,20 @@ const VehicleSlider = () => {
         >
             {
                 images.map((item, index) => (
-                    <SwiperSlide key={index} >
+                    <SwiperSlide key={index} className={"default-item"}>
                         <img src={item.imgSrc} alt="" />
                     </SwiperSlide>
                 ))
             }
         </Swiper>
         <Swiper
-
-                    loop={true}
-                    spaceBetween={10}
-                    slidesPerView={4}
+                    loop={false}
+                    spaceBetween={20}
+                    slidesPerView={6}
                     modules={[Navigation, Thumbs]}
                     className={"product-images-slider-thumbs"}
                     watchSlidesProgress
-                    watchSlidesVisibility
                     onSwiper={setActiveThumb}
-
                 >
             {
                 images.map((item, index) => (
