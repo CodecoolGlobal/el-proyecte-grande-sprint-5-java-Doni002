@@ -1,9 +1,10 @@
 import "../toggleArticle/toggleArticle.css";
 import "./vehicle.css";
 import AudiRS from "../img/Audi-RS.jpg";
+import {useParams} from "react-router-dom";
 
-
-const Vehicle = (props) => {
+const VehicleDetail = () => {
+    const id = useParams();
     const image = AudiRS;
     const vehicle = {
         name: "Audi RS",
@@ -52,4 +53,4 @@ const Vehicle = (props) => {
     );
 };
 
-export default Vehicle;
+export default VehicleDetail;
