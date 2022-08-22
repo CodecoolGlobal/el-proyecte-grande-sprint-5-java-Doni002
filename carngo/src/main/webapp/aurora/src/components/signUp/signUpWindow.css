@@ -1,16 +1,16 @@
 .modalContainer{
-    display: none;
-    flex-direction: column;
-    position: absolute;
+	display: none;
+	flex-direction: column;
+	position: absolute;
 	width: 45vh;
-    height: 50vh;
-    position: fixed;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, .75);
+	height: 50vh;
+	position: fixed;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, .8);
 	border-radius: 3rem;
 	z-index: 1;
 	font-family: 'Rubik', sans-serif;
@@ -28,7 +28,7 @@
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
 	white-space: nowrap;
-    
+
 }
 
 .signUpActive + label{
@@ -38,8 +38,8 @@
 
 #loginLabel,
 #registerLabel{
-    height: 12%;
-    width: 100%;
+	height: 12%;
+	width: 100%;
 }
 
 .signUpSwitchContainer label:first-of-type {
@@ -52,7 +52,7 @@
 
 .signUpSwitchContainer {
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 	overflow: hidden;
 }
 
@@ -69,7 +69,6 @@
 	border: 5em rgb(105,105,105);
 }
 
-.registerForm,
 .loginForm{
 	display: flex;
 	position: relative;
@@ -79,7 +78,6 @@
 	align-items: center;
 }
 
-.registerButton,
 .loginButton{
 	font-size: 1.5em;
 	border-radius: 5px;
@@ -89,11 +87,6 @@
 	padding: 0.25rem;
 }
 
-
-.registerUsername,
-.registerPassword,
-.registerPasswordValidation,
-.registerEmail,
 .loginUsername,
 .loginPassword{
 	font-size: 1.5em;
@@ -117,7 +110,6 @@
 	color: white;
 }
 
-.registerText,
 .loginWelcomeText{
 	color: white;
 	padding: 2rem;
@@ -133,7 +125,6 @@
 	cursor: pointer;
 }
 
-.registerForm > svg
 .loginForm > svg {
 	padding: 1rem;
 }
@@ -142,25 +133,20 @@
 	font-size: 1.5em;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"]{
-	padding-left: 2%;
+.comingSoonParagraph {
+	color: white;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	letter-spacing: 5px;
+	text-align: center;
 }
 
-.blurBackground{
-	position: fixed;
-	height: 100vh;
-	width: 100vw;
-	top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-	backdrop-filter: blur(8px);
-	z-index: 1;
-	display: none;
+.comingSoonContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }
-
 
 @media screen and (max-width: 665px) {
 	.loginWelcomeText,
@@ -183,4 +169,71 @@ input[type="password"]{
 	}
 }
 
+.inputBox{
+	position: relative;
+	width: 250px;
+}
 
+.inputBox input {
+	width: 100%;
+	background: transparent;
+	color: #fff;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	font-size: 1em;
+	letter-spacing: 0.1em;
+}
+
+.inputBox span{
+	position: absolute;
+	left: 0;
+	padding: 0 0 5px;
+	color: rgba(255, 255, 255, 0.5);
+	text-transform: uppercase;
+	pointer-events: none;
+	letter-spacing: 0.1em;
+	transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span{
+	color: #2196f3;
+	transform: translateY(-16px);
+	font-size: 0.65em;
+}
+
+.inputBox i{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.inputBox i::before{
+	content: '';
+	position: absolute;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, orange, #FAB66D, #AA8256, #5B4D3D, orange);
+	animation: animate 2s linear infinite;
+	transition: 0.5s;
+}
+
+.inputBox input:valid ~ i::before,
+.inputBox input:focus ~ i::before{
+	left: 0;
+}
+
+@keyframes animate{
+	0%{
+		background-position-x: 0;
+	}
+	100%{
+		background-position-x: 250px;
+	}
+}
