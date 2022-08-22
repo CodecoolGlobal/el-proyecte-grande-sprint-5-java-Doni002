@@ -1,16 +1,12 @@
 import './signUpWindow.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const SignUpWindow = () => {
 
     const [switchButton, setSwitchButton] = useState("login");
-
-    useEffect(() => {
-        document.querySelector('.blurBackground').addEventListener("click", closeModal)
-    }, [])
-    
 
     const setContent = (e) => {
         const target = e.target.value
@@ -21,37 +17,53 @@ const SignUpWindow = () => {
     const closeModal = () => {
         document.querySelector('.modalContainer').style.display = "none"
         document.querySelector('body').style.overflow = "visible"
-        document.querySelector('.blurBackground').style.display = "none"
     }
-
-
 
     const renderContent = () => {
         if(switchButton === "login"){
             return(
-                <form className='loginForm'>
+                <form className='modalForm'>
                     <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
                     <h1 className='loginWelcomeText'>Welcome Back!</h1>
-                    <input type={"text"} className='loginUsername' placeholder='Username'></input>
-                    <input type={"password"} className='loginPassword' placeholder='Password'></input>
+                    <div className='inputBox'>
+                        <input type="text" required="required"/>
+                        <span>Username</span>
+                        <i></i>
+                    </div>
+                    <div className='inputBox'>
+                        <input type="password" required="required"/>
+                        <span>Password</span>
+                        <i></i>
+                    </div>
                     <div className='rememberContainer'>
                         <input id="rememberCheckbox" type='checkbox'></input>
                         <label id="checkboxLabel" for="rememberCheckbox">Remember me</label>
                     </div>
-                    <button className='loginButton'>Log In</button>
+                    <button className='modalButton'>Log In</button>
                 </form>
             )
         }
         else if(switchButton === "register"){
             return(
-                <form className="registerForm">
+                <form className="modalForm">
                     <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
-                    <h1 className='registerText'>Sign Up!</h1>
-                    <input type={"text"} className='registerUsername' placeholder='Username'></input>
-                    <input type={"email"} className='registerEmail' placeholder='Email'></input>
-                    <input type={"password"} className='registerPassword' placeholder='Password'></input>
-                    <input type={"password"} className='registerPasswordValidation' placeholder='Confirm Password'></input>
-                    <button className='registerButton'>Register</button>
+                    <h1 className='loginWelcomeText'>Sign Up!</h1>
+                    <div className='inputBox'>
+                        <input type="text" required="required"/>
+                        <span>Username</span>
+                        <i></i>
+                    </div>
+                    <div className='inputBox'>
+                        <input type="text" required="required"/>
+                        <span>PASSWORD</span>
+                        <i></i>
+                    </div>
+                    <div className='inputBox'>
+                        <input type="text" required="required"/>
+                        <span>CONFIRM PASSWORD</span>
+                        <i></i>
+                    </div>
+                    <button className='modalButton'>Register</button>
                 </form>
             )
         }
