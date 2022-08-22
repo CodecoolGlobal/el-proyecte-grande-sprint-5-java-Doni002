@@ -22,7 +22,7 @@ const SignUpWindow = () => {
     const renderContent = () => {
         if(switchButton === "login"){
             return(
-                <form className='loginForm'>
+                <form className='modalForm'>
                     <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
                     <h1 className='loginWelcomeText'>Welcome Back!</h1>
                     <div className='inputBox'>
@@ -39,22 +39,17 @@ const SignUpWindow = () => {
                         <input id="rememberCheckbox" type='checkbox'></input>
                         <label id="checkboxLabel" for="rememberCheckbox">Remember me</label>
                     </div>
-                    <button className='loginButton'>Log In</button>
+                    <button className='modalButton'>Log In</button>
                 </form>
             )
         }
         else if(switchButton === "register"){
             return(
-                <form className="registerForm">
+                <form className="modalForm">
                     <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
-                    <h1 className='registerText'>Sign Up!</h1>
+                    <h1 className='loginWelcomeText'>Sign Up!</h1>
                     <div className='inputBox'>
                         <input type="text" required="required"/>
-                        <span>Username</span>
-                        <i></i>
-                    </div>
-                    <div className='inputBox'>
-                        <input type="text" required="Email"/>
                         <span>Username</span>
                         <i></i>
                     </div>
@@ -68,7 +63,7 @@ const SignUpWindow = () => {
                         <span>CONFIRM PASSWORD</span>
                         <i></i>
                     </div>
-                    <button className='registerButton'>Register</button>
+                    <button className='modalButton'>Register</button>
                 </form>
             )
         }
