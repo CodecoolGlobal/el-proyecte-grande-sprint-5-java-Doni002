@@ -45,9 +45,31 @@ const SignUpWindow = () => {
         }
         else if(switchButton === "register"){
             return(
-                <div className="comingSoonContainer">
-                    <p className='comingSoonParagraph'>Coming soon</p>
-                </div>
+                <form className="registerForm">
+                    <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
+                    <h1 className='registerText'>Sign Up!</h1>
+                    <div className='inputBox'>
+                        <input type="text" required="required"/>
+                        <span>Username</span>
+                        <i></i>
+                    </div>
+                    <div className='inputBox'>
+                        <input type="text" required="Email"/>
+                        <span>Username</span>
+                        <i></i>
+                    </div>
+                    <div className='inputBox'>
+                        <input type="text" required="required"/>
+                        <span>PASSWORD</span>
+                        <i></i>
+                    </div>
+                    <div className='inputBox'>
+                        <input type="text" required="required"/>
+                        <span>CONFIRM PASSWORD</span>
+                        <i></i>
+                    </div>
+                    <button className='registerButton'>Register</button>
+                </form>
             )
         }
     }
