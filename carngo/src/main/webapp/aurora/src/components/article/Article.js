@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import "./article.css";
 import Button from "../header/Button";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 const Article = (props) => {
@@ -29,7 +30,7 @@ const Article = (props) => {
     const renderImage = (side) => {
         if(pictureSide === side){
             return(
-                <img id="articleImg" src={imageSource}></img>
+                <LazyLoadImage id="articleImg" src={imageSource}></LazyLoadImage>
             )
         }
     }

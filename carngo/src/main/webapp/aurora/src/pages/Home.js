@@ -13,30 +13,30 @@ import "../components/suggestion/suggestion.css"
 const Home = () => {
     return (
         <>
-          <Header />
+            <Header />
             <ProgressBarContainer />
             <Article
-              text = "There are more than 1 million hosts worldwide to get your car from, and
+                text = "There are more than 1 million hosts worldwide to get your car from, and
 waiting for your reply to start your journey. The choice is yours to seize
 the moment to get unforgettable memories with your treasure-worthy
 friends or family with your dream car, with the help of Aurora."
-              title = "Rent your first car and start your journey now"
-              imageSource = {MapGuy}
-              buttonText = "Get started"
-              link = "/vehicles"
-              pictureSide = "left"
-              />
+                title = "Rent your first car and start your journey now"
+                imageSource = {MapGuy}
+                buttonText = "Get started"
+                link = "/vehicles"
+                pictureSide = "left"
+            />
             <Article
-              text = "Aurora gives you the freedom to become a host for people in need of
+                text = "Aurora gives you the freedom to become a host for people in need of
 transportation, and joy. If you have the opportunity to share your car and
 get exclusive rewards with percentage-based passive income. Don't wait no
 more. This is the right place to get the business done with our help."
-              title = "Become a host"
-              imageSource = {Business}
-              buttonText = "Get started"
-              link = "/vehicles"
-              pictureSide = "right"
-              />
+                title = "Become a host"
+                imageSource = {Business}
+                buttonText = "Get started"
+                link = "/vehicles"
+                pictureSide = "right"
+            />
             <ToggleArticle />
             <Slideshow />
             <article id="suggestionArticleContainer">
