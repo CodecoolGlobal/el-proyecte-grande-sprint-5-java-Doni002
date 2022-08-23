@@ -13,7 +13,7 @@ public class VehiclesPageDaoImo implements VehiclesPageDao {
 
     public VehiclesPageDaoImo() {
         vehiclesDatabase = new ArrayList<>();
-        vehiclesDatabase.add(new VehiclesModel(1,"vigyazzal ra", "kombi", "piros", "Wolkswagen", "passat", "ez dizel te ...", 1999, 5, 300, 19000, 56, 6));
+        //vehiclesDatabase.add(new VehiclesModel(1,"vigyazzal ra", "kombi", "piros", "Wolkswagen", "passat", "ez dizel te ...", 1999, 5, 300, 19000, 56, 6));
     }
 
     @Override
