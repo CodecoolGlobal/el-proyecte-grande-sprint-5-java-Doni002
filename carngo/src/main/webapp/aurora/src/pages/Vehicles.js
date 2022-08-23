@@ -11,7 +11,7 @@ const Vehicles = () => {
         <>
             <Parallax bgImage={CountryRoad} strength={-350}>
                 <Navbar />
-                <DisplayMap/>
+                <DisplayMap />
             </Parallax>
             <CarSlider/>
             <Footer />
