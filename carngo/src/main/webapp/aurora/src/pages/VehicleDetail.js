@@ -1,17 +1,17 @@
-import "../toggleArticle/toggleArticle.css";
-import "./vehicleDetail.css";
+import "../components/vehicle/vehicleDetail.css";
 import {useParams} from "react-router-dom";
-import VehicleSlider from "./VehicleSlider";
-import VehicleFeatures from "./VehicleFeatures";
-import HostReview from "./HostReview";
-import VehicleReview from "./VehicleReview";
-import imgOldTimer from "../img/oldtimerSquare.jpg";
-import imgExtreme from "../img/travis-essingerSquare.jpg";
-import imgMustang from "../img/mustangSquare.jpg";
-import imgBeast from "../img/beastSquare.jpg";
-import imgAudiWater from "../img/audiwaterSquare.jpg";
-import imgAudiRs from "../img/Audi-RSSquare.jpg";
-import imgTransport from "../img/mostafa-tarekSquare.jpg";
+import VehicleSlider from "../components/vehicle/VehicleSlider";
+import VehicleFeatures from "../components/vehicle/VehicleFeatures";
+import HostReview from "../components/vehicle/HostReview";
+import VehicleReview from "../components/vehicle/VehicleReview";
+import imgOldTimer from "../components/img/oldtimerSquare.jpg";
+import imgExtreme from "../components/img/travis-essingerSquare.jpg";
+import imgMustang from "../components/img/mustangSquare.jpg";
+import imgBeast from "../components/img/beastSquare.jpg";
+import imgAudiWater from "../components/img/audiwaterSquare.jpg";
+import imgAudiRs from "../components/img/Audi-RSSquare.jpg";
+import imgTransport from "../components/img/mostafa-tarekSquare.jpg";
+import Footer from "../components/footer/Footer";
 
 const VehicleDetail = () => {
     const id = useParams();
@@ -54,7 +54,7 @@ const VehicleDetail = () => {
         },
         {
             imgSrc: imgTransport,
-        },
+        }
     ]
     return (
         <>
@@ -62,6 +62,7 @@ const VehicleDetail = () => {
             <VehicleFeatures props={vehicle} />
             <HostReview />
             <VehicleReview />
+            <Footer />
         </>
     );
 };

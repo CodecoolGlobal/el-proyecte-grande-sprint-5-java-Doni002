@@ -1,7 +1,7 @@
 import './App.css';
 import Home from "./pages/Home";
 import Vehicles from "./pages/Vehicles";
-import VehicleDetail from "./components/vehicle/VehicleDetail";
+import VehicleDetail from "./pages/VehicleDetail";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Profile from './pages/Profile';
 

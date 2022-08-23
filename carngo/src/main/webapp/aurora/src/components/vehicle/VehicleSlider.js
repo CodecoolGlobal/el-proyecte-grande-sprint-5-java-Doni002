@@ -1,30 +1,23 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState } from 'react'
 import './vehicleDetail.css';
+import 'swiper/css/navigation';
 import { Navigation, Thumbs } from 'swiper'
-
-import imgOldTimer from "../img/oldtimerSquare.jpg";
-import imgMustang from "../img/mustangSquare.jpg"
-import imgBeast from "../img/beastSquare.jpg";
-import imgAudiWater from "../img/audiwaterSquare.jpg"
-import imgAudiRs from "../img/Audi-RSSquare.jpg";
-import imgTransport from "../img/mostafa-tarekSquare.jpg";
-import imgExtreme from "../img/travis-essingerSquare.jpg";
-
 
 const VehicleSlider = (props) => {
     const images = props.images;
     const [activeThumb, setActiveThumb] = useState();
 
     return (<>
-            <div className={"swiper-container"}>
+            <div className={"swiper-slide-container"}>
+                <div className={"swiper-slide"}>
 
         <Swiper
             loop={true}
             spaceBetween={10}
             navigation={true}
             modules={[Navigation, Thumbs]}
-            grabCursor={true}
+            grabCursor={false}
             thumbs={{ swiper: activeThumb }}
             className={"product-images-slider"}
         >
@@ -39,16 +32,16 @@ const VehicleSlider = (props) => {
         <Swiper
                     loop={false}
                     spaceBetween={20}
-                    slidesPerView={6}
+                    slidesPerView={10}
                     modules={[Navigation, Thumbs]}
+                    grabCursor={true}
                     className={"product-images-slider-thumbs"}
-                    watchSlidesProgress
                     onSwiper={setActiveThumb}
                 >
             {
                 images.map((item, index) => (
                     <SwiperSlide key={index}>
-                        <div className="product-images-slider-thumbs-wrapper">
+                        <div className="product-images-slider-thumbs-item">
                             <img src={item.imgSrc} alt="" />
                         </div>
                     </SwiperSlide>
@@ -56,6 +49,7 @@ const VehicleSlider = (props) => {
             }
         </Swiper>
             </div>
+        </div>
         </>
     );
 }
