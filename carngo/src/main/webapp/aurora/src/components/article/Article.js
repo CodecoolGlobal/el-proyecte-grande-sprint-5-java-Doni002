@@ -10,6 +10,10 @@ const Article = (props) => {
     const [imageSource, setImageSource] = useState();
     const [buttonText, setButtonText] = useState();
     const [pictureSide, setPictureSide] = useState();
+    const [link, setLink] = useState();
+    const [textColor, setTextColor] = useState("black");
+    const [hashTags, setHashTags] = useState("");
+
 
     useEffect(() => {
         setTitle(props.title)
@@ -17,23 +21,31 @@ const Article = (props) => {
         setImageSource(props.imageSource)
         setButtonText(props.buttonText)
         setPictureSide(props.pictureSide)
+        setTextColor(props.textColor)
+        setLink(props.link)
+        setHashTags(props.hashTags)
     },[])
 
     const renderImage = (side) => {
         if(pictureSide === side){
             return(
-                <img src={imageSource}></img>
+                <img id="articleImg" src={imageSource}></img>
             )
         }
+    }
+
+    const renderLink = () => {
+        return props.link === "vehicles" ? (<Link to={props.link}><Button text={buttonText}/></Link>) : (<a href={props.link}><Button text={buttonText}/></a>);
     }
 
     return (
         <div id="articleContainer">    
                 {renderImage("left")}
-            <div id="textContainer">
+            <div style={{color: textColor}} id="textContainer">
                 <h1 id="articleTitle">{title}</h1>
                 <p id="articleText">{text}</p>
-                <Link to={props.link}><Button text={buttonText}/></Link>
+                <p style={{wordSpacing : "1rem", textAlign : "center"}}>{hashTags}</p>
+                {renderLink()}
             </div>
             {renderImage("right")}
         </div>
