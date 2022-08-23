@@ -31,6 +31,6 @@ public class VehiclesPageController {
 
     @PostMapping
     public ResponseEntity<List<VehiclesModel>> getAllVehicles(){
-        return new ResponseEntity<>(vehiclesPageService.getAllVehicles(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(vehiclesPageService.getAllVehicles(), HttpStatus.OK);
     }
 }
