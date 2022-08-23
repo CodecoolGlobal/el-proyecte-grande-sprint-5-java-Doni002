@@ -55,6 +55,20 @@ const VehicleDetail = () => {
         {
             imgSrc: imgTransport,
         },
+        {
+            imgSrc: imgTransport,
+        },
+        {
+            imgSrc: imgTransport,
+        },        {
+            imgSrc: imgTransport,
+        },        {
+            imgSrc: imgTransport,
+        },        {
+            imgSrc: imgTransport,
+        },        {
+            imgSrc: imgTransport,
+        },
     ]
     return (
         <>
