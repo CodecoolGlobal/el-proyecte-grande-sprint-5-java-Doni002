@@ -2,10 +2,7 @@ package com.codecool.carngo.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Setter
@@ -14,7 +11,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Entity
 @Table(name = "vehicles")
-public class VehiclesModel {
+public class VehicleModel {
 
     @Id
     private int id;
@@ -29,6 +26,8 @@ public class VehiclesModel {
     private int trunkCapacity;
     private int pricePerDay;
     private int numOfReservations;
-    private int ownerId;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private HostModel host;
 
 }

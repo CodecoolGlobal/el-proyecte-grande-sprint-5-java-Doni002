@@ -18,11 +18,6 @@ public class ContactPageController {
         this.contactPageService = contactPageService;
     }
 
-    @GetMapping
-    public String loadContactPage(){
-        return "contact";
-    }
-
     @PostMapping
     public void sendEmail(){
         contactPageService.sendEmail();
