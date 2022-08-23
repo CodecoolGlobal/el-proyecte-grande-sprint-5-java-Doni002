@@ -1,5 +1,6 @@
 import "./toggleArticle.css"
 import { useState } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ToggleArticle = () => {
 
@@ -84,10 +85,10 @@ const ToggleArticle = () => {
 
     const renderImage = () => {
         if(switchButton === "guest"){
-            return <img className="taPicture" src="https://images.unsplash.com/photo-1580881647059-923632b8fd75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"></img>
+            return <LazyLoadImage className="taPicture" src="https://images.unsplash.com/photo-1580881647059-923632b8fd75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"></LazyLoadImage>
         }
         else if(switchButton === "host"){
-            return <img className="taPicture" src="https://images.unsplash.com/photo-1593672715438-d88a70629abe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"></img>
+            return <LazyLoadImage className="taPicture" src="https://images.unsplash.com/photo-1593672715438-d88a70629abe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"></LazyLoadImage>
             
         }
     }
