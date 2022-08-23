@@ -1,7 +1,7 @@
 package com.codecool.carngo.repository;
 
-import com.codecool.carngo.model.VehiclesModel;
+import com.codecool.carngo.model.VehicleModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface VehiclesRepository extends JpaRepository<VehiclesModel, Long> {
+public interface VehiclesRepository extends JpaRepository<VehicleModel, Long> {
 }

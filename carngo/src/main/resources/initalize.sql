@@ -74,19 +74,30 @@ CREATE TABLE car_feedback (
     star_rating int,
     message varchar(255),
     reserve_id int,
+    vehicle_id int,
+    user_id int,
+    date date,
     PRIMARY KEY (id),
     FOREIGN KEY (reserve_id)
-    REFERENCES car_reservation(id)
+    REFERENCES car_reservation(id),
+    FOREIGN KEY (vehicle_id)
+    REFERENCES vehicles(id),
+    FOREIGN KEY (user_id)
+    REFERENCES users(id)
 );
 
 CREATE TABLE user_feedback (
     id int,
     star_rating int,
     message varchar(255),
-    reserve_id int,
+    user_id int,
+    host_id int,
+    date date,
     PRIMARY KEY (id),
-    FOREIGN KEY (reserve_id)
-    REFERENCES car_reservation(id)
+    FOREIGN KEY (user_id)
+    REFERENCES users(id),
+    FOREIGN KEY (host_id)
+    REFERENCES hosts(id)
 );
 
 
