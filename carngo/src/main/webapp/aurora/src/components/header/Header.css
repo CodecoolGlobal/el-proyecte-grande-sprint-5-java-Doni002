@@ -106,7 +106,7 @@ nav {
     color: orange;
 }
 
-ul{
+nav > ul{
     padding:1rem;
     font-family:'Rubik', sans serif;
     font-size:1rem;
