@@ -4,7 +4,6 @@ import "./article.css";
 import Button from "../header/Button";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-
 const Article = (props) => {
     const [text, setText] = useState();
     const [title, setTitle] = useState();
@@ -40,7 +39,7 @@ const Article = (props) => {
     }
 
     return (
-        <div id="articleContainer">    
+        <div id="articleContainer">
                 {renderImage("left")}
             <div style={{color: textColor}} id="textContainer">
                 <h1 id="articleTitle">{title}</h1>
