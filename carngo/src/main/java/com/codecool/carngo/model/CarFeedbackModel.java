@@ -17,14 +17,14 @@ import java.time.LocalDate;
 public class CarFeedbackModel {
 
     @Id
-    private int id;
+    private Long id;
     private double starRating;
     private String message;
-    //private ReservationModel reservation;
     @ManyToOne
     private UserModel user;
-    @ManyToOne
-    private VehicleModel vehicle;
     private LocalDate date;
+    @ManyToOne
+    @JoinColumn(name = "vehicle_id")
+    private VehicleModel vehicle;
 
 }

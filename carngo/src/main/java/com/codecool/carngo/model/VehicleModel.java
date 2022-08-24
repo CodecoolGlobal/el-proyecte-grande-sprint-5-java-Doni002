@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class VehicleModel {
 
     @Id
-    private int id;
+    private Long id;
     private String description;
     private String carType;
     private String color;

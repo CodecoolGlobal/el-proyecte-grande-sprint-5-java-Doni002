@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class HostModel {
 
     @Id
-    private int id;
+    private Long id;
     private int bankAccountNumber;
     private String bankAccountName;
     @OneToOne
