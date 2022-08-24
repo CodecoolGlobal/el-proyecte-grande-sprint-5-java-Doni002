@@ -49,12 +49,12 @@ CREATE TABLE vehicles (
 
 CREATE TABLE car_availability (
     id int,
-    car_id int,
+    vehicle_id int,
     "from" date,
     "to" date,
     status boolean,
     PRIMARY KEY (id),
-    FOREIGN KEY (car_id)
+    FOREIGN KEY (vehicle_id)
     REFERENCES vehicles(id)
 );
 
@@ -63,9 +63,9 @@ CREATE TABLE car_reservation (
     "from" date,
     "to" date,
     renter_user_id int,
-    car_id int,
+    vehicle_id int,
     PRIMARY KEY (id),
-    FOREIGN KEY (car_id)
+    FOREIGN KEY (vehicle_id)
     REFERENCES vehicles(id),
     FOREIGN KEY (renter_user_id)
     REFERENCES  users(id)
@@ -75,13 +75,10 @@ CREATE TABLE car_feedback (
     id int,
     star_rating int,
     message varchar(255),
-    reserve_id int,
-    vehicle_id int,
     user_id int,
     date date,
+    vehicle_id int,
     PRIMARY KEY (id),
-    FOREIGN KEY (reserve_id)
-    REFERENCES car_reservation(id),
     FOREIGN KEY (vehicle_id)
     REFERENCES vehicles(id),
     FOREIGN KEY (user_id)

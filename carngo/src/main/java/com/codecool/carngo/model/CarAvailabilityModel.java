@@ -17,9 +17,9 @@ import java.time.LocalDate;
 public class CarAvailabilityModel {
 
     @Id
-    private int id;
+    private Long id;
     @ManyToOne
-    @JoinColumn(name = "car_id")
+    @JoinColumn(name = "vehicle_id")
     private VehicleModel vehicle;
     private LocalDate from;
     private LocalDate to;

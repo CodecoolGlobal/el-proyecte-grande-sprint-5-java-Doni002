@@ -17,13 +17,13 @@ import java.time.LocalDate;
 public class CarReservationModel {
 
     @Id
-    private int id;
+    private Long id;
     private LocalDate from;
     private LocalDate to;
     @ManyToOne
     @JoinColumn(name = "renter_user_id")
     private UserModel user;
     @ManyToOne
-    @JoinColumn(name = "car_id")
+    @JoinColumn(name = "vehicle_id")
     private VehicleModel vehicle;
 }

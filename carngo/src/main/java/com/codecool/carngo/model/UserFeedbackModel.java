@@ -20,7 +20,7 @@ import java.time.LocalDate;
 public class UserFeedbackModel {
 
     @Id
-    private int id;
+    private Long id;
     private double starRating;
     private String message;
     @ManyToOne
