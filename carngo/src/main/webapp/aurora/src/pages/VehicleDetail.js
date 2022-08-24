@@ -24,7 +24,14 @@ const VehicleDetail = () => {
     const vehicle = {
             name: "Audi RS",
             id: "001",
-            description:"Great car in a great condition.",
+            description:"Great car in a great condition.Lorem ipsum " +
+                "dolor sit amet, consectetur adipiscing elit. Ut erat tellus, porta ut eleifend sit amet, " +
+                "fringilla nec nulla. Aenean at facilisis nulla. Ut rhoncus tincidunt lorem non pretium. " +
+                "Curabitur feugiat turpis ut viverra sodales. Sed in luctus diam. Proin et laoreet orci. " +
+                "Praesent efficitur libero sit amet nibh tempor lobortis. Ut ullamcorper est erat. " +
+                "Etiam congue eu nulla a accumsan. Donec pretium lobortis rhoncus. Praesent vulputate, " +
+                "nisl ut pretium porta, libero enim tempor mi, elementum sodales urna enim quis lorem. " +
+                "Cras non eros sed diam mollis semper. Cras ultrices convallis maximus. ",
             carType: "Sport",
             color: "green",
             brandId: "Audi",
@@ -37,7 +44,6 @@ const VehicleDetail = () => {
             pricePerDay:"120",
             numOfReservations:"31",
             userId:"0012",
-            image: "../img/Audi-RS.jpg"
     }
 
     const images = [
@@ -63,6 +69,16 @@ const VehicleDetail = () => {
             imgSrc: imgTransport,
         }
     ]
+    const reviews = [
+        {name: "David",
+        review: "Good car and host."},
+        {name: "Tracey",
+            review: "Precise desciption."},
+        {name: "Joey",
+            review: "Had fun."},
+        {name: "Bud",
+            review: "Didn't meet up to my expectations."}
+    ]
     return (
         <>
             <Parallax bgImage={imgAbstract} strength={100}>
@@ -73,7 +89,7 @@ const VehicleDetail = () => {
                 <VehicleFeatures props={vehicle} />
                 <CalendarArticle />
             </div>
-            <HostReview />
+            <HostReview image={imgMustang} reviews={ reviews}/>
             <VehicleReview />
             <Footer />
         </>

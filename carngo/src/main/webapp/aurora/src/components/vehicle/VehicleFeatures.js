@@ -9,7 +9,7 @@ function VehicleFeatures(props) {
         <div className={"vArticle"}>
             <div className={"vTextContainer"}>
                 <h1>{vehicle.name}</h1><br/>
-                <div className={"vText"}><strong>DESCRIPTION:</strong> {vehicle.description}</div>
+                <div className={"vText "}><strong>DESCRIPTION:</strong> {vehicle.description}</div>
                 <div className="vFeatures borderFeature">
                     <div className={"vText vFeatureItem"}><GiGasPump /><strong> Fuel:</strong> {vehicle.fuel}</div>
                     <div className={"vText vFeatureItem"}><GiCarSeat /><strong> Number of seats: </strong>{vehicle.numOfSeats}</div>
