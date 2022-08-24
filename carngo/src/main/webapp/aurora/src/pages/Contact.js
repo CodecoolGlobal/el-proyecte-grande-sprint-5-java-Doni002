@@ -9,6 +9,7 @@ import Article from "../components/article/Article";
 import RolandMarton from "../components/img/RolandMarton.jpeg";
 import BarbaraHuszar from "../components/img/BarbaraHuszar.jfif";
 import AlparDonat from "../components/img/AlparDonat.jpg";
+import ZsoltPinter from "../components/img/ZsoltPinter.jpg";
 
 
 const Contact = () => {
@@ -48,7 +49,7 @@ const Contact = () => {
                     buttonText = "Check out profile"
                     textColor = "white"
                     imageSource = {AlparDonat}
-                    link = "https://www.linkedin.com/in/roland-m%C3%A1rton-632681216/"
+                    link = "https://www.linkedin.com/in/donat-alpar-bba557202/"
                     pictureSide = "left"
                 />
                 <Article
@@ -56,8 +57,8 @@ const Contact = () => {
                     title="Zsolt Pinter - Fullstack Developer"
                     buttonText = "Check out profile"
                     textColor = "white"
-                    imageSource = {RolandMarton}
-                    link = "https://www.linkedin.com/in/roland-m%C3%A1rton-632681216/"
+                    imageSource = {ZsoltPinter}
+                    link = "https://www.linkedin.com/in/zsolt-pinter-a33989249/"
                     pictureSide = "right"
                 />
             </Parallax>
