@@ -48,10 +48,12 @@ CREATE TABLE vehicles (
 );
 
 CREATE TABLE car_availability (
+    id int,
     car_id int,
-    "from" int,
-    "to" int,
+    "from" date,
+    "to" date,
     status boolean,
+    PRIMARY KEY (id),
     FOREIGN KEY (car_id)
     REFERENCES vehicles(id)
 );

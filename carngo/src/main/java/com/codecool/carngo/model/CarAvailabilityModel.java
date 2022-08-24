@@ -13,18 +13,15 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "car_feedback")
-public class CarFeedbackModel {
+@Table(name = "car_availability")
+public class CarAvailabilityModel {
 
     @Id
     private int id;
-    private double starRating;
-    private String message;
-    //private ReservationModel reservation;
     @ManyToOne
-    private UserModel user;
-    @ManyToOne
+    @JoinColumn(name = "car_id")
     private VehicleModel vehicle;
-    private LocalDate date;
-
+    private LocalDate from;
+    private LocalDate to;
+    private boolean status;
 }
