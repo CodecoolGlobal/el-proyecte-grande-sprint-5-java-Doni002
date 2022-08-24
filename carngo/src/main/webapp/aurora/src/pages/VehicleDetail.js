@@ -85,7 +85,7 @@ const VehicleDetail = () => {
                 <Navbar />
             </Parallax>
             <VehicleSlider images={ images}/>
-            <div style={{display:"flex"}}>
+            <div className="vehicleContainer">
                 <VehicleFeatures props={vehicle} />
                 <CalendarArticle />
             </div>
