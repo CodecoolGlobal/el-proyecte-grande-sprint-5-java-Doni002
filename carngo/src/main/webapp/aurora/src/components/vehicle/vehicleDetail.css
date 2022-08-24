@@ -1,7 +1,7 @@
 .vArticle {
+    width:60vw;
     display: flex;
     flex-direction: row;
-    max-width: 60%;
     font-size: 1em;
     font-family: 'Rubik', sans-serif;
     padding: 2.5rem;
@@ -18,10 +18,32 @@
     max-width: 30vw;
     border-radius: 20px;
 }
-.features {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.vText {
+    font-size: 1em;
+    line-height: 200%;
+}
+.vFeatures {
+    width:38vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2%;
+    margin: 5% 15%;
+}
+.borderFeature {
+    border-width: 3px;
+    border-style: solid;
+    border-image:
+            linear-gradient(
+                    to bottom,
+                    red,
+                    orange,
+                    white
+            ) 1 100%;
+}
+.vFeatureItem {
+    align-self: start;
+    justify-self: start;
+    margin: 5% 10%;
 }
 .swiper-slide-container {
     height: 65vh;
@@ -35,20 +57,12 @@
     border-image-slice: 1;
     width:100%;
 }
-.border {
-/*    display: flex;
-    flex-direction: row;*/
-    max-width: 250px;
-    padding: 1rem;
-    color: white;
-    border-width: 3px;
-    border-style: solid;
-    border-image:
-            linear-gradient(
-                    to left,
-                    red,
-                    orange
-            ) 1 100%;
+.borderBody {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background: #222;
 }
 
 .swiper-slide {
