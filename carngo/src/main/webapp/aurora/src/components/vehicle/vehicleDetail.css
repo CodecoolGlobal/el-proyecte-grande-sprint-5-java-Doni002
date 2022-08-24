@@ -1,7 +1,7 @@
 .vArticle {
+    width:60vw;
     display: flex;
     flex-direction: row;
-    max-width: 60%;
     font-size: 1em;
     font-family: 'Rubik', sans-serif;
     padding: 2.5rem;
@@ -18,14 +18,51 @@
     max-width: 30vw;
     border-radius: 20px;
 }
-.features {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.vText {
+    font-size: 1em;
+    line-height: 200%;
+}
+.vFeatures {
+    width:38vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2%;
+    margin: 5% 15%;
+}
+.borderFeature {
+    border-width: 3px;
+    border-style: solid;
+    border-image:
+            linear-gradient(
+                    to bottom,
+                    red,
+                    orange,
+                    white
+            ) 1 100%;
+}
+.vFeatureItem {
+    align-self: start;
+    justify-self: start;
+    margin: 5% 10%;
 }
 .swiper-slide-container {
     height: 65vh;
-    background-color: #525252;
+    background-color: #ffffff;
+}
+.border-bottom {
+    padding-bottom: 1%;
+    text-align:center;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(0.25turn, rgba(248, 219, 77, 0.89), rgb(255, 77, 0), rgba(56,2,155,0));
+    border-image-slice: 1;
+    width:100%;
+}
+.borderBody {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background: #222;
 }
 
 .swiper-slide {
@@ -44,12 +81,12 @@
 }
 .swiper-button-prev {
     left: 0;
-    color: #ffffff !important;
+    color: #d26636 !important;
 }
 
 .swiper-button-next {
     right:0;
-    color: #ffffff !important;
+    color: #d26636 !important;
 }
 
 .product-images-slider .swiper-slide {
@@ -64,7 +101,7 @@
 }
 .product-images-slider-thumbs .swiper-slide-thumb-active {
 
-    border-color: #ff0000;
+    border-color: #d26636;
 }
 .product-images-slider-thumbs-item{
     width: 100%;

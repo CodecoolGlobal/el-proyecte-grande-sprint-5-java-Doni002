@@ -12,6 +12,9 @@ import imgAudiWater from "../components/img/audiwaterSquare.jpg";
 import imgAudiRs from "../components/img/Audi-RSSquare.jpg";
 import imgTransport from "../components/img/mostafa-tarekSquare.jpg";
 import Footer from "../components/footer/Footer";
+import {Parallax} from "react-parallax";
+import Navbar from "../components/header/Navbar";
+import imgAbstract from "../components/img/car-back-lights.jpg"
 
 const VehicleDetail = () => {
     const id = useParams();
@@ -33,6 +36,7 @@ const VehicleDetail = () => {
             userId:"0012",
             image: "../img/Audi-RS.jpg"
     }
+
     const images = [
         {
             imgSrc: imgOldTimer,
@@ -58,6 +62,9 @@ const VehicleDetail = () => {
     ]
     return (
         <>
+            <Parallax bgImage={imgAbstract} strength={100}>
+                <Navbar />
+            </Parallax>
             <VehicleSlider images={ images}/>
             <VehicleFeatures props={vehicle} />
             <HostReview />
