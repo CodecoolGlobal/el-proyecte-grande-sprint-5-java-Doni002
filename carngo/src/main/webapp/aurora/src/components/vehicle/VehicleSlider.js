@@ -35,7 +35,7 @@ const VehicleSlider = (props) => {
                     slidesPerView={10}
                     modules={[Navigation, Thumbs]}
                     grabCursor={true}
-                    className={"product-images-slider-thumbs"}
+                    className={"product-images-slider-thumbs border-bottom"}
                     onSwiper={setActiveThumb}
                 >
             {
