@@ -8,19 +8,19 @@ function CalendarArticle(props) {
     return (
         <>
             <div className={"vArticle"}>
-                <div className={"vTextContainer"}>
+                <div id="calendarContainer" className={"vTextContainer"}>
                     <h1>Calendar</h1>
                     <Calendar onChange={setDate} value={date} selectRange={true} />
                     <div className="text-center">
                         {date.length > 0 ? (
                             <p>
-                                <span><strong>Start: </strong></span>{' '} {date[0].toDateString()}
+                                <div><strong>Start: </strong></div>{' '} {date[0].toDateString()}
                                 &nbsp; to &nbsp;
-                                <span><strong>End: </strong></span> {date[1].toDateString()}
+                                <div><strong>End: </strong></div> {date[1].toDateString()}
                             </p>
                         ) : (
                             <p>
-                                <span>Default selected date:</span>{' '} {date.toDateString()}
+                                <div>Default selected date:</div>{' '} {date.toDateString()}
                             </p>
                         )}
                     </div>
