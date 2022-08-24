@@ -6,8 +6,8 @@ import { GiResize } from 'react-icons/gi';
 function VehicleFeatures(props) {
     const vehicle = props.props;
     return (
-        <div className="vArticle">
-            <div className="vTextContainer">
+        <div className={"vArticle"}>
+            <div className={"vTextContainer"}>
                 <h1>{vehicle.name}</h1><br/>
                 <div className={"vText"}><strong>DESCRIPTION:</strong> {vehicle.description}</div>
                 <div className="vFeatures borderFeature">

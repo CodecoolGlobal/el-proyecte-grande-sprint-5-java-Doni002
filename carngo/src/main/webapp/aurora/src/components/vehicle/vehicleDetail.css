@@ -5,6 +5,7 @@
     font-size: 1em;
     font-family: 'Rubik', sans-serif;
     padding: 2.5rem;
+    align-items: flex-start;
 }
 .vTextContainer {
     display: flex;

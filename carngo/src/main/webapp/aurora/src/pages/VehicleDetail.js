@@ -1,5 +1,6 @@
 import "../components/vehicle/vehicleDetail.css";
 import {useParams} from "react-router-dom";
+import {useState} from "react";
 import VehicleSlider from "../components/vehicle/VehicleSlider";
 import VehicleFeatures from "../components/vehicle/VehicleFeatures";
 import HostReview from "../components/vehicle/HostReview";
@@ -15,6 +16,8 @@ import Footer from "../components/footer/Footer";
 import {Parallax} from "react-parallax";
 import Navbar from "../components/header/Navbar";
 import imgAbstract from "../components/img/car-back-lights.jpg"
+import CalendarArticle from "../components/vehicle/CalendarArticle"
+
 
 const VehicleDetail = () => {
     const id = useParams();
@@ -66,7 +69,10 @@ const VehicleDetail = () => {
                 <Navbar />
             </Parallax>
             <VehicleSlider images={ images}/>
-            <VehicleFeatures props={vehicle} />
+            <div style={{display:"flex"}}>
+                <VehicleFeatures props={vehicle} />
+                <CalendarArticle />
+            </div>
             <HostReview />
             <VehicleReview />
             <Footer />
