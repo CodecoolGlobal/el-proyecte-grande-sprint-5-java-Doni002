@@ -7,7 +7,7 @@ import Abstract from "../components/img/abstract.jpg"
 import ContactContainer from "../components/contact/contactContainer";
 import Article from "../components/article/Article";
 import RolandMarton from "../components/img/RolandMarton.jpeg";
-import BarbaraHuszar from "../components/img/BarbaraHuszar.jfif";
+import BarbaraHuszar from "../components/img/BarbaraHuszar.jpg";
 import AlparDonat from "../components/img/AlparDonat.jpg";
 import ZsoltPinter from "../components/img/ZsoltPinter.jpg";
 
