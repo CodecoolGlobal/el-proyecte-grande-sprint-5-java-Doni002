@@ -1,0 +1,115 @@
+.contactUsContainer {
+    display: flex;
+    color: black;
+    justify-content: space-evenly;
+    align-items: baseline;
+    font-family:'Rubik', sans serif;
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing: normal;
+    overflow-wrap: break-word;
+}
+
+.contactInfo {
+    display: flex;
+}
+
+.contactInfo > ul {
+    list-style-type: none;
+    font-size: 1rem;
+}
+
+.contactInfo li {
+    padding: 1rem;
+    font-size: 1rem;
+    overflow-wrap: break-word;
+}
+
+.contactUsText {
+    display: flex;
+    flex-direction: column;
+    line-height: 3rem;
+    font-size: 1rem;
+}
+
+.contactUsText:hover,
+.contactInfo:hover,
+#developerHeader:hover {
+    animation: button-hoverOn 0.5s forwards ease-out;
+    transition: animation 1s;
+}
+
+@keyframes button-hoverOn {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.065);
+    }
+}
+
+.contactUsText,
+.contactInfo,
+#developerHeader {
+    margin: 10rem 5rem 15rem;
+    padding: 1rem;
+    color: white;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(1em);
+
+    animation: button-hoverOff 0.5s forwards ease-out;
+    transition: animation 1s;
+}
+
+@keyframes button-hoverOff {
+    0% {
+        transform: scale(1.065);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+    border: 5em rgb(105,105,105);
+}
+
+#articleContainer > #articleImg {
+    width: 30%;
+}
+
+#developerHeader {
+    color: white;
+    text-align: center;
+    width: 75%;
+    margin: 5rem auto;
+}
+
+#textContainer {
+    font-family:'Rubik', sans serif;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 880px) {
+
+    .contactUsContainer {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .contactUsText > h1 {
+        text-align: center;
+    }
+
+    .contactUsText {
+        margin: 2.5rem 5rem 2.5rem;
+    }
+
+    .contactInfo {
+        margin: 2.5rem 0 5rem 0;
+    }
+
+}
