@@ -43,4 +43,13 @@ public class UserController {
         userService.addUser(body);
         return new ResponseEntity<>("User added successfully!", HttpStatus.OK);
     }
+
+    @PutMapping
+    public ResponseEntity<String> updateUserById(@RequestBody() Map<String, String> body){
+        int response = userService.updateUserById(body);
+        if (response == 200){
+            return new ResponseEntity<>("User updated successfully!", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("User not found with id: " + body.get("id"), HttpStatus.NOT_FOUND);
+    }
 }

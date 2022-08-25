@@ -32,4 +32,18 @@ public class UserService {
         UserModel newUser = new UserModel(body.get("name"), body.get("email"), body.get("password"));
         userRepository.save(newUser);
     }
+
+    public int updateUserById(Map<String, String> body){
+        Optional<UserModel> userToFind = userRepository.findById(Long.valueOf(body.get("id")));
+        if(userToFind.isPresent()){
+            UserModel user = userToFind.get();
+            user.setName(body.get("name"));
+            user.setEmail(body.get("email"));
+            user.setPassword(body.get("password"));
+            userRepository.save(user);
+            return 200;
+        }
+        return 404;
+    }
+
 }
