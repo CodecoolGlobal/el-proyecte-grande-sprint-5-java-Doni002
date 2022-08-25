@@ -21,6 +21,7 @@ public class VehicleModel {
     private String brand;
     private String model;
     private String fuel;
+    private String imageSource;
     private int vintage;
     private int numOfSeats;
     private int trunkCapacity;
