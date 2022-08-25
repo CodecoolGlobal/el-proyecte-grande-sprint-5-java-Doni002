@@ -1,14 +1,12 @@
 package com.codecool.carngo.service;
 
 import com.codecool.carngo.model.VehicleModel;
-import com.codecool.carngo.repository.CarAvailabilityRepository;
-import com.codecool.carngo.repository.CarFeedbackRepository;
-import com.codecool.carngo.repository.CarReservationRepository;
-import com.codecool.carngo.repository.VehiclesRepository;
+import com.codecool.carngo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -18,13 +16,16 @@ public class VehiclesService {
     private final CarReservationRepository carReservationRepository;
     private final CarFeedbackRepository carFeedbackRepository;
     private final CarAvailabilityRepository carAvailability;
+    private final HostRepository hostRepository;
 
     @Autowired
-    public VehiclesService(VehiclesRepository vehiclesRepository, CarReservationRepository carReservationRepository, CarFeedbackRepository carFeedbackRepository, CarAvailabilityRepository carAvailability) {
+    public VehiclesService(VehiclesRepository vehiclesRepository, CarReservationRepository carReservationRepository,
+                           CarFeedbackRepository carFeedbackRepository, CarAvailabilityRepository carAvailability, HostRepository hostRepository) {
         this.vehiclesRepository = vehiclesRepository;
         this.carReservationRepository = carReservationRepository;
         this.carFeedbackRepository = carFeedbackRepository;
         this.carAvailability = carAvailability;
+        this.hostRepository = hostRepository;
     }
 
     public List<VehicleModel> getAllVehicles(){
@@ -46,8 +47,12 @@ public class VehiclesService {
         return 404;
     }
 
- /*   public int editVehicle(){
-        vehiclesRepository.
-    }*/
+    public void adddVehicle(Map<String, String> body){
+        VehicleModel newVehicle = new VehicleModel(body.get("description"), body.get("carType"), body.get("color"),
+                body.get("brand"), body.get("model"), body.get("fuel"), Integer.parseInt(body.get("vintage")),
+                Integer.parseInt(body.get("numOfSeats")), Integer.parseInt(body.get("trunkCapacity")),
+                Integer.parseInt(body.get("pricePerDay")), 0, hostRepository.getReferenceById(Long.parseLong(body.get("ownerId"))));
+        vehiclesRepository.save(newVehicle);
+    }
 
 }

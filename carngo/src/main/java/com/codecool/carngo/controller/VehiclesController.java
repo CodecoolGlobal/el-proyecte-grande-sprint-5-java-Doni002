@@ -7,12 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RequestMapping("/api/vehicles")
@@ -49,7 +47,13 @@ public class VehiclesController {
             return new ResponseEntity<>("delete successful", HttpStatus.OK);
         }
         return new ResponseEntity<>("vehicle not found with id: " + id, HttpStatus.NOT_FOUND);
+    }
 
+    @PostMapping
+    public ResponseEntity<String> addVehicle(@RequestBody() Map<String, String> body){
+        vehiclesPageService.adddVehicle(body);
+        //validation should be added
+        return new ResponseEntity<>("Vehicle added successfully!", HttpStatus.OK);
     }
 
 }

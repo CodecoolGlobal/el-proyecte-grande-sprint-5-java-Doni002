@@ -109,16 +109,16 @@ INSERT INTO hosts (id, bank_account_number, bank_account_name, user_id)
 VALUES (2, 404307469, 'Erichsen', 1);
 
 INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (1, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'bmw', '7','petrol', 2022, 5, 500, 79000, 19, 2);
+VALUES (100, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'bmw', '7','petrol', 2022, 5, 500, 79000, 19, 2);
 
 INSERT INTO car_availability (id, vehicle_id, "from", "to", status)
-VALUES (1, 1, '2022-09-30', '2022-10-01', true);
+VALUES (1, 100, '2022-09-30', '2022-10-01', true);
 
 INSERT INTO car_reservation (id, "from", "to", renter_user_id, vehicle_id)
-VALUES (1, '2022-09-27', '2022-09-28', 2,1);
+VALUES (1, '2022-09-27', '2022-09-28', 2,100);
 
 INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (1, 3.9, 'i like the ride', 2, '2022-09-28',1);
+VALUES (1, 3.9, 'i like the ride', 2, '2022-09-28',100);
 
             /*that's actually a host feedback*/
 INSERT INTO user_feedback (id, star_rating, message, user_id, host_id, date)

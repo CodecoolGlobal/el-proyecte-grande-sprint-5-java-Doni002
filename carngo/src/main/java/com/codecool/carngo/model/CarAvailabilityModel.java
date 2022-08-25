@@ -17,6 +17,7 @@ import java.time.LocalDate;
 public class CarAvailabilityModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "vehicle_id")

@@ -17,6 +17,7 @@ import java.time.LocalDate;
 public class CarFeedbackModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private double starRating;
     private String message;

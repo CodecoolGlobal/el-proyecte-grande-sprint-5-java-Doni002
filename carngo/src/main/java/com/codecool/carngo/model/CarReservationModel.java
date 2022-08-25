@@ -17,6 +17,7 @@ import java.time.LocalDate;
 public class CarReservationModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate from;
     private LocalDate to;
