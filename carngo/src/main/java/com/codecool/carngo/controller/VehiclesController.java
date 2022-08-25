@@ -59,9 +59,11 @@ public class VehiclesController {
 
     @PutMapping
     public ResponseEntity<String> editVehicle(@RequestBody() Map<String, String> body){
-        vehiclesPageService.editVehicle(body);
-        //validation should be added
-        return new ResponseEntity<>("Vehicle edited successfully!", HttpStatus.OK);
+        int response = vehiclesPageService.editVehicle(body);
+        if(response == 200){
+            return new ResponseEntity<>("Vehicle edited successfully!", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Vehicle not found with id: " + body.get("id"), HttpStatus.NOT_FOUND);
     }
 
 }

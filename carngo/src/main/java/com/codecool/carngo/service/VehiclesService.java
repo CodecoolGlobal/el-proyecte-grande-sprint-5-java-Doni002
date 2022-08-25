@@ -72,6 +72,7 @@ public class VehiclesService {
             vehicleToEdit.setTrunkCapacity(Integer.parseInt(body.get("trunkCapacity")));
             vehicleToEdit.setPricePerDay(Integer.parseInt(body.get("pricePerDay")));
             vehiclesRepository.save(vehicleToEdit);
+            return 200;
         }
         return 404;
     }
