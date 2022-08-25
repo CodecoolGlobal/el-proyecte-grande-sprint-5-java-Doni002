@@ -9,8 +9,8 @@ function VehicleReviewSlider(props) {
     const reviews = props.reviews;
     return (
         <>
+            <h3 className={"host-h3"}>VEHICLE REVIEWS:</h3>
             <div className="vehicleReview">
-                <h3>Vehicle reviews:</h3>
                 <Swiper
                 loop={true}
                 slidesPerView={3}
@@ -33,9 +33,9 @@ function VehicleReviewSlider(props) {
                     </div>
                     <div className={"sliderVehicleReviewItemFeatures"}>
                         <div>{item.review}</div>
-                        <div>{item.experience}><GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
-                        <div>{item.condition}><GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
-                        <div>{item.consumption}><GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
+                        <div>{item.experience} <GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
+                        <div>{item.condition} <GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
+                        <div>{item.consumption} <GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
                     </div>
                 </SwiperSlide>
                 ))

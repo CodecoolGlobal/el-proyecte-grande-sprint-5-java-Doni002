@@ -132,9 +132,9 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     font-size: 1.2rem;
-    text-align: start;
+    text-align: left;
     font-weight: 800;
-    padding: 1rem;
+    padding: 2rem 5rem;
 }
 .hostImage {
     border-radius: 50%;
@@ -146,11 +146,15 @@
     flex-direction: column;
     align-items: center;
 }
+.vehicleReview h3 {
+    width: 80%;
+}
 .vehicleReview {
     width: 80%;
 }
 .sliderVehicleReview {
     flex-direction: column;
+    align-items: flex-start;
     display: flex;
     margin: 1rem;
     height: 30rem;

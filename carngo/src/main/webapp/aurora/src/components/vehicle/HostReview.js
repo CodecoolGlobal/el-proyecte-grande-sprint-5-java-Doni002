@@ -7,10 +7,9 @@ function HostReview(props) {
     const reviews = props.reviews;
     return (
         <>
-
-            <div className={"hostArticle "}>
+            <div className={"host-h3"}>HOSTED BY</div>
+            <div className={"hostArticle"}>
                 <div className={"hostContainer"}>
-                    <div className={"host-h3"}>HOSTED BY</div>
                     <img className={"hostImage"} src={image} alt=""/>
                     <div className={"vText"}><GiRoundStar />5 Jimmy</div>
                 </div>

@@ -76,7 +76,7 @@ const VehicleDetail = () => {
         {name: "Joey",
             review: "Had fun."},
         {name: "Bud",
-            review: "Didn't meet up to my expectations."}
+            review: "Didn't meet my expectations."}
     ]
     const vehicleReviews = [
         {name: "Claire",
@@ -99,7 +99,7 @@ const VehicleDetail = () => {
         consumption:5},
         {name: "George",
             image: imgBeast,
-        review: "Didn't meet up to my expectations.",
+        review: "Didn't meet my expectations.",
         experience: 4,
         condition:5,
         consumption:5}
