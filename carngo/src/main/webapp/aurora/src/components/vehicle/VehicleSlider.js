@@ -37,6 +37,32 @@ const VehicleSlider = (props) => {
                     grabCursor={true}
                     className={"product-images-slider-thumbs border-bottom"}
                     onSwiper={setActiveThumb}
+                    breakpoints={{
+                        0: {
+                            slidesPerView:1,
+                            spaceBetween: 10,
+                        },
+                        630: {
+                            slidesPerView:2,
+                            spaceBetween: 15,
+                        },
+                        880: {
+                            slidesPerView:3,
+                            spaceBetween: 15,
+                        },
+                        1150: {
+                            slidesPerView: 4,
+                            spaceBetween: 20,
+                        },
+                        1450: {
+                            slidesPerView: 5,
+                            spaceBetween: 20,
+                        },
+                        1730: {
+                            slidesPerView: 6,
+                            spaceBetween: 30,
+                        }
+                    }}
                 >
             {
                 images.map((item, index) => (

@@ -93,7 +93,7 @@
     text-transform: capitalize;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 900px) {
 
     .contactUsContainer {
         flex-direction: column-reverse;
