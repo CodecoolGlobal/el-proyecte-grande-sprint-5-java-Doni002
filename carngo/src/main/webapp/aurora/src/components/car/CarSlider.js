@@ -126,7 +126,7 @@ function CarSlider() {
                 {data.map(item=>{
                     return(
                         <SwiperSlide>
-                            <CarCard imgSrc={imgExtreme} name={item.brand} rate={item.numOfReservations} price={item.pricePerDay} />
+                            <CarCard imgSrc={imgExtreme} name={(item.brand + " " + item.model)} rate={item.numOfReservations} price={item.pricePerDay} />
                         </SwiperSlide>
                     )
                 })}
