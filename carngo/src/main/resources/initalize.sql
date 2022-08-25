@@ -33,6 +33,7 @@ CREATE TABLE vehicles (
      brand varchar(255),
      model varchar(255),
      fuel varchar(255),
+     image_source varchar(255),
      vintage int,
      num_of_seats int,
      trunk_capacity int,
@@ -108,23 +109,23 @@ VALUES (2, 'Ashlynn', 'Ashlynn@gmail.com', '987654321');
 INSERT INTO hosts (id, bank_account_number, bank_account_name, user_id)
 VALUES (2, 404307469, 'Erichsen', 1);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (100, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Toyota', 'Tacoma','petrol', 2022, 5, 500, 79000, 19, 2);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (100, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Toyota', 'Tacoma','petrol', '/travis-essingerSquare.jpg', 2022, 5, 500, 79000, 19, 2);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (200, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Audi', 'RS','petrol', 2022, 5, 500, 79000, 19, 2);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (200, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Audi', 'RS','petrol', '/Audi-RSSquare.jpg', 2022, 5, 500, 79000, 19, 2);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (300, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Ferrari', 'F40','petrol', 2022, 5, 500, 79000, 19, 2);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (300, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Ferrari', 'F40','petrol', '/ferrariSquare.jpg', 2022, 5, 500, 79000, 19, 2);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (400, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Bugatti', 'Chiron','petrol', 2022, 5, 500, 79000, 19, 2);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (400, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Bugatti', 'Chiron','petrol', '/bugattiSquare.jpeg', 2022, 5, 500, 79000, 19, 2);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (500, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Mercedes', 'AMG GT','petrol', 2022, 5, 500, 79000, 19, 2);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (500, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Mercedes', 'AMG GT','petrol', '/mercedesSquare.jpeg', 2022, 5, 500, 79000, 19, 2);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (600, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'McLaren', '720S','petrol', 2022, 5, 500, 79000, 19, 2);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (600, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'McLaren', '720S','petrol', '/mclarenSquare.jpg', 2022, 5, 500, 79000, 19, 2);
 
 INSERT INTO car_availability (id, vehicle_id, "from", "to", status)
 VALUES (1, 100, '2022-09-30', '2022-10-01', true);
