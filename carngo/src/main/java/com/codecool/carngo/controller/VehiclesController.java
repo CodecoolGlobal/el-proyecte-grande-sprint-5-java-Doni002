@@ -56,4 +56,11 @@ public class VehiclesController {
         return new ResponseEntity<>("Vehicle added successfully!", HttpStatus.OK);
     }
 
+    @PutMapping
+    public ResponseEntity<String> editVehicle(@RequestBody() Map<String, String> body){
+        vehiclesPageService.editVehicle(body);
+        //validation should be added
+        return new ResponseEntity<>("Vehicle edited successfully!", HttpStatus.OK);
+    }
+
 }

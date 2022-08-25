@@ -5,6 +5,7 @@ import com.codecool.carngo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -53,6 +54,26 @@ public class VehiclesService {
                 Integer.parseInt(body.get("numOfSeats")), Integer.parseInt(body.get("trunkCapacity")),
                 Integer.parseInt(body.get("pricePerDay")), 0, hostRepository.getReferenceById(Long.parseLong(body.get("ownerId"))));
         vehiclesRepository.save(newVehicle);
+    }
+
+    @Transactional
+    public int editVehicle(Map<String, String> body){
+        Optional<VehicleModel> vehicleToFind = vehiclesRepository.findById(Long.valueOf(body.get("id")));
+        if(vehicleToFind.isPresent()){
+            VehicleModel vehicleToEdit = vehicleToFind.get();
+            vehicleToEdit.setDescription(body.get("description"));
+            vehicleToEdit.setCarType(body.get("carType"));
+            vehicleToEdit.setColor(body.get("color"));
+            vehicleToEdit.setBrand(body.get("brand"));
+            vehicleToEdit.setModel(body.get("model"));
+            vehicleToEdit.setFuel(body.get("fuel"));
+            vehicleToEdit.setVintage(Integer.parseInt(body.get("vintage")));
+            vehicleToEdit.setNumOfSeats(Integer.parseInt(body.get("numOfSeats")));
+            vehicleToEdit.setTrunkCapacity(Integer.parseInt(body.get("trunkCapacity")));
+            vehicleToEdit.setPricePerDay(Integer.parseInt(body.get("pricePerDay")));
+            vehiclesRepository.save(vehicleToEdit);
+        }
+        return 404;
     }
 
 }
