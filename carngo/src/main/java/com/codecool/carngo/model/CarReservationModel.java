@@ -18,8 +18,8 @@ public class CarReservationModel {
 
     @Id
     private Long id;
-    private LocalDate from;
-    private LocalDate to;
+    private LocalDate fromDate;
+    private LocalDate toDate;
     @ManyToOne
     @JoinColumn(name = "renter_user_id")
     private UserModel user;
