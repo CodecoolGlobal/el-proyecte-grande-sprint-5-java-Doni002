@@ -79,6 +79,7 @@
 .swiper-slide-container {
     height: 65vh;
     background-color: #ffffff;
+    margin: 1rem;
 }
 .swiper-slide {
     position: center;
@@ -122,7 +123,7 @@
     overflow: hidden;
 }
 .product-images-slider-thumbs-item img {
-    width: 100%;
+    width: 50%;
 }
 .hostArticle {
     margin: 1rem;
