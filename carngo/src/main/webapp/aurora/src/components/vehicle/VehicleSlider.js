@@ -32,7 +32,7 @@ const VehicleSlider = (props) => {
         <Swiper
                     loop={false}
                     spaceBetween={20}
-                    slidesPerView={10}
+                    slidesPerView={8}
                     modules={[Navigation, Thumbs]}
                     grabCursor={true}
                     className={"product-images-slider-thumbs border-bottom"}

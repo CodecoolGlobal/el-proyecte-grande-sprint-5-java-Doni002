@@ -1,10 +1,9 @@
 import "../components/vehicle/vehicleDetail.css";
 import {useParams} from "react-router-dom";
-import {useState} from "react";
 import VehicleSlider from "../components/vehicle/VehicleSlider";
 import VehicleFeatures from "../components/vehicle/VehicleFeatures";
 import HostReview from "../components/vehicle/HostReview";
-import VehicleReview from "../components/vehicle/VehicleReview";
+import VehicleReviewSlider from "../components/vehicle/VehicleReviewSlider";
 import imgOldTimer from "../components/img/oldtimerSquare.jpg";
 import imgExtreme from "../components/img/travis-essingerSquare.jpg";
 import imgMustang from "../components/img/mustangSquare.jpg";
@@ -69,7 +68,7 @@ const VehicleDetail = () => {
             imgSrc: imgTransport,
         }
     ]
-    const reviews = [
+    const hostReviews = [
         {name: "David",
         review: "Good car and host."},
         {name: "Tracey",
@@ -77,7 +76,33 @@ const VehicleDetail = () => {
         {name: "Joey",
             review: "Had fun."},
         {name: "Bud",
-            review: "Didn't meet up to my expectations."}
+            review: "Didn't meet my expectations."}
+    ]
+    const vehicleReviews = [
+        {name: "Claire",
+        image: imgExtreme,
+        review: "Good car and host.",
+        experience: 4,
+        condition:5,
+        consumption:5},
+        {name: "Brandon",
+            image: imgAudiWater,
+        review: "Precise desciption.",
+        experience: 4,
+        condition:5,
+        consumption:5},
+        {name: "Lucy",
+            image: imgTransport,
+        review: "Had fun.",
+        experience: 4,
+        condition:5,
+        consumption:5},
+        {name: "George",
+            image: imgBeast,
+        review: "Didn't meet my expectations.",
+        experience: 4,
+        condition:5,
+        consumption:5}
     ]
     return (
         <>
@@ -89,8 +114,8 @@ const VehicleDetail = () => {
                 <VehicleFeatures props={vehicle} />
                 <CalendarArticle />
             </div>
-            <HostReview image={imgMustang} reviews={ reviews}/>
-            <VehicleReview />
+            <HostReview image={imgMustang} reviews={ hostReviews}/>
+            <VehicleReviewSlider reviews={ vehicleReviews}/>
             <Footer />
         </>
     );
