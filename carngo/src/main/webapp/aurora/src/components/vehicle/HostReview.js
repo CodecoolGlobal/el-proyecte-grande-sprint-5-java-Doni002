@@ -1,6 +1,6 @@
 import "./vehicleDetail.css"
 import {GiRoundStar} from 'react-icons/gi';
-import ReviewSlider from "./ReviewSlider";
+import HostReviewSlider from "./HostReviewSlider";
 
 function HostReview(props) {
     const image = props.image;
@@ -15,7 +15,7 @@ function HostReview(props) {
                     <div className={"vText"}><GiRoundStar />5 Jimmy</div>
                 </div>
                 <div className="swiperContainer">
-                     <ReviewSlider reviews={ reviews}/>
+                     <HostReviewSlider reviews={ reviews}/>
                 </div>
             </div>
         </>

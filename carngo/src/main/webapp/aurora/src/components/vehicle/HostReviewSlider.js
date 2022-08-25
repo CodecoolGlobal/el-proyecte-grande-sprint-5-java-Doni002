@@ -1,11 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useState } from 'react'
 import './vehicleDetail.css';
 import 'swiper/css/navigation';
 import {Autoplay, Navigation} from 'swiper'
 import "swiper/css/autoplay";
 
-function ReviewSlider(props) {
+function HostReviewSlider(props) {
     const reviews = props.reviews;
     return (
         <>
@@ -30,4 +29,4 @@ function ReviewSlider(props) {
     );
 }
 
-export default ReviewSlider;
+export default HostReviewSlider;

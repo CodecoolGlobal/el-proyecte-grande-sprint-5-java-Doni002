@@ -146,3 +146,32 @@
     flex-direction: column;
     align-items: center;
 }
+.vehicleReview {
+    width: 80%;
+}
+.sliderVehicleReview {
+    flex-direction: column;
+    display: flex;
+    margin: 1rem;
+    height: 30rem;
+}
+.sliderVehicleReviewItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    width: 30rem;
+}
+.sliderVehicleReviewItemFeatures {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+.sliderVehicleReviewItemImage {
+    justify-content: center;
+    align-items: center;
+}
+
