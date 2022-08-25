@@ -109,7 +109,22 @@ INSERT INTO hosts (id, bank_account_number, bank_account_name, user_id)
 VALUES (2, 404307469, 'Erichsen', 1);
 
 INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (1, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'bmw', '7','petrol', 2022, 5, 500, 79000, 19, 2);
+VALUES (1, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Toyota', 'Tacoma','petrol', 2022, 5, 500, 79000, 19, 2);
+
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (2, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Audi', 'RS','petrol', 2022, 5, 500, 79000, 19, 2);
+
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (3, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Ferrari', 'F40','petrol', 2022, 5, 500, 79000, 19, 2);
+
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (4, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Bugatti', 'Chiron','petrol', 2022, 5, 500, 79000, 19, 2);
+
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (5, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'Mercedes', 'AMG GT','petrol', 2022, 5, 500, 79000, 19, 2);
+
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (6, 'noi tulajdonostol alig hasznalt', 'sedan', 'red', 'McLaren', '720S','petrol', 2022, 5, 500, 79000, 19, 2);
 
 INSERT INTO car_availability (id, vehicle_id, "from", "to", status)
 VALUES (1, 1, '2022-09-30', '2022-10-01', true);
