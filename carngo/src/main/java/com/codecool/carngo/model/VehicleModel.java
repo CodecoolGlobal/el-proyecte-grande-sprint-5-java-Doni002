@@ -14,6 +14,8 @@ import javax.persistence.*;
 public class VehicleModel {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO, generator="my_entity_seq_gen")
+    @SequenceGenerator(name="my_entity_seq_gen", sequenceName="MY_ENTITY_SEQ")
     private Long id;
     private String description;
     private String carType;
@@ -30,4 +32,20 @@ public class VehicleModel {
     @JoinColumn(name = "owner_id")
     private HostModel host;
 
+
+    public VehicleModel(String description, String carType, String color, String brand, String model, String fuel,
+                        int vintage, int numOfSeats, int trunkCapacity, int pricePerDay, int numOfReservations, HostModel host) {
+        this.description = description;
+        this.carType = carType;
+        this.color = color;
+        this.brand = brand;
+        this.model = model;
+        this.fuel = fuel;
+        this.vintage = vintage;
+        this.numOfSeats = numOfSeats;
+        this.trunkCapacity = trunkCapacity;
+        this.pricePerDay = pricePerDay;
+        this.numOfReservations = numOfReservations;
+        this.host = host;
+    }
 }
