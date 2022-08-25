@@ -2,12 +2,14 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import './CarCard.css';
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 function CarCard(props) {
     const imgSrc = props.imgSrc;
     const name = props.name;
     const rate = props.rate;
     const price = props.price;
+    const id = props.id;
 
     const [img, setImg] = useState();
 
@@ -25,7 +27,9 @@ function CarCard(props) {
     return (
         <Card className="car-glow-on-hover">
             <div>
-                <Card.Img className="carCardImg" src={img}/>
+                <Link to={"/vehicles/" + id}>
+                    <Card.Img className="carCardImg" src={img}/>
+                </Link>
             </div>
             <Card.Body className="carCardFooterContainer">
                 <h3 style={{gridArea:"header"}}>{name}</h3>
