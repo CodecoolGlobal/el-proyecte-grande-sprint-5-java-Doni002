@@ -26,7 +26,7 @@ const ContactContainer = (props) => {
             emailType : "Email",
             emailValue : "zsol.pz@gmail.com ",
             phoneType : "Phone",
-            phoneValue : "+36301234567"
+            phoneValue : "+36306257595"
         }
     ]
 

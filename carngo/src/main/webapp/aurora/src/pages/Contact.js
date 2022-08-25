@@ -53,13 +53,14 @@ const Contact = () => {
                     pictureSide = "left"
                 />
                 <Article
-                    text="Insert your promo here"
+                    text="An Ambitious And Aspiring Fullstack Software Developer From Codecool Academy With Excellent Hard Skills To Work On The Most Difficult Projects, Problems. Moreover, Distinguished Soft Capabilities To Work In A Team As A Leader Or Member Either. I'm Still Enthusiastic About Grabbing Onto Any Other Programming Languages, Frameworks."
                     title="Zsolt Pinter - Fullstack Developer"
                     buttonText = "Check out profile"
                     textColor = "white"
                     imageSource = {ZsoltPinter}
                     link = "https://www.linkedin.com/in/zsolt-pinter-a33989249/"
                     pictureSide = "right"
+                    hashTags = "#HTML #CSS #Bootstrap5 #Javascript #React #Git #Java #Thymeleaf #SpringBoot #Python-Flask #Jinja #PostgreSQL #SQL #Python #VScode #Pycharm #IntelliJ-Idea #Unittest #Docker #Postman #C C++ #C#"
                 />
             </Parallax>
             <Footer />
