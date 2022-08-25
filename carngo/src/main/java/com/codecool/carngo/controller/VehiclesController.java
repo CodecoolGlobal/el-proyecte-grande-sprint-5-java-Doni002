@@ -32,7 +32,6 @@ public class VehiclesController {
 
     @GetMapping(value="{id}")
     public ResponseEntity<Optional<VehicleModel>> getVehicleById(@PathVariable("id") Long id){
-        System.out.println(id);
         Optional<VehicleModel> vehicle = vehiclesPageService.getVehicleById(id);
         if(vehicle.isPresent()){
             return new ResponseEntity<>(vehicle, HttpStatus.OK);

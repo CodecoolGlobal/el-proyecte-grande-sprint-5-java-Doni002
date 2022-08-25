@@ -12,5 +12,6 @@ public interface CarAvailabilityRepository extends JpaRepository<CarAvailability
     @Transactional
     @Modifying
     @Query(nativeQuery = true, value = "DELETE FROM car_availability WHERE vehicle_id = ?1")
-    void deleteCarFeedbackByCarId(Long id);
+    void deleteCarAvailabilityByCarId(Long id);
 }
+
