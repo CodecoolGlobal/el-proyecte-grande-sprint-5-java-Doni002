@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import './CarCard.css';
+import {useEffect, useState} from "react";
 
 function CarCard(props) {
     const imgSrc = props.imgSrc;
@@ -8,11 +9,23 @@ function CarCard(props) {
     const rate = props.rate;
     const price = props.price;
 
+    const [img, setImg] = useState();
+
+    const fetchImage = async () => {
+        const response = await fetch(`http://localhost:8080/api/image${imgSrc}`);
+        const imageBlob = await response.blob();
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        setImg(imageObjectURL);
+    };
+
+    useEffect(() => {
+        fetchImage().then();
+    }, []);
 
     return (
         <Card className="car-glow-on-hover">
             <div>
-                <Card.Img className="carCardImg" src={imgSrc}/>
+                <Card.Img className="carCardImg" src={img}/>
             </div>
             <Card.Body className="carCardFooterContainer">
                 <h3 style={{gridArea:"header"}}>{name}</h3>
