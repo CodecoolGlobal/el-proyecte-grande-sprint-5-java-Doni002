@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RequestMapping("/api/vehicles")
+@CrossOrigin(origins = "http://localhost:3000")
 @Controller
 public class VehiclesController {
 

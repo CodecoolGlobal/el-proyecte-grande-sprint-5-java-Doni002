@@ -5,14 +5,42 @@ import {EffectCoverflow, Mousewheel} from "swiper";
 import 'swiper/css';
 import CarCard from './CarCard';
 import imgExtreme from "../img/travis-essingerSquare.jpg";
-import imgAudi from "../img/Audi-RS.jpg";
+/*import imgAudi from "../img/Audi-RS.jpg";
 import imgFerrari from "../img/ferrariSquare.jpg";
 import imgMercedes from "../img/mercedesSquare.jpeg";
 import imgBugatti from "../img/bugattiSquare.jpeg";
-import imgMclaren from "../img/mclarenSquare.jpg";
+import imgMclaren from "../img/mclarenSquare.jpg";*/
+import {useEffect, useState} from "react";
 
-const CarSlider = () => {
-    const elements = [
+function CarSlider() {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState([]);
+
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const response = await fetch(
+                    `http://localhost:8080/api/vehicles`
+                );
+                if (!response.ok) {
+                    throw new Error(
+                        `This is an HTTP error: The status is ${response.status}`
+                    );
+                }
+                let actualData = await response.json();
+                setData(actualData);
+                setError(null);
+            } catch(err) {
+                setError(err.message);
+                setData(null);
+            } finally {
+                setLoading(false);
+            }
+        }
+        getData().then();
+    }, [error]);
+    /*const elements = [
         {
             imgSrc: imgExtreme,
             name: "Toyota Tacoma 2014",
@@ -49,7 +77,7 @@ const CarSlider = () => {
             rate: "3.7",
             price: "214",
         },
-    ]
+    ]*/
 
     return (
         <div className="carSliderContainer">
@@ -95,10 +123,10 @@ const CarSlider = () => {
                     }
                 }}
             >
-                {elements.map(item=>{
+                {data.map(item=>{
                     return(
                         <SwiperSlide>
-                            <CarCard imgSrc={item.imgSrc} name={item.name} rate={item.rate} price={item.price} />
+                            <CarCard imgSrc={imgExtreme} name={(item.brand + " " + item.model)} rate={item.numOfReservations} price={item.pricePerDay} />
                         </SwiperSlide>
                     )
                 })}

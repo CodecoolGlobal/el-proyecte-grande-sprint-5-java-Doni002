@@ -22,7 +22,7 @@ public class CarAvailabilityModel {
     @ManyToOne
     @JoinColumn(name = "vehicle_id")
     private VehicleModel vehicle;
-    private LocalDate from;
-    private LocalDate to;
+    private LocalDate fromDate;
+    private LocalDate toDate;
     private boolean status;
 }
