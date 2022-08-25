@@ -4,12 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import {EffectCoverflow, Mousewheel} from "swiper";
 import 'swiper/css';
 import CarCard from './CarCard';
-import imgExtreme from "../img/travis-essingerSquare.jpg";
-/*import imgAudi from "../img/Audi-RS.jpg";
-import imgFerrari from "../img/ferrariSquare.jpg";
-import imgMercedes from "../img/mercedesSquare.jpeg";
-import imgBugatti from "../img/bugattiSquare.jpeg";
-import imgMclaren from "../img/mclarenSquare.jpg";*/
 import {useEffect, useState} from "react";
 
 function CarSlider() {
@@ -40,45 +34,6 @@ function CarSlider() {
         }
         getData().then();
     }, [error]);
-    /*const elements = [
-        {
-            imgSrc: imgExtreme,
-            name: "Toyota Tacoma 2014",
-            rate: "4.1",
-            price: "100",
-        },
-        {
-            imgSrc: imgAudi,
-            name: "Audi RS 2019",
-            rate: "3.2",
-            price: "132",
-        },
-        {
-            imgSrc: imgFerrari,
-            name: "Ferrari F40",
-            rate: "4.9",
-            price: "220",
-        },
-        {
-            imgSrc: imgBugatti,
-            name: "Bugatti Chiron",
-            rate: "4.3",
-            price: "301",
-        },
-        {
-            imgSrc: imgMercedes,
-            name: "Mercedes AMG GT",
-            rate: "4.4",
-            price: "264",
-        },
-        {
-            imgSrc: imgMclaren,
-            name: "McLaren 720S",
-            rate: "3.7",
-            price: "214",
-        },
-    ]*/
-
     return (
         <div className="carSliderContainer">
             <Swiper
@@ -126,7 +81,7 @@ function CarSlider() {
                 {data.map(item=>{
                     return(
                         <SwiperSlide>
-                            <CarCard imgSrc={imgExtreme} name={(item.brand + " " + item.model)} rate={item.numOfReservations} price={item.pricePerDay} />
+                            <CarCard imgSrc={item.imageSource} name={(item.brand + " " + item.model)} rate={item.numOfReservations} price={item.pricePerDay} />
                         </SwiperSlide>
                     )
                 })}
