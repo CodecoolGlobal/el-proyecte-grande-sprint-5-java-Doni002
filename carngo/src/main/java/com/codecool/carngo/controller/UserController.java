@@ -52,4 +52,13 @@ public class UserController {
         }
         return new ResponseEntity<>("User not found with id: " + body.get("id"), HttpStatus.NOT_FOUND);
     }
+
+    @DeleteMapping(value = "{id}")
+    public ResponseEntity<String> deleteUserById(@PathVariable long id){
+        int response = userService.deleteUserById(id);
+        if(response == 200){
+            return new ResponseEntity<>("User deleted successfully!", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("User not found with id: " + id, HttpStatus.NOT_FOUND);
+    }
 }

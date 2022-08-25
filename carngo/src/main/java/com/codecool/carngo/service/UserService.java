@@ -1,10 +1,9 @@
 package com.codecool.carngo.service;
 
 import com.codecool.carngo.model.UserModel;
-import com.codecool.carngo.repository.UserRepository;
+import com.codecool.carngo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Map;
@@ -14,10 +13,22 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final HostRepository hostRepository;
+    private final VehiclesRepository vehiclesRepository;
+    private final CarAvailabilityRepository carAvailabilityRepository;
+    private final CarReservationRepository carReservationRepository;
+    private final CarFeedbackRepository carFeedbackRepository;
+    private final UserFeedbackRepository userFeedbackRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, HostRepository hostRepository, VehiclesRepository vehiclesRepository, CarAvailabilityRepository carAvailability, CarReservationRepository carReservationRepository, CarFeedbackRepository carFeedbackRepository, UserFeedbackRepository userFeedbackRepository) {
         this.userRepository = userRepository;
+        this.hostRepository = hostRepository;
+        this.vehiclesRepository = vehiclesRepository;
+        this.carAvailabilityRepository = carAvailability;
+        this.carReservationRepository = carReservationRepository;
+        this.carFeedbackRepository = carFeedbackRepository;
+        this.userFeedbackRepository = userFeedbackRepository;
     }
 
     public List<UserModel> getAllUser(){
@@ -41,6 +52,24 @@ public class UserService {
             user.setEmail(body.get("email"));
             user.setPassword(body.get("password"));
             userRepository.save(user);
+            return 200;
+        }
+        return 404;
+    }
+
+    public int deleteUserById(Long id){
+        if(userRepository.findById(id).isPresent()){
+            userFeedbackRepository.deleteUserFeedbackByUserId(id);
+            userFeedbackRepository.deleteUserFeedbackByHostId(hostRepository.findHostByUserId(id).get(0).getId());
+            carFeedbackRepository.deleteCarFeedbackByCarId(vehiclesRepository.
+                    getVehicleByOwnerId(hostRepository.findHostByUserId(id).get(0).getId()).get(0).getId());
+            carReservationRepository.deleteReservationByVehicleId(vehiclesRepository.
+                    getVehicleByOwnerId(hostRepository.findHostByUserId(id).get(0).getId()).get(0).getId());
+            carAvailabilityRepository.deleteCarAvailabilityByCarId(vehiclesRepository.
+                    getVehicleByOwnerId(hostRepository.findHostByUserId(id).get(0).getId()).get(0).getId());
+            vehiclesRepository.deleteVehicleByOwnerId(hostRepository.findHostByUserId(id).get(0).getId());
+            hostRepository.deleteHostByUserId(id);
+            userRepository.deleteById(id);
             return 200;
         }
         return 404;
