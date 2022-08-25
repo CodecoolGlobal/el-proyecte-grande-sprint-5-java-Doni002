@@ -41,7 +41,7 @@ public class VehiclesService {
         if(vehiclesRepository.findById(id).isPresent()){
             carFeedbackRepository.deleteCarFeedbackByCarId(id);
             carReservationRepository.deleteReservationByVehicleId(id);
-            carAvailability.deleteCarFeedbackByCarId(id);
+            carAvailability.deleteCarAvailabilityByCarId(id);
             vehiclesRepository.deleteById(id);
             return 200;
         }
