@@ -35,7 +35,7 @@ const Contact = () => {
                     hashTags = "#HTML #CSS #Bootstrap5 #TailwindCSS #Sass #Javascript #Typescript #React #Angular #Git #Java #JUnit #Thymeleaf #SpringBoot #Python-Flask #Jinja #PostgreSQL #SQL #Python #VScode #Pycharm #IntelliJ-Idea #Unittest #Docker #Postman"
                 />
                 <Article
-                    text="Insert your promo here"
+                    text="Solution-focused mind with a creative touch. Eager to learn. Her easy going personality makes it easy to make a good fit in any team."
                     title="Barbara Szabo-Huszar - Fullstack Developer"
                     buttonText = "Check out profile"
                     textColor = "white"
