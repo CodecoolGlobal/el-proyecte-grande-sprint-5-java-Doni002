@@ -20,4 +20,8 @@ public class UserFeedbackService {
     public List<UserFeedbackModel> getAllUserFeedback(){
         return userFeedbackRepository.findAll();
     }
+
+    public List<UserFeedbackModel> getUserFeedbacksForHost(Long id) {
+        return userFeedbackRepository.findUserFeedbacksForHost(id);
+    }
 }
