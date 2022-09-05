@@ -11,6 +11,7 @@ CREATE TABLE users (
                        name varchar(255),
                        email varchar(255),
                        password varchar(255),
+                       image_source varchar(255),
                        PRIMARY KEY (id)
 );
 
@@ -99,11 +100,11 @@ CREATE TABLE user_feedback (
 
 /* TEST DATA */
 
-INSERT INTO users (id, name, email, password)
-VALUES (1, 'Tom B. Erichsen', 'Erichsen@gmail.com', 'Password123');
+INSERT INTO users (id, name, email, password, image_source)
+VALUES (1, 'Tom B. Erichsen', 'Erichsen@gmail.com', 'Password123', 'defaultProfile.jpg');
 
-INSERT INTO users (id, name, email, password)
-VALUES (2, 'Ashlynn', 'Ashlynn@gmail.com', '987654321');
+INSERT INTO users (id, name, email, password, image_source)
+VALUES (2, 'Ashlynn', 'Ashlynn@gmail.com', '987654321', 'defaultProfile.jpg');
 
 INSERT INTO hosts (id, bank_account_number, bank_account_name, user_id)
 VALUES (2, 404307469, 'Erichsen', 1);
