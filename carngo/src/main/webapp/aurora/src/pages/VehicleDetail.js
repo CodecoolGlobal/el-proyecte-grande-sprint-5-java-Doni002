@@ -18,34 +18,39 @@ import VehicleReviewSlider from "../components/vehicle/VehicleReviewSlider";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/header/Navbar";
 import CalendarArticle from "../components/vehicle/CalendarArticle"
+import {useEffect, useState} from "react";
 
 
 const VehicleDetail = () => {
-    const id = useParams();
-    const vehicle = {
-            name: "Audi RS",
-            id: "001",
-            description:"Great car in a great condition.Lorem ipsum " +
-                "dolor sit amet, consectetur adipiscing elit. Ut erat tellus, porta ut eleifend sit amet, " +
-                "fringilla nec nulla. Aenean at facilisis nulla. Ut rhoncus tincidunt lorem non pretium. " +
-                "Curabitur feugiat turpis ut viverra sodales. Sed in luctus diam. Proin et laoreet orci. " +
-                "Praesent efficitur libero sit amet nibh tempor lobortis. Ut ullamcorper est erat. " +
-                "Etiam congue eu nulla a accumsan. Donec pretium lobortis rhoncus. Praesent vulputate, " +
-                "nisl ut pretium porta, libero enim tempor mi, elementum sodales urna enim quis lorem. " +
-                "Cras non eros sed diam mollis semper. Cras ultrices convallis maximus. ",
-            carType: "Sport",
-            color: "green",
-            brandId: "Audi",
-            model: "RS",
-            fuel:"petrol",
-            vintage:"",
-            numOfSeats:"5",
-            numOfDoors:"5",
-            trunkCapacity:"315",
-            pricePerDay:"120",
-            numOfReservations:"31",
-            userId:"0012",
-    }
+    const {id} = useParams();
+
+    const [data, setData] = useState(undefined);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState([]);
+
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const response = await fetch(
+                    `http://localhost:8080/api/vehicles/${id}`
+                );
+                if (!response.ok) {
+                    throw new Error(
+                        `This is an HTTP error: The status is ${response.status}`
+                    );
+                }
+                let actualData = await response.json();
+                setData(actualData);
+                setError(null);
+            } catch(err) {
+                setError(err.message);
+                setData(null);
+            } finally {
+                setLoading(false);
+            }
+        }
+        getData().then();
+    }, [error]);
 
     const images = [
         {
@@ -113,10 +118,10 @@ const VehicleDetail = () => {
             </Parallax>
             <VehicleSlider images={ images}/>
             <div className="vehicleContainer">
-                <VehicleFeatures props={vehicle} />
+                <VehicleFeatures data={data} />
                 <CalendarArticle />
             </div>
-            <HostReview image={imgMustang} reviews={ hostReviews}/>
+            <HostReview data={data}/>
             <VehicleReviewSlider reviews={ vehicleReviews}/>
             <Footer />
         </>
