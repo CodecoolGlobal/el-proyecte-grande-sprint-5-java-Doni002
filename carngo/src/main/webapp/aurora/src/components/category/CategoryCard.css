@@ -1,0 +1,107 @@
+.categorySliderTitle{
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 60px;
+    font-family:'Rubik', sans serif;
+    text-transform: uppercase;
+}
+.categoryCardImg{
+    width: 270px;
+    height: 270px;
+    border-radius: 10px;
+}
+
+.categoryCardSvg{
+    width: 35px;
+    height: 35px;
+}
+
+.categoryCardFooterContainer{
+    justify-content: left;
+    display : flex;
+}
+
+.categoryCardMessageContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+.categorySliderContainer{
+    margin: 60px;
+}
+
+.categoryCardSvgContainer{
+    margin: 10px;
+}
+
+.categoryCard{
+    border-radius: 15px;
+}
+
+.category-glow-on-hover {
+    margin: 10px;
+    width: 270px;
+    height: 335px;
+    border: none;
+    outline: none;
+    color: #000;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 15px;
+}
+
+.category-glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #E5E4E2, #D3D3D3, #C0C0C0, #B2BEB5, #A9A9A9, #808080, #848884, #708090, #71797E);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 15px;
+}
+
+.category-glow-on-hover:active {
+    color: #fff
+}
+
+.category-glow-on-hover:active:after {
+    background: transparent;
+}
+
+.category-glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.category-glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    left: 0;
+    top: 0;
+    border-radius: 15px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+@media screen and (max-width: 400px) {
+    div.categorySliderContainer {
+        display: none;
+    }
+}
