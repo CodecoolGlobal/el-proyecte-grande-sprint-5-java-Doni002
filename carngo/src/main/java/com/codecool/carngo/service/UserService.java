@@ -3,6 +3,7 @@ package com.codecool.carngo.service;
 import com.codecool.carngo.model.UserModel;
 import com.codecool.carngo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,9 +20,11 @@ public class UserService {
     private final CarReservationRepository carReservationRepository;
     private final CarFeedbackRepository carFeedbackRepository;
     private final UserFeedbackRepository userFeedbackRepository;
+    private final PasswordEncoder passwordEncoder;
+
 
     @Autowired
-    public UserService(UserRepository userRepository, HostRepository hostRepository, VehiclesRepository vehiclesRepository, CarAvailabilityRepository carAvailability, CarReservationRepository carReservationRepository, CarFeedbackRepository carFeedbackRepository, UserFeedbackRepository userFeedbackRepository) {
+    public UserService(UserRepository userRepository, HostRepository hostRepository, VehiclesRepository vehiclesRepository, CarAvailabilityRepository carAvailability, CarReservationRepository carReservationRepository, CarFeedbackRepository carFeedbackRepository, UserFeedbackRepository userFeedbackRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.hostRepository = hostRepository;
         this.vehiclesRepository = vehiclesRepository;
@@ -29,6 +32,7 @@ public class UserService {
         this.carReservationRepository = carReservationRepository;
         this.carFeedbackRepository = carFeedbackRepository;
         this.userFeedbackRepository = userFeedbackRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<UserModel> getAllUser(){
@@ -39,9 +43,16 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public void addUser(Map<String, String> body){
-        UserModel newUser = new UserModel(body.get("name"), body.get("email"), body.get("password"));
-        userRepository.save(newUser);
+    public int addUser(Map<String, String> body){
+        int usersByName = userRepository.getUsersByName(body.get("name")).size();
+        int usersByEmail = userRepository.getUsersByEmail(body.get("email")).size();
+        if(usersByName == 0 && usersByEmail == 0){
+            UserModel newUser = new UserModel(body.get("name"), body.get("email"), encryptPassword(body.get("password")));
+            userRepository.save(newUser);
+            return 200;
+        }
+        return 406;
+
     }
 
     public int updateUserById(Map<String, String> body){
@@ -73,6 +84,23 @@ public class UserService {
             return 200;
         }
         return 404;
+    }
+
+    private String encryptPassword(String password){
+        return passwordEncoder.encode(password);
+    }
+
+    public UserModel validateLogin(Map<String, String> body){
+        List<UserModel> optionalUser = userRepository.getUsersByName(body.get("name"));
+        UserModel user;
+        if(optionalUser.size() > 0) {
+            user = optionalUser.get(0);
+            if(passwordEncoder.matches(body.get("password"), user.getPassword())){
+                user.setPassword(null); //not sending the password to frontend
+                return user;
+            }
+        }
+        return null;
     }
 
 }
