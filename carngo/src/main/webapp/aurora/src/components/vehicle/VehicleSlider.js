@@ -7,8 +7,24 @@ import 'swiper/css/navigation';
 
 
 const VehicleSlider = (props) => {
-    const images = props.images;
+    const carData = props.carData;
     const [activeThumb, setActiveThumb] = useState();
+    const [img, setImg] = useState([]);
+
+    useEffect(() => {
+        const fetchImage = async () => {
+            const response = await fetch(`http://localhost:8080/api/image/carProfile/${carData.imageSource}`);
+            const imageBlob = await response.blob();
+            const imageObjectURL = URL.createObjectURL(imageBlob);
+            setImg([imageObjectURL, imageObjectURL]);
+        };
+
+        fetchImage().then();
+    }, [carData]);
+
+    if(img === undefined){
+        return (<h1>Loading...</h1>)
+    }
 
     return (<>
             <div className={"swiper-slide-container"}>
