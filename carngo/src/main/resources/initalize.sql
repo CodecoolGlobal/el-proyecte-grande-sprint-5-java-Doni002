@@ -101,7 +101,7 @@ CREATE TABLE user_feedback (
 
 /* TEST DATA */
 INSERT INTO users (id, name, email, password, image_source)
-VALUES (7, 'Alpár Donát', 'alpardonat02@gmail.com', '1234', 'AlparDonat.jpg');
+VALUES (7, 'Donát Alpár', 'alpardonat02@gmail.com', '1234', 'AlparDonat.jpg');
 
 INSERT INTO users (id, name, email, password, image_source)
 VALUES (6, 'Barbara Huszár', 'szabo.huszar.barbara@gmail.com', '1234', 'BarbaraHuszar.jpg');
@@ -163,10 +163,6 @@ VALUES (1, 100, '2022-09-30', '2022-10-01', true);
 INSERT INTO car_reservation (id, "from", "to", renter_user_id, vehicle_id)
 VALUES (1, '2022-09-27', '2022-09-28', 2,100);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (1, 3.9, 'i like the ride', 2, '2022-09-28',100);
-
-/*that's actually a host feedback*/
 INSERT INTO user_feedback (id, star_rating, message, user_id, host_id, date)
 VALUES (1, 3.9, 'the host was really kind', 1, 2, '2022-09-28');
 
@@ -214,3 +210,75 @@ VALUES (15, 5, 'I kinda like him :)', 5, 3, '2022-09-21');
 
 INSERT INTO user_feedback (id, star_rating, message, user_id, host_id, date)
 VALUES (16, 5, 'He has the best car ever!', 4, 3, '2022-09-21');
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (1, 3.9, 'Precise desciption.', 7, '2022-09-28',100);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (2, 3.9, 'Had fun.', 6, '2022-09-28',100);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (3, 3.9, 'Did not meet my expectations.', 5, '2022-09-28',100);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (4, 3.9, 'Good car and host', 4, '2022-09-28',100);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (5, 3.9, 'Precise desciption.', 7, '2022-09-28',200);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (6, 3.9, 'Had fun.', 6, '2022-09-28',200);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (7, 3.9, 'Did not meet my expectations.', 5, '2022-09-28',200);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (8, 3.9, 'Good car and host', 4, '2022-09-28',200);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (9, 3.9, 'Precise desciption.', 7, '2022-09-28',300);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (10, 3.9, 'Had fun.', 6, '2022-09-28',300);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (11, 3.9, 'Did not meet my expectations.', 5, '2022-09-28',300);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (12, 3.9, 'Good car and host', 4, '2022-09-28',300);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (13, 3.9, 'Precise desciption.', 7, '2022-09-28',400);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (14, 3.9, 'Had fun.', 6, '2022-09-28',400);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (15, 3.9, 'Did not meet my expectations.', 5, '2022-09-28',400);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (16, 3.9, 'Good car and host', 4, '2022-09-28',400);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (17, 3.9, 'Precise desciption.', 7, '2022-09-28',500);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (18, 3.9, 'Had fun.', 6, '2022-09-28',500);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (19, 3.9, 'Did not meet my expectations.', 5, '2022-09-28',500);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (20, 3.9, 'Good car and host', 4, '2022-09-28',500);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (21, 3.9, 'Precise desciption.', 7, '2022-09-28',600);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (22, 3.9, 'Had fun.', 6, '2022-09-28',600);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (23, 3.9, 'Did not meet my expectations.', 5, '2022-09-28',600);
+
+INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
+VALUES (24, 3.9, 'Good car and host', 4, '2022-09-28',600);
