@@ -13,11 +13,22 @@ import java.io.InputStream;
 @Controller
 public class ImageController {
 
-    @GetMapping(value="/{path}")
+    @GetMapping(value="/carProfile/{path}")
     @ResponseBody
-    public ResponseEntity<InputStreamResource> getImageDynamicType(@PathVariable("path") String path) {
+    public ResponseEntity<InputStreamResource> getCarImage(@PathVariable("path") String path) {
         MediaType contentType = MediaType.IMAGE_JPEG;
-        InputStream in = getClass().getResourceAsStream("/img/" + path);
+        InputStream in = getClass().getResourceAsStream("/img/carProfiles/" + path);
+        assert in != null;
+        return ResponseEntity.ok()
+                .contentType(contentType)
+                .body(new InputStreamResource(in));
+    }
+
+    @GetMapping(value="/userProfile/{path}")
+    @ResponseBody
+    public ResponseEntity<InputStreamResource> getUserImage(@PathVariable("path") String path) {
+        MediaType contentType = MediaType.IMAGE_JPEG;
+        InputStream in = getClass().getResourceAsStream("/img/userProfiles/" + path);
         assert in != null;
         return ResponseEntity.ok()
                 .contentType(contentType)

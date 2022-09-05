@@ -14,7 +14,7 @@ function CarCard(props) {
     const [img, setImg] = useState();
 
     const fetchImage = async () => {
-        const response = await fetch(`http://localhost:8080/api/image/${imgSrc}`);
+        const response = await fetch(`http://localhost:8080/api/image/carProfile/${imgSrc}`);
         const imageBlob = await response.blob();
         const imageObjectURL = URL.createObjectURL(imageBlob);
         setImg(imageObjectURL);
