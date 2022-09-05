@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class UserModel {
-
+    static final String DEFAULT_PROFILE = "defaultProfile.jpg";
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO, generator="my_entity_seq_gen")
     @SequenceGenerator(name="my_entity_seq_gen", sequenceName="MY_ENTITY_SEQ")
@@ -22,10 +22,11 @@ public class UserModel {
     private String name;
     private String email;
     private String password;
-
+    private String imageSource;
     public UserModel(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.imageSource = DEFAULT_PROFILE;
     }
 }
