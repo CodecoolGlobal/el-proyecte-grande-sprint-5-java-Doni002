@@ -1,0 +1,55 @@
+.gallery {
+    display: flex;
+    padding: 2px;
+    transition: .3s;
+    align-items: center;
+    margin: 5rem;
+}
+
+.gallery__column {
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+ }
+
+.gallery__link {
+    margin: 2px;
+    overflow: hidden;
+}
+
+.gallery .gallery__image:hover {
+    filter: grayscale(1);
+}
+
+.gallery__thumb {
+    position: relative;
+ }
+
+.gallery__image {
+    display: block;
+    width: 100%;
+    transition: .3s;
+}
+
+.gallery__image:hover {
+    transform: scale(1.1);
+ }
+
+.gallery__caption {
+    position: absolute;
+    bottom: 0;
+     left: 0;
+     padding: 25px 15px 15px;
+     width: 100%;
+     font-family: 'Raleway', sans-serif;
+     font-size: 16px;
+     color: white;
+     opacity: 1;
+     background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255 ,255 , 0) 100%);
+     transition: .3s;
+    animation: fade-in
+ }
+
+.gallery__caption:hover {
+    opacity: 0;
+}

@@ -1,6 +1,8 @@
 import "./vehicleDetail.css"
+
 import {GiRoundStar} from 'react-icons/gi';
 import HostReviewSlider from "./HostReviewSlider";
+
 
 function HostReview(props) {
     const image = props.image;

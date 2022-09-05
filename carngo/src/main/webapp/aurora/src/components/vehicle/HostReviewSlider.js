@@ -1,8 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import {Autoplay, Navigation} from 'swiper'
+
 import './vehicleDetail.css';
 import 'swiper/css/navigation';
-import {Autoplay, Navigation} from 'swiper'
 import "swiper/css/autoplay";
+
 
 function HostReviewSlider(props) {
     const reviews = props.reviews;

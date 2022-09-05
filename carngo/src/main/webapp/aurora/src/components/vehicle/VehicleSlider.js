@@ -1,8 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Thumbs } from 'swiper'
 import { useState } from 'react'
+
 import './vehicleDetail.css';
 import 'swiper/css/navigation';
-import { Navigation, Thumbs } from 'swiper'
+
 
 const VehicleSlider = (props) => {
     const images = props.images;
