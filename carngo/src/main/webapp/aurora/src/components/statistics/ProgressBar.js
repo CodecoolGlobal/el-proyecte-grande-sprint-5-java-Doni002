@@ -1,9 +1,11 @@
 import React from "react";
-import "./statistics.css"
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
 import { easeQuadInOut } from "d3-ease";
 import AnimatedProgressProvider from "./AnimatedProgressProvider";
+
+import "./statistics.css"
+import "react-circular-progressbar/dist/styles.css";
+
 
 const ProgressBar = (props) => {
     const { type, count } = props;

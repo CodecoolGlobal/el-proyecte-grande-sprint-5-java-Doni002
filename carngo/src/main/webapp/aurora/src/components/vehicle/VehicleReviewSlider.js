@@ -1,9 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import {Autoplay, Mousewheel, Pagination} from 'swiper'
+import {GiRoundStar} from 'react-icons/gi';
+
 import "./vehicleDetail.css";
 import 'swiper/css/pagination';
-import {Autoplay, Mousewheel, Pagination} from 'swiper'
 import "swiper/css/autoplay";
-import {GiRoundStar} from 'react-icons/gi';
+
 
 function VehicleReviewSlider(props) {
     const reviews = props.reviews;

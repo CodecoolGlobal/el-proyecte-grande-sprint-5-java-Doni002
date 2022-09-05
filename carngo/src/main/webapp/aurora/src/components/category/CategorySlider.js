@@ -5,13 +5,13 @@ import { EffectCoverflow, Mousewheel} from "swiper";
 import 'swiper/css';
 import CategoryCard from './CategoryCard';
 
-import imgOldTimer from "../img/oldtimerSquare.jpg";
-import imgMustang from "../img/mustangSquare.jpg"
-import imgBeast from "../img/beastSquare.jpg";
-import imgAudiWater from "../img/audiwaterSquare.jpg"
-import imgAudiRs from "../img/Audi-RSSquare.jpg";
-import imgTransport from "../img/mostafa-tarekSquare.jpg";
-import imgExtreme from "../img/travis-essingerSquare.jpg";
+import imgOldTimer from "../img/swiperImg/oldtimerSquare.jpg";
+import imgMustang from "../img/swiperImg/mustangSquare.jpg"
+import imgBeast from "../img/swiperImg/beastSquare.jpg";
+import imgAudiWater from "../img/swiperImg/audiwaterSquare.jpg"
+import imgAudiRs from "../img/swiperImg/Audi-RSSquare.jpg";
+import imgTransport from "../img/swiperImg/mostafa-tarekSquare.jpg";
+import imgExtreme from "../img/swiperImg/travis-essingerSquare.jpg";
 import svgElectric from "../svg/battery-charging.svg";
 import svgStars from "../svg/stars.svg";
 import svgTruck from "../svg/truck.svg";

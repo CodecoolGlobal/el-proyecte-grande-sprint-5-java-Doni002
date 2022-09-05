@@ -2,14 +2,14 @@ import React from 'react';
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/header/Navbar";
 import {Parallax} from "react-parallax";
-import Office from "../components/img/office.jpg";
-import Abstract from "../components/img/abstract.jpg"
+import Office from "../components/img/otherImg/office.jpg";
+import Abstract from "../components/img/otherImg/abstract.jpg"
 import ContactContainer from "../components/contact/contactContainer";
 import Article from "../components/article/Article";
-import RolandMarton from "../components/img/RolandMarton.jpeg";
-import BarbaraHuszar from "../components/img/BarbaraHuszar.jpg";
-import AlparDonat from "../components/img/AlparDonat.jpg";
-import ZsoltPinter from "../components/img/ZsoltPinter.jpg";
+import RolandMarton from "../components/img/contactUsImg/RolandMarton.jpeg";
+import BarbaraHuszar from "../components/img/contactUsImg/BarbaraHuszar.jpg";
+import AlparDonat from "../components/img/contactUsImg/AlparDonat.jpg";
+import ZsoltPinter from "../components/img/contactUsImg/ZsoltPinter.jpg";
 
 
 const Contact = () => {

@@ -1,20 +1,22 @@
 import "../components/vehicle/vehicleDetail.css";
+import {Parallax} from "react-parallax";
 import {useParams} from "react-router-dom";
+
+import imgOldTimer from "../components/img/swiperImg/oldtimerSquare.jpg";
+import imgExtreme from "../components/img/swiperImg/travis-essingerSquare.jpg";
+import imgMustang from "../components/img/swiperImg/mustangSquare.jpg";
+import imgBeast from "../components/img/swiperImg/beastSquare.jpg";
+import imgAudiWater from "../components/img/swiperImg/audiwaterSquare.jpg";
+import imgAudiRs from "../components/img/swiperImg/Audi-RSSquare.jpg";
+import imgTransport from "../components/img/swiperImg/mostafa-tarekSquare.jpg";
+import imgAbstract from "../components/img/otherImg/car-back-lights.jpg"
+
 import VehicleSlider from "../components/vehicle/VehicleSlider";
 import VehicleFeatures from "../components/vehicle/VehicleFeatures";
 import HostReview from "../components/vehicle/HostReview";
 import VehicleReviewSlider from "../components/vehicle/VehicleReviewSlider";
-import imgOldTimer from "../components/img/oldtimerSquare.jpg";
-import imgExtreme from "../components/img/travis-essingerSquare.jpg";
-import imgMustang from "../components/img/mustangSquare.jpg";
-import imgBeast from "../components/img/beastSquare.jpg";
-import imgAudiWater from "../components/img/audiwaterSquare.jpg";
-import imgAudiRs from "../components/img/Audi-RSSquare.jpg";
-import imgTransport from "../components/img/mostafa-tarekSquare.jpg";
 import Footer from "../components/footer/Footer";
-import {Parallax} from "react-parallax";
 import Navbar from "../components/header/Navbar";
-import imgAbstract from "../components/img/car-back-lights.jpg"
 import CalendarArticle from "../components/vehicle/CalendarArticle"
 
 

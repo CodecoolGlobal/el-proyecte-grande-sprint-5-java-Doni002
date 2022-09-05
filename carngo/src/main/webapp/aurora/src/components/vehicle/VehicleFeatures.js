@@ -3,6 +3,7 @@ import { GiGasPump } from 'react-icons/gi';
 import { GiCarSeat } from 'react-icons/gi';
 import { GiResize } from 'react-icons/gi';
 
+
 function VehicleFeatures(props) {
     const vehicle = props.props;
     return (
