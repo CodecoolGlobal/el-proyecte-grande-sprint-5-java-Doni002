@@ -5,7 +5,7 @@ import {Autoplay, Mousewheel, Pagination} from 'swiper'
 import "swiper/css/autoplay";
 import {GiRoundStar} from 'react-icons/gi';
 import {useEffect, useState} from "react";
-import ProfilePicture from "../profilePicture/ProfilePicture";
+import ProfilePicture from "../imageFetch/ProfilePicture";
 
 function VehicleReviewSlider(props) {
     const carData = props.carData;
@@ -29,7 +29,6 @@ function VehicleReviewSlider(props) {
     if(feedbacks === undefined){
         return (<h1>Loading...</h1>)
     }
-    console.log('feeeeeeedbaaaaacks:::::: ----- >        :   ' + feedbacks[0].user.imageSource);
     return (
         <>
             <h3 className={"host-h3"}>VEHICLE REVIEWS:</h3>

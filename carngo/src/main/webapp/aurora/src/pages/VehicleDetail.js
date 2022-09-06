@@ -44,14 +44,14 @@ const VehicleDetail = () => {
     }, [error]);
 
     if(data === undefined){
-        return(<h1>Please wait 1 second</h1>)
+        return(<div></div>)
     }
     return (
         <>
             <Parallax bgImage={imgAbstract} strength={100}>
                 <Navbar />
             </Parallax>
-            <VehicleSlider carData={ data}/>
+            <VehicleSlider carData={data}/>
             <div className="vehicleContainer">
                 <VehicleFeatures data={data} />
                 <CalendarArticle />
