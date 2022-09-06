@@ -4,7 +4,6 @@ import {GiRoundStar} from 'react-icons/gi';
 import HostReviewSlider from "./HostReviewSlider";
 import ProfilePicture from "../imageFetch/ProfilePicture";
 
-
 function HostReview(props) {
     const carData = props.data;
     return (

@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState } from 'react'
-
 import './vehicleDetail.css';
 import 'swiper/css/navigation';
 import { Navigation, Thumbs } from 'swiper'

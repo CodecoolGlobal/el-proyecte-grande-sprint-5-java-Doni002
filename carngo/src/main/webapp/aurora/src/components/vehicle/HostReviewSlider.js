@@ -6,7 +6,6 @@ import 'swiper/css/navigation';
 import "swiper/css/autoplay";
 import {useEffect, useState} from "react";
 
-
 function HostReviewSlider(props) {
     const host = props.host;
     const [feedbacks, setFeedbacks] = useState(undefined);
