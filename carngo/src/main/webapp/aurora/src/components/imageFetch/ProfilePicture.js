@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import defaultPicture from "../img/defaultProfile.jpg";
 
-function Profile(props){
+function ProfilePicture(props){
     const path = props.img;
     const [img, setImg] = useState(undefined);
     useEffect(() => {
@@ -20,4 +20,4 @@ function Profile(props){
     }
     return(<img className={"hostImage"} src={img} alt=""/>)
 }
-export default Profile;
+export default ProfilePicture;
