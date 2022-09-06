@@ -48,9 +48,8 @@ CREATE TABLE vehicles (
 CREATE TABLE car_availability (
                                   id int,
                                   vehicle_id int,
-                                  "from" date,
-                                  "to" date,
-                                  status boolean,
+                                  from_date date,
+                                  to_date date,
                                   PRIMARY KEY (id),
                                   FOREIGN KEY (vehicle_id)
                                       REFERENCES vehicles(id)
@@ -58,8 +57,8 @@ CREATE TABLE car_availability (
 
 CREATE TABLE car_reservation (
                                  id int,
-                                 "from" date,
-                                 "to" date,
+                                 from_date date,
+                                 to_date date,
                                  renter_user_id int,
                                  vehicle_id int,
                                  PRIMARY KEY (id),
@@ -127,10 +126,10 @@ VALUES (500, 'noi tulajdonostol alig hasznalt', 'sedan', 'yellow', 'Mercedes', '
 INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
 VALUES (600, 'noi tulajdonostol alig hasznalt', 'sedan', 'blue', 'McLaren', '720S','petrol', 'mclarenSquare.jpg', 2021, 5, 200, 210, 5, 2);
 
-INSERT INTO car_availability (id, vehicle_id, "from", "to", status)
-VALUES (1, 100, '2022-09-30', '2022-10-01', true);
+INSERT INTO car_availability (id, vehicle_id, from_date, to_date)
+VALUES (10, 100, '2022-09-30', '2022-10-01');
 
-INSERT INTO car_reservation (id, "from", "to", renter_user_id, vehicle_id)
+INSERT INTO car_reservation (id, from_date, to_date, renter_user_id, vehicle_id)
 VALUES (1, '2022-09-27', '2022-09-28', 2,100);
 
 INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
