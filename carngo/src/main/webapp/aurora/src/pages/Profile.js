@@ -17,59 +17,46 @@ import ProfileContainer from "../components/profile/profileContainer";
 import HostReview from "../components/vehicle/HostReview";
 import VehicleReviewSlider from "../components/vehicle/VehicleReviewSlider";
 import DisplayMap from "../components/mapComponent/DisplayMap";
+import {useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 
 const Profile = () => {
+    const {id} = useParams();
+    const [data, setData] = useState(undefined);
 
-    const hostReviews = [
-        {name: "David",
-            review: "Good car and host."},
-        {name: "Tracey",
-            review: "Precise desciption."},
-        {name: "Joey",
-            review: "Had fun."},
-        {name: "Bud",
-            review: "Didn't meet my expectations."}
-    ]
 
-    const vehicleReviews = [
-        {name: "Claire",
-            image: imgExtreme,
-            review: "Good car and host.",
-            experience: 4,
-            condition:5,
-            consumption:5},
-        {name: "Brandon",
-            image: imgAudiWater,
-            review: "Precise desciption.",
-            experience: 4,
-            condition:5,
-            consumption:5},
-        {name: "Lucy",
-            image: imgTransport,
-            review: "Had fun.",
-            experience: 4,
-            condition:5,
-            consumption:5},
-        {name: "George",
-            image: imgBeast,
-            review: "Didn't meet my expectations.",
-            experience: 4,
-            condition:5,
-            consumption:5}
-    ]
+    useEffect(() => {
 
+        const getData = async () => {
+            const response = await fetch(
+                `http://localhost:8080/api/vehicles/user-id/${id}`
+            );
+            if (!response.ok) {
+                throw new Error(
+                    `This is an HTTP error: The status is ${response.status}`
+                );
+            }
+            let actualData = await response.json();
+            setData(actualData);
+        }
+        getData().catch(reason => {console.log(reason)});
+    }, [id]);
+
+    if(data === undefined){
+        return(<div></div>)
+    }
     return (
         <>
             <div style={{backgroundColor: "#111111"}}>
                 <Navbar />
             </div>
-            <ProfileContainer />
+            <ProfileContainer data={data}/>
             <Parallax bgImage={cityRoad} strength={500}>
                 <DisplayMap />
             </Parallax>
-            <HostReview image={imgMustang} reviews={ hostReviews}/>
-            <VehicleReviewSlider reviews={ vehicleReviews}/>
+            <HostReview data={data[0]}/>
+            <VehicleReviewSlider carData={data[0]}/>
             <Footer />
         </>
     )
