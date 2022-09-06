@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS car_availability;
+DROP TABLE IF EXISTS car_images;
 DROP TABLE IF EXISTS car_feedback;
 DROP TABLE IF EXISTS user_feedback;
 DROP TABLE IF EXISTS car_reservation;
@@ -27,74 +28,85 @@ CREATE TABLE hosts (
 
 
 CREATE TABLE vehicles (
-                          id int,
-                          description varchar(255),
-                          car_type varchar(255),
-                          color varchar(255),
-                          brand varchar(255),
-                          model varchar(255),
-                          fuel varchar(255),
-                          image_source varchar(255),
-                          vintage int,
-                          num_of_seats int,
-                          trunk_capacity int,
-                          price_per_day int,
-                          num_of_reservations int,
-                          owner_id int,
-                          PRIMARY KEY (id),
-                          FOREIGN KEY (owner_id)
-                              REFERENCES hosts(id)
+                      id int,
+                      description varchar(255),
+                      car_type varchar(255),
+                      color varchar(255),
+                      brand varchar(255),
+                      model varchar(255),
+                      fuel varchar(255),
+                      image_source varchar(255),
+                      vintage int,
+                      num_of_seats int,
+                      trunk_capacity int,
+                      price_per_day int,
+                      num_of_reservations int,
+                      owner_id int,
+                      PRIMARY KEY (id),
+                      FOREIGN KEY (owner_id)
+                          REFERENCES hosts(id)
 );
 
 CREATE TABLE car_availability (
-                                  id int,
-                                  vehicle_id int,
-                                  from_date date,
-                                  to_date date,
-                                  PRIMARY KEY (id),
-                                  FOREIGN KEY (vehicle_id)
-                                      REFERENCES vehicles(id)
+                      id int,
+                      vehicle_id int,
+                      "from" date,
+                      "to" date,
+                      status boolean,
+                      PRIMARY KEY (id),
+                      FOREIGN KEY (vehicle_id)
+                          REFERENCES vehicles(id)
 );
 
 CREATE TABLE car_reservation (
-                                 id int,
-                                 from_date date,
-                                 to_date date,
-                                 renter_user_id int,
-                                 vehicle_id int,
-                                 PRIMARY KEY (id),
-                                 FOREIGN KEY (vehicle_id)
-                                     REFERENCES vehicles(id),
-                                 FOREIGN KEY (renter_user_id)
-                                     REFERENCES  users(id)
+                     id int,
+                     "from" date,
+                     "to" date,
+                     renter_user_id int,
+                     vehicle_id int,
+                     PRIMARY KEY (id),
+                     FOREIGN KEY (vehicle_id)
+                         REFERENCES vehicles(id),
+                     FOREIGN KEY (renter_user_id)
+                         REFERENCES  users(id)
 );
 
 CREATE TABLE car_feedback (
-                              id int,
-                              star_rating int,
-                              message varchar(255),
-                              user_id int,
-                              date date,
-                              vehicle_id int,
-                              PRIMARY KEY (id),
-                              FOREIGN KEY (vehicle_id)
-                                  REFERENCES vehicles(id),
-                              FOREIGN KEY (user_id)
-                                  REFERENCES users(id)
+                      id int,
+                      star_rating int,
+                      message varchar(255),
+                      user_id int,
+                      date date,
+                      vehicle_id int,
+                      PRIMARY KEY (id),
+                      FOREIGN KEY (vehicle_id)
+                          REFERENCES vehicles(id),
+                      FOREIGN KEY (user_id)
+                          REFERENCES users(id)
 );
 
 CREATE TABLE user_feedback (
-                               id int,
-                               star_rating int,
-                               message varchar(255),
-                               user_id int,
-                               host_id int,
-                               date date,
-                               PRIMARY KEY (id),
-                               FOREIGN KEY (user_id)
-                                   REFERENCES users(id),
-                               FOREIGN KEY (host_id)
-                                   REFERENCES hosts(id)
+                       id int,
+                       star_rating int,
+                       message varchar(255),
+                       user_id int,
+                       host_id int,
+                       date date,
+                       PRIMARY KEY (id),
+                       FOREIGN KEY (user_id)
+                           REFERENCES users(id),
+                       FOREIGN KEY (host_id)
+                           REFERENCES hosts(id)
+);
+
+CREATE TABLE car_images (
+                       id int,
+                       image_source varchar(255),
+                       vehicle_id int,
+                       PRIMARY KEY (id),
+                       FOREIGN KEY (vehicle_id)
+                            REFERENCES vehicles(id)
+
 );
 
 
@@ -281,3 +293,30 @@ VALUES (23, 3.9, 'Did not meet my expectations.', 5, '2022-09-28',600);
 
 INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
 VALUES (24, 3.9, 'Good car and host', 4, '2022-09-28',600);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(1, 'f40-1.jpg', 300);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(2, 'f40-2.jpg', 300);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(3, 'f40-3.jpg', 300);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(4, 'ferrariSquare.jpg', 300);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(5, 'mgt-5.jpeg', 500);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(6, 'mgt-2.jpg', 500);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(7, 'mgt-3.jpeg', 500);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(8, 'mgt-4.jpeg', 500);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(9, 'mercedesSquare.jpeg', 500);
