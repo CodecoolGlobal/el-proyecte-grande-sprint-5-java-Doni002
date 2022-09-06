@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import "swiper/css/autoplay";
 import {GiRoundStar} from 'react-icons/gi';
 import {useEffect, useState} from "react";
-import ProfilePicture from "../profilePicture/ProfilePicture";
+import ProfilePicture from "../imageFetch/ProfilePicture";
 
 
 function VehicleReviewSlider(props) {
