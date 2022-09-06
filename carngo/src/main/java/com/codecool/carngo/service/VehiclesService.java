@@ -1,5 +1,6 @@
 package com.codecool.carngo.service;
 
+import com.codecool.carngo.model.HostModel;
 import com.codecool.carngo.model.VehicleModel;
 import com.codecool.carngo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,12 +49,18 @@ public class VehiclesService {
         return 404;
     }
 
-    public void adddVehicle(Map<String, String> body){
+    public int adddVehicle(Map<String, String> body){
+        Optional<HostModel> host = hostRepository.findById(Long.valueOf(body.get("ownerId")));
+        if(host.isEmpty()){
+            return 404;
+        }
+
         VehicleModel newVehicle = new VehicleModel(body.get("description"), body.get("carType"), body.get("color"),
                 body.get("brand"), body.get("model"), body.get("fuel"), Integer.parseInt(body.get("vintage")),
                 Integer.parseInt(body.get("numOfSeats")), Integer.parseInt(body.get("trunkCapacity")),
-                Integer.parseInt(body.get("pricePerDay")), 0, hostRepository.getReferenceById(Long.parseLong(body.get("ownerId"))));
+                Integer.parseInt(body.get("pricePerDay")), 0, host.get());
         vehiclesRepository.save(newVehicle);
+        return 200;
     }
 
     @Transactional
