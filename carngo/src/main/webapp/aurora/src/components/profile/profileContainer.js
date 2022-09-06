@@ -17,8 +17,8 @@ import ProfileCard from "./ProfileCard";
 import CarGallery from "./CarGallery";
 
 
-const ProfileContainer = () => {
-
+const ProfileContainer = (props) => {
+    const data = props.data;
     const elements = [
         {
             imgSrc: imgOldTimer,
@@ -82,7 +82,7 @@ const ProfileContainer = () => {
                 <div className="profileLeftCol">
                     <div className="driverProfileDetails">
                         <div className="driverStats">
-                                <ProfileCard />
+                                <ProfileCard data={data}/>
                         </div>
                     </div>
                 </div>

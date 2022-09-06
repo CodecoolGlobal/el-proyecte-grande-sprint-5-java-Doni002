@@ -1,7 +1,8 @@
 import React from 'react';
 import RolandMarton from '../img/contactUsImg/RolandMarton.jpeg';
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
+    const data = props.data
     return (
         <>
             <div className="card">
