@@ -17,7 +17,8 @@ import java.time.LocalDate;
 public class CarReservationModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO, generator="my_entity_seq_gen")
+    @SequenceGenerator(name="my_entity_seq_gen", sequenceName="MY_ENTITY_SEQ")
     private Long id;
     private LocalDate fromDate;
     private LocalDate toDate;
@@ -27,4 +28,11 @@ public class CarReservationModel {
     @ManyToOne
     @JoinColumn(name = "vehicle_id")
     private VehicleModel vehicle;
+
+    public CarReservationModel(LocalDate fromDate, LocalDate toDate, UserModel user, VehicleModel vehicle) {
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.user = user;
+        this.vehicle = vehicle;
+    }
 }

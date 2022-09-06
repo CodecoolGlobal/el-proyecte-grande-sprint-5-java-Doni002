@@ -17,7 +17,8 @@ import java.time.LocalDate;
 public class CarFeedbackModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO, generator="my_entity_seq_gen")
+    @SequenceGenerator(name="my_entity_seq_gen", sequenceName="MY_ENTITY_SEQ")
     private Long id;
     private double starRating;
     private String message;

@@ -53,13 +53,13 @@ public class CarAvailabilityController {
                 HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping
-    public ResponseEntity<String> deleteCarAvailability(@RequestBody Map<String, String> body){
-        int response = carAvailabilityService.deleteCarAvailability(body);
+    @DeleteMapping(value = "{id}")
+    public ResponseEntity<String> deleteCarAvailability(@PathVariable Long id){
+        int response = carAvailabilityService.deleteCarAvailability(id);
         if(response == 200) {
             return new ResponseEntity<>("Car availability deleted successfully", HttpStatus.OK);
         }
-        return new ResponseEntity<>("Car availability not found with id: " + body.get("id"),
+        return new ResponseEntity<>("Car availability not found with id: " + id,
                 HttpStatus.NOT_FOUND);
     }
 
