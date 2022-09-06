@@ -168,10 +168,10 @@ VALUES (500, 'Do not even look at it.', 'sedan', 'yellow', 'Mercedes', 'AMG GT',
 INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
 VALUES (600, 'It is grey. I think.', 'sedan', 'blue', 'McLaren', '720S','petrol', 'mclarenSquare.jpg', 2021, 5, 200, 210, 5, 5);
 
-INSERT INTO car_availability (id, vehicle_id, from_date, to_date)
+INSERT INTO car_availability (id, vehicle_id, "from", "to")
 VALUES (10, 100, '2022-09-30', '2022-10-01');
 
-INSERT INTO car_reservation (id, from_date, to_date, renter_user_id, vehicle_id)
+INSERT INTO car_reservation (id, "from", "to", renter_user_id, vehicle_id)
 VALUES (1, '2022-09-27', '2022-09-28', 2,100);
 
 INSERT INTO user_feedback (id, star_rating, message, user_id, host_id, date)
@@ -320,3 +320,15 @@ VALUES(8, 'mgt-4.jpeg', 500);
 
 INSERT INTO car_images(id, image_source, vehicle_id)
 VALUES(9, 'mercedesSquare.jpeg', 500);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(10, 'travis-essingerSquare.jpg', 100);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(11, 'Audi-RSSquare.jpg', 200);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(12, 'bugattiSquare.jpeg', 400);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(13, 'mclarenSquare.jpg', 600);

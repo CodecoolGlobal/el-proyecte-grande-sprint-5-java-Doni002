@@ -5,7 +5,6 @@ import {GiRoundStar} from 'react-icons/gi';
 import "./vehicleDetail.css";
 import 'swiper/css/pagination';
 import "swiper/css/autoplay";
-import {GiRoundStar} from 'react-icons/gi';
 import {useEffect, useState} from "react";
 import ProfilePicture from "../imageFetch/ProfilePicture";
 
