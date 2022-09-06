@@ -57,13 +57,13 @@ public class CarAvailabilityService {
         return 200;
     }
 
-    public int deleteCarAvailability(Map<String, String> body){
+    public int deleteCarAvailability(Long id){
         Optional<CarAvailabilityModel> carAvailability = carAvailabilityRepository.
-                findById(Long.valueOf(body.get("id")));
+                findById(id);
         if(carAvailability.isEmpty()) {
             return 404;
         }
-        carAvailabilityRepository.deleteById(Long.valueOf(body.get("id")));
+        carAvailabilityRepository.deleteById(id);
         return 200;
     }
 
