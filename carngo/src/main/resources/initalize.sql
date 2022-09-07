@@ -18,7 +18,7 @@ CREATE TABLE users (
 
 CREATE TABLE hosts (
                        id int,
-                       bank_account_number int,
+                       bank_account_number varchar(255),
                        bank_account_name varchar(255),
                        user_id int,
                        PRIMARY KEY (id),

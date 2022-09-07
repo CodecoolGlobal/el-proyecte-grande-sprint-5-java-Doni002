@@ -38,6 +38,7 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    //requirements: name, email, password
     @PostMapping(value = "register")
     public ResponseEntity<String> registerUser(@RequestBody() Map<String, String> body){
         int response = userService.addUser(body);
@@ -47,6 +48,7 @@ public class UserController {
         return new ResponseEntity<>("name or email already in use!", HttpStatus.NOT_ACCEPTABLE);
     }
 
+    //requirements: id, name, email, password
     @PutMapping
     public ResponseEntity<String> updateUserById(@RequestBody() Map<String, String> body){
         int response = userService.updateUserById(body);
@@ -65,7 +67,7 @@ public class UserController {
         return new ResponseEntity<>("User not found with id: " + id, HttpStatus.NOT_FOUND);
     }
 
-
+    //requirements: name, password
     @PostMapping(value = "/login")
     public ResponseEntity<UserModel> loginUser(@RequestBody Map<String, String> body){
         UserModel optionalUSer = userService.validateLogin(body);

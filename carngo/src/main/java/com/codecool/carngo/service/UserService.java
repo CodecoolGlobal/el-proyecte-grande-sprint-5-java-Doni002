@@ -1,6 +1,7 @@
 package com.codecool.carngo.service;
 
 import com.codecool.carngo.model.UserModel;
+import com.codecool.carngo.model.VehicleModel;
 import com.codecool.carngo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,11 +21,12 @@ public class UserService {
     private final CarReservationRepository carReservationRepository;
     private final CarFeedbackRepository carFeedbackRepository;
     private final UserFeedbackRepository userFeedbackRepository;
+    private final CarImagesRepository carImagesRepository;
     private final PasswordEncoder passwordEncoder;
 
 
     @Autowired
-    public UserService(UserRepository userRepository, HostRepository hostRepository, VehiclesRepository vehiclesRepository, CarAvailabilityRepository carAvailability, CarReservationRepository carReservationRepository, CarFeedbackRepository carFeedbackRepository, UserFeedbackRepository userFeedbackRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, HostRepository hostRepository, VehiclesRepository vehiclesRepository, CarAvailabilityRepository carAvailability, CarReservationRepository carReservationRepository, CarFeedbackRepository carFeedbackRepository, UserFeedbackRepository userFeedbackRepository, CarImagesRepository carImagesRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.hostRepository = hostRepository;
         this.vehiclesRepository = vehiclesRepository;
@@ -32,6 +34,7 @@ public class UserService {
         this.carReservationRepository = carReservationRepository;
         this.carFeedbackRepository = carFeedbackRepository;
         this.userFeedbackRepository = userFeedbackRepository;
+        this.carImagesRepository = carImagesRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -70,14 +73,15 @@ public class UserService {
 
     public int deleteUserById(Long id){
         if(userRepository.findById(id).isPresent()){
+            List<VehicleModel> vehicles = vehiclesRepository.getVehicleByOwnerId(hostRepository.findHostByUserId(id).get(0).getId());
+            for (VehicleModel vehicle: vehicles) {
+                carImagesRepository.deleteCarImageByCarId(vehicle.getId());
+                carFeedbackRepository.deleteCarFeedbackByCarId(vehicle.getId());
+                carReservationRepository.deleteReservationByVehicleId(vehicle.getId());
+                carAvailabilityRepository.deleteCarAvailabilityByCarId(vehicle.getId());
+            }
             userFeedbackRepository.deleteUserFeedbackByUserId(id);
             userFeedbackRepository.deleteUserFeedbackByHostId(hostRepository.findHostByUserId(id).get(0).getId());
-            carFeedbackRepository.deleteCarFeedbackByCarId(vehiclesRepository.
-                    getVehicleByOwnerId(hostRepository.findHostByUserId(id).get(0).getId()).get(0).getId());
-            carReservationRepository.deleteReservationByVehicleId(vehiclesRepository.
-                    getVehicleByOwnerId(hostRepository.findHostByUserId(id).get(0).getId()).get(0).getId());
-            carAvailabilityRepository.deleteCarAvailabilityByCarId(vehiclesRepository.
-                    getVehicleByOwnerId(hostRepository.findHostByUserId(id).get(0).getId()).get(0).getId());
             vehiclesRepository.deleteVehicleByOwnerId(hostRepository.findHostByUserId(id).get(0).getId());
             hostRepository.deleteHostByUserId(id);
             userRepository.deleteById(id);

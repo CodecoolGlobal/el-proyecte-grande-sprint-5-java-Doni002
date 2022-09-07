@@ -16,7 +16,8 @@ import javax.persistence.*;
 public class CarImagesModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO, generator="my_entity_seq_gen")
+    @SequenceGenerator(name="my_entity_seq_gen", sequenceName="MY_ENTITY_SEQ")
     private Long id;
     @ManyToOne
     @JoinColumn(name = "vehicle_id")
