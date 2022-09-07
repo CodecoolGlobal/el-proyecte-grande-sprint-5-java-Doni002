@@ -29,4 +29,11 @@ public class CarFeedbackModel {
     @JoinColumn(name = "vehicle_id")
     private VehicleModel vehicle;
 
+    public CarFeedbackModel(double starRating, String message, UserModel user, LocalDate date, VehicleModel vehicle) {
+        this.starRating = starRating;
+        this.message = message;
+        this.user = user;
+        this.date = date;
+        this.vehicle = vehicle;
+    }
 }
