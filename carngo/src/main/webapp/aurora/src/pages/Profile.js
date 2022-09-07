@@ -4,11 +4,6 @@ import {Parallax} from "react-parallax";
 import '../components/profile/profileContainer.css';
 import '../components/profile/carGallery.css';
 
-import imgMustang from "../components/img/swiperImg/mustangSquare.jpg";
-import imgExtreme from "../components/img/swiperImg/travis-essingerSquare.jpg";
-import imgAudiWater from "../components/img/swiperImg/audiwaterSquare.jpg";
-import imgTransport from "../components/img/swiperImg/mostafa-tarekSquare.jpg";
-import imgBeast from "../components/img/swiperImg/beastSquare.jpg";
 import cityRoad from "../components/img/profileImg/cityRoad.jpg";
 
 import Footer from '../components/footer/Footer'
@@ -23,11 +18,9 @@ import {useEffect, useState} from "react";
 
 const Profile = () => {
     const {id} = useParams();
-    const [data, setData] = useState(undefined);
-
+    const [data, setData] = useState([]);
 
     useEffect(() => {
-
         const getData = async () => {
             const response = await fetch(
                 `http://localhost:8080/api/vehicles/user-id/${id}`
@@ -43,23 +36,29 @@ const Profile = () => {
         getData().catch(reason => {console.log(reason)});
     }, [id]);
 
-    if(data === undefined){
-        return(<div></div>)
+    if(data[0] !== undefined){
+        return (
+            <>
+                <div style={{backgroundColor: "#111111"}}>
+                    <Navbar />
+                </div>
+                <ProfileContainer userId={id}/>
+                <Parallax bgImage={cityRoad} strength={500}>
+                    <DisplayMap />
+                </Parallax>
+                <HostReview data={data[0]}/>
+                <VehicleReviewSlider carData={data[0]}/>
+                <Footer />
+            </>
+        )
     }
-    return (
-        <>
-            <div style={{backgroundColor: "#111111"}}>
-                <Navbar />
-            </div>
-            <ProfileContainer data={data}/>
-            <Parallax bgImage={cityRoad} strength={500}>
-                <DisplayMap />
-            </Parallax>
-            <HostReview data={data[0]}/>
-            <VehicleReviewSlider carData={data[0]}/>
-            <Footer />
-        </>
-    )
+    return(<>
+        <div style={{backgroundColor: "#111111"}}>
+            <Navbar />
+        </div>
+        <ProfileContainer userId={id}/>
+        <Footer />
+    </>)
 }
 
 export default Profile
