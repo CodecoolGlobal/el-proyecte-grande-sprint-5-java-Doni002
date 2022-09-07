@@ -69,12 +69,11 @@ public class UserController {
 
     //requirements: name, password
     @PostMapping(value = "/login")
-    public ResponseEntity<UserModel> loginUser(@RequestBody() Map<String, String> body){
+    public ResponseEntity<UserModel> loginUser(@RequestBody Map<String, String> body){
         UserModel optionalUSer = userService.validateLogin(body);
         if(optionalUSer != null){
             return new ResponseEntity<>(optionalUSer, HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-
     }
 }
