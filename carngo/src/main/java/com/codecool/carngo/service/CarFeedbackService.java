@@ -48,4 +48,25 @@ public class CarFeedbackService {
         carFeedbackRepository.save(new CarFeedbackModel(starRating, message, userToFind.get(), date, vehicleToFind.get()));
         return 200;
     }
+
+    public int editCarFeedback(Map<String, String> body) {
+        Optional<CarFeedbackModel> carFeedbackToFind = carFeedbackRepository.findById(Long.valueOf(body.get("id")));
+        if(carFeedbackToFind.isEmpty()) {
+            return 404;
+        }
+        CarFeedbackModel carFeedback = carFeedbackToFind.get();
+        carFeedback.setStarRating(Double.parseDouble(body.get("starRating")));
+        carFeedback.setMessage(body.get("message"));
+        carFeedbackRepository.save(carFeedback);
+        return 200;
+    }
+
+    public int deleteCarFeedback(Long id) {
+        Optional<CarFeedbackModel> carFeedbackToFind = carFeedbackRepository.findById(id);
+        if(carFeedbackToFind.isEmpty()) {
+            return 404;
+        }
+        carFeedbackRepository.deleteById(id);
+        return 200;
+    }
 }

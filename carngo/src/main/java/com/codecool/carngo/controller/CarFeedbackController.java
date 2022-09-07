@@ -44,4 +44,23 @@ public class CarFeedbackController {
         return new ResponseEntity<>("Some id not found!", HttpStatus.NOT_FOUND);
     }
 
+    //requirements: id, starRating, message
+    @PutMapping
+    public ResponseEntity<String> editCarFeedback(@RequestBody Map<String, String> body) {
+        int response = carFeedbackService.editCarFeedback(body);
+        if(response == 200) {
+            return new ResponseEntity<>("Car feedback edited successfully!", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Car feedback not found with id:" + body.get("id"), HttpStatus.NOT_FOUND);
+    }
+
+    @DeleteMapping(value = "{id}")
+    public ResponseEntity<String> deleteCarFeedback(@PathVariable Long id) {
+        int response = carFeedbackService.deleteCarFeedback(id);
+        if(response == 200) {
+            return new ResponseEntity<>("Car feedback deleted successfully!", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Car feedback not found with id: " + id, HttpStatus.NOT_FOUND);
+    }
+
 }
