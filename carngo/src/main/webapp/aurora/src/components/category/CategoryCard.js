@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import './CategoryCard.css';
+import {Link} from "react-router-dom";
 
 function CategoryCard(props) {
     const message = props.message;
@@ -14,7 +15,9 @@ function CategoryCard(props) {
             </div>
             <Card.Body className="categoryCardFooterContainer">
                 <div className="categoryCardSvgContainer">
-                    <img className="categoryCardSvg" alt="svg" src={messageImgSrc}/>
+                    <Link to={"/vehicles"}>
+                        <img className="categoryCardSvg" alt="svg" src={messageImgSrc}/>
+                    </Link>
                 </div>
                 <div className="categoryCardMessageContainer">
                     {message}
