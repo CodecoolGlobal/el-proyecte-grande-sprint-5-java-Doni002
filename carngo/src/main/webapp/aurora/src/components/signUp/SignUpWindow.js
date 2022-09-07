@@ -26,27 +26,31 @@ const SignUpWindow = () => {
         document.querySelector('.blurBackground').style.display = "none"
     }
 
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
     const renderContent = () => {
         if(switchButton === "login"){
             return(
-                <form className='modalForm'>
+                <form className='modalForm' onSubmit={clickLogin}>
                     <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
                     <h1 className='loginWelcomeText'>Welcome Back!</h1>
                     <div className='inputBox'>
-                        <input type="text" required="required"/>
+                        <input type="text" required="required" onChange={ e => setUserName(e.target.value)} value={username}/>
                         <span>Username</span>
                         <i></i>
                     </div>
                     <div className='inputBox'>
-                        <input type="password" required="required"/>
+                        <input type="password" required="required" onChange={e => setPassword(e.target.value)} value={password}/>
                         <span>Password</span>
                         <i></i>
                     </div>
                     <div className='rememberContainer'>
                         <input id="rememberCheckbox" type='checkbox'></input>
-                        <label id="checkboxLabel" for="rememberCheckbox">Remember me</label>
+                        <label id="checkboxLabel" htmlFor="rememberCheckbox">Remember me</label>
                     </div>
-                    <button className='modalButton'>Log In</button>
+                    <button className='modalButton' type='submit' >Log In</button>
                 </form>
             )
         }
@@ -56,17 +60,17 @@ const SignUpWindow = () => {
                     <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
                     <h1 className='loginWelcomeText'>Sign Up!</h1>
                     <div className='inputBox'>
-                        <input type="text" required="required"/>
+                        <input type="text" required="required" onChange={e => setPassword(e.target.value)}/>
                         <span>Username</span>
                         <i></i>
                     </div>
                     <div className='inputBox'>
-                        <input type="text" required="required"/>
+                        <input type="text" required="required" onChange={e => setPassword(e.target.value)} />
                         <span>PASSWORD</span>
                         <i></i>
                     </div>
                     <div className='inputBox'>
-                        <input type="text" required="required"/>
+                        <input type="text" required="required" onChange={e => setConfirmPassword(e.target.value)}/>
                         <span>CONFIRM PASSWORD</span>
                         <i></i>
                     </div>
@@ -75,14 +79,29 @@ const SignUpWindow = () => {
             )
         }
     }
+    const clickLogin = async (e) => {
+        e.preventDefault();
+        const user = await fetch ('/api/users/login', {
+        method: 'POST',
+        body: JSON.stringify({
+            'email': username,
+            'password': password
+        }),
+    })
+        if (user.ok) {
+            await user.json();
+            localStorage.setItem("user", user);
+        }
+        ;
+    }
 
     return (
         <div className='modalContainer'>
-            <div class="signUpSwitchContainer">
+            <div className="signUpSwitchContainer">
                 <input type="radio" id="login" name="switch-one" value="login" onClick={setContent} className={switchButton === 'login' ? "signUpActive" : ""} checked/>
-                <label id="loginLabel" for="login">Log In</label>
+                <label id="loginLabel" htmlFor="login">Log In</label>
                 <input type="radio" id="register" name="switch-one" value="register" onClick={setContent} className={switchButton === 'register' ? "signUpActive" : ""} />
-                <label id="registerLabel" for="register">Register</label>
+                <label id="registerLabel" htmlFor="register">Register</label>
             </div>
             {renderContent()}
         </div>
