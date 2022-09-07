@@ -1,12 +1,36 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import "./vehicleDetail.css";
-import 'swiper/css/pagination';
 import {Autoplay, Mousewheel, Pagination} from 'swiper'
-import "swiper/css/autoplay";
 import {GiRoundStar} from 'react-icons/gi';
 
+import "./vehicleDetail.css";
+import 'swiper/css/pagination';
+import "swiper/css/autoplay";
+import {useEffect, useState} from "react";
+import ProfilePicture from "../imageFetch/ProfilePicture";
+
+
 function VehicleReviewSlider(props) {
-    const reviews = props.reviews;
+    const carData = props.carData;
+    const [feedbacks, setFeedbacks] = useState(undefined);
+    useEffect(() => {
+        const getData = async () => {
+            const response = await fetch(
+                `http://localhost:8080/api/car-feedbacks/${carData.id}`
+            );
+            if (!response.ok) {
+                throw new Error(
+                    `This is an HTTP error: The status is ${response.status}`
+                );
+            }
+            let actualData = await response.json();
+            setFeedbacks(actualData);
+        }
+        getData().catch((response)=>{console.log(response);});
+
+    }, [carData]);
+    if(feedbacks === undefined){
+        return (<h1>Loading...</h1>)
+    }
     return (
         <>
             <h3 className={"host-h3"}>VEHICLE REVIEWS:</h3>
@@ -25,17 +49,17 @@ function VehicleReviewSlider(props) {
                 }}
                 >
             {
-                reviews.map((item, index) => (
+                feedbacks.map((item, index) => (
                 <SwiperSlide key={index} className={"sliderVehicleReviewItem"}>
                     <div className="sliderVehicleReviewItemImage">
-                        <img className={"hostImage"} src={item.image} alt=""/>
-                        <div><strong>{item.name}</strong></div>
+                        <ProfilePicture img={item.user.imageSource}/>
+                        <div><strong>{item.user.name}</strong></div>
                     </div>
                     <div className={"sliderVehicleReviewItemFeatures"}>
-                        <div>{item.review}</div>
-                        <div>{item.experience} <GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
-                        <div>{item.condition} <GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
-                        <div>{item.consumption} <GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
+                        <div>{item.message}</div>
+                        <div>{item.starRating} <GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
+                        <div>{item.starRating} <GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
+                        <div>{item.starRating} <GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>
                     </div>
                 </SwiperSlide>
                 ))

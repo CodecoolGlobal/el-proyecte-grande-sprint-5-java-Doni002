@@ -1,7 +1,8 @@
-import "./vehicleDetail.css"
-import 'react-calendar/dist/Calendar.css';
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
+import "./vehicleDetail.css"
+import 'react-calendar/dist/Calendar.css';
+
 
 function CalendarArticle(props) {
     const [date, setDate] = useState(new Date());

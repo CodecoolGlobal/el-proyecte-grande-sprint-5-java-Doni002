@@ -2,6 +2,7 @@ import React from 'react';
 import ProgressBar from "./ProgressBar";
 import "./statistics.css"
 
+
 function ProgressBarContainer() {
     const customerCount = 300;
      const customerColor = `hsl(37, 100%, 50%)`;

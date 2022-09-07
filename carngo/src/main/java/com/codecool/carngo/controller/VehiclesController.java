@@ -51,9 +51,11 @@ public class VehiclesController {
 
     @PostMapping
     public ResponseEntity<String> addVehicle(@RequestBody() Map<String, String> body){
-        vehiclesPageService.adddVehicle(body);
-        //validation should be added
-        return new ResponseEntity<>("Vehicle added successfully!", HttpStatus.OK);
+        int response = vehiclesPageService.adddVehicle(body);
+        if(response == 200) {
+            return new ResponseEntity<>("Vehicle added successfully!", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("host not found with host id: " + body.get("ownerId"), HttpStatus.NOT_FOUND);
     }
 
     @PutMapping

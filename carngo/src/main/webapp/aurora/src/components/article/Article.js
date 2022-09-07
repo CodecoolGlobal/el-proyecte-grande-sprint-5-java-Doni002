@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import "./article.css";
 import Button from "../header/Button";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+
+import "./article.css";
+
 
 const Article = (props) => {
     const [text, setText] = useState();

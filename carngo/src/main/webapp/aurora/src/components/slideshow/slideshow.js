@@ -1,11 +1,13 @@
 import React from 'react';
 import {Parallax} from "react-parallax";
-import TextBox from "./textBox";
-import "./slideshow.css";
-import Bentley from "../img/bentley.jpg";
-import MercedesKey from "../img/mercedesKey.jpg"
-import Lamborghini from "../img/Lamborghini.jpg";
 import {useEffect, useState} from 'react';
+import TextBox from "./textBox";
+
+import "./slideshow.css";
+
+import Bentley from "../img/slideShowImg/bentley.jpg";
+import MercedesKey from "../img/slideShowImg/mercedesKey.jpg"
+import Lamborghini from "../img/slideShowImg/Lamborghini.jpg";
 
 
 const Slideshow = () => {

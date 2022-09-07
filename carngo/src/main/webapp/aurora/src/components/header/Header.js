@@ -1,8 +1,8 @@
 import {Parallax} from "react-parallax";
-import AudiBack from "../img/Audi Back.jpg";
-import AudiFront from "../img/Audi Front.jpg";
-import AudiWater from "../img/audiwater.jpg"
-import SteeringWheelAudi from "../img/steeringwheelaudi.jpg"
+import AudiBack from "../img/headerImg/Audi Back.jpg";
+import AudiFront from "../img/headerImg/Audi Front.jpg";
+import AudiWater from "../img/headerImg/audiwater.jpg"
+import SteeringWheelAudi from "../img/headerImg/steeringwheelaudi.jpg"
 
 import Navbar from "./Navbar";
 import Content from "./Content";

@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faFacebook , faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import "./footer.css"
-import footerPicture from "../img/footerCar.jpg"
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import footerPicture from "../img/footerImg/footerCar.jpg"
+
+import "./footer.css"
+
 
 const Footer = () => {
     return (

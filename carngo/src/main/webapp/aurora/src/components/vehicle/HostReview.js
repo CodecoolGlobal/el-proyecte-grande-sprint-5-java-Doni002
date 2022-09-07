@@ -1,20 +1,21 @@
 import "./vehicleDetail.css"
+
 import {GiRoundStar} from 'react-icons/gi';
 import HostReviewSlider from "./HostReviewSlider";
+import ProfilePicture from "../imageFetch/ProfilePicture";
 
 function HostReview(props) {
-    const image = props.image;
-    const reviews = props.reviews;
+    const carData = props.data;
     return (
         <>
             <div className={"host-h3"}>HOSTED BY</div>
             <div className={"hostArticle"}>
                 <div className={"hostContainer"}>
-                    <img className={"hostImage"} src={image} alt=""/>
-                    <div className={"vText"}><GiRoundStar />5 Jimmy</div>
+                    <ProfilePicture img={carData.host.user.imageSource}/>
+                    <div className={"vText"}><GiRoundStar />{carData.host.user.name}</div>
                 </div>
                 <div className="swiperContainer">
-                     <HostReviewSlider reviews={ reviews}/>
+                     <HostReviewSlider host={ carData.host}/>
                 </div>
             </div>
         </>
