@@ -8,17 +8,35 @@ import imgMustang from "../img/swiperImg/mustangSquare.jpg";
 import imgBeast from "../img/swiperImg/beastSquare.jpg";
 import imgAudiWater from "../img/swiperImg/audiwaterSquare.jpg";
 import imgAudiRs from "../img/swiperImg/Audi-RSSquare.jpg";
-import imgTransport from "../img/swiperImg/mostafa-tarekSquare.jpg";
 import porscheWhite from "../img/profileImg/thirdcar_porsche_white.jpg";
 import bmwRed from "../img/profileImg/secondcar_bmw_red.jpg";
 import teslaWhite from "../img/profileImg/firstcar_tesla_white.jpg";
 
 import ProfileCard from "./ProfileCard";
 import CarGallery from "./CarGallery";
+import {useEffect, useState} from "react";
 
 
 const ProfileContainer = (props) => {
-    const data = props.data;
+    const userId = props.userId;
+    const [userData, setUserData] = useState(undefined);
+
+    useEffect(() => {
+        const getData = async () => {
+            const response = await fetch(
+                `http://localhost:8080/api/users/${userId}`
+            );
+            if (!response.ok) {
+                throw new Error(
+                    `This is an HTTP error: The status is ${response.status}`
+                );
+            }
+            let actualData = await response.json();
+            setUserData(actualData);
+        }
+        getData().catch(reason => {console.log(reason)});
+    }, [props.userId]);
+
     const elements = [
         {
             imgSrc: imgOldTimer,
@@ -82,7 +100,7 @@ const ProfileContainer = (props) => {
                 <div className="profileLeftCol">
                     <div className="driverProfileDetails">
                         <div className="driverStats">
-                                <ProfileCard data={data}/>
+                                <ProfileCard userData={userData}/>
                         </div>
                     </div>
                 </div>
