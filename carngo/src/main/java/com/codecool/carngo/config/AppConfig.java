@@ -28,8 +28,8 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                     .antMatchers("/").permitAll()
-                    .antMatchers("/login").permitAll()
-                    .antMatchers("/api/vehicles/**").hasRole("USER")
+                    .antMatchers("/api/users/login").permitAll()
+                    .antMatchers("/api/vehicles/**").permitAll()
                 .and()
                 .httpBasic();
 ;    }
