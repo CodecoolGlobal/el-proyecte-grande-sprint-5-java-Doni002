@@ -49,6 +49,7 @@ public class VehiclesController {
         return new ResponseEntity<>("vehicle not found with id: " + id, HttpStatus.NOT_FOUND);
     }
 
+    //requirements: description, carType, color, brand, model, fuel, vintage, numOfSeats, trunkCapacity, pricePerDay, ownerId
     @PostMapping
     public ResponseEntity<String> addVehicle(@RequestBody() Map<String, String> body){
         int response = vehiclesPageService.adddVehicle(body);
@@ -58,6 +59,7 @@ public class VehiclesController {
         return new ResponseEntity<>("host not found with host id: " + body.get("ownerId"), HttpStatus.NOT_FOUND);
     }
 
+    //requirements: id, description, carType, color, brand, model, fuel, vintage, numOfSeats, trunkCapacity, pricePerDay
     @PutMapping
     public ResponseEntity<String> editVehicle(@RequestBody() Map<String, String> body){
         int response = vehiclesPageService.editVehicle(body);

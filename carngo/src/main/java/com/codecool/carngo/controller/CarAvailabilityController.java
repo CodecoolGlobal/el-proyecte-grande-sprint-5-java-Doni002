@@ -33,6 +33,7 @@ public class CarAvailabilityController {
         return new ResponseEntity<>(carAvailabilityService.getCarAvailabilityByCarId(id), HttpStatus.OK);
     }
 
+    //requirements: vehicle_id, from, to
     @PostMapping
     public ResponseEntity<String> addCarAvailability(@RequestBody Map<String, String> body) {
         int response = carAvailabilityService.addCarAvailability(body);
@@ -43,6 +44,7 @@ public class CarAvailabilityController {
                 HttpStatus.NOT_FOUND);
     }
 
+    //requirements: id, from, to
     @PutMapping()
     public ResponseEntity<String> updateCarAvailability(@RequestBody Map<String, String> body) {
         int response = carAvailabilityService.updateCarAvailability(body);

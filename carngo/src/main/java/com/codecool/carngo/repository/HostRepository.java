@@ -16,7 +16,7 @@ public interface HostRepository extends JpaRepository<HostModel, Long> {
     void deleteHostByUserId(Long id);
 
     @Transactional
-    @Modifying
     @Query(nativeQuery = true, value = "SELECT * FROM hosts WHERE user_id = ?1")
     List<HostModel> findHostByUserId(Long id);
+
 }

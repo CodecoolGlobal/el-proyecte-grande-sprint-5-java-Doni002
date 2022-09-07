@@ -6,7 +6,7 @@ import './Header.css';
 
 const Navbar = () => {
 
-    const loggedInProps = false;//it will be a props
+    const loggedInProps = true;//it will be a props
 
     const [loggedIn, setLoggedIn] = useState()
 
