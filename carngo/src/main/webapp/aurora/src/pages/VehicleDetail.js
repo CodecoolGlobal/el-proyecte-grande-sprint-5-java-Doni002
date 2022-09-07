@@ -18,32 +18,22 @@ const VehicleDetail = () => {
     const {id} = useParams();
 
     const [data, setData] = useState(undefined);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState([]);
 
     useEffect(() => {
         const getData = async () => {
-            try {
-                const response = await fetch(
-                    `http://localhost:8080/api/vehicles/${id}`
+            const response = await fetch(
+                `http://localhost:8080/api/vehicles/${id}`
+            );
+            if (!response.ok) {
+                throw new Error(
+                    `This is an HTTP error: The status is ${response.status}`
                 );
-                if (!response.ok) {
-                    throw new Error(
-                        `This is an HTTP error: The status is ${response.status}`
-                    );
-                }
-                let actualData = await response.json();
-                setData(actualData);
-                setError(null);
-            } catch(err) {
-                setError(err.message);
-                setData(null);
-            } finally {
-                setLoading(false);
             }
+            let actualData = await response.json();
+            setData(actualData);
         }
-        getData().then();
-    }, [error]);
+        getData().catch(reason => {console.log(reason)});
+    }, [id]);
 
     if(data === undefined){
         return(<div></div>)
@@ -56,7 +46,7 @@ const VehicleDetail = () => {
             <VehicleSlider carData={data}/>
             <div className="vehicleContainer">
                 <VehicleFeatures data={data} />
-                <CalendarArticle />
+                <CalendarArticle data={data}/>
             </div>
             <HostReview data={data}/>
             <VehicleReviewSlider carData={data}/>
