@@ -29,7 +29,7 @@ public class UserController {
         return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<UserModel>> getUserById(@PathVariable("id") Long id){
         Optional<UserModel> user = userService.getUserById(id);
         if(user.isPresent()){
@@ -38,7 +38,7 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping(value = "register")
+    @PostMapping(value = "/register")
     public ResponseEntity<String> registerUser(@RequestBody() Map<String, String> body){
         int response = userService.addUser(body);
         if(response == 200){
