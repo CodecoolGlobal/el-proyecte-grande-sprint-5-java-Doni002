@@ -29,6 +29,7 @@ const SignUpWindow = () => {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
 
     const renderContent = () => {
         if(switchButton === "login"){
@@ -81,19 +82,32 @@ const SignUpWindow = () => {
     }
     const clickLogin = async (e) => {
         e.preventDefault();
-        const user = await fetch ('/api/users/login', {
+        try {
+        const response = await fetch ('/login', {
         method: 'POST',
         body: JSON.stringify({
             'email': username,
             'password': password
         }),
     })
-        if (user.ok) {
-            await user.json();
-            localStorage.setItem("user", user);
+        if (response.data && response.data.success === false) {
+            //display error coming from server
+            return setError(response.data.msg);
         }
-        ;
+        return setProfile(response);
+    } catch (err) {
+        //display error originating from server / other sources
+        console.log(err);
+        if (err.response) {
+            return setError(err.response.data.msg);
+        }
+        return setError("There has been an error.");
     }
+    }
+    const setProfile = (response) => {
+        ;
+    };
+
 
     return (
         <div className='modalContainer'>
