@@ -1,6 +1,7 @@
 package com.codecool.carngo.security;
 
 import com.codecool.carngo.repository.UserRepository;
+import com.codecool.carngo.service.AuthUserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -54,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder)
             throws Exception {
         authenticationManagerBuilder
-                .userDetailsService(new UserDetailsServiceImpl(userRepository))
+                .userDetailsService(new AuthUserDetailsServiceImpl(userRepository))
                 .passwordEncoder(NoOpPasswordEncoder.getInstance());
     }
 

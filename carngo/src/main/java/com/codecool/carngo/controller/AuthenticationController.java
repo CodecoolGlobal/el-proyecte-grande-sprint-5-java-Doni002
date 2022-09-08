@@ -1,5 +1,8 @@
-package com.codecool.carngo.security;
+package com.codecool.carngo.controller;
 
+import com.codecool.carngo.security.*;
+import com.codecool.carngo.service.AuthUserDetailsImpl;
+import com.codecool.carngo.service.AuthUserDetailsServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,7 +22,7 @@ public class AuthenticationController {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenUtil jwtTokenUtil;
 
-    private UserDetailsServiceImpl userDetailsServiceImpl;
+    private AuthUserDetailsServiceImpl userDetailsServiceImpl;
 
 
     @PostMapping(value = "/login")
@@ -31,7 +34,7 @@ public class AuthenticationController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtTokenUtil.generateJwtToken(authentication);
 
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        AuthUserDetailsImpl userDetails = (AuthUserDetailsImpl) authentication.getPrincipal();
         List<String> roles = new ArrayList<>();
         roles.add("ROLE_USER");
 

@@ -1,4 +1,4 @@
-package com.codecool.carngo.security;
+package com.codecool.carngo.model;
 
 public enum UserRoles {
     ROLE_ADMIN,

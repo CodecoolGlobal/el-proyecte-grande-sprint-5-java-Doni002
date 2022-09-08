@@ -1,5 +1,6 @@
 package com.codecool.carngo.security;
 
+import com.codecool.carngo.service.AuthUserDetailsServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     private JwtTokenUtil jwtTokenUtil;
 
     @Autowired
-    private UserDetailsServiceImpl userDetailsService;
+    private AuthUserDetailsServiceImpl userDetailsService;
 
     private static final Logger logger = LoggerFactory.getLogger(JwtTokenFilter.class);
 

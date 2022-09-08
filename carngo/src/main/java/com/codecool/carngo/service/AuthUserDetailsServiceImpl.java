@@ -1,9 +1,8 @@
-package com.codecool.carngo.security;
+package com.codecool.carngo.service;
 
 import com.codecool.carngo.model.UserModel;
 import com.codecool.carngo.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @AllArgsConstructor
 @Service
-public class UserDetailsServiceImpl
+public class AuthUserDetailsServiceImpl
         implements UserDetailsService {
 
     private final UserRepository userRepository;
@@ -23,7 +22,7 @@ public class UserDetailsServiceImpl
         UserModel user = userRepository.findUserByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
 
-        return UserDetailsImpl.build(user);
+        return AuthUserDetailsImpl.build(user);
     }
 }
 
