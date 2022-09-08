@@ -20,11 +20,13 @@ public class UserModel {
     @SequenceGenerator(name="my_entity_seq_gen", sequenceName="MY_ENTITY_SEQ")
     private Long id;
     private String name;
+    private String username;
     private String email;
     private String password;
     private String imageSource;
-    public UserModel(String name, String email, String password) {
+    public UserModel(String name, String username, String email, String password) {
         this.name = name;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.imageSource = DEFAULT_PROFILE;

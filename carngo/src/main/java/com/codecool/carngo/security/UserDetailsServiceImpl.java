@@ -19,9 +19,9 @@ public class UserDetailsServiceImpl
 
     @Override
     @Transactional
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        UserModel user = userRepository.findUserByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + email));
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserModel user = userRepository.findUserByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
 
         return UserDetailsImpl.build(user);
     }

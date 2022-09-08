@@ -15,7 +15,7 @@ public class AuthenticationRequest implements Serializable {
     @Serial
     private static final long serialVersionUID = 5926468583005150707L;
 
-    private String email;
+    private String username;
     private String password;
 
 
