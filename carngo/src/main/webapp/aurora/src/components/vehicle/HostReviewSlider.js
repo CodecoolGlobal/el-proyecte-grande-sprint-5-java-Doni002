@@ -5,6 +5,8 @@ import './vehicleDetail.css';
 import 'swiper/css/navigation';
 import "swiper/css/autoplay";
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
+import ProfilePicture from "../imageFetch/ProfilePicture";
 
 function HostReviewSlider(props) {
     const host = props.host;
@@ -41,7 +43,10 @@ function HostReviewSlider(props) {
                 {
                     feedbacks.map((item, index) => (
                         <SwiperSlide key={index} className={"reviewDefaultItem"}>
-                            <div><strong>{item.user.name}</strong></div>
+                            <Link to={"/profile/" + item.user.id}>
+                                <ProfilePicture img={item.user.imageSource}/>
+                            </Link>
+                            <div><strong>{item.user.name} </strong></div>
                             <div>{item.message}</div>
                         </SwiperSlide>
                     ))

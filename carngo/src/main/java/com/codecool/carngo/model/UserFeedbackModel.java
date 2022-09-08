@@ -27,4 +27,12 @@ public class UserFeedbackModel {
     @ManyToOne
     private HostModel host;
     private LocalDate date;
+
+    public UserFeedbackModel(double starRating, String message, UserModel user, HostModel host, LocalDate date) {
+        this.starRating = starRating;
+        this.message = message;
+        this.user = user;
+        this.host = host;
+        this.date = date;
+    }
 }

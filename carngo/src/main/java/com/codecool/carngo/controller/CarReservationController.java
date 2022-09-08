@@ -45,6 +45,7 @@ public class CarReservationController {
         return new ResponseEntity<>(carReservations, HttpStatus.OK);
     }
 
+    //requirements: userId, carId, from, to
     @PostMapping
     public ResponseEntity<String> addCarReservation(@RequestBody Map<String, String> body){
         int response = carReservationService.addCarReservation(body);
@@ -54,6 +55,7 @@ public class CarReservationController {
         return new ResponseEntity<>("Car id or User id not found!", HttpStatus.NOT_FOUND);
     }
 
+    //requirements: id, from, to
     @PutMapping
     public ResponseEntity<String> editCarReservation(@RequestBody Map<String, String> body) {
         int response = carReservationService.editCarReservation(body);

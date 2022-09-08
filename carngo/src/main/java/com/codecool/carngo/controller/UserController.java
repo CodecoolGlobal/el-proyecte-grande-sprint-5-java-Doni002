@@ -29,7 +29,7 @@ public class UserController {
         return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<UserModel>> getUserById(@PathVariable("id") Long id){
         Optional<UserModel> user = userService.getUserById(id);
         if(user.isPresent()){
@@ -38,7 +38,8 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping(value = "register")
+    //requirements: name, email, password
+    @PostMapping(value = "/register")
     public ResponseEntity<String> registerUser(@RequestBody() Map<String, String> body){
         int response = userService.addUser(body);
         if(response == 200){
@@ -47,6 +48,7 @@ public class UserController {
         return new ResponseEntity<>("name or email already in use!", HttpStatus.NOT_ACCEPTABLE);
     }
 
+    //requirements: id, name, email, password
     @PutMapping
     public ResponseEntity<String> updateUserById(@RequestBody() Map<String, String> body){
         int response = userService.updateUserById(body);
@@ -65,4 +67,13 @@ public class UserController {
         return new ResponseEntity<>("User not found with id: " + id, HttpStatus.NOT_FOUND);
     }
 
+/*    //requirements: name, password
+    @PostMapping(value = "/login")
+    public ResponseEntity<UserModel> loginUser(@RequestBody Map<String, String> body){
+        UserModel optionalUSer = userService.validateLogin(body);
+        if(optionalUSer != null){
+            return new ResponseEntity<>(optionalUSer, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }*/
 }

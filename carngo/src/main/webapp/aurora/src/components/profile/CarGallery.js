@@ -1,10 +1,22 @@
 import React from 'react';
 
 import "./carGallery.css";
+import CarPicture from "../imageFetch/CarPicture";
 
 
 const CarGallery = (props) => {
     return (
+        <div className="gallery__column">
+            <div className="gallery__column">
+                <a href="#" className="gallery__link">
+                    <figure className="gallery__thumb">
+                        <CarPicture img={props.img} className={"gallery__image"}/>
+                    </figure>
+                </a>
+            </div>
+        </div>
+    );
+    /*return (
         <div className="gallery__column">
             {props.collection.map(item=>{
                 return(
@@ -20,7 +32,7 @@ const CarGallery = (props) => {
                 )
             })}
         </div>
-    );
+    );*/
 };
 
 export default CarGallery;

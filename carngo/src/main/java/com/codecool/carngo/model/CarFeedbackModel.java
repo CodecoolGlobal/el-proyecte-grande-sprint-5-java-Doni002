@@ -20,7 +20,9 @@ public class CarFeedbackModel {
     @GeneratedValue(strategy=GenerationType.AUTO, generator="my_entity_seq_gen")
     @SequenceGenerator(name="my_entity_seq_gen", sequenceName="MY_ENTITY_SEQ")
     private Long id;
-    private double starRating;
+    private int cleanness;
+    private int experience;
+    private int condition;
     private String message;
     @ManyToOne
     private UserModel user;
@@ -29,4 +31,13 @@ public class CarFeedbackModel {
     @JoinColumn(name = "vehicle_id")
     private VehicleModel vehicle;
 
+    public CarFeedbackModel(int cleanness, int experience, int condition, String message, UserModel user, LocalDate date, VehicleModel vehicle) {
+        this.cleanness = cleanness;
+        this.experience = experience;
+        this.condition = condition;
+        this.message = message;
+        this.user = user;
+        this.date = date;
+        this.vehicle = vehicle;
+    }
 }

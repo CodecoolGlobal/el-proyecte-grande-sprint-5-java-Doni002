@@ -29,6 +29,8 @@
     display: block;
     width: 100%;
     transition: .3s;
+    max-width: 600px;
+    max-height: 600px;
 }
 
 .gallery__image:hover {
