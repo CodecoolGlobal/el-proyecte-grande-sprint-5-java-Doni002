@@ -44,14 +44,16 @@ const ProfileContainer = (props) => {
             <section className="driverProfileSection">
                 <div className="driverVehicles">
                     <div className="gallery">
-                        {
-                            cars.map(item => {
-                                console.log(item.imageSource);
-                                return(
-                                    <CarGallery img={item.imageSource}/>
-                                );
-                            })
-                        }
+                            {
+                                cars.map(item => {
+                                    console.log(item.imageSource);
+                                    return(
+                                        <>
+                                        <CarGallery key={item.id} img={item.imageSource} brand={item.brand} model={item.model}/>
+                                        </>
+                                    );
+                                })
+                            }
                     </div>
                 </div>
             </section>

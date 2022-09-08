@@ -1,20 +1,50 @@
 .gallery {
-    display: flex;
-    padding: 2px;
-    transition: .3s;
+    /*Variables for grid*/
+    --grid-layout-gap: 0.5rem;
+    --grid-column-count: 5;
+    --grid-item--min-width: 15rem;
+
+    /*Calculation for responsive grid design*/
+    --gap-count: calc(var(--grid-column-count) - 1);
+    --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+    --grid-item--max-width: calc((100% - var(--total-gap-width)) / var(--grid-column-count));
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
+    grid-gap: var(--grid-layout-gap);
+
+    padding: 2rem;
     align-items: center;
-    margin: 5rem;
+    margin: 2.5rem;
 }
 
-.gallery__column {
-     display: flex;
-     flex-direction: column;
-     width: 100%;
- }
+.gallery__item:first-child{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+@media only screen and (max-width: 630px) {
+    .gallery__item:first-child{
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 1;
+    }
+}
 
 .gallery__link {
-    margin: 2px;
     overflow: hidden;
+}
+
+.gallery__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: .3s;
+    border-radius: 1rem;
 }
 
 .gallery .gallery__image:hover {
@@ -23,34 +53,29 @@
 
 .gallery__thumb {
     position: relative;
- }
-
-.gallery__image {
-    display: block;
-    width: 100%;
     transition: .3s;
-    max-width: 600px;
-    max-height: 600px;
+    grid-auto-flow: column;
 }
 
-.gallery__image:hover {
+.gallery__thumb:hover {
     transform: scale(1.1);
  }
 
 .gallery__caption {
     position: absolute;
     bottom: 0;
-     left: 0;
-     padding: 25px 15px 15px;
-     width: 100%;
-     font-family: 'Raleway', sans-serif;
-     font-size: 16px;
-     color: white;
-     opacity: 1;
-     background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255 ,255 , 0) 100%);
-     transition: .3s;
-    animation: fade-in
- }
+    left: 0;
+    padding: 25px 15px 15px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    opacity: 1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255 ,255 , 0) 100%);
+    transition: .3s;
+    animation: fade-in;
+    border-radius: 1rem;
+}
 
 .gallery__caption:hover {
     opacity: 0;

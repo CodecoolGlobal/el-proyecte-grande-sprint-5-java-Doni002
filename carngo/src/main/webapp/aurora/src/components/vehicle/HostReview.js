@@ -9,7 +9,7 @@ function HostReview(props) {
     const carData = props.data;
     return (
         <>
-            <div className={"host-h3"}>HOSTED BY</div>
+            <div className={"host-h3"}>HOST REVIEW</div>
             <div className={"hostArticle"}>
 
                 <div className={"hostContainer"}>
