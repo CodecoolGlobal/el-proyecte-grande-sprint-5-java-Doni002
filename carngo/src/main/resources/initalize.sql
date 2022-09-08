@@ -115,26 +115,26 @@ CREATE TABLE car_images (
 
 
 /*USERS*/
-INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
-VALUES (1, 'Donát Alpár', 'alpardonat02@gmail.com', '1234', 'AlparDonat.jpg', 'A Young And Enthusiastic Software Developer With Critical Thinking, Problem-Solving, Negotiation, Outstanding In Both Oral And Written Communication, And Easily Adaptable Interpersonal Skills. Moreover, Working In A Team Means No Difficulties Due To My Emotional Intelligence And Social Collaboration, Also Rather An Exciting Journey For Me.', 1);
+INSERT INTO users (id, name, username, email, password, image_source, profile_description, number_of_cars)
+VALUES (1, 'Donát Alpár', 'Doni', 'alpardonat02@gmail.com', '1234', 'AlparDonat.jpg', 'A Young And Enthusiastic Software Developer With Critical Thinking, Problem-Solving, Negotiation, Outstanding In Both Oral And Written Communication, And Easily Adaptable Interpersonal Skills. Moreover, Working In A Team Means No Difficulties Due To My Emotional Intelligence And Social Collaboration, Also Rather An Exciting Journey For Me.', 1);
 
-INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
-VALUES (2, 'Barbara Huszár', 'szabo.huszar.barbara@gmail.com', '1234', 'BarbaraHuszar.jpg', 'Solution-Focused Mind With A Creative Touch. Eager To Learn. Her Easy Going Personality Makes It Easy To Make A Good Fit In Any Team.', 1);
+INSERT INTO users (id, name, username, email, password, image_source, profile_description, number_of_cars)
+VALUES (2, 'Barbara Huszár', 'Barbi', 'szabo.huszar.barbara@gmail.com', '1234', 'BarbaraHuszar.jpg', 'Solution-Focused Mind With A Creative Touch. Eager To Learn. Her Easy Going Personality Makes It Easy To Make A Good Fit In Any Team.', 1);
 
-INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
-VALUES (3, 'Roland Márton', 'roland111187@gmail.com', '1234', 'RolandMarton.jpeg', 'A Young And Enthusiastic Software Developer With Critical Thinking, Problem-Solving, Negotiation, Outstanding In Both Oral And Written Communication, And Easily Adaptable Interpersonal Skills. Moreover, Working In A Team Means No Difficulties Due To My Emotional Intelligence And Social Collaboration, Also Rather An Exciting Journey For Me. I''m Still Enthusiastic About Grabbing Onto Any Other Programming Languages, Frameworks, And Principles I Can Integrate Into The Coding Web In My Head.', 1);
+INSERT INTO users (id, name, username, email, password, image_source, profile_description, number_of_cars)
+VALUES (3, 'Roland Márton', 'Roli', 'roland111187@gmail.com', '1234', 'RolandMarton.jpeg', 'A Young And Enthusiastic Software Developer With Critical Thinking, Problem-Solving, Negotiation, Outstanding In Both Oral And Written Communication, And Easily Adaptable Interpersonal Skills. Moreover, Working In A Team Means No Difficulties Due To My Emotional Intelligence And Social Collaboration, Also Rather An Exciting Journey For Me. I''m Still Enthusiastic About Grabbing Onto Any Other Programming Languages, Frameworks, And Principles I Can Integrate Into The Coding Web In My Head.', 1);
 
-INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
-VALUES (4, 'Zsolt Pintér', 'zsol.pz@gmail.com', '1234', 'ZsoltPinter.jpg', 'An Ambitious And Aspiring Fullstack Software Developer From Codecool Academy With Excellent Hard Skills To Work On The Most Difficult Projects, Problems. Moreover, Distinguished Soft Capabilities To Work In A Team As A Leader Or Member Either. I''m Still Enthusiastic About Grabbing Onto Any Other Programming Languages, Frameworks.', 1);
+INSERT INTO users (id, name, username, email, password, image_source, profile_description, number_of_cars)
+VALUES (4, 'Zsolt Pintér', 'Zsolti', 'zsol.pz@gmail.com', '1234', 'ZsoltPinter.jpg', 'An Ambitious And Aspiring Fullstack Software Developer From Codecool Academy With Excellent Hard Skills To Work On The Most Difficult Projects, Problems. Moreover, Distinguished Soft Capabilities To Work In A Team As A Leader Or Member Either. I''m Still Enthusiastic About Grabbing Onto Any Other Programming Languages, Frameworks.', 1);
 
-INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
-VALUES (5, 'Tom B. Erichsen', 'Erichsen@gmail.com', 'Password123', 'defaultProfile.jpg','This profile has not got any description.', 1);
+INSERT INTO users (id, name, username, email, password, image_source, profile_description, number_of_cars)
+VALUES (5, 'Tom B. Erichsen', 'Tom', 'Erichsen@gmail.com', 'Password123', 'defaultProfile.jpg','This profile has not got any description.', 1);
 
-INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
-VALUES (6, 'Ashlynn', 'Ashlynn@gmail.com', '987654321', 'defaultProfile.jpg', 'This profile has not got any description.', 0);
+INSERT INTO users (id, name, username, email, password, image_source, profile_description, number_of_cars)
+VALUES (6, 'Ashlynn Mae', 'Ash', 'Ashlynn@gmail.com', '987654321', 'defaultProfile.jpg', 'This profile has not got any description.', 0);
 
-INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
-VALUES (7, 'Brandon', 'brandon@gmail.com', '987651321', 'defaultProfile.jpg', 'This profile has not got any description.', 1);
+INSERT INTO users (id, name, username, email, password, image_source, profile_description, number_of_cars)
+VALUES (7, 'Brandon Fraser', 'Bran', 'brandon@gmail.com', '987651321', 'defaultProfile.jpg', 'This profile has not got any description.', 1);
 
 
 /*HOSTS*/
