@@ -43,18 +43,19 @@ const ProfileContainer = (props) => {
             </Parallax>
             <section className="driverProfileSection">
                 <div className="driverVehicles">
-                    <div className="gallery">
-                            {
-                                cars.map(item => {
-                                    console.log(item.imageSource);
-                                    return(
-                                        <>
+                    {Object.keys(cars).length !== 0 && <div className="gallery">
+                        {
+                            cars.map(item => {
+                                console.log(item.imageSource);
+                                return(
+                                    <>
                                         <CarGallery key={item.id} img={item.imageSource} brand={item.brand} model={item.model}/>
-                                        </>
-                                    );
-                                })
-                            }
+                                    </>
+                                );
+                            })
+                        }
                     </div>
+                    }
                 </div>
             </section>
         </div>
