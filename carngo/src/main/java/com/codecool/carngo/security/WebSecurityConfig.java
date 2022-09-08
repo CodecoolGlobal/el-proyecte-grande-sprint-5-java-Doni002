@@ -39,8 +39,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/").permitAll()
                     .antMatchers("/login").permitAll()
-                    .antMatchers("/api/vehicles/**").hasRole("USER")
-                .anyRequest().authenticated()
+                .antMatchers("/api/vehicles/**").permitAll()
+                .antMatchers("/api/hosts").hasRole("USER")
+/*                .anyRequest().authenticated()*/
                 .and()
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
