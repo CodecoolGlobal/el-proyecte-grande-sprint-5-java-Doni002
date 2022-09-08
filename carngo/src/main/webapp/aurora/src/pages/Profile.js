@@ -42,7 +42,7 @@ const Profile = () => {
                 <div style={{backgroundColor: "#111111"}}>
                     <Navbar />
                 </div>
-                <ProfileContainer userId={id}/>
+                <ProfileContainer cars={data} userId={id}/>
                 <Parallax bgImage={cityRoad} strength={500}>
                     <DisplayMap />
                 </Parallax>
@@ -56,7 +56,7 @@ const Profile = () => {
         <div style={{backgroundColor: "#111111"}}>
             <Navbar />
         </div>
-        <ProfileContainer userId={id}/>
+        <ProfileContainer cars={data} userId={id}/>
         <Footer />
     </>)
 }
