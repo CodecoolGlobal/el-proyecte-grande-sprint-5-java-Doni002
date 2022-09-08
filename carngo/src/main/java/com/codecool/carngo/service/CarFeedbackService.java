@@ -42,10 +42,12 @@ public class CarFeedbackService {
         if(userToFind.isEmpty() || vehicleToFind.isEmpty()){
             return 404;
         }
-        int starRating = Integer.parseInt(body.get("starRating"));
+        int cleanness = validateRating(body.get("cleanness"));
+        int experience = validateRating(body.get("experience"));
+        int condition = validateRating(body.get("condition"));
         String message = body.get("message");
         LocalDate date = LocalDate.parse(body.get("date"));
-        carFeedbackRepository.save(new CarFeedbackModel(starRating, message, userToFind.get(), date, vehicleToFind.get()));
+        carFeedbackRepository.save(new CarFeedbackModel(cleanness, experience, condition, message, userToFind.get(), date, vehicleToFind.get()));
         return 200;
     }
 
@@ -55,7 +57,9 @@ public class CarFeedbackService {
             return 404;
         }
         CarFeedbackModel carFeedback = carFeedbackToFind.get();
-        carFeedback.setStarRating(Double.parseDouble(body.get("starRating")));
+        carFeedback.setCleanness(validateRating(body.get("cleanness")));
+        carFeedback.setExperience(validateRating(body.get("experience")));
+        carFeedback.setCondition(validateRating(body.get("condition")));
         carFeedback.setMessage(body.get("message"));
         carFeedbackRepository.save(carFeedback);
         return 200;
@@ -68,5 +72,12 @@ public class CarFeedbackService {
         }
         carFeedbackRepository.deleteById(id);
         return 200;
+    }
+
+    private int validateRating(String rating){
+        int tmp = Integer.parseInt(rating);
+        if(tmp >= 5)
+            return 5;
+        else return Math.max(tmp, 1);
     }
 }
