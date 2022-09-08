@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS car_reservation;
 DROP TABLE IF EXISTS vehicles;
 DROP TABLE IF EXISTS hosts;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS email_subscribes;
 
 CREATE TABLE users (
                        id int,
@@ -110,6 +111,11 @@ CREATE TABLE car_images (
                        FOREIGN KEY (vehicle_id)
                             REFERENCES vehicles(id)
 
+);
+
+CREATE TABLE email_subscribes (
+                        id int,
+                        email varchar(255)
 );
 
 
