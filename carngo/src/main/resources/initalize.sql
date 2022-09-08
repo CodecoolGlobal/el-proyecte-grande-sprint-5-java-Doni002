@@ -74,7 +74,9 @@ CREATE TABLE car_reservation (
 
 CREATE TABLE car_feedback (
                       id int,
-                      star_rating int,
+                      cleanness int,
+                      experience int,
+                      condition int,
                       message varchar(255),
                       user_id int,
                       date date,
@@ -239,77 +241,77 @@ VALUES (16, 5, 'He has the best car ever!', 4, 7, '2022-09-21');
 
 
 /*CAR_FEEDBACK*/
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (1, 3.9, 'Precise description.', 7, '2022-09-28',100);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (1, 'Precise description.', 7, '2022-09-28',100,3,2,4);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (2, 3.9, 'Had fun.', 6, '2022-09-28',100);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (2, 'Had fun.', 6, '2022-09-28',100,4,2,1);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (3, 3.9, 'Did not meet my expectations.', 5, '2022-09-28',100);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (3, 'Did not meet my expectations.', 5, '2022-09-28',100,5,2,3);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (4, 3.9, 'Good car and host', 4, '2022-09-28',100);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (4, 'Good car and host', 4, '2022-09-28',100,1,4,2);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (5, 3.9, 'Precise description.', 7, '2022-09-28',200);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (5, 'Precise description.', 7, '2022-09-28',200,4,2,3);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (6, 3.9, 'Had fun.', 6, '2022-09-28',200);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (6, 'Had fun.', 6, '2022-09-28',200,5,2,3);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (7, 3.9, 'Did not meet my expectations.', 5, '2022-09-28',200);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (7, 'Did not meet my expectations.', 5, '2022-09-28',200,2,3,1);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (8, 3.9, 'Good car and host', 4, '2022-09-28',200);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (8, 'Good car and host', 4, '2022-09-28',200,4,2,3);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (9, 3.9, 'Precise description.', 7, '2022-09-28',300);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (9, 'Precise description.', 7, '2022-09-28',300,1,2,3);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (10, 3.9, 'Had fun.', 1, '2022-09-28',300);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (10, 'Had fun.', 1, '2022-09-28',300,5,4,5);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (11, 3.9, 'Did not meet my expectations.', 5, '2022-09-28',300);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (11, 'Did not meet my expectations.', 5, '2022-09-28',300,5,4,3);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (12, 3.9, 'Good car and host', 4, '2022-09-28',300);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (12, 'Good car and host', 4, '2022-09-28',300,3,2,3);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (13, 3.9, 'Precise description.', 2, '2022-09-28',400);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (13, 'Precise description.', 2, '2022-09-28',400,4,2,4);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (14, 3.9, 'Had fun.', 6, '2022-09-28',400);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (14, 'Had fun.', 6, '2022-09-28',400,5,3,4);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (15, 3.9, 'Did not meet my expectations.', 5, '2022-09-28',400);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (15, 'Did not meet my expectations.', 5, '2022-09-28',400,4,3,4);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (16, 3.9, 'Good car and host', 1, '2022-09-28',400);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (16, 'Good car and host', 1, '2022-09-28',400,2,3,4);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (17, 3.9, 'Precise description.', 7, '2022-09-28',500);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (17, 'Precise description.', 7, '2022-09-28',500,5,3,3);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (18, 3.9, 'Had fun.', 6, '2022-09-28',500);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (18, 'Had fun.', 6, '2022-09-28',500,2,3,4);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (19, 3.9, 'Did not meet my expectations.', 3, '2022-09-28',500);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (19, 'Did not meet my expectations.', 3, '2022-09-28',500,3,4,2);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (20, 3.9, 'Good car and host', 4, '2022-09-28',500);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (20, 'Good car and host', 4, '2022-09-28',500,2,4,3);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (21, 3.9, 'Precise description.', 7, '2022-09-28',600);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (21, 'Precise description.', 7, '2022-09-28',600,4,4,4);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (22, 3.9, 'Had fun.', 5, '2022-09-28',600);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (22, 'Had fun.', 5, '2022-09-28',600,5,5,5);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (23, 3.9, 'Did not meet my expectations.', 1, '2022-09-28',600);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (23, 'Did not meet my expectations.', 1, '2022-09-28',600,5,4,5);
 
-INSERT INTO car_feedback (id, star_rating, message, user_id, date, vehicle_id)
-VALUES (24, 3.9, 'Good car and host', 4, '2022-09-28',600);
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (24, 'Good car and host', 4, '2022-09-28',600,2,3,2);
 
 
 
