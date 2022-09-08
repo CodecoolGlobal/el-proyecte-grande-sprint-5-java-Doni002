@@ -10,7 +10,8 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
                        id int,
                        name varchar(255),
-                       email varchar(255),
+                       username varchar(255) UNIQUE,
+                       email varchar(255) UNIQUE,
                        password varchar(255),
                        image_source varchar(255),
                        PRIMARY KEY (id)
@@ -111,26 +112,26 @@ CREATE TABLE car_images (
 
 
 /* TEST DATA */
-INSERT INTO users (id, name, email, password, image_source)
-VALUES (7, 'Donát Alpár', 'alpardonat02@gmail.com', '1234', 'AlparDonat.jpg');
+INSERT INTO users (id, name, username, email, password, image_source)
+VALUES (7, 'Donát Alpár', 'Doni','alpardonat02@gmail.com', '1234', 'AlparDonat.jpg');
 
-INSERT INTO users (id, name, email, password, image_source)
-VALUES (6, 'Barbara Huszár', 'szabo.huszar.barbara@gmail.com', '1234', 'BarbaraHuszar.jpg');
+INSERT INTO users (id, name, username, email, password, image_source)
+VALUES (6, 'Barbara Huszár', 'Barbi', 'szabo.huszar.barbara@gmail.com', '1234', 'BarbaraHuszar.jpg');
 
-INSERT INTO users (id, name, email, password, image_source)
-VALUES (5, 'Roland Márton', 'roland111187@gmail.com', '1234', 'RolandMarton.jpeg');
+INSERT INTO users (id, name, username, email, password, image_source)
+VALUES (5, 'Roland Márton', 'Roli', 'roland111187@gmail.com', '1234', 'RolandMarton.jpeg');
 
-INSERT INTO users (id, name, email, password, image_source)
-VALUES (4, 'Zsolt Pintér', 'zsol.pz@gmail.com', '1234', 'ZsoltPinter.jpg');
+INSERT INTO users (id, name, username, email, password, image_source)
+VALUES (4, 'Zsolt Pintér', 'Zsolti', 'zsol.pz@gmail.com', '1234', 'ZsoltPinter.jpg');
 
-INSERT INTO users (id, name, email, password, image_source)
-VALUES (1, 'Tom B. Erichsen', 'Erichsen@gmail.com', 'Password123', 'defaultProfile.jpg');
+INSERT INTO users (id, name, username, email, password, image_source)
+VALUES (1, 'Tom B. Erichsen', 'Tom', 'Erichsen@gmail.com', 'Password123', 'defaultProfile.jpg');
 
-INSERT INTO users (id, name, email, password, image_source)
-VALUES (2, 'Ashlynn', 'Ashlynn@gmail.com', '987654321', 'defaultProfile.jpg');
+INSERT INTO users (id, name, username, email, password, image_source)
+VALUES (2, 'Ashlynn Mae', 'Ashlynn', 'Ashlynn@gmail.com', '987654321', 'defaultProfile.jpg');
 
-INSERT INTO users (id, name, email, password, image_source)
-VALUES (3, 'Brandon', 'brandon@gmail.com', '987651321', 'defaultProfile.jpg');
+INSERT INTO users (id, name, username, email, password, image_source)
+VALUES (3, 'Brandon Fraser', 'Bren', 'brandon@gmail.com', '987651321', 'defaultProfile.jpg');
 
 INSERT INTO hosts (id, bank_account_number, bank_account_name, user_id)
 VALUES (1, 404307469, 'Erichsen', 1);
