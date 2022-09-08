@@ -65,13 +65,4 @@ public class UserController {
         return new ResponseEntity<>("User not found with id: " + id, HttpStatus.NOT_FOUND);
     }
 
-
-    @PostMapping(value = "/login")
-    public ResponseEntity<UserModel> loginUser(@RequestBody Map<String, String> body){
-        UserModel optionalUSer = userService.validateLogin(body);
-        if(optionalUSer != null){
-            return new ResponseEntity<>(optionalUSer, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-    }
 }
