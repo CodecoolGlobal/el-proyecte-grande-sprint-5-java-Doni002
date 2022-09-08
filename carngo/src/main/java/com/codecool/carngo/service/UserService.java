@@ -48,9 +48,10 @@ public class UserService {
 
     public int addUser(Map<String, String> body){
         int usersByName = userRepository.getUsersByName(body.get("name")).size();
+        int usersByUsername = userRepository.getUsersByUserName(body.get("username")).size();
         int usersByEmail = userRepository.getUsersByEmail(body.get("email")).size();
-        if(usersByName == 0 && usersByEmail == 0){
-            UserModel newUser = new UserModel(body.get("name"), body.get("email"), encryptPassword(body.get("password")));
+        if(usersByName == 0 && usersByEmail == 0 && usersByUsername == 0){
+            UserModel newUser = new UserModel(body.get("name"), body.get("username"), body.get("email"), encryptPassword(body.get("password")));
             userRepository.save(newUser);
             return 200;
         }
@@ -63,6 +64,7 @@ public class UserService {
         if(userToFind.isPresent()){
             UserModel user = userToFind.get();
             user.setName(body.get("name"));
+            user.setUsername(body.get("username"));
             user.setEmail(body.get("email"));
             user.setPassword(body.get("password"));
             userRepository.save(user);
