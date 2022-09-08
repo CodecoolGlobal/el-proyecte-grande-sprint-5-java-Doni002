@@ -26,7 +26,7 @@ public class NewsLetterController {
 
     @PostMapping
     public ResponseEntity<String> addEmailToNewsletter(@RequestBody Map<String, String> body){
-        int response = newsLetterService.addEmailToNewsLetter(body);
+        int response = newsLetterService.addEmailToNewsLetter(body.get("email"));
         if(response == 200){
             return new ResponseEntity<>("Subscribed successfully!", HttpStatus.OK);
         }
