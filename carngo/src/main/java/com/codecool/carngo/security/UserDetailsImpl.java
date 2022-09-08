@@ -37,7 +37,7 @@ public class UserDetailsImpl implements UserDetails {
 
   public static UserDetailsImpl build(UserModel user) {
     List<GrantedAuthority> authorities = new ArrayList<>();
-    authorities.add(new SimpleGrantedAuthority("USER"));
+    authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 
     return new UserDetailsImpl(
             user.getId(),
