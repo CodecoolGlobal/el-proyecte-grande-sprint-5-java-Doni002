@@ -17,7 +17,7 @@ const Navbar = () => {
     
 
     const addRoute = () => {
-        return (loggedIn ?  "/profile" : "#");
+        return (loggedIn ?  "/profile/3" : "#");
     }
 
     const renderSignUpModal = () => {

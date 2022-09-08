@@ -47,7 +47,6 @@ const Profile = () => {
                     <DisplayMap />
                 </Parallax>
                 <HostReview data={data[0]}/>
-                <VehicleReviewSlider carData={data[0]}/>
                 <Footer />
             </>
         )

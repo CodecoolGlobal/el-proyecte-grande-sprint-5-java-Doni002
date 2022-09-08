@@ -115,16 +115,16 @@ CREATE TABLE car_images (
 
 /*USERS*/
 INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
-VALUES (1, 'Donát Alpár', 'alpardonat02@gmail.com', '1234', 'AlparDonat.jpg', 'A Young And Enthusiastic Software Developer With Critical Thinking, Problem-Solving, Negotiation, Outstanding In Both Oral And Written Communication, And Easily Adaptable Interpersonal Skills. Moreover, Working In A Team Means No Difficulties Due To My Emotional Intelligence And Social Collaboration, Also Rather An Exciting Journey For Me.', 1);
+VALUES (1, 'Donat Alpar', 'alpardonat02@gmail.com', '1234', 'AlparDonat.jpg', 'A Young And Enthusiastic Software Developer With Critical Thinking, Problem-Solving, Negotiation, Outstanding In Both Oral And Written Communication, And Easily Adaptable Interpersonal Skills. Moreover, Working In A Team Means No Difficulties Due To My Emotional Intelligence And Social Collaboration, Also Rather An Exciting Journey For Me.', 1);
 
 INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
-VALUES (2, 'Barbara Huszár', 'szabo.huszar.barbara@gmail.com', '1234', 'BarbaraHuszar.jpg', 'Solution-Focused Mind With A Creative Touch. Eager To Learn. Her Easy Going Personality Makes It Easy To Make A Good Fit In Any Team.', 1);
+VALUES (2, 'Barbara Huszar', 'szabo.huszar.barbara@gmail.com', '1234', 'BarbaraHuszar.jpg', 'Solution-Focused Mind With A Creative Touch. Eager To Learn. Her Easy Going Personality Makes It Easy To Make A Good Fit In Any Team.', 1);
 
 INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
-VALUES (3, 'Roland Márton', 'roland111187@gmail.com', '1234', 'RolandMarton.jpeg', 'A Young And Enthusiastic Software Developer With Critical Thinking, Problem-Solving, Negotiation, Outstanding In Both Oral And Written Communication, And Easily Adaptable Interpersonal Skills. Moreover, Working In A Team Means No Difficulties Due To My Emotional Intelligence And Social Collaboration, Also Rather An Exciting Journey For Me. I''m Still Enthusiastic About Grabbing Onto Any Other Programming Languages, Frameworks, And Principles I Can Integrate Into The Coding Web In My Head.', 1);
+VALUES (3, 'Roland Marton', 'roland111187@gmail.com', '1234', 'RolandMarton.jpeg', 'A Young And Enthusiastic Software Developer With Critical Thinking, Problem-Solving, Negotiation, Outstanding In Both Oral And Written Communication, And Easily Adaptable Interpersonal Skills. Moreover, Working In A Team Means No Difficulties Due To My Emotional Intelligence And Social Collaboration, Also Rather An Exciting Journey For Me. I''m Still Enthusiastic About Grabbing Onto Any Other Programming Languages, Frameworks, And Principles I Can Integrate Into The Coding Web In My Head.', 1);
 
 INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
-VALUES (4, 'Zsolt Pintér', 'zsol.pz@gmail.com', '1234', 'ZsoltPinter.jpg', 'An Ambitious And Aspiring Fullstack Software Developer From Codecool Academy With Excellent Hard Skills To Work On The Most Difficult Projects, Problems. Moreover, Distinguished Soft Capabilities To Work In A Team As A Leader Or Member Either. I''m Still Enthusiastic About Grabbing Onto Any Other Programming Languages, Frameworks.', 1);
+VALUES (4, 'Zsolt Pinter', 'zsol.pz@gmail.com', '1234', 'ZsoltPinter.jpg', 'An Ambitious And Aspiring Fullstack Software Developer From Codecool Academy With Excellent Hard Skills To Work On The Most Difficult Projects, Problems. Moreover, Distinguished Soft Capabilities To Work In A Team As A Leader Or Member Either. I''m Still Enthusiastic About Grabbing Onto Any Other Programming Languages, Frameworks.', 1);
 
 INSERT INTO users (id, name, email, password, image_source, profile_description, number_of_cars)
 VALUES (5, 'Tom B. Erichsen', 'Erichsen@gmail.com', 'Password123', 'defaultProfile.jpg','This profile has not got any description.', 1);
@@ -163,8 +163,8 @@ VALUES (100, 'Trustworthy car for extreme terrain.', 'sedan', 'grey', 'Toyota', 
 INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
 VALUES (200, 'Do not want an Audi? Yes you do...', 'sedan', 'gold', 'Audi', 'RS','petrol', 'Audi-RSSquare.jpg', 2021, 5, 300, 121, 4, 2);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (300, 'You know Flash? I just overtook him.', 'sedan', 'red', 'Ferrari', 'F40','petrol', 'ferrariSquare.jpg', 2004, 5, 100, 160, 5, 3);
+-- INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+-- VALUES (300, 'You know Flash? I just overtook him.', 'sedan', 'red', 'Ferrari', 'F40','petrol', 'ferrariSquare.jpg', 2004, 5, 100, 160, 5, 3);
 
 INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
 VALUES (400, 'You were not really driving if you were not going above 400km/h', 'sedan', 'grey', 'Bugatti', 'Chiron','petrol', 'bugattiSquare.jpeg', 2022, 5, 100, 205, 5, 4);
@@ -175,6 +175,25 @@ VALUES (500, 'Do not even look at it.', 'sedan', 'yellow', 'Mercedes', 'AMG GT',
 INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
 VALUES (600, 'It is grey. I think.', 'sedan', 'blue', 'McLaren', '720S','petrol', 'mclarenSquare.jpg', 2021, 5, 200, 210, 5, 7);
 
+
+/* Roland'S VEHICLES */
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (101, 'Trustworthy car for extreme terrain.', 'sedan', 'grey', 'Toyota', 'Tacoma','hybrid', 'travis-essingerSquare.jpg', 2020, 5, 500, 79, 3, 3);
+
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (201, 'Do not want an Audi? Yes you do...', 'sedan', 'gold', 'Audi', 'RS','petrol', 'Audi-RSSquare.jpg', 2021, 5, 300, 121, 4, 3);
+
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (300, 'You know Flash? I just overtook him.', 'sedan', 'red', 'Ferrari', 'F40','petrol', 'ferrariSquare.jpg', 2004, 5, 100, 160, 5, 3);
+
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (401, 'You were not really driving if you were not going above 400km/h', 'sedan', 'grey', 'Bugatti', 'Chiron','petrol', 'bugattiSquare.jpeg', 2022, 5, 100, 205, 5, 3);
+
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (501, 'Do not even look at it.', 'sedan', 'yellow', 'Mercedes', 'AMG GT','petrol', 'mercedesSquare.jpeg', 2018, 5, 200, 140, 4, 3);
+
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
+VALUES (601, 'It is grey. I think.', 'sedan', 'blue', 'McLaren', '720S','petrol', 'mclarenSquare.jpg', 2021, 5, 200, 210, 5, 3);
 
 
 /*CAR_AVAILABILITY*/
