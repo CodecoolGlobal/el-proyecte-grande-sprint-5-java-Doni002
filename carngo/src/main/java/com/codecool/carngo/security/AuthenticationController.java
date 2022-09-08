@@ -22,7 +22,7 @@ public class AuthenticationController {
     private UserDetailsServiceImpl userDetailsServiceImpl;
 
 
-    @PostMapping(value = "/authorization")
+    @PostMapping(value = "/authentication")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)
             throws Exception {
         Authentication authentication = authenticationManager.authenticate(

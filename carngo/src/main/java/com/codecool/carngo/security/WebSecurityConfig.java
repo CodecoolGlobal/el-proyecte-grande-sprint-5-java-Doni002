@@ -18,6 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     private final AuthenticationEntryPoint authenticationEntryPoint;
     private final JwtTokenFilter jwtTokenFilter;
     private final UserRepository userRepository;
@@ -36,9 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                     .antMatchers("/").permitAll()
-                    .antMatchers("/authorization").permitAll()
-                    .antMatchers("/api/vehicles/**").permitAll()
-/*                .anyRequest().authenticated()*/
+                    .antMatchers("/authentication").permitAll()
+                    .antMatchers("/api/vehicles/**").hasRole("USER")
+                .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
