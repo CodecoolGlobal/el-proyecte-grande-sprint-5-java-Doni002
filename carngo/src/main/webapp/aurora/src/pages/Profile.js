@@ -4,11 +4,6 @@ import {Parallax} from "react-parallax";
 import '../components/profile/profileContainer.css';
 import '../components/profile/carGallery.css';
 
-import imgMustang from "../components/img/swiperImg/mustangSquare.jpg";
-import imgExtreme from "../components/img/swiperImg/travis-essingerSquare.jpg";
-import imgAudiWater from "../components/img/swiperImg/audiwaterSquare.jpg";
-import imgTransport from "../components/img/swiperImg/mostafa-tarekSquare.jpg";
-import imgBeast from "../components/img/swiperImg/beastSquare.jpg";
 import cityRoad from "../components/img/profileImg/cityRoad.jpg";
 
 import Footer from '../components/footer/Footer'
@@ -17,62 +12,53 @@ import ProfileContainer from "../components/profile/profileContainer";
 import HostReview from "../components/vehicle/HostReview";
 import VehicleReviewSlider from "../components/vehicle/VehicleReviewSlider";
 import DisplayMap from "../components/mapComponent/DisplayMap";
+import {useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 
 const Profile = () => {
+    const {id} = useParams();
+    const [data, setData] = useState([]);
 
-    const hostReviews = [
-        {name: "David",
-            review: "Good car and host."},
-        {name: "Tracey",
-            review: "Precise desciption."},
-        {name: "Joey",
-            review: "Had fun."},
-        {name: "Bud",
-            review: "Didn't meet my expectations."}
-    ]
+    useEffect(() => {
+        const getData = async () => {
+            const response = await fetch(
+                `http://localhost:8080/api/vehicles/user-id/${id}`
+            );
+            if (!response.ok) {
+                throw new Error(
+                    `This is an HTTP error: The status is ${response.status}`
+                );
+            }
+            let actualData = await response.json();
+            setData(actualData);
+        }
+        getData().catch(reason => {console.log(reason)});
+    }, [id]);
 
-    const vehicleReviews = [
-        {name: "Claire",
-            image: imgExtreme,
-            review: "Good car and host.",
-            experience: 4,
-            condition:5,
-            consumption:5},
-        {name: "Brandon",
-            image: imgAudiWater,
-            review: "Precise desciption.",
-            experience: 4,
-            condition:5,
-            consumption:5},
-        {name: "Lucy",
-            image: imgTransport,
-            review: "Had fun.",
-            experience: 4,
-            condition:5,
-            consumption:5},
-        {name: "George",
-            image: imgBeast,
-            review: "Didn't meet my expectations.",
-            experience: 4,
-            condition:5,
-            consumption:5}
-    ]
-
-    return (
-        <>
-            <div style={{backgroundColor: "#111111"}}>
-                <Navbar />
-            </div>
-            <ProfileContainer />
-            <Parallax bgImage={cityRoad} strength={500}>
-                <DisplayMap />
-            </Parallax>
-            <HostReview image={imgMustang} reviews={ hostReviews}/>
-            <VehicleReviewSlider reviews={ vehicleReviews}/>
-            <Footer />
-        </>
-    )
+    if(data[0] !== undefined){
+        return (
+            <>
+                <div style={{backgroundColor: "#111111"}}>
+                    <Navbar />
+                </div>
+                <ProfileContainer cars={data} userId={id}/>
+                <Parallax bgImage={cityRoad} strength={500}>
+                    <DisplayMap />
+                </Parallax>
+                <HostReview data={data[0]}/>
+                <VehicleReviewSlider carData={data[0]}/>
+                <Footer />
+            </>
+        )
+    }
+    return(<>
+        <div style={{backgroundColor: "#111111"}}>
+            <Navbar />
+        </div>
+        <ProfileContainer cars={data} userId={id}/>
+        <Footer />
+    </>)
 }
 
 export default Profile

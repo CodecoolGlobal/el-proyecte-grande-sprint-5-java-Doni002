@@ -39,6 +39,10 @@ public class VehiclesController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping(value="/user-id/{id}")
+    public ResponseEntity<List<VehicleModel>> getVehiclesByUserId(@PathVariable("id") Long id){
+        return new ResponseEntity<>(vehiclesPageService.getVehiclesByUserId(id), HttpStatus.OK);
+    }
 
     @DeleteMapping(value = "{id}")
     public ResponseEntity<String> deleteVehicleById(@PathVariable("id") Long id){

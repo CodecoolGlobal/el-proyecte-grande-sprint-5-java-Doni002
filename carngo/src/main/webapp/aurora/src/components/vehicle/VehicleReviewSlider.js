@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import "swiper/css/autoplay";
 import {useEffect, useState} from "react";
 import ProfilePicture from "../imageFetch/ProfilePicture";
+import {Link} from "react-router-dom";
 
 
 function VehicleReviewSlider(props) {
@@ -51,10 +52,12 @@ function VehicleReviewSlider(props) {
             {
                 feedbacks.map((item, index) => (
                 <SwiperSlide key={index} className={"sliderVehicleReviewItem"}>
-                    <div className="sliderVehicleReviewItemImage">
-                        <ProfilePicture img={item.user.imageSource}/>
-                        <div><strong>{item.user.name}</strong></div>
-                    </div>
+                    <Link to={"/profile/" + item.user.id}>
+                        <div className="sliderVehicleReviewItemImage">
+                            <ProfilePicture img={item.user.imageSource}/>
+                            <div><strong>{item.user.name}</strong></div>
+                        </div>
+                    </Link>
                     <div className={"sliderVehicleReviewItemFeatures"}>
                         <div>{item.message}</div>
                         <div>{item.starRating} <GiRoundStar /><GiRoundStar /><GiRoundStar /><GiRoundStar /></div>

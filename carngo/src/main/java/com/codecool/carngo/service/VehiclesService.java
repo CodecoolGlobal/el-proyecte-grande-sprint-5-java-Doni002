@@ -84,4 +84,7 @@ public class VehiclesService {
         return 404;
     }
 
+    public List<VehicleModel> getVehiclesByUserId(Long id) {
+        return vehiclesRepository.getVehicleByOwnerId(id);
+    }
 }

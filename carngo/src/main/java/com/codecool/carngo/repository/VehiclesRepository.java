@@ -19,5 +19,4 @@ public interface VehiclesRepository extends JpaRepository<VehicleModel, Long> {
     @Modifying
     @Query(nativeQuery = true, value = "SELECT * FROM vehicles WHERE owner_id = ?1")
     List<VehicleModel> getVehicleByOwnerId(Long id);
-
 }

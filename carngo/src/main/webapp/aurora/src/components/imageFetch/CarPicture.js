@@ -3,6 +3,10 @@ import defaultPicture from "../img/defaultProfile.jpg";
 
 function CarPicture(props){
     const path = props.img;
+    let className = "";
+    if(props.className !== undefined){
+        className = props.className;
+    }
     const [img, setImg] = useState(undefined);
     useEffect(() => {
         const fetchImage = async () => {
@@ -18,6 +22,6 @@ function CarPicture(props){
     if(img === undefined || path === undefined){
         return (<img src={defaultPicture} alt=""/>)
     }
-    return(<img src={img} alt=""/>)
+    return(<img className={className} src={img} alt=""/>)
 }
 export default CarPicture;
