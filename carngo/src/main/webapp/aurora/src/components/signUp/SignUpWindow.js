@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-
 import './signUpWindow.css';
 
 
@@ -29,7 +27,6 @@ const SignUpWindow = () => {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [error, setError] = useState('');
 
     const renderContent = () => {
         if(switchButton === "login"){
@@ -82,32 +79,23 @@ const SignUpWindow = () => {
     }
     const clickLogin = async (e) => {
         e.preventDefault();
-        try {
-        const response = await fetch ('/login', {
-        method: 'POST',
-        body: JSON.stringify({
-            'email': username,
-            'password': password
-        }),
-    })
-        if (response.data && response.data.success === false) {
-            //display error coming from server
-            return setError(response.data.msg);
+        const userData = await getUserData();
+        if (userData.accessToken) {
+            localStorage.setItem("user", JSON.stringify(userData));
         }
-        return setProfile(response);
-    } catch (err) {
-        //display error originating from server / other sources
-        console.log(err);
-        if (err.response) {
-            return setError(err.response.data.msg);
-        }
-        return setError("There has been an error.");
     }
-    }
-    const setProfile = (response) => {
-        ;
-    };
-
+    const getUserData = async () => {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json"},
+            body: JSON.stringify({
+                'username': username,
+                'password': password
+            }),
+        })
+        return await response.json();}
 
     return (
         <div className='modalContainer'>
