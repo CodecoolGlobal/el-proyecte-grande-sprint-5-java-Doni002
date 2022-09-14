@@ -5,7 +5,7 @@ import VehicleDetail from "./pages/VehicleDetail";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Profile from './pages/Profile';
 import Contact from "./pages/Contact";
-import {AuthProvider} from "./context/auth.context";
+import {AuthProvider} from "./context/authContext";
 
 function App() {
     let user = localStorage.getItem("user");
