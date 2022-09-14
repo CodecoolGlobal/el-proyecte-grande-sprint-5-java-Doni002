@@ -1,23 +1,26 @@
 import {Link} from "react-router-dom";
-import { useState, useEffect } from "react";
+import {useState, useEffect, useContext} from "react";
 import SignUpWindow from "../signUp/SignUpWindow";
 
 import './Header.css';
+import AuthContext from "../../context/authContext";
 
 const Navbar = () => {
+    let {user} = useContext(AuthContext);
 
-    const loggedInProps = true;//it will be a props
+    let loggedInProps = false;
+    if (user != null) {
+        loggedInProps = true;
+    }
 
     const [loggedIn, setLoggedIn] = useState()
 
-
     useEffect(() => {
       setLoggedIn(loggedInProps)
-    }, [])
-    
+    }, user)
 
     const addRoute = () => {
-        return (loggedIn ?  "/profile/3" : "#");
+        return (loggedIn ?  `/profile/${user.id}` : "#");
     }
 
     const renderSignUpModal = () => {
