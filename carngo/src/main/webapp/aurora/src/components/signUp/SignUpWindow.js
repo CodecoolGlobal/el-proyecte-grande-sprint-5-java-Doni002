@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect, useContext} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-
 import './signUpWindow.css';
-
+import AuthContext from "../../context/authContext";
 
 const SignUpWindow = () => {
+    const {setUser} = useContext(AuthContext);
 
     const [switchButton, setSwitchButton] = useState("login");
 
@@ -81,19 +80,28 @@ const SignUpWindow = () => {
     }
     const clickLogin = async (e) => {
         e.preventDefault();
-        const user = await fetch ('/api/users/login', {
-        method: 'POST',
-        body: JSON.stringify({
-            'email': username,
-            'password': password
-        }),
-    })
-        if (user.ok) {
-            await user.json();
-            localStorage.setItem("user", user);
+        const user = await getUserData();
+        if (user.accessToken) {
+            localStorage.setItem("user", JSON.stringify(user));
+            setProfile(user);
+            closeModal();
         }
-        ;
+     }
+    const setProfile = (user) => {
+        setUser(user);
     }
+    const getUserData = async () => {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json"},
+            body: JSON.stringify({
+                'username': username,
+                'password': password
+            }),
+        })
+        return await response.json();}
 
     return (
         <div className='modalContainer'>
