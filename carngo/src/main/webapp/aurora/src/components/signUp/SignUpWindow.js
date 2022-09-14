@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect, useContext} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 import './signUpWindow.css';
-
+import AuthContext from "../../context/authContext";
 
 const SignUpWindow = () => {
+    const {setUser} = useContext(AuthContext);
 
     const [switchButton, setSwitchButton] = useState("login");
 
@@ -79,10 +80,15 @@ const SignUpWindow = () => {
     }
     const clickLogin = async (e) => {
         e.preventDefault();
-        const userData = await getUserData();
-        if (userData.accessToken) {
-            localStorage.setItem("user", JSON.stringify(userData));
+        const user = await getUserData();
+        if (user.accessToken) {
+            localStorage.setItem("user", JSON.stringify(user));
+            setProfile(user);
+            closeModal();
         }
+     }
+    const setProfile = (user) => {
+        setUser(user);
     }
     const getUserData = async () => {
         const response = await fetch('/login', {
