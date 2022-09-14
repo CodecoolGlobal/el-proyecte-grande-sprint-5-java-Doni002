@@ -102,11 +102,11 @@ const ToggleArticle = () => {
                 <h1 className="taTitle">How it works?</h1>
             </div>
             <div className="tacontentContainer">                    
-                <div class="switch-field">
+                <div className="switch-field">
                     <input type="radio" id="radio-one" name="switch-one" value="guest" onClick={setContent} className={switchButton === 'guest' ? "active" : ""} checked/>
-                    <label for="radio-one">As a Guest</label>
+                    <label htmlFor="radio-one">As a Guest</label>
                     <input type="radio" id="radio-two" name="switch-one" value="host" onClick={setContent} className={switchButton === 'host' ? "active" : ""} />
-                    <label for="radio-two">As a Host</label>
+                    <label htmlFor="radio-two">As a Host</label>
                 </div>
                 <div className="taTextContainer">
 
