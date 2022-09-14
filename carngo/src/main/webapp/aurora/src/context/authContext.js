@@ -1,9 +1,9 @@
-import React from 'react';
+import { createContext, useState } from "react";
 
-const AuthContext = React.createContext(null);
+const AuthContext = createContext({});
 
 export const AuthProvider = ({ userData, children }) => {
-    let [user, setUser] = React.useState(userData);
+    let [user, setUser] = useState(userData);
 
     return (
         <AuthContext.Provider value={{ user, setUser }}>
@@ -12,7 +12,7 @@ export const AuthProvider = ({ userData, children }) => {
     );
 };
 
-export const useAuth = () => React.useContext(AuthContext);
+export default AuthContext;
 
 /*
 export const ProtectedRoute = ({..rest }) => {
