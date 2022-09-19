@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Map from "./Map";
 import { Layers, TileLayer, VectorLayer } from "./Layers";
 import { Style, Icon } from "ol/style";
@@ -14,17 +14,17 @@ import mapConfig from "./config.json";
 
 const geojsonObject = mapConfig.geojsonObject;
 const geojsonObject2 = mapConfig.geojsonObject2;
-const markersLonLat = [mapConfig.kansasCityLonLat, mapConfig.blueSpringsLonLat];
 
-function addMarkers(lonLatArray) {
-    var iconStyle = new Style({
+function addMarkers(cars) {
+    let iconStyle = new Style({
         image: new Icon({
             anchorXUnits: "fraction",
             anchorYUnits: "pixels",
             src: mapConfig.markerImage32,
         }),
     });
-    let features = lonLatArray.map((item) => {
+    let features = cars.map((car) => {
+        const item = [car.longitude, car.latitude];
         let feature = new Feature({
             geometry: new Point(fromLonLat(item)),
         });
@@ -34,15 +34,25 @@ function addMarkers(lonLatArray) {
     return features;
 }
 
-const DisplayMap = () => {
+const DisplayMap = (props) => {
+    const cars = props.cars;
     const [center, setCenter] = useState(mapConfig.center);
     const [zoom, setZoom] = useState(11);
 
     const [showLayer1, setShowLayer1] = useState(true);
     const [showLayer2, setShowLayer2] = useState(true);
-    const [showMarker, setShowMarker] = useState(false);
+    const [showMarker, setShowMarker] = useState(true);
+    const [features, setFeatures] = useState(undefined);
 
-    const [features, setFeatures] = useState(addMarkers(markersLonLat));
+    useEffect(() => {
+        setFeatures(addMarkers(cars));
+    }, [props.cars]);
+
+
+    if(cars===undefined || features === undefined){
+        return(<></>);
+    }
+
 
     return (
         <div className="mapContainer">
