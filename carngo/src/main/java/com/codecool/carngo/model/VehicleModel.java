@@ -24,18 +24,22 @@ public class VehicleModel {
     private String model;
     private String fuel;
     private String imageSource;
+    private String address;
     private int vintage;
     private int numOfSeats;
     private int trunkCapacity;
     private int pricePerDay;
     private int numOfReservations;
+    private double longitude;
+    private double latitude;
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private HostModel host;
 
 
     public VehicleModel(String description, String carType, String color, String brand, String model, String fuel,
-                        int vintage, int numOfSeats, int trunkCapacity, int pricePerDay, int numOfReservations, HostModel host) {
+                        String address, int vintage, int numOfSeats, int trunkCapacity, int pricePerDay,
+                        int numOfReservations, double longitude, double latitude, HostModel host) {
         this.description = description;
         this.carType = carType;
         this.color = color;
@@ -48,5 +52,8 @@ public class VehicleModel {
         this.pricePerDay = pricePerDay;
         this.numOfReservations = numOfReservations;
         this.host = host;
+        this.address = address;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 }

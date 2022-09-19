@@ -56,9 +56,10 @@ public class VehiclesService {
         }
 
         VehicleModel newVehicle = new VehicleModel(body.get("description"), body.get("carType"), body.get("color"),
-                body.get("brand"), body.get("model"), body.get("fuel"), Integer.parseInt(body.get("vintage")),
+                body.get("brand"), body.get("model"), body.get("fuel"),body.get("address"), Integer.parseInt(body.get("vintage")),
                 Integer.parseInt(body.get("numOfSeats")), Integer.parseInt(body.get("trunkCapacity")),
-                Integer.parseInt(body.get("pricePerDay")), 0, host.get());
+                Integer.parseInt(body.get("pricePerDay")), 0, Double.parseDouble(body.get("longitude")),
+                Double.parseDouble(body.get("latitude")), host.get());
         vehiclesRepository.save(newVehicle);
         return 200;
     }
