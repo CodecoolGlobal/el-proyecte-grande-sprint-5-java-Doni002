@@ -9,13 +9,34 @@ import "./footer.css"
 
 
 const Footer = () => {
+
+    const sendEmail = async () => {
+        const inputField = document.querySelector(".footerInput");
+        const response = await fetch('http://localhost:8080/api/newsletter', {
+            method: 'POST',
+            body: JSON.stringify({
+                email: inputField.value ,
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+        });
+        inputField.value = "";
+        if (!response.ok) {
+            inputField.placeholder = "Email already registered!";
+        } else {
+            inputField.placeholder = "Subscribed successfully!";
+        }
+    };
+
     return (
         <footer>
             <div className="footerUpperContainer">
                 <div className='newsletterContainer'>
                     <h1 className="footerText">Subscribe to our Newsletter!</h1>
                     <input type="text" className='footerInput' placeholder='Email'></input>
-                    <FontAwesomeIcon icon={faPaperPlane} id="sendIcon" />
+                    <FontAwesomeIcon onClick={sendEmail} icon={faPaperPlane} id="sendIcon" />
                 </div>
                 <img alt="Black beast" className="footerImage" src={footerPicture}></img>
             </div>
