@@ -1,0 +1,104 @@
+.switch-field {
+	display: flex;
+    justify-content: center;
+	margin-bottom: 36px;
+	overflow: hidden;
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+}
+
+.switch-field label {
+	background-color: #e4e4e4;
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 2em;
+	line-height: 1;
+	text-align: center;
+	padding: 8px 16px;
+	margin-right: -1px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	transition: all 0.1s ease-itaContainern-out;
+}
+
+.switch-field label:hover {
+	cursor: pointer;
+	border: 5em rgb(105,105,105);
+}
+
+.active + label{
+	background-color: orange;
+	box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+	border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+	border-radius: 0 4px 4px 0;
+}
+
+.taContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+.taTextContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.taImageContainer {
+	display: flex;
+	justify-content: center;
+	margin: 5rem;
+}
+
+.taPicture{
+    border-radius: 20px;
+    width: 75%;
+}
+
+.taTitle{
+    font-size: 3em;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.taArticle{
+    max-width: 50%;
+    font-size: 1em;
+	font-family: 'Rubik', sans-serif;
+	padding: 2.5rem;
+}
+
+.taText{
+	font-size: 1em;
+	line-height: 200%;
+}
+
+@media screen and (max-width: 650px) {
+	.taImageContainer > img {
+		display: none;
+	}
+
+	.taTextContainer {
+		display: flex;
+		align-content: center;
+		justify-content: center;
+	}
+
+}
+

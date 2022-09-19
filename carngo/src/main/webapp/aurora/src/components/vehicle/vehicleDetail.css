@@ -1,0 +1,227 @@
+.vArticle {
+    width:60vw;
+    display: flex;
+    flex-direction: row;
+    font-size: 1em;
+    font-family: 'Rubik', sans-serif;
+    padding: 3rem;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+}
+.vTextContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    /*padding-left: 2.6rem;*/
+}
+
+#calendarContainer {
+
+}
+
+.react-calendar {
+    margin: 2.5rem 0 2.5rem;
+    width: 22.5rem;
+}
+
+.text-center {
+    line-height: 2rem;
+}
+
+.vImage {
+    max-width: 30vw;
+    border-radius: 20px;
+}
+.vText {
+    font-size: 1em;
+    line-height: 200%;
+}
+.vFeatures {
+    width:38vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2%;
+    margin: 2.5rem 0 2.5rem;
+}
+.borderFeature {
+    border-width: 3px;
+    border-style: solid;
+    border-image:
+            linear-gradient(
+                    to bottom,
+                    red,
+                    orange,
+                    white
+            ) 1 100%;
+}
+.vFeatureItem {
+    align-self: start;
+    justify-self: start;
+    margin: 5% 10%;
+}
+.border-bottom {
+    padding-bottom: 1%;
+    text-align:center;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(0.25turn, rgba(248, 219, 77, 0.89), rgb(255, 77, 0), rgba(56,2,155,0));
+    border-image-slice: 1;
+    width:100%;
+}
+.borderBody {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background: #222;
+}
+.swiper-slide-container {
+    height: 65vh;
+    background-color: #ffffff;
+    margin: 1rem;
+}
+.swiper-slide {
+    position: center;
+    margin: 1% auto auto;
+    width: 60%;
+    background-color: rgba(255,255,255,0.3%);
+}
+.default-item {
+    margin-left: fill;
+    margin-right: fill;
+    position: center;
+}
+.default-item img {
+    height: 50vh;
+    object-fit: contain;
+}
+.swiper-button-prev {
+    left: 0;
+    color: #d26636 !important;
+}
+.swiper-button-next {
+    right:0;
+    color: #d26636 !important;
+}
+.product-images-slider .swiper-slide {
+    padding-top: 2px;
+    overflow: hidden;
+}
+.product-images-slider .swiper-slide img {
+    width: 100%;
+}
+.product-images-slider-thumbs .swiper-slide {
+    border: 1px solid #dddbdb;
+}
+.product-images-slider-thumbs .swiper-slide-thumb-active {
+    border: 3px solid #d26636;
+
+}
+.product-images-slider-thumbs-item{
+    width: 100%;
+    overflow: hidden;
+}
+.product-images-slider-thumbs-item img {
+    width: 50%;
+}
+.hostArticle {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 1em;
+    font-family: 'Rubik', sans-serif;
+    margin: 1rem;
+    align-items: center;
+    position: center;
+}
+.hostContainer {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    padding: 1rem;
+}
+.swiperContainer {
+    width: 50%;
+}
+.host-h3 {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    text-align: left;
+    font-weight: 800;
+    padding: 2rem 5rem;
+}
+.hostImage {
+    border-radius: 50%;
+    width: 8rem;
+}
+.reviewDefaultItem {
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.vehicleReview h3 {
+    width: 80%;
+}
+.vehicleReview {
+    width: 80%;
+}
+.sliderVehicleReview {
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+    margin: 1rem;
+    height: 30rem;
+}
+.sliderVehicleReviewItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    width: 30rem;
+}
+.sliderVehicleReviewItemFeatures {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+.sliderVehicleReviewItemImage {
+    justify-content: center;
+    align-items: center;
+}
+
+.vehicleContainer {
+    display: flex;
+    text-align: justify;
+}
+
+@media screen and (max-width: 900px) {
+
+    .vehicleContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .vFeatures,
+    .vArticle {
+        width: auto;
+        padding: 1rem;
+    }
+
+    .hostArticle {
+        flex-direction: column;
+    }
+
+    .swiperContainer {
+        width: 100%;
+    }
+
+}
+
