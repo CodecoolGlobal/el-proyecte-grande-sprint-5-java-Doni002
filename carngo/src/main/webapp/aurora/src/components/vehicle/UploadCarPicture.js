@@ -1,19 +1,28 @@
 import React, {useEffect, useState} from 'react';
 import './UploadCarPicture.css';
 
-function UploadCarPicture(props) {
-    const [images, setImages] = useState([]);
 
-    const uploadImages = ()=> {
-        console.log(images);
+function UploadCarPicture() {
+    const [image, setImage] = useState();
+
+    const uploadImage = async ()=> {
+        const formData = new FormData();
+        formData.append("file", image);
+        let response = await fetch("/api/vehicles/shareyourcar", {
+            method: "post",
+            body: formData
+        });
+        if(response.status == 200) {
+            alert("File uploaded!")
+        }
     }
 
     const previewImage = () => {
-        const files = document.querySelector(".uploadField").files[0];
-        setImages(images => [...images, files]);
-        if (files) {
+        const file = document.querySelector(".uploadField").files[0];
+        setImage(file);
+        if (file) {
             const fileReader = new FileReader();
-            fileReader.readAsDataURL(files);
+            fileReader.readAsDataURL(file);
             fileReader.addEventListener("load", function () {
                 const previewContainer = document.querySelector(".previewContainer");
                 previewContainer.style.display = "block";
@@ -30,9 +39,10 @@ function UploadCarPicture(props) {
                 className={"uploadField"}
                 accept={"image/*"}
                 type={"file"}
+                multiple
             />
-        <div className={"previewContainer"}></div>
-            <button className={"uploadButton"} onClick={uploadImages}>upload</button>
+        <div className={"previewContainer"}/>
+            <button className={"uploadButton"} onClick={uploadImage}>upload</button>
         </div>
     );
 }
