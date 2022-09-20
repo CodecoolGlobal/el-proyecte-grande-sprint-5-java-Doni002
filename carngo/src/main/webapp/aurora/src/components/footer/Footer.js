@@ -12,6 +12,8 @@ const Footer = () => {
 
     const sendEmail = async () => {
         const inputField = document.querySelector(".footerInput");
+        const sendIcon = document.querySelector("#sendIcon");
+        sendIcon.style.display = "none";
         const response = await fetch('http://localhost:8080/api/newsletter', {
             method: 'POST',
             body: JSON.stringify({
@@ -24,10 +26,11 @@ const Footer = () => {
         });
         inputField.value = "";
         if (!response.ok) {
-            inputField.placeholder = "Email already registered!";
+            inputField.placeholder = "Email doesnt exists or subscribed!";
         } else {
             inputField.placeholder = "Subscribed successfully!";
         }
+        sendIcon.style.display = "block";
     };
 
     return (
