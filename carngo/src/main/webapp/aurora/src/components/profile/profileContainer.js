@@ -46,10 +46,9 @@ const ProfileContainer = (props) => {
                     {Object.keys(cars).length !== 0 && <div className="gallery">
                         {
                             cars.map(item => {
-                                console.log(item.imageSource);
                                 return(
                                     <>
-                                        <CarGallery key={item.id} img={item.imageSource} brand={item.brand} model={item.model}/>
+                                        <CarGallery carId={item.id} img={item.imageSource} brand={item.brand} model={item.model}/>
                                     </>
                                 );
                             })
