@@ -28,5 +28,6 @@ public class HostModel {
         this.bankAccountNumber = bankAccountNumber;
         this.bankAccountName = bankAccountName;
         this.user = user;
+        user.setRole(UserRole.ROLE_HOST);
     }
 }

@@ -13,10 +13,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import static com.sun.source.util.DocTreePath.getPath;
 
 @RequestMapping("/api/vehicles")
 @CrossOrigin(origins = "http://localhost:3000")
@@ -85,5 +89,18 @@ public class VehiclesController {
         }
         return new ResponseEntity<>("Vehicle not found with id: " + body.get("id"), HttpStatus.NOT_FOUND);
     }
+
+    @PostMapping(value = "/shareyourcar")
+    public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) {
+        String username = System.getProperty("user.name");
+        String fileName = file.getOriginalFilename();
+        try {
+            file.transferTo(new File("/home/" + username + "/Desktop/Advanced/week_5/el-proyecte-grande-sprint-5-java-Doni002/carngo/src/main/resources/img/carProfiles/" + "12-" + fileName));//need to be env variable
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+        return ResponseEntity.ok("File uploaded successfully!");
+    }
+
 
 }

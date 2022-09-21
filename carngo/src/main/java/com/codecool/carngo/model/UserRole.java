@@ -1,6 +1,6 @@
 package com.codecool.carngo.model;
 
-public enum UserRoles {
+public enum UserRole {
     ROLE_ADMIN,
     ROLE_USER,
     ROLE_HOST

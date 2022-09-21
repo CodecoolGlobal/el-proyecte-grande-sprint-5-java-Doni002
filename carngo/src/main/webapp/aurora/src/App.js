@@ -5,6 +5,7 @@ import VehicleDetail from "./pages/VehicleDetail";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Profile from './pages/Profile';
 import Contact from "./pages/Contact";
+import UploadCarPicture from "./components/vehicle/UploadCarPicture";
 import {AuthProvider} from "./context/authContext";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                         <Route path="/profile/:id" element= {<Profile />} />
                         <Route path="/contact" element= {<Contact />} />
                         <Route path="/vehicles/:id" element= {<VehicleDetail />} />
+                        <Route path="/shareyourcar" element= {<UploadCarPicture />} />
                     </Routes>
                 </BrowserRouter>
             </AuthProvider>
