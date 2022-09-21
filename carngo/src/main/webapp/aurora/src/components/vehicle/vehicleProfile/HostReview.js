@@ -2,7 +2,7 @@ import "./vehicleDetail.css"
 
 import {GiRoundStar} from 'react-icons/gi';
 import HostReviewSlider from "./HostReviewSlider";
-import ProfilePicture from "../imageFetch/ProfilePicture";
+import ProfilePicture from "../../imageFetch/ProfilePicture.js";
 import {Link} from "react-router-dom";
 
 function HostReview(props) {

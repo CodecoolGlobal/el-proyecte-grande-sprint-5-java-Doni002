@@ -1,16 +1,16 @@
-import "../components/vehicle/vehicleDetail.css";
+import "../components/vehicle/vehicleProfile/vehicleDetail.css";
 import {Parallax} from "react-parallax";
 import {useParams} from "react-router-dom";
 
 import imgAbstract from "../components/img/otherImg/car-back-lights.jpg"
 
-import VehicleSlider from "../components/vehicle/VehicleSlider";
-import VehicleFeatures from "../components/vehicle/VehicleFeatures";
-import HostReview from "../components/vehicle/HostReview";
-import VehicleReviewSlider from "../components/vehicle/VehicleReviewSlider";
+import VehicleSlider from "../components/vehicle/vehicleProfile/VehicleSlider";
+import VehicleFeatures from "../components/vehicle/vehicleProfile/VehicleFeatures";
+import HostReview from "../components/vehicle/vehicleProfile/HostReview";
+import VehicleReviewSlider from "../components/vehicle/vehicleProfile/VehicleReviewSlider";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/header/Navbar";
-import CalendarArticle from "../components/vehicle/CalendarArticle"
+import CalendarArticle from "../components/vehicle/vehicleProfile/CalendarArticle"
 import {useEffect, useState} from "react";
 
 
