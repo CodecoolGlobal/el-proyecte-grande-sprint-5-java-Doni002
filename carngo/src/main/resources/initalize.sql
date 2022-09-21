@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS vehicles;
 DROP TABLE IF EXISTS hosts;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS email_subscribes;
+DROP TABLE IF EXISTS car_coordinates;
 
 CREATE TABLE users (
                        id int,
@@ -32,93 +33,117 @@ CREATE TABLE hosts (
 
 
 CREATE TABLE vehicles (
-                      id int,
-                      description varchar(255),
-                      car_type varchar(255),
-                      color varchar(255),
-                      brand varchar(255),
-                      model varchar(255),
-                      fuel varchar(255),
-                      image_source varchar(255),
-                      vintage int,
-                      num_of_seats int,
-                      trunk_capacity int,
-                      price_per_day int,
-                      num_of_reservations int,
-                      owner_id int,
-                      PRIMARY KEY (id),
-                      FOREIGN KEY (owner_id)
-                          REFERENCES hosts(id)
+                          id int,
+                          description varchar(255),
+                          car_type varchar(255),
+                          color varchar(255),
+                          brand varchar(255),
+                          model varchar(255),
+                          fuel varchar(255),
+                          image_source varchar(255),
+                          address varchar(255),
+                          vintage int,
+                          num_of_seats int,
+                          trunk_capacity int,
+                          price_per_day int,
+                          num_of_reservations int,
+                          owner_id int,
+                          latitude float,
+                          longitude float,
+                          PRIMARY KEY (id),
+                          FOREIGN KEY (owner_id)
+                              REFERENCES hosts(id)
 );
 
 CREATE TABLE car_availability (
-                      id int,
-                      vehicle_id int,
-                      from_date date,
-                      to_date date,
-                      PRIMARY KEY (id),
-                      FOREIGN KEY (vehicle_id)
-                          REFERENCES vehicles(id)
+                                  id int,
+                                  vehicle_id int,
+                                  from_date date,
+                                  to_date date,
+                                  PRIMARY KEY (id),
+                                  FOREIGN KEY (vehicle_id)
+                                      REFERENCES vehicles(id)
 );
 
 CREATE TABLE car_reservation (
-                     id int,
-                     from_date date,
-                     to_date date,
-                     renter_user_id int,
-                     vehicle_id int,
-                     PRIMARY KEY (id),
-                     FOREIGN KEY (vehicle_id)
-                         REFERENCES vehicles(id),
-                     FOREIGN KEY (renter_user_id)
-                         REFERENCES  users(id)
+                                 id int,
+                                 from_date date,
+                                 to_date date,
+                                 renter_user_id int,
+                                 vehicle_id int,
+                                 PRIMARY KEY (id),
+                                 FOREIGN KEY (vehicle_id)
+                                     REFERENCES vehicles(id),
+                                 FOREIGN KEY (renter_user_id)
+                                     REFERENCES  users(id)
 );
 
 CREATE TABLE car_feedback (
-                      id int,
-                      cleanness int,
-                      experience int,
-                      condition int,
-                      message varchar(255),
-                      user_id int,
-                      date date,
-                      vehicle_id int,
-                      PRIMARY KEY (id),
-                      FOREIGN KEY (vehicle_id)
-                          REFERENCES vehicles(id),
-                      FOREIGN KEY (user_id)
-                          REFERENCES users(id)
+                              id int,
+                              cleanness int,
+                              experience int,
+                              condition int,
+                              message varchar(255),
+                              user_id int,
+                              date date,
+                              vehicle_id int,
+                              PRIMARY KEY (id),
+                              FOREIGN KEY (vehicle_id)
+                                  REFERENCES vehicles(id),
+                              FOREIGN KEY (user_id)
+                                  REFERENCES users(id)
 );
 
 CREATE TABLE user_feedback (
-                       id int,
-                       star_rating int,
-                       message varchar(255),
-                       user_id int,
-                       host_id int,
-                       date date,
-                       PRIMARY KEY (id),
-                       FOREIGN KEY (user_id)
-                           REFERENCES users(id),
-                       FOREIGN KEY (host_id)
-                           REFERENCES hosts(id)
+                               id int,
+                               star_rating int,
+                               message varchar(255),
+                               user_id int,
+                               host_id int,
+                               date date,
+                               PRIMARY KEY (id),
+                               FOREIGN KEY (user_id)
+                                   REFERENCES users(id),
+                               FOREIGN KEY (host_id)
+                                   REFERENCES hosts(id)
 );
 
 CREATE TABLE car_images (
-                       id int,
-                       image_source varchar(255),
-                       vehicle_id int,
-                       PRIMARY KEY (id),
-                       FOREIGN KEY (vehicle_id)
-                            REFERENCES vehicles(id)
+                            id int,
+                            image_source varchar(255),
+                            vehicle_id int,
+                            PRIMARY KEY (id),
+                            FOREIGN KEY (vehicle_id)
+                                REFERENCES vehicles(id)
 
 );
 
 CREATE TABLE email_subscribes (
-                        id int,
-                        email varchar(255)
+                                  id int,
+                                  email varchar(255)
 );
 
+CREATE TABLE car_coordinates (
+                                 id int,
+                                 latitude float,
+                                 longitude float,
+                                 "type" VARCHAR(255),
+                                 "name" VARCHAR(255),
+                                 number int,
+                                 postal_code int,
+                                 street VARCHAR(255),
+                                 confidence int,
+                                 region VARCHAR(255),
+                                 region_code VARCHAR(255),
+                                 county VARCHAR(255),
+                                 locality VARCHAR(255),
+                                 administrative_area VARCHAR(255),
+                                 neighbourhood VARCHAR(255),
+                                 country VARCHAR(255),
+                                 countryCode VARCHAR(255),
+                                 continent VARCHAR(255),
+                                 label VARCHAR(255)
+);
 
 /*USERS*/
 INSERT INTO users (id, name, username, email, password, image_source, profile_description, number_of_cars)
@@ -164,43 +189,43 @@ VALUES (7, 404307462, 'Brandon', 7);
 
 
 /*VEHICLES*/
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (100, 'Trustworthy car for extreme terrain.', 'sedan', 'grey', 'Toyota', 'Tacoma','hybrid', 'travis-essingerSquare.jpg', 2020, 5, 500, 79, 3, 1);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (100, 'Trustworthy car for extreme terrain.', 'sedan', 'grey', 'Toyota', 'Tacoma','hybrid', 'travis-essingerSquare.jpg', 2020, 5, 500, 79, 3, 1, 'Budapest Garay tér 16', 19.085301, 47.504675);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (200, 'Do not want an Audi? Yes you do...', 'sedan', 'gold', 'Audi', 'RS','petrol', 'Audi-RSSquare.jpg', 2021, 5, 300, 121, 4, 2);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (200, 'Do not want an Audi? Yes you do...', 'sedan', 'gold', 'Audi', 'RS','petrol', 'Audi-RSSquare.jpg', 2021, 5, 300, 121, 4, 2, 'Kossuth Lajos tér 12, Budapest, 1055', 19.047999, 47.507849);
 
--- INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
--- VALUES (300, 'You know Flash? I just overtook him.', 'sedan', 'red', 'Ferrari', 'F40','petrol', 'ferrariSquare.jpg', 2004, 5, 100, 160, 5, 3);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (300, 'You know Flash? I just overtook him.', 'sedan', 'red', 'Ferrari', 'F40','petrol', 'ferrariSquare.jpg', 2004, 5, 100, 160, 5, 3, 'Vág u. 2, Budapest, 1133', 16.267854, 48.187773);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (400, 'You were not really driving if you were not going above 400km/h', 'sedan', 'grey', 'Bugatti', 'Chiron','petrol', 'bugattiSquare.jpeg', 2022, 5, 100, 205, 5, 4);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (400, 'You were not really driving if you were not going above 400km/h', 'sedan', 'grey', 'Bugatti', 'Chiron','petrol', 'bugattiSquare.jpeg', 2022, 5, 100, 205, 5, 4, 'Garas u. 3, Budapest, 1026', 19.018165, 47.509907);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (500, 'Do not even look at it.', 'sedan', 'yellow', 'Mercedes', 'AMG GT','petrol', 'mercedesSquare.jpeg', 2018, 5, 200, 140, 4, 5);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (500, 'Do not even look at it.', 'sedan', 'yellow', 'Mercedes', 'AMG GT','petrol', 'mercedesSquare.jpeg', 2018, 5, 200, 140, 4, 5, 'Ménesi út 49, Budapest, 1118', 19.038154, 47.48204);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (600, 'It is grey. I think.', 'sedan', 'blue', 'McLaren', '720S','petrol', 'mclarenSquare.jpg', 2021, 5, 200, 210, 5, 7);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (600, 'It is grey. I think.', 'sedan', 'blue', 'McLaren', '720S','petrol', 'mclarenSquare.jpg', 2021, 5, 200, 210, 5, 7, 'Mária u. 30, Budapest, 1085', 16.880384, 49.158935);
 
 
 /* Roland'S VEHICLES */
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (101, 'Trustworthy car for extreme terrain.', 'sedan', 'grey', 'Toyota', 'Tacoma','hybrid', 'travis-essingerSquare.jpg', 2020, 5, 500, 79, 3, 3);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (101, 'Trustworthy car for extreme terrain.', 'sedan', 'grey', 'Toyota', 'Tacoma','hybrid', 'travis-essingerSquare.jpg', 2020, 5, 500, 79, 3, 3, 'Budapest Garay tér 16', 19.085301, 47.504675);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (201, 'Do not want an Audi? Yes you do...', 'sedan', 'gold', 'Audi', 'RS','petrol', 'Audi-RSSquare.jpg', 2021, 5, 300, 121, 4, 3);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (201, 'Do not want an Audi? Yes you do...', 'sedan', 'gold', 'Audi', 'RS','petrol', 'Audi-RSSquare.jpg', 2021, 5, 300, 121, 4, 3, 'Budapest Garay tér 16', 19.085301, 47.504675);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (300, 'You know Flash? I just overtook him.', 'sedan', 'red', 'Ferrari', 'F40','petrol', 'ferrariSquare.jpg', 2004, 5, 100, 160, 5, 3);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (301, 'You know Flash? I just overtook him.', 'sedan', 'red', 'Ferrari', 'F40','petrol', 'ferrariSquare.jpg', 2004, 5, 100, 160, 5, 3, 'Budapest Garay tér 16', 19.085301, 47.504675);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (401, 'You were not really driving if you were not going above 400km/h', 'sedan', 'grey', 'Bugatti', 'Chiron','petrol', 'bugattiSquare.jpeg', 2022, 5, 100, 205, 5, 3);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (401, 'You were not really driving if you were not going above 400km/h', 'sedan', 'grey', 'Bugatti', 'Chiron','petrol', 'bugattiSquare.jpeg', 2022, 5, 100, 205, 5, 3, 'Budapest Garay tér 16', 19.085301, 47.504675);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (501, 'Do not even look at it.', 'sedan', 'yellow', 'Mercedes', 'AMG GT','petrol', 'mercedesSquare.jpeg', 2018, 5, 200, 140, 4, 3);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (501, 'Do not even look at it.', 'sedan', 'yellow', 'Mercedes', 'AMG GT','petrol', 'mercedesSquare.jpeg', 2018, 5, 200, 140, 4, 3, 'Budapest Garay tér 16', 19.085301, 47.504675);
 
-INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id)
-VALUES (601, 'It is grey. I think.', 'sedan', 'blue', 'McLaren', '720S','petrol', 'mclarenSquare.jpg', 2021, 5, 200, 210, 5, 3);
+INSERT INTO vehicles (id, description, car_type, color, brand, model, fuel, image_source, vintage, num_of_seats, trunk_capacity, price_per_day, num_of_reservations, owner_id, address, longitude, latitude)
+VALUES (601, 'It is grey. I think.', 'sedan', 'blue', 'McLaren', '720S','petrol', 'mclarenSquare.jpg', 2021, 5, 200, 210, 5, 3, 'Budapest Garay tér 16', 19.085301, 47.504675);
 
 
 /*CAR_AVAILABILITY*/

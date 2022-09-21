@@ -1,13 +1,18 @@
 package com.codecool.carngo.controller;
 
 
+import com.codecool.carngo.model.PositionStackModel;
 import com.codecool.carngo.model.VehicleModel;
 import com.codecool.carngo.service.VehiclesService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +22,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:3000")
 @Controller
 public class VehiclesController {
-
+    static final String ACCESS_KEY = "aa64ed7140357784c7465d1092d6a229";
     private final VehiclesService vehiclesPageService;
 
     @Autowired
@@ -53,9 +58,17 @@ public class VehiclesController {
         return new ResponseEntity<>("vehicle not found with id: " + id, HttpStatus.NOT_FOUND);
     }
 
-    //requirements: description, carType, color, brand, model, fuel, vintage, numOfSeats, trunkCapacity, pricePerDay, ownerId
+    //requirements: description, carType, color, brand, model, fuel, address, vintage, numOfSeats, trunkCapacity, pricePerDay, ownerId
     @PostMapping
-    public ResponseEntity<String> addVehicle(@RequestBody() Map<String, String> body){
+    public ResponseEntity<String> addVehicle(@RequestBody() Map<String, String> body) throws JsonProcessingException {
+        String address = body.get("address");
+        String url = "http://api.positionstack.com/v1/forward?access_key=" + ACCESS_KEY + "&query=" + address;
+        RestTemplate restTemplate = new RestTemplate();
+        JsonNode node = restTemplate.getForEntity(url, JsonNode.class).getBody();
+        ObjectMapper objectMapper = new ObjectMapper();
+        PositionStackModel position = objectMapper.treeToValue(node.get("data").get(0), PositionStackModel.class);
+        body.put("longitude", String.valueOf(position.getLongitude()));
+        body.put("latitude", String.valueOf(position.getLatitude()));
         int response = vehiclesPageService.adddVehicle(body);
         if(response == 200) {
             return new ResponseEntity<>("Vehicle added successfully!", HttpStatus.OK);
