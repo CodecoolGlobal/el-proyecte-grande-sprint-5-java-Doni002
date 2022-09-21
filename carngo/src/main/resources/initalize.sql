@@ -366,6 +366,78 @@ INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, exp
 VALUES (24, 'Good car and host', 4, '2022-09-28',600,2,3,2);
 
 
+/*Roland's car feedbacks*/
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (25, 'Precise description.', 7, '2022-09-28',101,3,2,4);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (26, 'Had fun.', 6, '2022-09-28',101,4,2,1);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (27, 'Did not meet my expectations.', 5, '2022-09-28',101,5,2,3);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (28, 'Good car and host', 4, '2022-09-28',101,1,4,2);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (29, 'Precise description.', 7, '2022-09-28',201,4,2,3);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (30, 'Had fun.', 6, '2022-09-28',201,5,2,3);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (31, 'Did not meet my expectations.', 5, '2022-09-28',201,2,3,1);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (32, 'Good car and host', 4, '2022-09-28',201,4,2,3);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (33, 'Precise description.', 7, '2022-09-28',301,1,2,3);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (34, 'Had fun.', 1, '2022-09-28',301,5,4,5);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (35, 'Did not meet my expectations.', 5, '2022-09-28',301,5,4,3);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (36, 'Good car and host', 4, '2022-09-28',301,3,2,3);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (37, 'Precise description.', 2, '2022-09-28',401,4,2,4);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (38, 'Had fun.', 6, '2022-09-28',401,5,3,4);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (39, 'Did not meet my expectations.', 5, '2022-09-28',401,4,3,4);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (40, 'Good car and host', 1, '2022-09-28',401,2,3,4);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (41, 'Precise description.', 7, '2022-09-28',501,5,3,3);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (42, 'Had fun.', 6, '2022-09-28',501,2,3,4);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (43, 'Did not meet my expectations.', 3, '2022-09-28',501,3,4,2);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (44, 'Good car and host', 4, '2022-09-28',501,2,4,3);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (45, 'Precise description.', 7, '2022-09-28',601,4,4,4);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (46, 'Had fun.', 5, '2022-09-28',601,5,5,5);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (47, 'Did not meet my expectations.', 1, '2022-09-28',601,5,4,5);
+
+INSERT INTO car_feedback (id, message, user_id, date, vehicle_id, cleanness, experience, condition)
+VALUES (48, 'Good car and host', 4, '2022-09-28',601,2,3,2);
 
 /*CAR_IMAGES*/
 INSERT INTO car_images(id, image_source, vehicle_id)
@@ -406,3 +478,44 @@ VALUES(12, 'bugattiSquare.jpeg', 400);
 
 INSERT INTO car_images(id, image_source, vehicle_id)
 VALUES(13, 'mclarenSquare.jpg', 600);
+
+
+/*Roland's car images*/
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(14, 'f40-1.jpg', 301);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(15, 'f40-2.jpg', 301);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(16, 'f40-3.jpg', 301);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(17, 'ferrariSquare.jpg', 301);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(18, 'mgt-5.jpeg', 501);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(19, 'mgt-2.jpg', 501);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(20, 'mgt-3.jpeg', 501);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(21, 'mgt-4.jpeg', 501);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(22, 'mercedesSquare.jpeg', 501);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(23, 'travis-essingerSquare.jpg', 101);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(24, 'Audi-RSSquare.jpg', 201);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(25, 'bugattiSquare.jpeg', 401);
+
+INSERT INTO car_images(id, image_source, vehicle_id)
+VALUES(26, 'mclarenSquare.jpg', 601);
