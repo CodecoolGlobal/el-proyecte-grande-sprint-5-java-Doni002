@@ -3,7 +3,6 @@ import Calendar from 'react-calendar';
 import "./vehicleDetail.css"
 import 'react-calendar/dist/Calendar.css';
 import {useEffect} from "react";
-import {SwiperSlide} from "swiper/react";
 
 
 function CalendarArticle(props) {
@@ -35,15 +34,15 @@ function CalendarArticle(props) {
                     <Calendar onChange={setDate} value={date} selectRange={true} />
                     <div className="text-center">
                         {date.length > 0 ? (
-                            <p>
+                            <div>
                                 <div><strong>Start: </strong></div>{' '} {date[0].toDateString()}
                                 &nbsp; to &nbsp;
                                 <div><strong>End: </strong></div> {date[1].toDateString()}
-                            </p>
+                            </div>
                         ) : (
-                            <p>
+                            <div>
                                 <div>Default selected date:</div>{' '} {date.toDateString()}
-                            </p>
+                            </div>
                         )}
                     </div>
                 </div>

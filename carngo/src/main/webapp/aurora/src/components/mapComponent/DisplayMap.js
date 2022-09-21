@@ -11,6 +11,7 @@ import { Controls, FullScreenControl } from "./Controls";
 import FeatureStyles from "./Features/Styles";
 
 import mapConfig from "./config.json";
+import {useLocation} from "react-router-dom";
 
 const geojsonObject = mapConfig.geojsonObject;
 const geojsonObject2 = mapConfig.geojsonObject2;
@@ -35,6 +36,7 @@ function addMarkers(cars) {
 }
 
 const DisplayMap = (props) => {
+    const routePath = useLocation();
     const cars = props.cars;
     const [center, setCenter] = useState(mapConfig.center);
     const [zoom, setZoom] = useState(11);
@@ -46,7 +48,7 @@ const DisplayMap = (props) => {
 
     useEffect(() => {
         setFeatures(addMarkers(cars));
-    }, [props.cars]);
+    }, [props.cars, routePath]);
 
 
     if(cars===undefined || features === undefined){

@@ -3,9 +3,8 @@ import {GiRoundStar} from "react-icons/gi";
 function RatingStars(props){
     let counter = props.counter;
     let stars = [];
-    let star = <GiRoundStar/>;
     while(counter !== 0){
-        stars.push(star);
+        stars.push(<GiRoundStar key={props.counter + counter}/>);
         counter--;
     }
     return (
