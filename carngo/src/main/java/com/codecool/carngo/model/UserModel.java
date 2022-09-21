@@ -29,6 +29,8 @@ public class UserModel {
     private String imageSource;
     private String profileDescription;
     private int numberOfCars;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
 
     public UserModel(String name, String username, String email, String password) {
         this.name = name;
@@ -38,5 +40,6 @@ public class UserModel {
         this.profileDescription = DEFAULT_PROFILE_DESCRIPTION;
         this.numberOfCars = DEFAULT_NUMBER_OF_CARS;
         this.imageSource = DEFAULT_PROFILE;
+        this.role = UserRole.ROLE_USER;
     }
 }

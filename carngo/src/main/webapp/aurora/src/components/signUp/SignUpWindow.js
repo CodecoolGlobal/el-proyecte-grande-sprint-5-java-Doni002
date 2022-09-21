@@ -28,6 +28,7 @@ const SignUpWindow = () => {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState("");
 
     const renderContent = () => {
         if(switchButton === "login"){
@@ -55,29 +56,43 @@ const SignUpWindow = () => {
         }
         else if(switchButton === "register"){
             return(
-                <form className="modalForm">
+                <form className="modalForm" onSubmit={clickRegister}>
                     <FontAwesomeIcon onClick={ closeModal } icon={faClose} id="icon" className='modalCloseButton' />
                     <h1 className='loginWelcomeText'>Sign Up!</h1>
                     <div className='inputBox'>
-                        <input type="text" required="required" onChange={e => setPassword(e.target.value)}/>
+                        <input type="text" required="required" onChange={e => setUserName(e.target.value)} value={username}  />
                         <span>Username</span>
                         <i></i>
                     </div>
                     <div className='inputBox'>
-                        <input type="text" required="required" onChange={e => setPassword(e.target.value)} />
+                        <input type="text" required="required" onChange={e => setPassword(e.target.value)} value={password}/>
                         <span>PASSWORD</span>
                         <i></i>
                     </div>
                     <div className='inputBox'>
-                        <input type="text" required="required" onChange={e => setConfirmPassword(e.target.value)}/>
+                        <input type="text" required="required" onChange={e => setConfirmPassword(e.target.value)} value={confirmPassword}
+                               onBlur={validatePassword}/>
                         <span>CONFIRM PASSWORD</span>
                         <i></i>
                     </div>
-                    <button className='modalButton'>Register</button>
+                    {error && <span className='error'>{error}</span>}
+                    <button className='modalButton'  type='submit' >Register</button>
                 </form>
             )
         }
     }
+    const validatePassword = (e) => {
+        if (password !== confirmPassword) {
+            setError("Password and Confirm Password does not match.");
+        } else {
+            setError("");
+        }
+
+    }
+    const clickRegister = (e) => {
+        e.preventDefault();
+    }
+
     const clickLogin = async (e) => {
         e.preventDefault();
         const user = await getUserData();
