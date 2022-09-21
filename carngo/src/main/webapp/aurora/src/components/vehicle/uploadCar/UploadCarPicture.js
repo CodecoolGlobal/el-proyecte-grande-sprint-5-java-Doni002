@@ -25,7 +25,6 @@ function UploadCarPicture() {
             fileReader.readAsDataURL(file);
             fileReader.addEventListener("load", function () {
                 const previewContainer = document.querySelector(".previewContainer");
-                previewContainer.style.display = "block";
                 previewContainer.innerHTML += '<img class="carPreviewPicture" src="' + this.result + '" />';
             });
         }
@@ -34,6 +33,7 @@ function UploadCarPicture() {
 
     return (
         <div>
+            <h2 id="h2-subheader">Uploading Pictures</h2>
             <input
                 onChange={previewImage}
                 className={"uploadField"}
@@ -41,8 +41,9 @@ function UploadCarPicture() {
                 type={"file"}
                 multiple
             />
-        <div className={"previewContainer"}/>
-            <button className={"uploadButton"} onClick={uploadImage}>upload</button>
+            <button className={"uploadButton"} onClick={uploadImage}>Upload</button>
+            <h3 id="h3-subheader">Selected Photos</h3>
+            <div className={"previewContainer"}/><div/>
         </div>
     );
 }

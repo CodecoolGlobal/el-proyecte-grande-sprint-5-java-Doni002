@@ -1,0 +1,43 @@
+.previewContainer {
+    overflow: scroll;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.carPreviewPicture {
+    flex: 0 1 15rem;
+    width: 10%;
+    height: 50%;
+    margin: 50px;
+    border-radius: 0.5rem;
+    padding: 0.05rem;
+    box-shadow: gray 10px 10px 10px;
+}
+
+.uploadButton,
+.uploadField {
+    margin: 2.5rem;
+    padding: .5rem;
+    background-color: black;
+    color: white;
+    border-radius: .5rem;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.uploadButton:hover {
+    color: white;
+    background-color: orange;
+}
+
+#h2-subheader {
+    margin: 2.5rem 2.5rem 0;
+    padding: 0.5rem;
+}
+
+#h3-subheader {
+    margin: 0 2.5rem;
+    padding: 0.5rem;
+}
