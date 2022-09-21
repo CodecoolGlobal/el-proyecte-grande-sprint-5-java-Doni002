@@ -16,14 +16,14 @@ const images = [
 ];
 
 const Header = () => {
-    const [index, setIndex] = useState(0)
-
+    const [index, setIndex] = useState(0);
+    const timeout = 4000;
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((v) => {
                 return v === images.length - 1 ? 0 : v + 1;
             });
-        }, 4000);
+        }, timeout);
         return () => clearInterval(interval);
     }, []);
 

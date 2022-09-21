@@ -17,7 +17,7 @@ const Navbar = () => {
 
     useEffect(() => {
       setLoggedIn(loggedInProps)
-    }, user)
+    }, [user])
 
     const addRoute = () => {
         return (loggedIn ?  `/profile/${user.id}` : "#");

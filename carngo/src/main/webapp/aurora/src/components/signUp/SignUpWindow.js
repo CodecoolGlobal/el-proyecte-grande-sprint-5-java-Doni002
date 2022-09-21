@@ -121,7 +121,7 @@ const SignUpWindow = () => {
     return (
         <div className='modalContainer'>
             <div className="signUpSwitchContainer">
-                <input type="radio" id="login" name="switch-one" value="login" onClick={setContent} className={switchButton === 'login' ? "signUpActive" : ""} checked/>
+                <input type="radio" id="login" name="switch-one" value="login" onClick={setContent} className={switchButton === 'login' ? "signUpActive" : ""} defaultChecked={true}/>
                 <label id="loginLabel" htmlFor="login">Log In</label>
                 <input type="radio" id="register" name="switch-one" value="register" onClick={setContent} className={switchButton === 'register' ? "signUpActive" : ""} />
                 <label id="registerLabel" htmlFor="register">Register</label>
