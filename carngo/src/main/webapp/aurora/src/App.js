@@ -5,8 +5,8 @@ import VehicleDetail from "./pages/VehicleDetail";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Profile from './pages/Profile';
 import Contact from "./pages/Contact";
-import UploadCarPicture from "./components/vehicle/UploadCarPicture";
 import {AuthProvider} from "./context/authContext";
+import UploadCar from "./pages/UploadCar";
 
 function App() {
     let user = localStorage.getItem("user");
@@ -22,7 +22,7 @@ function App() {
                         <Route path="/profile/:id" element= {<Profile />} />
                         <Route path="/contact" element= {<Contact />} />
                         <Route path="/vehicles/:id" element= {<VehicleDetail />} />
-                        <Route path="/shareyourcar" element= {<UploadCarPicture />} />
+                        <Route path="/shareyourcar" element= {<UploadCar />} />
                     </Routes>
                 </BrowserRouter>
             </AuthProvider>

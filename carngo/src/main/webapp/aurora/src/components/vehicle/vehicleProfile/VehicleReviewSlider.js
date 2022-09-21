@@ -6,7 +6,7 @@ import "./vehicleDetail.css";
 import 'swiper/css/pagination';
 import "swiper/css/autoplay";
 import {useEffect, useState} from "react";
-import ProfilePicture from "../imageFetch/ProfilePicture";
+import ProfilePicture from "../../imageFetch/ProfilePicture";
 import {Link} from "react-router-dom";
 import RatingStars from "./RatingStars";
 

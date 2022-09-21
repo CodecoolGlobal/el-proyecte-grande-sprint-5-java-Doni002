@@ -3,9 +3,9 @@ import { useState } from 'react'
 import './vehicleDetail.css';
 import 'swiper/css/navigation';
 import { Navigation, Thumbs } from 'swiper'
-import defaultPicture from "../img/defaultProfile.jpg";
+import defaultPicture from "../../img/defaultProfile.jpg";
 import {useEffect} from "react";
-import CarPicture from "../imageFetch/CarPicture";
+import CarPicture from "../../imageFetch/CarPicture";
 
 const VehicleSlider = (props) => {
     const carData = props.carData;

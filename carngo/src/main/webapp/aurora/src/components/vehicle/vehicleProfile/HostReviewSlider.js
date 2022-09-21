@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 import "swiper/css/autoplay";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import ProfilePicture from "../imageFetch/ProfilePicture";
+import ProfilePicture from "../../imageFetch/ProfilePicture";
 
 function HostReviewSlider(props) {
     const host = props.host;
