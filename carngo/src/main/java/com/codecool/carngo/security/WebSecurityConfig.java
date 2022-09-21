@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/").permitAll()
                     .antMatchers("/login").permitAll()
                 .antMatchers("/api/vehicles/**").permitAll()
-                .antMatchers("/api/hosts").hasRole("USER")
+                .antMatchers("/api/hosts").hasRole("ADMIN")
 /*                .anyRequest().authenticated()*/
                 .and()
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and().sessionManagement()
