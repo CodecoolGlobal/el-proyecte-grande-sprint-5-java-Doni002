@@ -10,10 +10,10 @@ import Footer from '../components/footer/Footer'
 import Navbar from '../components/header/Navbar'
 import ProfileContainer from "../components/profile/profileContainer";
 import HostReview from "../components/vehicle/HostReview";
-import VehicleReviewSlider from "../components/vehicle/VehicleReviewSlider";
 import DisplayMap from "../components/mapComponent/DisplayMap";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
+import GoToTop from "../utility/GoToTop";
 
 
 const Profile = () => {
@@ -48,6 +48,7 @@ const Profile = () => {
                 </Parallax>
                 <HostReview data={data[0]}/>
                 <Footer />
+                <GoToTop/>
             </>
         )
     }
@@ -57,6 +58,7 @@ const Profile = () => {
         </div>
         <ProfileContainer cars={data} userId={id}/>
         <Footer />
+        <GoToTop/>
     </>)
 }
 
