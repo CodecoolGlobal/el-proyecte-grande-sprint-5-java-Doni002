@@ -106,7 +106,7 @@ const CategorySlider = () => {
             >
                 {elements.map(item=>{
                     return(
-                        <SwiperSlide>
+                        <SwiperSlide key={item.message}>
                             <CategoryCard imgSrc={item.imgSrc} message={item.message} messageImgSrc={item.svgSrc} />
                         </SwiperSlide>
                     )

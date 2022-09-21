@@ -12,9 +12,9 @@ const ProfileCard = (props) => {
             const imageObjectURL = URL.createObjectURL(imageBlob);
             setImg(imageObjectURL);
         };
-
         fetchImage().then();
-    }, [props.userData]);
+    }, [props.userData, userData]);
+
     let profileImage = defaultPicture;
     let profileDescription = "";
     let numberOfCars = 0;

@@ -28,6 +28,39 @@ const ProfileContainer = (props) => {
         }
         getData().catch(reason => {console.log(reason)});
     }, [props.userId]);
+    if(userData === undefined){
+        return (
+            <div className="pageContainer">
+                <Parallax bgImage={palmRoad} strength={-400}>
+                    <section className="profileContainer">
+                        <div className="profileLeftCol">
+                            <div className="driverProfileDetails">
+                                <div className="driverStats">
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </Parallax>
+                <section className="driverProfileSection">
+                    <div className="driverVehicles">
+                        {Object.keys(cars).length !== 0 && <div className="gallery">
+                            {
+                                cars.map(item => {
+                                    return(
+                                        <div key={item.id}>
+                                            <CarGallery carId={item.id} img={item.imageSource} brand={item.brand} model={item.model}/>
+                                        </div>
+                                    );
+                                })
+                            }
+                        </div>
+                        }
+                    </div>
+                </section>
+            </div>
+        );
+    }
     return (
         <div className="pageContainer">
             <Parallax bgImage={palmRoad} strength={-400}>
@@ -47,9 +80,9 @@ const ProfileContainer = (props) => {
                         {
                             cars.map(item => {
                                 return(
-                                    <>
+                                    <div key={item.id}>
                                         <CarGallery carId={item.id} img={item.imageSource} brand={item.brand} model={item.model}/>
-                                    </>
+                                    </div>
                                 );
                             })
                         }
