@@ -44,7 +44,7 @@ const Profile = () => {
                 </div>
                 <ProfileContainer cars={data} userId={id}/>
                 <Parallax bgImage={cityRoad} strength={500}>
-                    <DisplayMap />
+                    <DisplayMap cars={data}/>
                 </Parallax>
                 <HostReview data={data[0]}/>
                 <Footer />
