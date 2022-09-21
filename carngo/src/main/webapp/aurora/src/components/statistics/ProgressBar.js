@@ -22,7 +22,7 @@ const ProgressBar = (props) => {
             <AnimatedProgressProvider
                 valueStart={0}
                 valueEnd={count}
-                duration={2.2}
+                duration={2.5}
                 easingFunction={easeQuadInOut}
                 repeat
             >
