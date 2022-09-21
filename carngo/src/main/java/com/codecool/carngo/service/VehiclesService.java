@@ -49,7 +49,7 @@ public class VehiclesService {
         return 404;
     }
 
-    public int adddVehicle(Map<String, String> body){
+    public int addVehicle(Map<String, String> body){
         Optional<HostModel> host = hostRepository.findById(Long.valueOf(body.get("ownerId")));
         if(host.isEmpty()){
             return 404;
@@ -85,7 +85,25 @@ public class VehiclesService {
         return 404;
     }
 
-    public List<VehicleModel> getVehiclesByUserId(Long id) {
+    public List<VehicleModel> getVehiclesByOwnerId(Long id) {
         return vehiclesRepository.getVehicleByOwnerId(id);
+    }
+
+    public VehicleModel getLastVehicle(List<VehicleModel> vehicles) {
+        return vehicles.get(vehicles.size()-1);
+    }
+
+    public int addVehicleWithUserId(Map<String, String> body) {
+        Optional<HostModel> host = Optional.ofNullable(hostRepository.findHostByUserId(Long.valueOf(body.get("userId"))).get(0));
+        if(host.isEmpty()){
+            return 404;
+        }
+        VehicleModel newVehicle = new VehicleModel(body.get("description"), body.get("carType"), body.get("color"),
+                body.get("brand"), body.get("model"), body.get("fuel"),body.get("address"), Integer.parseInt(body.get("vintage")),
+                Integer.parseInt(body.get("numOfSeats")), Integer.parseInt(body.get("trunkCapacity")),
+                Integer.parseInt(body.get("pricePerDay")), 0, Double.parseDouble(body.get("longitude")),
+                Double.parseDouble(body.get("latitude")), host.get());
+        vehiclesRepository.save(newVehicle);
+        return 200;
     }
 }

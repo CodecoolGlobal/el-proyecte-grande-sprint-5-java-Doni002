@@ -1,6 +1,7 @@
 package com.codecool.carngo.service;
 
 import com.codecool.carngo.model.CarImagesModel;
+import com.codecool.carngo.model.VehicleModel;
 import com.codecool.carngo.repository.CarImagesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,5 +24,9 @@ public class CarImagesService {
 
     public List<CarImagesModel> getCarImagesForCar(Long id) {
         return carImages.findImagesForCar(id);
+    }
+
+    public void saveImage(VehicleModel vehicle, String imageName) {
+        carImages.save(new CarImagesModel(vehicle, imageName));
     }
 }
