@@ -20,7 +20,6 @@ function App() {
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element= {<Home />} />;
-                        <Route path="/login" element= {<SignUpWindow />} />;
                         <Route path="/vehicles" element= {<Vehicles />} />
                         <Route path="/profile/:id" element= {<Profile />} />
                         <Route path="/contact" element= {<Contact />} />
