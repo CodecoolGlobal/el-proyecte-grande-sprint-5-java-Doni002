@@ -7,8 +7,6 @@ import Profile from './pages/Profile';
 import Contact from "./pages/Contact";
 import {AuthProvider} from "./context/authContext";
 import UploadCar from "./pages/UploadCar";
-import {ProtectedRoute} from "./context/ProtectedRoutes";
-import SignUpWindow from "./components/signUp/SignUpWindow";
 
 function App() {
     let user = localStorage.getItem("user");
@@ -24,8 +22,8 @@ function App() {
                         <Route path="/profile/:id" element= {<Profile />} />
                         <Route path="/contact" element= {<Contact />} />
                         <Route path="/vehicles/:id" element= {<VehicleDetail />} />
-                        <Route path="/shareyourcar" element= {<ProtectedRoute allowedRole="ROLE_ADMIN"
-                            ><UploadCar /> </ProtectedRoute >} />
+                        <Route path="/shareyourcar" element= {<UploadCar />} />
+{/*                        <Route path="/shareyourcar" element= {<ProtectedRoute allowedRole="ROLE_ADMIN"><UploadCar /> </ProtectedRoute >} />*/}
                     </Routes>
                 </BrowserRouter>
             </AuthProvider>
