@@ -10,7 +10,7 @@ const HostSlider = (props) => {
 
     return (
         <div className="categorySliderContainer">
-            <h1 className="categorySliderTitle">Categories</h1>
+            <h1 className="categorySliderTitle">Top Rated Hosts</h1>
             <Swiper
                 effect={"coverflow"}
                 speed={800}

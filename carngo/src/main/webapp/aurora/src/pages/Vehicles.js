@@ -39,8 +39,8 @@ const Vehicles = () => {
             let actualData = await response.json();
             setHosts(actualData);
         }
-        getHostData().catch(reason => {console.log(reason)});
-        getCarData().catch((response)=>{console.log(response);});
+        getCarData().catch(reason=>{console.log(reason);});
+        getHostData().catch(reason=>{console.log(reason);});
 
     }, [cars, hosts]);
 
@@ -60,8 +60,8 @@ const Vehicles = () => {
                 <Navbar />
                 <DisplayMap cars={cars}/>
             </Parallax>
-            <HostSlider hosts={hosts}/>
             <CarSlider cars={cars}/>
+            <HostSlider hosts={hosts}/>
             <Footer />
         </>
     );

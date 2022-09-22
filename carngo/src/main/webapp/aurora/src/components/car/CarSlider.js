@@ -9,6 +9,7 @@ function CarSlider(props) {
 
     return (
         <div className="carSliderContainer">
+            <h1 className="categorySliderTitle">Top Rated Cars</h1>
             <Swiper
                 effect={"coverflow"}
                 speed={800}
