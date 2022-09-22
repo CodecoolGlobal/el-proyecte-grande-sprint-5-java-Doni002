@@ -5,9 +5,13 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import "./article.css";
 
+import {motion} from 'framer-motion';
+import {useInView} from "react-intersection-observer";
+import {useAnimation} from "framer-motion";
 
 const Article = (props) => {
     const [text, setText] = useState();
+    const [animation, setAnimation] = useState();
     const [title, setTitle] = useState();
     const [imageSource, setImageSource] = useState();
     const [buttonText, setButtonText] = useState();
@@ -16,8 +20,38 @@ const Article = (props) => {
     const [textColor, setTextColor] = useState("black");
     const [hashTags, setHashTags] = useState("");
 
+    const {ref, inView} = useInView({
+        threshold: 0
+    });
+
+    const animationFromLeft = useAnimation();
+    const animationFromRight = useAnimation();
 
     useEffect(() => {
+        if(inView) {
+            animationFromLeft.start({
+                x: 0,
+                transition: {
+                    type: 'spring', duration: 1, bounce: 0.3
+                },
+        });
+
+            animationFromRight.start({
+                x: 0,
+                transition: {
+                    type: 'spring', duration: 1, bounce: 0.3
+                },
+            });
+        }
+        if(!inView){
+            animationFromLeft.start({x: '-100vw'})
+            animationFromRight.start({x: '100vw'})
+        }
+}, [inView]);
+
+
+    useEffect(() => {
+        setAnimation(props.animation);
         setTitle(props.title)
         setText(props.text)
         setImageSource(props.imageSource)
@@ -41,16 +75,23 @@ const Article = (props) => {
     }
 
     return (
-        <div id="articleContainer">
-                {renderImage("left")}
-            <div style={{color: textColor}} id="textContainer">
-                <h1 id="articleTitle">{title}</h1>
-                <p id="articleText">{text}</p>
-                <p style={{wordSpacing : "1rem", textAlign : "center"}}>{hashTags}</p>
-                {renderLink()}
+        <motion.div
+            animate={animation === "animationFromLeft" ? animationFromLeft : animationFromRight}
+            // animate={animationFromLeft}
+            ref={ref}
+        >
+            <div id="articleContainer">
+                    {renderImage("left")}
+                <div style={{color: textColor}} id="textContainer">
+                    <h1 id="articleTitle">{title}</h1>
+                    <p id="articleText">{text}</p>
+                    <p style={{wordSpacing : "1rem", textAlign : "center"}}>{hashTags}</p>
+                    {renderLink()}
+                </div>
+                {renderImage("right")}
             </div>
-            {renderImage("right")}
-        </div>
+        </motion.div>
+
     );
 };
 
