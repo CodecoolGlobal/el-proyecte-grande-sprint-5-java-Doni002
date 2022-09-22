@@ -1,11 +1,40 @@
 import "./toggleArticle.css"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+
+import {motion} from 'framer-motion';
+import {useInView} from "react-intersection-observer";
+import {useAnimation} from "framer-motion";
 
 
 const ToggleArticle = () => {
 
+    const {ref, inView} = useInView({
+        threshold: 0
+    });
+
+    const animation = useAnimation();
+
     const [switchButton, setSwitchButton] = useState("guest");
+
+    useEffect(() => {
+        if(inView) {
+            animation.start('visible');
+        }
+        if(!inView){
+            animation.start('hidden');
+        }
+    }, [animation, inView]);
+
+    const animationVariants = {
+        hidden: { scale: 0 },
+        visible: {
+            scale: 1,
+            transition: {
+                duration: 0.5,
+            },
+        },
+    };
 
     const setContent = (e) => {
         const target = e.target.value
@@ -46,11 +75,11 @@ const ToggleArticle = () => {
                 </span>
                 6) Rating<br/><br/>
                 <span className="taText">
-                    After the rental, you have the opportunity to rate the car and the Host's service. 
+                    After the rental, you have the opportunity to rate the car and the Host's service.
                     Please do not miss this, as your experience can be valuable to others.
                 </span>
             </h1>
-            ) 
+            )
         }
         else if(switchButton === "host"){
             return(
@@ -80,7 +109,7 @@ const ToggleArticle = () => {
                     not miss this, as your experience can be valuable to others.
                 </span>
             </h1>
-            ) 
+            )
         }
     }
 
@@ -90,33 +119,39 @@ const ToggleArticle = () => {
         }
         else if(switchButton === "host"){
             return <LazyLoadImage className="taPicture" src="https://images.unsplash.com/photo-1593672715438-d88a70629abe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"></LazyLoadImage>
-            
+
         }
     }
-    
-
 
     return (
-        <div className="taContainer">
-            <div className="taleContainer">
-                <h1 className="taTitle">How it works?</h1>
-            </div>
-            <div className="tacontentContainer">                    
-                <div className="switch-field">
-                    <input type="radio" id="radio-one" name="switch-one" value="guest" onClick={setContent} className={switchButton === 'guest' ? "active" : ""} defaultChecked={true}/>
-                    <label htmlFor="radio-one">As a Guest</label>
-                    <input type="radio" id="radio-two" name="switch-one" value="host" onClick={setContent} className={switchButton === 'host' ? "active" : ""} />
-                    <label htmlFor="radio-two">As a Host</label>
+        <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={animation}
+            variants={animationVariants}
+        >
+            <div className="taContainer">
+                <div className="taleContainer">
+                    <h1 className="taTitle">How it works?</h1>
                 </div>
-                <div className="taTextContainer">
+                <div className="tacontentContainer">
+                    <div className="switch-field">
+                        <input type="radio" id="radio-one" name="switch-one" value="guest" onClick={setContent} className={switchButton === 'guest' ? "active" : ""} defaultChecked={true}/>
+                        <label htmlFor="radio-one">As a Guest</label>
+                        <input type="radio" id="radio-two" name="switch-one" value="host" onClick={setContent} className={switchButton === 'host' ? "active" : ""} />
+                        <label htmlFor="radio-two">As a Host</label>
+                    </div>
+                    <div className="taTextContainer">
 
-                    {renderContent()}
-                    <div className="taImageContainer">
-                        {renderImage()}
+                        {renderContent()}
+                        <div className="taImageContainer">
+                            {renderImage()}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
+
     );
 }
 
