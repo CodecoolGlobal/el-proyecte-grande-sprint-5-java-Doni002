@@ -27,6 +27,7 @@
     transition: 0.5s;
 }
 
+
 .uploadButton:hover {
     color: white;
     background-color: orange;

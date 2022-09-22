@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import './contact.css';
 
+import {useInView} from "react-intersection-observer";
+import {useAnimation} from "framer-motion";
+import {motion} from 'framer-motion';
+
 const ContactContainer = (props) => {
 
     const contactInfos = [
@@ -33,35 +37,63 @@ const ContactContainer = (props) => {
     const [header, setHeader] = useState();
     const [text, setText] = useState();
 
+    const {ref, inView} = useInView({
+        threshold: 0
+    });
+
+    const animation = useAnimation();
+
+    useEffect(() => {
+        if(inView) {
+            animation.start('visible');
+        }
+        if(!inView){
+            animation.start('hidden');
+        }
+    }, [animation, inView]);
+
+    const animationVariants = {
+        hidden: { scale: 0, opacity: 0},
+        visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
+    };
+
     useEffect( () => {
         setHeader(props.header);
         setText(props.text);
         }
     )
-    return (
-        <div className="contactUsContainer">
-            <div className="contactInfo">
-                <ul>
-                    <li><p>{contactInfos[0].emailType}</p></li>
-                    <li><p>{contactInfos[0].emailValue}</p></li>
-                    <li><p>{contactInfos[1].emailValue}</p></li>
-                    <li><p>{contactInfos[2].emailValue}</p></li>
-                    <li><p>{contactInfos[3].emailValue}</p></li>
-                </ul>
-                <ul>
 
-                    <li><p>{contactInfos[0].phoneType}</p></li>
-                    <li><p>{contactInfos[0].phoneValue}</p></li>
-                    <li><p>{contactInfos[1].phoneValue}</p></li>
-                    <li><p>{contactInfos[2].phoneValue}</p></li>
-                    <li><p>{contactInfos[3].phoneValue}</p></li>
-                </ul>
+    return (
+        <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={animation}
+            variants={animationVariants}
+        >
+            <div className="contactUsContainer">
+                <div className="contactInfo">
+                    <ul>
+                        <li><p>{contactInfos[0].emailType}</p></li>
+                        <li><p>{contactInfos[0].emailValue}</p></li>
+                        <li><p>{contactInfos[1].emailValue}</p></li>
+                        <li><p>{contactInfos[2].emailValue}</p></li>
+                        <li><p>{contactInfos[3].emailValue}</p></li>
+                    </ul>
+                    <ul>
+
+                        <li><p>{contactInfos[0].phoneType}</p></li>
+                        <li><p>{contactInfos[0].phoneValue}</p></li>
+                        <li><p>{contactInfos[1].phoneValue}</p></li>
+                        <li><p>{contactInfos[2].phoneValue}</p></li>
+                        <li><p>{contactInfos[3].phoneValue}</p></li>
+                    </ul>
+                </div>
+                <div className="contactUsText">
+                    <h1>{header}</h1>
+                    <p>{text}</p>
+                </div>
             </div>
-            <div className="contactUsText">
-                <h1>{header}</h1>
-                <p>{text}</p>
-            </div>
-        </div>
+        </motion.div>
     );
 };
 
