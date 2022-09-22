@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import './UploadCarPicture.css';
-import UploadCarData from '../vehicle/UploadCarData.js'
-import AuthContext from "../../context/authContext";
+import UploadCarData from '../uploadCar/UploadCarData'
+import AuthContext from "../../../context/authContext";
 
 
 function UploadCarPicture() {
