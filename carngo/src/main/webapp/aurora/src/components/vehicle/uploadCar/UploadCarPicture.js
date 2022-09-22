@@ -15,6 +15,7 @@ function UploadCarPicture() {
         let response = await fetch("/api/vehicles/upload-picture/" + user.id, {
             method: "post",
             body: formData
+
         });
         if(response.status === 200) {
             alert("File uploaded!")
@@ -37,8 +38,8 @@ function UploadCarPicture() {
 
     return (
         <div>
-            <h2 id="h2-subheader">Uploading Pictures</h2>
             <UploadCarData />
+            <h2 id="h2-subheader">Uploading Pictures</h2>
             <input
                 onChange={previewImage}
                 className={"uploadField"}
