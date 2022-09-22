@@ -44,7 +44,7 @@ const Slideshow = () => {
     return (
         <>
             <TextBox heading={elements[index].heading} paragraph={elements[index].paragraph} imageSource ={elements[index].imageSource}/>
-            <Parallax className='image' bgImage={elements[index].imageSource} strength={-200}>
+            <Parallax className='image' bgImage={elements[index].imageSource} strength={-300}>
             </Parallax >
         </>
     );

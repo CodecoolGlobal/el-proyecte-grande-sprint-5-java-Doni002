@@ -15,14 +15,14 @@ import ZsoltPinter from "../components/img/contactUsImg/ZsoltPinter.jpg";
 const Contact = () => {
     return (
         <>
-            <Parallax bgImage={Abstract} strength={500}>
+            <Parallax bgImage={Abstract} strength={300}>
                 <Navbar />
                 <ContactContainer
                     header = "Contact Us"
                     text = "If you have any doubt or question about Aurora, contact the customer service"
                 />
             </Parallax >
-            <Parallax bgImage={Office} strength={-500}>
+            <Parallax bgImage={Office} strength={-300}>
                 <h1 id="developerHeader">Developers Looking For A Job</h1>
                 <Article
                     animation = "animationFromLeft"
