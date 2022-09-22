@@ -106,4 +106,15 @@ public class VehiclesService {
         vehiclesRepository.save(newVehicle);
         return 200;
     }
+
+    public int saveImageForVehicleFront(Long userId, String fileName) {
+        List<HostModel> hostToFind = hostRepository.findHostByUserId(userId);
+        if(hostToFind.size() == 0) {
+            return 404;
+        }
+        VehicleModel vehicle = getLastVehicle(vehiclesRepository.getVehicleByOwnerId(hostToFind.get(0).getId()));
+        vehicle.setImageSource(fileName);
+        vehiclesRepository.save(vehicle);
+        return 200;
+    }
 }
