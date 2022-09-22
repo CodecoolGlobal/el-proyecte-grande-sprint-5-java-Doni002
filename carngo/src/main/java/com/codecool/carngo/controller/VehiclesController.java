@@ -3,6 +3,8 @@ package com.codecool.carngo.controller;
 
 import com.codecool.carngo.model.PositionStackModel;
 import com.codecool.carngo.model.VehicleModel;
+import com.codecool.carngo.service.CarImagesService;
+import com.codecool.carngo.service.HostService;
 import com.codecool.carngo.service.VehiclesService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -28,10 +30,14 @@ import static com.sun.source.util.DocTreePath.getPath;
 public class VehiclesController {
     static final String ACCESS_KEY = "aa64ed7140357784c7465d1092d6a229";
     private final VehiclesService vehiclesPageService;
+    private final CarImagesService carImagesService;
+    private final HostService hostService;
 
     @Autowired
-    public VehiclesController(VehiclesService vehiclesPageService) {
+    public VehiclesController(VehiclesService vehiclesPageService, CarImagesService carImagesService, HostService hostService) {
         this.vehiclesPageService = vehiclesPageService;
+        this.carImagesService = carImagesService;
+        this.hostService = hostService;
     }
 
     @GetMapping
@@ -50,7 +56,7 @@ public class VehiclesController {
 
     @GetMapping(value="/user-id/{id}")
     public ResponseEntity<List<VehicleModel>> getVehiclesByUserId(@PathVariable("id") Long id){
-        return new ResponseEntity<>(vehiclesPageService.getVehiclesByUserId(id), HttpStatus.OK);
+        return new ResponseEntity<>(vehiclesPageService.getVehiclesByOwnerId(id), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "{id}")
@@ -62,7 +68,7 @@ public class VehiclesController {
         return new ResponseEntity<>("vehicle not found with id: " + id, HttpStatus.NOT_FOUND);
     }
 
-    //requirements: description, carType, color, brand, model, fuel, address, vintage, numOfSeats, trunkCapacity, pricePerDay, ownerId
+/*    //requirements: description, carType, color, brand, model, fuel, address, vintage, numOfSeats, trunkCapacity, pricePerDay, ownerId
     @PostMapping
     public ResponseEntity<String> addVehicle(@RequestBody() Map<String, String> body) throws JsonProcessingException {
         String address = body.get("address");
@@ -73,12 +79,12 @@ public class VehiclesController {
         PositionStackModel position = objectMapper.treeToValue(node.get("data").get(0), PositionStackModel.class);
         body.put("longitude", String.valueOf(position.getLongitude()));
         body.put("latitude", String.valueOf(position.getLatitude()));
-        int response = vehiclesPageService.adddVehicle(body);
+        int response = vehiclesPageService.addVehicle(body);
         if(response == 200) {
             return new ResponseEntity<>("Vehicle added successfully!", HttpStatus.OK);
         }
         return new ResponseEntity<>("host not found with host id: " + body.get("ownerId"), HttpStatus.NOT_FOUND);
-    }
+    }*/
 
     //requirements: id, description, carType, color, brand, model, fuel, vintage, numOfSeats, trunkCapacity, pricePerDay
     @PutMapping
@@ -90,17 +96,42 @@ public class VehiclesController {
         return new ResponseEntity<>("Vehicle not found with id: " + body.get("id"), HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping(value = "/shareyourcar")
-    public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) {
+    @PostMapping(value = "/upload-picture/{userId}")
+    public ResponseEntity<?> uploadPicture(@RequestParam("file") MultipartFile file, @PathVariable Long userId) {
         String username = System.getProperty("user.name");
         String fileName = file.getOriginalFilename();
         try {
-            file.transferTo(new File("/home/" + username + "/Desktop/Advanced/week_5/el-proyecte-grande-sprint-5-java-Doni002/carngo/src/main/resources/img/carProfiles/" + "12-" + fileName));//need to be env variable
+            file.transferTo(new File("/home/" + username +
+                    "/Desktop/Advanced/week_5/el-proyecte-grande-sprint-5-java-Doni002/carngo/src/main/resources/img/carProfiles/" +
+                    fileName));//need to be env variable
+            VehicleModel newVehicle = vehiclesPageService.getLastVehicle(vehiclesPageService.getVehiclesByOwnerId
+                    (hostService.getHostByUserId(userId).getId()));
+            carImagesService.saveImage(newVehicle, fileName);
+
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
         return ResponseEntity.ok("File uploaded successfully!");
     }
+    //requirements: description, carType, color, brand, model, fuel, address, vintage, numOfSeats, trunkCapacity, pricePerDay, userId
+    @PostMapping(value = "upload-data")
+    public ResponseEntity<?> uploadData(@RequestBody Map<String, String> body) throws JsonProcessingException {
+        String address = body.get("address");
+        String url = "http://api.positionstack.com/v1/forward?access_key=" + ACCESS_KEY + "&query=" + address;
+        RestTemplate restTemplate = new RestTemplate();
+        JsonNode node = restTemplate.getForEntity(url, JsonNode.class).getBody();
+        ObjectMapper objectMapper = new ObjectMapper();
+        PositionStackModel position = objectMapper.treeToValue(node.get("data").get(0), PositionStackModel.class);
+        body.put("longitude", String.valueOf(position.getLongitude()));
+        body.put("latitude", String.valueOf(position.getLatitude()));
+        int response = vehiclesPageService.addVehicleWithUserId(body);
+        if (response == 200) {
+            return ResponseEntity.ok("Data uploaded successfully!");
+        }
+        return new ResponseEntity<>("Host not found!", HttpStatus.NOT_FOUND);
+    }
+
+
 
 
 }

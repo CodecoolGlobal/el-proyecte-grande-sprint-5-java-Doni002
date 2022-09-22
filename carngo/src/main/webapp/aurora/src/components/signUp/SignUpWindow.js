@@ -26,8 +26,10 @@ const SignUpWindow = () => {
     }
 
     const [username, setUserName] = useState('');
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [name, setName] = useState('');
     const [error, setError] = useState("");
 
     const renderContent = () => {
@@ -65,6 +67,16 @@ const SignUpWindow = () => {
                         <i></i>
                     </div>
                     <div className='inputBox'>
+                        <input type="text" required="required" onChange={e => setName(e.target.value)} value={name}  />
+                        <span>Name</span>
+                        <i></i>
+                    </div>
+                    <div className='inputBox'>
+                        <input type="text" required="required" onChange={e => setEmail(e.target.value)} value={email}  />
+                        <span>E-mail</span>
+                        <i></i>
+                    </div>
+                    <div className='inputBox'>
                         <input type="text" required="required" onChange={e => setPassword(e.target.value)} value={password}/>
                         <span>PASSWORD</span>
                         <i></i>
@@ -89,13 +101,27 @@ const SignUpWindow = () => {
         }
 
     }
-    const clickRegister = (e) => {
+    const clickRegister = async (e) => {
         e.preventDefault();
+        const payload = {
+            'username': username,
+            'name': name,
+            'password': password,
+            'email': email
+        }
+        const registeredUser = await getUserData('/api/users/register', payload);
+        if (registeredUser) {
+            clickLogin(e);
+        }
     }
 
     const clickLogin = async (e) => {
         e.preventDefault();
-        const user = await getUserData();
+        const payload = {
+            'username': username,
+            'password': password
+        };
+        const user = await getUserData('/login', payload);
         if (user.accessToken) {
             localStorage.setItem("user", JSON.stringify(user));
             setProfile(user);
@@ -105,16 +131,13 @@ const SignUpWindow = () => {
     const setProfile = (user) => {
         setUser(user);
     }
-    const getUserData = async () => {
-        const response = await fetch('/login', {
+    const getUserData = async (url, payload) => {
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 "Content-Type": "application/json"},
-            body: JSON.stringify({
-                'username': username,
-                'password': password
-            }),
+            body: JSON.stringify(payload),
         })
         return await response.json();}
 

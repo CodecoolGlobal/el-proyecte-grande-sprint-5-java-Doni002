@@ -1,18 +1,23 @@
-import React, {useEffect, useState} from 'react';
+import { useState, useContext } from 'react'
 import './UploadCarPicture.css';
+import UploadCarData from '../uploadCar/UploadCarData'
+import AuthContext from "../../../context/authContext";
 
 
 function UploadCarPicture() {
     const [image, setImage] = useState();
+    let {user, setUser} = useContext(AuthContext);
+
 
     const uploadImage = async ()=> {
         const formData = new FormData();
         formData.append("file", image);
-        let response = await fetch("/api/vehicles/shareyourcar", {
+        let response = await fetch("/api/vehicles/upload-picture/" + user.id, {
             method: "post",
             body: formData
+
         });
-        if(response.status == 200) {
+        if(response.status === 200) {
             alert("File uploaded!")
         }
     }
@@ -33,6 +38,7 @@ function UploadCarPicture() {
 
     return (
         <div>
+            <UploadCarData />
             <h2 id="h2-subheader">Uploading Pictures</h2>
             <input
                 onChange={previewImage}

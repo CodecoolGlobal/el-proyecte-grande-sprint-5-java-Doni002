@@ -1,5 +1,6 @@
 package com.codecool.carngo.controller;
 
+import com.codecool.carngo.model.RegisterModel;
 import com.codecool.carngo.model.UserModel;
 import com.codecool.carngo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,10 +41,10 @@ public class UserController {
 
     //requirements: name, email, password
     @PostMapping(value = "/register")
-    public ResponseEntity<String> registerUser(@RequestBody() Map<String, String> body){
+    public ResponseEntity<?> registerUser(@RequestBody RegisterModel body){
         int response = userService.addUser(body);
         if(response == 200){
-            return new ResponseEntity<>("User registered successfully!", HttpStatus.OK);
+            return ResponseEntity.ok(body);
         }
         return new ResponseEntity<>("name or email already in use!", HttpStatus.NOT_ACCEPTABLE);
     }

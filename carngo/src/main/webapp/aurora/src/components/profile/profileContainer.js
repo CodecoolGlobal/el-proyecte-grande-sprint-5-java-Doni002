@@ -5,18 +5,29 @@ import palmRoad from '../img/profileImg/palmRoad.jpg'
 
 import ProfileCard from "./ProfileCard";
 import CarGallery from "./CarGallery";
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
+import {useNavigate} from "react-router-dom"
+import AuthContext from "../../context/authContext";
 
 
 const ProfileContainer = (props) => {
     const userId = props.userId;
     const cars = props.cars;
     const [userData, setUserData] = useState(undefined);
+    const navigate = useNavigate();
+
+    const {setUser} = useContext(AuthContext);
+
+    const logout = () => {
+        localStorage.clear();
+        setUser(null);
+        navigate("/");
+    }
 
     useEffect(() => {
         const getData = async () => {
             const response = await fetch(
-                `http://localhost:8080/api/users/${userId}`
+                `/api/users/${userId}`
             );
             if (!response.ok) {
                 throw new Error(
@@ -72,6 +83,7 @@ const ProfileContainer = (props) => {
                         </div>
                     </div>
                 </div>
+                <button className="logoutButton" onClick={logout}>Log out</button>
             </section>
             </Parallax>
             <section className="driverProfileSection">
