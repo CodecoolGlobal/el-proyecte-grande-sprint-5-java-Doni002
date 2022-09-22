@@ -1,7 +1,7 @@
 import "../components/suggestion/suggestion.css"
 
-import MapGuy from '../components/img/articleImg/Guywithamap.jpg'
-import Business from '../components/img/articleImg/business.jpg'
+import MapGuy from '../components/img/articleImg/Guywithamap-small.jpg'
+import Business from '../components/img/articleImg/business-small.jpg'
 
 import Article from '../components/article/Article';
 import Footer from '../components/footer/Footer';

@@ -7,9 +7,9 @@ import Abstract from "../components/img/otherImg/abstract.jpg"
 import ContactContainer from "../components/contact/contactContainer";
 import Article from "../components/article/Article";
 import RolandMarton from "../components/img/contactUsImg/RolandMarton.jpeg";
-import BarbaraHuszar from "../components/img/contactUsImg/BarbaraHuszar.jpg";
+import BarbaraHuszar from "../components/img/contactUsImg/BarbaraHuszar-small.jpg";
 import AlparDonat from "../components/img/contactUsImg/AlparDonat.jpg";
-import ZsoltPinter from "../components/img/contactUsImg/ZsoltPinter.jpg";
+import ZsoltPinter from "../components/img/contactUsImg/ZsoltPinter-small.jpg";
 
 
 const Contact = () => {

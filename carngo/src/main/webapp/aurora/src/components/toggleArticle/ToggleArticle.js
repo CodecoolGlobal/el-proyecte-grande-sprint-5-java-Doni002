@@ -1,7 +1,10 @@
 import "./toggleArticle.css"
+
+import BlackMercedes from '../img/articleImg/BlackMercedes-small.jpg'
+import Dollar from '../img/articleImg/Dollar-small.jpg'
+
 import { useState, useEffect } from "react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-
 import {motion} from 'framer-motion';
 import {useInView} from "react-intersection-observer";
 import {useAnimation} from "framer-motion";
@@ -115,10 +118,10 @@ const ToggleArticle = () => {
 
     const renderImage = () => {
         if(switchButton === "guest"){
-            return <LazyLoadImage className="taPicture" src="https://images.unsplash.com/photo-1580881647059-923632b8fd75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"></LazyLoadImage>
+            return <LazyLoadImage className="taPicture" src={BlackMercedes}></LazyLoadImage>
         }
         else if(switchButton === "host"){
-            return <LazyLoadImage className="taPicture" src="https://images.unsplash.com/photo-1593672715438-d88a70629abe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"></LazyLoadImage>
+            return <LazyLoadImage className="taPicture" src={Dollar}></LazyLoadImage>
 
         }
     }

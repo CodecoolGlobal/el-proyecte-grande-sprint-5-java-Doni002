@@ -92,7 +92,7 @@ const ProfileContainer = (props) => {
                         {
                             cars.map(item => {
                                 return(
-                                    <div key={item.id}>
+                                    <div id="gallery_grid_container" key={item.id}>
                                         <CarGallery carId={item.id} img={item.imageSource} brand={item.brand} model={item.model}/>
                                     </div>
                                 );

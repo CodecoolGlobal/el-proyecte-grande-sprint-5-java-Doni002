@@ -4,13 +4,12 @@ import {Parallax} from "react-parallax";
 import '../components/profile/profileContainer.css';
 import '../components/profile/carGallery.css';
 
-import cityRoad from "../components/img/profileImg/cityRoad.jpg";
+import cityRoad from "../components/img/profileImg/cityRoad-small.jpg";
 
 import Footer from '../components/footer/Footer'
 import Navbar from '../components/header/Navbar'
 import ProfileContainer from "../components/profile/profileContainer";
 import HostReview from "../components/vehicle/vehicleProfile/HostReview";
-import VehicleReviewSlider from "../components/vehicle/vehicleProfile/VehicleReviewSlider";
 import DisplayMap from "../components/mapComponent/DisplayMap";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";

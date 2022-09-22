@@ -5,9 +5,9 @@ import TextBox from "./textBox";
 
 import "./slideshow.css";
 
-import Bentley from "../img/slideShowImg/bentley.jpg";
-import MercedesKey from "../img/slideShowImg/mercedesKey.jpg"
-import Lamborghini from "../img/slideShowImg/Lamborghini.jpg";
+import Bentley from "../img/slideShowImg/bentley-small.jpg";
+import MercedesKey from "../img/slideShowImg/mercedesKey-small.jpg"
+import Lamborghini from "../img/slideShowImg/Lamborghini-small.jpg";
 
 
 const Slideshow = () => {
