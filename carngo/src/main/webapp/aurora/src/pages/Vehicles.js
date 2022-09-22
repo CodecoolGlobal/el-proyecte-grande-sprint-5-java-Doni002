@@ -60,8 +60,8 @@ const Vehicles = () => {
                 <Navbar />
                 <DisplayMap cars={cars}/>
             </Parallax>
-            <CarSlider cars={cars}/>
             <HostSlider hosts={hosts}/>
+            <CarSlider cars={cars}/>
             <Footer />
         </>
     );
