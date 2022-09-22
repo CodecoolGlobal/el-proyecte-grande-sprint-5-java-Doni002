@@ -7,6 +7,8 @@ import SteeringWheelAudi from "../img/headerImg/steeringwheelaudi.jpg"
 import Navbar from "./Navbar";
 import Content from "./Content";
 import {useEffect, useState} from "react";
+import ProgressBarContainer from "../statistics/ProgressBarContainer";
+import {motion} from "framer-motion";
 
 const images = [
     AudiFront,
@@ -31,8 +33,17 @@ const Header = () => {
         <>
             <Parallax className='image fadeIn' bgImage={images[index]} strength={800}>
                 <Navbar />
-                <Content />
-            </Parallax>
+                <motion.div
+                    initial={{x: '-100vw'}}
+                    animate={{x: 0}}
+                    transition={{type: 'spring', duration: 1, bounce: 0.3}}
+                >
+                    <Content />
+                </motion.div>
+                </Parallax>
+            {/*<div className="image" style={{background: `url(${AudiWater})`}}>*/}
+            {/*    */}
+            {/*</div>*/}
         </>
     );
 };
