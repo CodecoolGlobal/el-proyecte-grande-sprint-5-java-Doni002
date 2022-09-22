@@ -1,10 +1,10 @@
 import React, {useContext, useRef} from 'react';
 import AuthContext from "../../../context/authContext";
-
+import "./UploadCarData.css"
 
 function UploadCarData() {
 
-    let {user, setUser} = useContext(AuthContext);
+    const user = useContext(AuthContext);
     const description = useRef("description");
     const carType = useRef("carType");
     const color = useRef("color");
@@ -42,41 +42,67 @@ function UploadCarData() {
     }
 
     return (
-        <div className="car-data-input-container">
-            <label>Description
-                <input id={"description"} ref={description}/>
-            </label><br/>
-            <label>Car type
-                <input id={"carType"} ref={carType}/>
-            </label><br/>
-            <label>Color
-                <input id={"color" } ref={color}/>
-            </label><br/>
-            <label>Brand
-                <input id={"brand"} ref={brand}/>
-            </label><br/>
-            <label>Model
-                <input id={"model"} ref={model}/>
-            </label><br/>
-            <label>Fuel
-                <input id={"fuel"} ref={fuel}/>
-            </label><br/>
-            <label>Address
-                <input id={"address"} ref={address}/>
-            </label><br/>
-            <label>Vintage
-                <input id={"vintage"} ref={vintage}/>
-            </label><br/>
-            <label>Number of seats
-                <input id={"numOfSeats"} ref={numOfSeats}/>
-            </label><br/>
-            <label>Trunk Capacity
-                <input id={"trunkCapapity"} ref={trunkCapacity}/>
-            </label><br/>
-            <label>Price per day
-                <input id={"pricePerDay"} ref={pricePerDay}/>
-            </label><br/>
-            <button onClick={uploadData} id={"uploadVehicleDetails"}>upload data</button><br/>
+        <div className={"car-data-container"}>
+            <div className={"car-data-input-container"}>
+                <div className='inputBox'>
+                    <input type="text" id={"description"} required="required" ref={description}/>
+                    <span>Description</span>
+                    <i></i>
+                </div>
+                <div className='inputBox'>
+                    <input type="text" id={"carType"} required="required" ref={carType}/>
+                    <span>Car type</span>
+                    <i></i>
+                </div>
+                <div className='inputBox'>
+                    <input type="text" id={"color"} required="required" ref={color}/>
+                    <span>Color</span>
+                    <i></i>
+                </div>
+                <div className='inputBox'>
+                    <input type="text" id={"brand"} required="required" ref={brand}/>
+                    <span>Brand</span>
+                    <i></i>
+                </div>
+                <div className='inputBox'>
+                    <input type="text" id={"model"} required="required" ref={model}/>
+                    <span>Model</span>
+                    <i></i>
+                </div>
+                <div className='inputBox'>
+                    <input type="text" id={"fuel"} required="required" ref={fuel}/>
+                    <span>Fuel</span>
+                    <i></i>
+                </div>
+                <div className='inputBox'>
+                    <input type="text" id={"address"} required="required" ref={address}/>
+                    <span>Address</span>
+                    <i></i>
+                </div>
+                <div className='inputBox'>
+                    <input type="number" id={"vintage"} required="required" ref={vintage}/>
+                    <span>Vintage</span>
+                    <i></i>
+                </div>
+                <div className='inputBox'>
+                    <input type="number" id={"numOfSeats"} required="required" ref={numOfSeats}/>
+                    <span>Number of seats</span>
+                    <i></i>
+                </div>
+                <div className='inputBox'>
+                    <input type="number" id={"trunkCapapity"} required="required" ref={trunkCapacity}/>
+                    <span>Trunk Capacity</span>
+                    <i></i>
+                </div>
+                <div className='inputBox'>
+                    <input type="number" id={"pricePerDay"} required="required" ref={pricePerDay}/>
+                    <span>Price per day</span>
+                    <i></i>
+                </div>
+            </div>
+            <div>
+                <button className={"glow-on-hover"} onClick={uploadData} id={"uploadVehicleDetails"}>upload data</button><br/>
+            </div>
         </div>
     );
 }
