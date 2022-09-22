@@ -42,7 +42,7 @@ function UploadCarData() {
     }
 
     return (
-        <div>
+        <div className="car-data-input-container">
             <label>Description
                 <input id={"description"} ref={description}/>
             </label><br/>
