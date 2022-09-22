@@ -4,7 +4,7 @@ import "./UploadCarData.css"
 
 function UploadCarData() {
 
-    const user = useContext(AuthContext);
+    let {user} = useContext(AuthContext);
     const description = useRef("description");
     const carType = useRef("carType");
     const color = useRef("color");
@@ -16,34 +16,40 @@ function UploadCarData() {
     const numOfSeats = useRef("numOfSeats");
     const trunkCapacity = useRef("trunkCapacity");
     const pricePerDay = useRef("pricePerDay");
-
     const uploadData = async ()=> {
-        let response = await fetch("/api/vehicles/upload-data", {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                description: description.current.value,
-                carType : carType.current.value,
-                color: color.current.value,
-                brand: brand.current.value,
-                model: model.current.value,
-                fuel: fuel.current.value,
-                address: address.current.value,
-                vintage: vintage.current.value,
-                numOfSeats: numOfSeats.current.value,
-                trunkCapacity: trunkCapacity.current.value,
-                pricePerDay: pricePerDay.current.value,
-                userId: user.id
-            })
-        });
-        if(response.status === 200) {
-            alert("data uploaded!")
+        if(user === null){
+            alert("Please log in first");
         }
+        else{
+            let response = await fetch("/api/vehicles/upload-data", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    description: description.current.value,
+                    carType : carType.current.value,
+                    color: color.current.value,
+                    brand: brand.current.value,
+                    model: model.current.value,
+                    fuel: fuel.current.value,
+                    address: address.current.value,
+                    vintage: vintage.current.value,
+                    numOfSeats: numOfSeats.current.value,
+                    trunkCapacity: trunkCapacity.current.value,
+                    pricePerDay: pricePerDay.current.value,
+                    userId: user.id
+                })
+            });
+            if(response.status === 200) {
+                alert("data uploaded!");
+            }
+        }
+
     }
 
     return (
         <div className={"car-data-container"}>
             <div className={"car-data-input-container"}>
+                <div className={"car-data-header"}> About your car:</div>
                 <div className='inputBox'>
                     <input type="text" id={"description"} required="required" ref={description}/>
                     <span>Description</span>

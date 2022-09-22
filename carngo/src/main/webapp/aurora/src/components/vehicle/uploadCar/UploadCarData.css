@@ -3,16 +3,21 @@
     justify-items: center;
 
 }
+.car-data-header{
+    color: white;
+    font-size: large;
+}
+
 .car-data-input-container{
     border-radius: 2.5rem;
     margin-top: 5rem;
     width:60%;
     display: grid;
     gap: 20px 0;
-    grid-template-columns: auto auto auto;
     background-color: rgb(25,25,25,1);
     justify-items: center;
     align-items: center;
+    grid-template-columns: auto auto auto;
 }
 
 @media(max-width: 1000px){
@@ -22,10 +27,10 @@
         width:60%;
         display: grid;
         gap: 20px 0;
-        grid-template-columns: auto auto;
         background-color: rgb(25,25,25,1);
         justify-items: center;
         align-items: center;
+        grid-template-columns: auto auto;
     }
 }
 
