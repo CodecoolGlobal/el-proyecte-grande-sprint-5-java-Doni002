@@ -25,6 +25,7 @@ const Contact = () => {
             <Parallax bgImage={Office} strength={-500}>
                 <h1 id="developerHeader">Developers Looking For A Job</h1>
                 <Article
+                    animation = "animationFromLeft"
                     text="A young and enthusiastic Software Developer with critical thinking, problem-solving, negotiation, outstanding in both oral and written communication, and easily adaptable interpersonal skills. Moreover, working in a team means no difficulties due to my emotional intelligence and social collaboration, also rather an exciting journey for me. I'm still enthusiastic about grabbing onto any other programming languages, frameworks, and principles I can integrate into the coding web in my head."
                     title="Roland Marton - Frontend Developer"
                     buttonText = "Check out profile"
@@ -35,6 +36,7 @@ const Contact = () => {
                     hashTags = "#HTML #CSS #Bootstrap5 #TailwindCSS #Sass #Javascript #Typescript #React #Angular #Git #Java #JUnit #Thymeleaf #SpringBoot #Python-Flask #Jinja #PostgreSQL #SQL #Python #VScode #Pycharm #IntelliJ-Idea #Unittest #Docker #Postman"
                 />
                 <Article
+                    animation = "animationFromRight"
                     text="Solution-focused mind with a creative touch. Eager to learn. Her easy going personality makes it easy to make a good fit in any team."
                     title="Barbara Szabo-Huszar - Fullstack Developer"
                     buttonText = "Check out profile"
@@ -44,6 +46,7 @@ const Contact = () => {
                     pictureSide = "right"
                 />
                 <Article
+                    animation = "animationFromLeft"
                     text="Insert your promo here"
                     title="Alpar Donat - Fullstack Developer"
                     buttonText = "Check out profile"
@@ -53,6 +56,7 @@ const Contact = () => {
                     pictureSide = "left"
                 />
                 <Article
+                    animation = "animationFromRight"
                     text="An Ambitious And Aspiring Fullstack Software Developer From Codecool Academy With Excellent Hard Skills To Work On The Most Difficult Projects, Problems. Moreover, Distinguished Soft Capabilities To Work In A Team As A Leader Or Member Either. I'm Still Enthusiastic About Grabbing Onto Any Other Programming Languages, Frameworks."
                     title="Zsolt Pinter - Fullstack Developer"
                     buttonText = "Check out profile"
