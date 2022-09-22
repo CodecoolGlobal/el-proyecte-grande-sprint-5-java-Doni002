@@ -1,7 +1,7 @@
 const Button = (props) => {
     return (
         <>
-            <button className="glow-on-hover">{props.text}</button>
+            <a href="/vehicles"><button className="glow-on-hover">{props.text}</button></a>
         </>
     );
 };

@@ -106,6 +106,7 @@ public class VehiclesController {
                     fileName));//need to be env variable
             VehicleModel newVehicle = vehiclesPageService.getLastVehicle(vehiclesPageService.getVehiclesByOwnerId
                     (hostService.getHostByUserId(userId).getId()));
+            vehiclesPageService.saveImageForVehicleFront(userId, fileName);
             carImagesService.saveImage(newVehicle, fileName);
 
         } catch (Exception e) {

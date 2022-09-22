@@ -1,5 +1,35 @@
+import {useInView} from "react-intersection-observer";
+import {useAnimation} from "framer-motion";
+import {useEffect} from "react";
+import {motion} from 'framer-motion';
+
 
 const Suggestion = (props) => {
+
+    const {ref, inView} = useInView({
+        threshold: 0
+    });
+
+    const animation = useAnimation();
+
+    useEffect(() => {
+        if(inView) {
+            animation.start('visible');
+        }
+        if(!inView){
+            animation.start('hidden');
+        }
+    }, [animation, inView]);
+
+    const animationVariants = {
+        hidden: { scale: 0 },
+        visible: {
+            scale: 1,
+            transition: {
+                duration: 0.5,
+            },
+        },
+    };
 
     const elements = [
         {
@@ -38,37 +68,52 @@ const Suggestion = (props) => {
     function renderElements() {
         if(props.value === "renter"){
             return (
-                <div id="hostMainTextContainer">
-                    <h1 className="articleTitle">{elements[0].mainHeading}</h1>
-                    <p className="articleText">{elements[0].mainParagraph}</p>
-                    <div id="renterSubTextContainer">
-                        {elements[0].subText.map(item => {
-                            return (
-                                <div key={item.head}>
-                                    <h3 id="renterSubHeading">{item.head}</h3>
-                                    <p id="renterSubParagraph">{item.paragraph}</p>
-                                </div>
-                            );
-                        })}
+                <motion.div
+                    ref={ref}
+                    initial="hidden"
+                    animate={animation}
+                    variants={animationVariants}
+                >
+                    <div id="hostMainTextContainer">
+                        <h1 className="articleTitle">{elements[0].mainHeading}</h1>
+                        <p className="articleText">{elements[0].mainParagraph}</p>
+                        <div id="renterSubTextContainer">
+                            {elements[0].subText.map(item => {
+                                return (
+                                    <div key={item.head}>
+                                        <h3 id="renterSubHeading">{item.head}</h3>
+                                        <p id="renterSubParagraph">{item.paragraph}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
+                </motion.div>
+
             );
         } else if (props.value === "host"){
             return (
-                <div id="renterMainTextContainer">
-                    <h1 className="articleTitle">{elements[1].mainHeading}</h1>
-                    <p className="articleText">{elements[1].mainParagraph}</p>
-                    <div id="hostSubTextContainer">
-                        {elements[1].subText.map(item => {
-                            return (
-                                <div key={item.head}>
-                                    <h3 id="hostSubHeading">{item.head}</h3>
-                                    <p id="hostSubParagraph">{item.paragraph}</p>
-                                </div>
-                            );
-                        })}
+                <motion.div
+                    ref={ref}
+                    initial="hidden"
+                    animate={animation}
+                    variants={animationVariants}
+                >
+                    <div id="renterMainTextContainer">
+                        <h1 className="articleTitle">{elements[1].mainHeading}</h1>
+                        <p className="articleText">{elements[1].mainParagraph}</p>
+                        <div id="hostSubTextContainer">
+                            {elements[1].subText.map(item => {
+                                return (
+                                    <div key={item.head}>
+                                        <h3 id="hostSubHeading">{item.head}</h3>
+                                        <p id="hostSubParagraph">{item.paragraph}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
+                </motion.div>
             );
         }
     }
