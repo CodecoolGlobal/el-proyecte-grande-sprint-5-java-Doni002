@@ -42,7 +42,7 @@ const Vehicles = () => {
         getCarData().catch(reason=>{console.log(reason);});
         getHostData().catch(reason=>{console.log(reason);});
 
-    }, [cars, hosts]);
+    }, []);
 
     if(cars === undefined || hosts === undefined){
         return(
