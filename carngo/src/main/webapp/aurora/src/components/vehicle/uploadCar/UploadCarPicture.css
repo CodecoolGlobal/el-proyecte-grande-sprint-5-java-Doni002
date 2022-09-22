@@ -1,4 +1,23 @@
+.car-picture-container{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.car-picture-item-container{
+    justify-items: center;
+    border-radius: 2.5rem;
+    margin-top: 5rem;
+    width:60%;
+    display: grid;
+    gap: 20px 0;
+    grid-template-columns: auto;
+    background-color: rgb(25,25,25,1);
+    align-items: center;
+}
 .previewContainer {
+    width: 80%;
     overflow: scroll;
     display: flex;
     align-items: center;

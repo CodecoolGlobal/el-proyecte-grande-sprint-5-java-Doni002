@@ -39,17 +39,22 @@ function UploadCarPicture() {
     return (
         <div>
             <UploadCarData />
-            <h2 id="h2-subheader">Uploading Pictures</h2>
-            <input
-                onChange={previewImage}
-                className={"uploadField"}
-                accept={"image/*"}
-                type={"file"}
-                multiple
-            />
-            <button className={"uploadButton"} onClick={uploadImage}>Upload</button>
-            <h3 id="h3-subheader">Selected Photos</h3>
-            <div className={"previewContainer"}/><div/>
+            <div className={"car-picture-container"}>
+                <h2 id="h2-subheader">Uploading Pictures</h2>
+                <input
+                    onChange={previewImage}
+                    className={"uploadField"}
+                    accept={"image/*"}
+                    type={"file"}
+                    multiple
+                />
+                <button className={"glow-on-hover"} onClick={uploadImage}>Upload Image</button>
+                <h2 id="h3-subheader">Selected Photos</h2>
+                <div className={"previewContainer"}/><div/>
+            </div>
+
+
+
         </div>
     );
 }
