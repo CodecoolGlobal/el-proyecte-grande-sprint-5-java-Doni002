@@ -23,4 +23,9 @@ public class CarImagesModel {
     @JoinColumn(name = "vehicle_id")
     private VehicleModel vehicle;
     private String imageSource;
+
+    public CarImagesModel(VehicleModel vehicle, String imageSource) {
+        this.vehicle = vehicle;
+        this.imageSource = imageSource;
+    }
 }
