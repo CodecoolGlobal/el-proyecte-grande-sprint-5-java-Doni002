@@ -3,30 +3,10 @@ import React, {useEffect, useState} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Mousewheel} from "swiper";
 import 'swiper/css';
+import HostCard from "./HostCard";
 
 
-const HostSlider = () => {
-    const [hosts, setHosts] = useState(undefined);
-
-    useEffect(() => {
-        const getData = async () => {
-            const response = await fetch(
-                `http://localhost:8080/api/hosts`
-            );
-            if (!response.ok) {
-                throw new Error(
-                    `This is an HTTP error: The status is ${response.status}`
-                );
-            }
-            let actualData = await response.json();
-            setHosts(actualData);
-        }
-        getData().catch(reason => {console.log(reason)});
-    }, [id]);
-
-    if(hosts === undefined){
-        return(<div></div>)
-    }
+const HostSlider = (props) => {
 
     return (
         <div className="categorySliderContainer">
@@ -73,10 +53,10 @@ const HostSlider = () => {
                     }
                 }}
             >
-                {hosts.map(item=>{
+                {props.hosts.map(item=>{
                     return(
-                        <SwiperSlide key={item.message}>
-
+                        <SwiperSlide key={item.id}>
+                            <HostCard host={item}/>
                         </SwiperSlide>
                     )
                 })}
@@ -85,4 +65,4 @@ const HostSlider = () => {
     );
 }
 
-export default CategorySlider;
+export default HostSlider;

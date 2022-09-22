@@ -4,36 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import {EffectCoverflow, Mousewheel} from "swiper";
 import 'swiper/css';
 import CarCard from './CarCard';
-import {useEffect, useState} from "react";
 
-function CarSlider() {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState([]);
+function CarSlider(props) {
 
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const response = await fetch(
-                    `http://localhost:8080/api/vehicles`
-                );
-                if (!response.ok) {
-                    throw new Error(
-                        `This is an HTTP error: The status is ${response.status}`
-                    );
-                }
-                let actualData = await response.json();
-                setData(actualData);
-                setError(null);
-            } catch(err) {
-                setError(err.message);
-                setData(null);
-            } finally {
-                setLoading(false);
-            }
-        }
-        getData().then();
-    }, [error]);
     return (
         <div className="carSliderContainer">
             <Swiper
@@ -78,7 +51,7 @@ function CarSlider() {
                     }
                 }}
             >
-                {data.map(item=>{
+                {props.cars.map(item=>{
                     return(
                         <SwiperSlide key={item.id}>
                             <CarCard imgSrc={item.imageSource} name={(item.brand + " " + item.model)} rate={item.numOfReservations} price={item.pricePerDay} id={item.id} />
