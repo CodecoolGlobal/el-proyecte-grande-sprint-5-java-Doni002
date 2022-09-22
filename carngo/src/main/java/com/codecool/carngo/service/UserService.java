@@ -1,5 +1,6 @@
 package com.codecool.carngo.service;
 
+import com.codecool.carngo.model.RegisterModel;
 import com.codecool.carngo.model.UserModel;
 import com.codecool.carngo.model.VehicleModel;
 import com.codecool.carngo.repository.*;
@@ -46,12 +47,11 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public int addUser(Map<String, String> body){
-        int usersByName = userRepository.getUsersByName(body.get("name")).size();
-        int usersByUsername = userRepository.getUsersByUserName(body.get("username")).size();
-        int usersByEmail = userRepository.getUsersByEmail(body.get("email")).size();
-        if(usersByName == 0 && usersByEmail == 0 && usersByUsername == 0){
-            UserModel newUser = new UserModel(body.get("name"), body.get("username"), body.get("email"), encryptPassword(body.get("password")));
+    public int addUser(RegisterModel body){
+        Optional<UserModel> userByUsername = userRepository.findUserByUsername(body.getUsername());
+        Optional<UserModel> userByEmail = userRepository.findUserByEmail(body.getEmail());
+        if(userByUsername.isEmpty() &&  userByEmail.isEmpty()){
+            UserModel newUser = new UserModel(body.getName(), body.getUsername(), body.getEmail(), body.getPassword() );
             userRepository.save(newUser);
             return 200;
         }
@@ -92,12 +92,12 @@ public class UserService {
         return 404;
     }
 
-    private String encryptPassword(String password){
+/*    private String encryptPassword(String password){
         return passwordEncoder.encode(password);
-    }
+    }*/
 
-    public UserModel validateLogin(Map<String, String> body){
-        List<UserModel> optionalUser = userRepository.getUsersByName(body.get("name"));
+/*    public UserModel validateLogin(Map<String, String> body){
+        List<UserModel> optionalUser = userRepository.findUserByName(body.get("name"));
         UserModel user;
         if(optionalUser.size() > 0) {
             user = optionalUser.get(0);
@@ -107,6 +107,6 @@ public class UserService {
             }
         }
         return null;
-    }
+    }*/
 
 }
