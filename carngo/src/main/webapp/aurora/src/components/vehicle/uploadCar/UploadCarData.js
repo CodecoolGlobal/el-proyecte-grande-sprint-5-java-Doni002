@@ -1,5 +1,5 @@
 import React, {useContext, useRef} from 'react';
-import AuthContext from "../../context/authContext";
+import AuthContext from "../../../context/authContext";
 
 
 function UploadCarData() {
