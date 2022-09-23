@@ -38,6 +38,9 @@ function UploadCarPicture() {
 
     return (
         <div>
+            <div className={"car-picture-container"}>
+                <h2 id="h2-subheader">Uploading Details</h2>
+            </div>
             <UploadCarData />
             <div className={"car-picture-container"}>
                 <h2 id="h2-subheader">Uploading Pictures</h2>
