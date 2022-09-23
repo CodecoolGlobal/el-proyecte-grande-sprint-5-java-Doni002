@@ -47,6 +47,10 @@
     border-radius: 1rem;
 }
 
+#gallery_grid_container {
+    overflow: hidden;
+}
+
 .gallery .gallery__image:hover {
     filter: grayscale(1);
 }
