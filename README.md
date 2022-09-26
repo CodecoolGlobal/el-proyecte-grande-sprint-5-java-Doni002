@@ -38,3 +38,6 @@ To run this file you will have to do the following steps:
 1) Type in terminal (folder: aurora) <code>npm start</code> to start your application to start your frontend - on server localhost:3000
 2) <code>Start CarngoApplication</code> (src/main/java/com/codecool/carngo/CarngoApplication.java) to start your database and backend - on server localhost:8080
 3) If everything is successfull your page is now on and starting! You can see the main page as it start automatically. 
+
+## Gallery
+https://user-images.githubusercontent.com/88943189/192337879-e9642a0f-5818-4dfe-8fd3-0bad12f9c7d3.mp4
