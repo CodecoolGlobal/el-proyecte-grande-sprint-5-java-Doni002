@@ -1,15 +1,16 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {EffectCoverflow, Mousewheel} from "swiper";
+import { EffectCoverflow, Mousewheel} from "swiper";
 import 'swiper/css';
-import CarCard from './CarCard';
+import HostCard from "./HostCard";
 
-function CarSlider(props) {
+
+const HostSlider = (props) => {
 
     return (
-        <div className="carSliderContainer">
-            <h1 className="categorySliderTitle">Top Rated Cars</h1>
+        <div className="categorySliderContainer">
+            <h1 className="categorySliderTitle">Top Rated Hosts</h1>
             <Swiper
                 effect={"coverflow"}
                 speed={800}
@@ -24,7 +25,7 @@ function CarSlider(props) {
                 grabCursor={true}
                 loop={true}
                 modules={[EffectCoverflow, Mousewheel]}
-                className="carSlider"
+                className="categorySwiper"
                 breakpoints={{
                     0: {
                         slidesPerView:1,
@@ -52,10 +53,10 @@ function CarSlider(props) {
                     }
                 }}
             >
-                {props.cars.map(item=>{
+                {props.hosts.map(item=>{
                     return(
                         <SwiperSlide key={item.id}>
-                            <CarCard imgSrc={item.imageSource} name={(item.brand + " " + item.model)} rate={item.numOfReservations} price={item.pricePerDay} id={item.id} />
+                            <HostCard host={item}/>
                         </SwiperSlide>
                     )
                 })}
@@ -64,4 +65,4 @@ function CarSlider(props) {
     );
 }
 
-export default CarSlider;
+export default HostSlider;

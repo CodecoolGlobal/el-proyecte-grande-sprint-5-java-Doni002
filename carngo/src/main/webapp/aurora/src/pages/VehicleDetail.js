@@ -1,8 +1,5 @@
 import "../components/vehicle/vehicleProfile/vehicleDetail.css";
-import {Parallax} from "react-parallax";
 import {useParams} from "react-router-dom";
-
-import imgAbstract from "../components/img/otherImg/car-back-lights.jpg"
 
 import VehicleSlider from "../components/vehicle/vehicleProfile/VehicleSlider";
 import VehicleFeatures from "../components/vehicle/vehicleProfile/VehicleFeatures";
@@ -12,6 +9,7 @@ import Footer from "../components/footer/Footer";
 import Navbar from "../components/header/Navbar";
 import CalendarArticle from "../components/vehicle/vehicleProfile/CalendarArticle"
 import {useEffect, useState} from "react";
+import React from "react";
 
 
 const VehicleDetail = () => {
@@ -40,9 +38,9 @@ const VehicleDetail = () => {
     }
     return (
         <>
-            <Parallax bgImage={imgAbstract} strength={100}>
+            <div style={{backgroundColor: "#111111"}}>
                 <Navbar />
-            </Parallax>
+            </div>
             <VehicleSlider carData={data}/>
             <div className="vehicleContainer">
                 <VehicleFeatures data={data} />

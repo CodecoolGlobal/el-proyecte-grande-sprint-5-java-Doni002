@@ -1,12 +1,13 @@
 import {Parallax} from "react-parallax";
-import AudiBack from "../img/headerImg/Audi Back.jpg";
-import AudiFront from "../img/headerImg/Audi Front.jpg";
-import AudiWater from "../img/headerImg/audiwater.jpg"
-import SteeringWheelAudi from "../img/headerImg/steeringwheelaudi.jpg"
+import AudiBack from "../img/headerImg/Audi Back-small.jpg";
+import AudiFront from "../img/headerImg/Audi Front-small.jpg";
+import AudiWater from "../img/headerImg/audiwater-small.jpg"
+import SteeringWheelAudi from "../img/headerImg/steeringwheelaudi-small.jpg"
 
 import Navbar from "./Navbar";
 import Content from "./Content";
 import {useEffect, useState} from "react";
+import {motion} from "framer-motion";
 
 const images = [
     AudiFront,
@@ -29,10 +30,19 @@ const Header = () => {
 
     return (
         <>
-            <Parallax className='image fadeIn' bgImage={images[index]} strength={800}>
+            <Parallax className='image fadeIn' bgImage={images[index]} strength={300}>
                 <Navbar />
-                <Content />
+                <motion.div
+                    initial={{x: '-100vw'}}
+                    animate={{x: 0}}
+                    transition={{type: 'spring', duration: 1, bounce: 0.3}}
+                >
+                    <Content />
+                </motion.div>
             </Parallax>
+            {/*<div className="image" style={{background: `url(${images[index]})}}>*/}
+
+            {/*</div>*/}
         </>
     );
 };

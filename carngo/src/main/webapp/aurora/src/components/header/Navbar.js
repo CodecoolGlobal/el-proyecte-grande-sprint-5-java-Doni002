@@ -22,7 +22,7 @@ const Navbar = () => {
     const addRoute = () => {
         return (loggedIn ?  `/profile/${user.id}` : "#");
     }
-    const addRouteToCar = () => {
+    const addRouteCar = () => {
         return (loggedIn ?  "/shareyourcar" : "#");
     }
 
@@ -39,7 +39,7 @@ const Navbar = () => {
             <nav>
                 <li className="logo"><Link to="/"><h1>Aurora</h1></Link></li>
                 <ul className='menu'>
-                    <li onClick={renderSignUpModal} className="item"><Link to={addRouteToCar()}> <strong>Share your car</strong> </Link></li>
+                    <li onClick={renderSignUpModal}className="item"><Link to={addRouteCar()}> <strong>Share your car</strong> </Link></li>
                     <li className="item"><Link to="/vehicles"> Vehicles </Link></li>
                     <li className="item"><Link to="/contact"> Contact us </Link></li>
                     <li onClick={renderSignUpModal} className="item"><Link to={addRoute()}>{loggedIn ? 'Profile' : 'Sign Up' }  </Link></li>
