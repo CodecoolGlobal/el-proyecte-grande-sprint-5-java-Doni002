@@ -1,6 +1,6 @@
 # Aurora
 
-![Screenshot from 2022-09-26 17-22-56](https://user-images.githubusercontent.com/88943189/192320771-6e9cf39e-49a7-46ff-ae20-f67b5aa96a05.png)
+https://user-images.githubusercontent.com/88943189/192337879-e9642a0f-5818-4dfe-8fd3-0bad12f9c7d3.mp4
 
 Aurora is a Car-Sharing Web Application with the idea of having users with different
 privileges. On the user side, there are 2 roles, the renter, and the host. 
@@ -38,6 +38,3 @@ To run this file you will have to do the following steps:
 1) Type in terminal (folder: aurora) <code>npm start</code> to start your application to start your frontend - on server localhost:3000
 2) <code>Start CarngoApplication</code> (src/main/java/com/codecool/carngo/CarngoApplication.java) to start your database and backend - on server localhost:8080
 3) If everything is successfull your page is now on and starting! You can see the main page as it start automatically. 
-
-## Gallery
-https://user-images.githubusercontent.com/88943189/192337879-e9642a0f-5818-4dfe-8fd3-0bad12f9c7d3.mp4
