@@ -1,5 +1,7 @@
 # Aurora
 
+![Screenshot from 2022-09-26 17-22-56](https://user-images.githubusercontent.com/88943189/192320771-6e9cf39e-49a7-46ff-ae20-f67b5aa96a05.png)
+
 Aurora is a Car-Sharing Web Application with the idea of having users with different
 privileges. On the user side, there are 2 roles, the renter, and the host. 
 A user is able to create a rent account to be able to rent the hosts available car, and upgrade the account to be able the hosts his cars. 
