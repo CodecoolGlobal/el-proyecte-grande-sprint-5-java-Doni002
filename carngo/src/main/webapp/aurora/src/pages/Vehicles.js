@@ -5,10 +5,10 @@ import CountryRoad from "../components/img/vehicleRouteImg/countryroad.jpg"
 
 import DisplayMap from "../components/mapComponent/DisplayMap";
 import Navbar from "../components/header/Navbar";
-import CarSlider from "../components/car/CarSlider";
 import Footer from "../components/footer/Footer";
 import {useEffect, useState} from "react";
 import HostSlider from "../components/hosts/HostSlider";
+import CarGrid from "../components/car/CarGrid";
 
 
 const Vehicles = () => {
@@ -61,7 +61,7 @@ const Vehicles = () => {
                 <DisplayMap cars={cars}/>
             </Parallax>
             <HostSlider hosts={hosts}/>
-            <CarSlider cars={cars}/>
+            <CarGrid cars={cars}/>
             <Footer />
         </>
     );

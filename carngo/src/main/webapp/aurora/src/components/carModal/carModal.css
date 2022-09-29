@@ -1,0 +1,43 @@
+.carModalContainer{
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    width: 20rem;
+    height: 30rem;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: 3rem;
+    z-index: 1;
+    font-family: 'Rubik', sans-serif;
+}
+
+.modalForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.loginWelcomeText{
+    color: white;
+    padding: 2rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+    .loginWelcomeText {
+        text-align: center;
+    }
+
+    .carModalContainer {
+        width: 20rem;
+        height: 30rem;
+    }
+}

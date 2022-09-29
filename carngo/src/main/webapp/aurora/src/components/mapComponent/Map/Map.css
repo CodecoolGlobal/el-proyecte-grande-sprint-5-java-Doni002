@@ -1,9 +1,14 @@
 .ol-map {
-    min-width: 300px;
-    min-height: 200px;
+    min-width: 30px;
+    min-height: 20px;
     margin: 50px;
     height: 400px;
     width: 50%;
+}
+
+.ol-mini-map {
+    height: 15rem;
+    width: 15rem;
 }
 
 .ol-control {
@@ -14,7 +19,7 @@
 }
 
 .ol-viewport {
-    border: 5px solid white;
+    border-radius: 10px;
 }
 
 .ol-full-screen {
@@ -27,6 +32,10 @@
     align-items: center;
     align-content: center;
     justify-content: center;
+}
+
+.miniMapContainer {
+    display: flex;
 }
 
 .checkBoxContainer {
