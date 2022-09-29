@@ -29,6 +29,7 @@ function addMarkers(cars) {
         let feature = new Feature({
             geometry: new Point(fromLonLat(item)),
         });
+        feature.setId(car.id);
         feature.setStyle(iconStyle);
         return feature;
     });
@@ -41,8 +42,8 @@ const DisplayMap = (props) => {
     const [center, setCenter] = useState(mapConfig.center);
     const [zoom, setZoom] = useState(11);
 
-    const [showLayer1, setShowLayer1] = useState(true);
-    const [showLayer2, setShowLayer2] = useState(true);
+    const [showLayer1, setShowLayer1] = useState(false);
+    const [showLayer2, setShowLayer2] = useState(false);
     const [showMarker, setShowMarker] = useState(false);
     const [features, setFeatures] = useState(undefined);
 
@@ -51,6 +52,7 @@ const DisplayMap = (props) => {
         setCenter([cars[0].longitude, cars[0].latitude]);
         setShowMarker(!showMarker);
         setShowMarker(!showMarker);
+
     }, [props.cars, routePath]);
 
 
@@ -63,7 +65,7 @@ const DisplayMap = (props) => {
             <div className="mapContainer">
                 <Map center={fromLonLat(center)} zoom={zoom}>
                     <Layers>
-                        <TileLayer source={osm()} zIndex={0} />
+                        <TileLayer source={osm()}  />
                         {showLayer1 && (
                             <VectorLayer
                                 source={vector({
@@ -90,33 +92,6 @@ const DisplayMap = (props) => {
                         <FullScreenControl />
                     </Controls>
                 </Map>
-                <div className="checkBoxContainer">
-                    <div>
-                        <input
-                            type="checkbox"
-                            checked={showLayer1}
-                            onChange={(event) => setShowLayer1(event.target.checked)}
-                        />{" "}
-                        Budapest - Third District
-                    </div>
-                    <div>
-                        <input
-                            type="checkbox"
-                            checked={showLayer2}
-                            onChange={(event) => setShowLayer2(event.target.checked)}
-                        />{" "}
-                        Budapest - First District
-                    </div>
-                    <hr />
-                    <div>
-                        <input
-                            type="checkbox"
-                            checked={showMarker}
-                            onChange={(event) => setShowMarker(event.target.checked)}
-                        />{" "}
-                        Show markers
-                    </div>
-                </div>
             </div>
         );
     }

@@ -4,7 +4,6 @@ import OLVectorLayer from "ol/layer/Vector";
 
 const VectorLayer = ({ source, style, zIndex = 0 }) => {
 	const { map } = useContext(MapContext);
-
 	useEffect(() => {
 		if (!map) return;
 
@@ -15,6 +14,17 @@ const VectorLayer = ({ source, style, zIndex = 0 }) => {
 
 		map.addLayer(vectorLayer);
 		vectorLayer.setZIndex(zIndex);
+
+		map.on('pointermove', function (evt) {
+			let feature = map.forEachFeatureAtPixel(evt.pixel,
+				function(feature) {
+					return feature;
+				});
+			if (feature) {
+				console.log("vehicle id: " + feature.getId());
+			}
+		});
+
 
 		return () => {
 			if (map) {

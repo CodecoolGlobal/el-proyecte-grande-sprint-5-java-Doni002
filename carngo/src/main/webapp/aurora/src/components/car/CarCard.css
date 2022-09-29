@@ -7,6 +7,10 @@
     margin: 60px;
 }
 
+.carCardBody{
+    padding: 0;
+}
+
 .carCardImg{
     width: 100%;
     height: 100%;
@@ -25,13 +29,8 @@
     padding: 10px;
 }
 
-.carCardRatingContainer {
-    grid-area: right;
-}
 
-.carCardPriceContainer {
-    grid-area: rightfooter;
-}
+
 
 .car-glow-on-hover {
     margin: 10px;
@@ -47,49 +46,168 @@
     border-radius: 15px;
 }
 
-.car-glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #E5E4E2, #D3D3D3, #C0C0C0, #B2BEB5, #A9A9A9, #808080, #848884, #708090, #71797E);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 8px);
-    height: calc(100% + 8px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 15px;
+.car-glow-on-hover-zoom {
+    width: 57rem;
+    height: 18rem;
+    outline: none;
+    color: #000;
+    background-color: rgba(100,100,100, 0.95);
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    border-radius: 4rem;
+    align-items: flex-end;
+    animation: createBox 0.5s;
+    left: calc(50% - (28.5rem));
+    top: calc(50% - (9rem));
 }
 
-.car-glow-on-hover:active {
-    color: #fff
+@keyframes createBox {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
-.car-glow-on-hover:active:after {
-    background: transparent;
+.carGridContainer{
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
 }
 
-.car-glow-on-hover:hover:before {
-    opacity: 1;
+
+
+
+.carCardHoverFooterContainer{
+    display:grid;
+    grid-template-columns: auto;
 }
 
-.car-glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
+
+.carCardItemOnHover{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 10px;
+}
+
+.linkAnimation{
+    transition:all .2s ease-in-out;
+}
+.linkAnimation:hover{
+    transform: scale(1.1,1.1);
+}
+
+.linkAnimation2{
+    transition:all .2s ease-in-out;
+}
+.linkAnimation2:hover{
+    transform: scale(1.2,1.2);
+}
+
+.carInfo{
+    display: grid;
+    grid-template-columns: auto auto;
     width: 100%;
-    height: 100%;
-    background: #fff;
-    left: 0;
-    top: 0;
-    border-radius: 15px;
+    align-content: center;
 }
 
-@keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+.vFeaturesZoom {
+    width:20rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2%;
+    margin: 0.5rem 0 0.5rem;
+}
+
+.vTextContainerZoom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.vTextZoom {
+    font-size: 1em;
+    line-height: 200%;
+    color: white;
+}
+.carCardBody{
+}
+.miniMapContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px 10px 20px 15px;
+}
+
+.car-zoom-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.car-zoom-image > a{
+    padding: 0 0 0 0;
+}
+.descriptionLimit{
+    max-height: 2rem;
+}
+#carImageLink{
+    padding: 10px 15px 20px 30px;
+}
+
+@media(max-width: 1300px) {
+    .carGridContainer {
+        grid-template-columns: auto auto auto;
+    }
+}
+@media(max-width: 1000px){
+    .carGridContainer{
+        grid-template-columns: auto auto;
+    }
+}
+
+@media(max-width: 900px){
+    .car-glow-on-hover-zoom {
+        width: 18rem;
+        height: 57rem;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        animation: createBox 0.5s;
+        left: calc(50% - (9rem));
+        top: calc(50% - (28.5rem));
+    }
+    .miniMapContainer{
+        padding: 15px 25px 20px 25px;
+    }
+    #carImageLink{
+        padding: 20px 25px 15px 25px;
+    }
+    .carCardBody{
+        justify-content: center;
+        align-content: center;
+        padding: 0 0 0 0;
+        max-width: 18rem;
+    }
+    .vFeaturesZoom {
+        width:17rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 0;
+        margin: 0;
+    }
+
+}
+
+@media(max-width: 700px){
+    .carGridContainer{
+        grid-template-columns: auto;
+    }
 }
